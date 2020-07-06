@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <html lang="en">
 
 <head>
@@ -6,7 +9,32 @@
     <title>Mark Attendance</title>
     <script src="./assets/jquery.min.js"></script>
     <script src="./assets/Fomantic/dist/semantic.min.js"></script>
-    <?php include_once('./assets/notiflix.php'); ?>
+    <script>
+    $(document).ready(function() {
+        $(".card-2").hide();
+    });
+    </script>
+    <?php include_once('./assets/notiflix.php'); 
+
+    if(isset($_SESSION['upload']))
+    {
+        if($_SESSION['upload']==true)
+        {   
+            echo '<script>
+            $(document).ready(function(){
+                $(".card-1").hide();
+            });
+            $(document).ready(function(){
+                $(".card-2").show();
+            });
+            </script>';
+        }
+    }
+    
+    
+    
+    ?>
+
 </head>
 
 <?php
@@ -35,6 +63,25 @@ if(isset($_POST["upload"]))
             $targetfolder ='./files/'.$filename;
             if(move_uploaded_file($_FILES['excel']['tmp_name'], $targetfolder))
             {
+                
+                include_once('./assets/simplexlsx-master/src/SimpleXLSX.php');
+                $arr = array();
+                if ($xlsx = SimpleXLSX::parse($targetfolder)) {
+                    foreach ($xlsx->rows(6) as $r) {
+                        $s = implode($r);
+                        $str = substr(trim($s), -8);
+                        if((intval(substr($str,0,2))!=0)&&(intval(substr($str,-2))!=0))
+                        {
+                            echo '<script>console.log("'.$str.'"</script>';
+                            array_push($arr,$str);
+                        }
+                        //echo $str . '<br/>';
+                    }
+                    $_SESSION['upload']=true;
+                    $_SESSION['array']=$arr;
+                } else {
+                    echo SimpleXLSX::parseError();
+                }
                 echo "<script>Notiflix.Report.Success('Proof Submitted Successfuly','The staff will verify and update the status. Wait Patiently','Okay',function(){});</script>";
             }
             else
@@ -58,6 +105,12 @@ if(isset($_POST["upload"]))
     }
 }
 
+?>
+    <?php 
+if(isset($_POST['finalize']))
+{
+        
+}
 ?>
 
 
@@ -131,17 +184,59 @@ if(isset($_POST["upload"]))
 
 
     <!-- Attendance Confirm Card -->
-    <div class="card-1">
-        <div class="ui raised padded container segment" id="card" style="margin:auto;width:60%;">
+    <div class="card-2">
+        <div class="ui raised padded container segment" id="card" style="height:80%;overflow:auto;width:60%;">
             <center>
                 <h1 class="header">
                     Attendance Entry
                 </h1>
             </center>
             <div class="content">
-
-
-
+                <table class="ui compact table">
+                    <thead>
+                        <tr>
+                            <th colspan="2">
+                                Attendance Report
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $arr=$_SESSION['array'];
+                        $attend=array();
+                        $sql="SELECT regno from registration where batch like '$batch' and sec like '$sec' and dept like '$dep'";
+                        $data=$con->query($sql);
+                        while($r=mysqli_fetch_array($data))
+                        {  
+                            $r=$r['regno'];
+                            $mark='';
+                            $class='';
+                            if(in_array($r,$arr))
+                            {
+                                $attend[$r]='P';
+                                $mark='<i class="large green checkmark icon"></i>';
+                                $class='positive';
+                            }    
+                            else
+                            {    
+                                $attend[$r]='A';
+                                $mark='<i class="large red times icon"></i>';
+                                $class='negative';
+                            }
+                            echo '<tr>
+                            <td class="'.$class.'">
+                                '.$r.'
+                            </td>
+                            <td class="'.$class.'">'.$mark.'</td>
+                        </tr>';
+                        }
+                    ?>
+                    </tbody>
+                </table>
+                <form action="<?php echo $_SERVER['PHP_SELF'];?>" name="finalize" method="post">
+                    <button type="submit" name="finalize" style="float: right;"
+                        class="ui big black button">Finalize</button>
+                </form>
             </div>
         </div>
     </div>
@@ -165,20 +260,3 @@ if(isset($_POST["upload"]))
 </body>
 
 </html>
-
-<?php
-
-include_once('./assets/simplexlsx-master/src/SimpleXLSX.php');
-
-$a = array();
-if ($xlsx = SimpleXLSX::parse('./files/sample.xlsx')) {
-    foreach ($xlsx->rows(6) as $r) {
-        $s = implode($r);
-        $str = substr(trim($s), -8);
-        array_push($a,$str);
-        //echo $str . '<br/>';
-    }
-} else {
-    echo SimpleXLSX::parseError();
-}
-?>
