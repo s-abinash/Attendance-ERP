@@ -13,7 +13,13 @@
     <title>Home</title>
  
 </head>
-<body background="images/bgpic.jpg">
-
+<body >
+    <style>
+    body
+    {
+        background-image: url("./images/bgpic.jpg");
+    }
+    </style>
+    
 </body>
 </html>

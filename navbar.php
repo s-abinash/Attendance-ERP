@@ -57,8 +57,7 @@
         right: auto;
 
     }
-   
-    </style>
+  </style>
     <link rel="icon" type="image/png" href="./images/KEC.png">
     <link rel="stylesheet" href="./assets/Fomantic/dist/semantic.min.css" type="text/css" />
 

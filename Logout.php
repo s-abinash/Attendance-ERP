@@ -6,13 +6,13 @@
     <head>
     <meta charset="UTF-8">
     <title>Logout</title>
-    <link rel="icon" type="image/png" href="KEC.png">
+ 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./assets/Fomantic/dist/semantic.min.css" type="text/css" />
   <script src="./assets/jquery.min.js"></script>
   <script src="./assets/Fomantic/dist/semantic.min.js"></script>
-  <link rel="icon" type="image/png" href="./KEC.png">
+  <link rel="icon" type="image/png" href="./images/KEC.png">
   <link rel="stylesheet" type="text/css" href="./assets/animate.min.css"/>
   <!-- No Script Part -->
 	<noscript><meta http-equiv="refresh" content="0; URL='./errorfile/noscript.html'" /></noscript>
@@ -28,26 +28,25 @@
 <body>
 <style>
 body{
-    background-image:url('backlogout.jpg');
+    background-image:url('./images/bgpic.jpg');
 }
 </style>
 
 
 <?php
 $status='';
-if(isset($_SESSION['uname'])||isset($_SESSION['user'])||isset($_SESSION['kecadmin'])||isset($_SESSION['developer']))
+if(isset($_SESSION['id']))
 {
 
     session_destroy();
 	session_unset();
     $status="Logout Successful";
-    
 }
 else{
 
     session_destroy();
     session_unset();
-    //echo "<script> Notiflix.Report.Warning( 'No User Session Detected', 'Logout Successful. Please fill the Feedback form <a href='./entity/feedback.php'>Click here!</a>', 'Okay', function(){location.replace('index.php');} );</script>";
+    
     $status="No User Session Detected";
    
 }
@@ -64,7 +63,7 @@ else{
       <a class="header"><?php echo $status; ?></a>
      
       <div class="description">
-       You have logout out successfuly.<br> We wish to have your valuable feedback.<br> Please spare 5 minutes and give your opinion.
+       You have logged out out successfuly.<br> We wish to have your valuable feedback.<br> Please spare 5 minutes and give your opinion.
       </div>
     </div>
     <div class="extra content">
