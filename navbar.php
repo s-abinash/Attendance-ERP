@@ -57,6 +57,7 @@
         right: auto;
 
     }
+   
     </style>
     <link rel="icon" type="image/png" href="./images/KEC.png">
     <link rel="stylesheet" href="./assets/Fomantic/dist/semantic.min.css" type="text/css" />
@@ -76,9 +77,9 @@
     <div class="ui tablet computer only padded grid">
         <div class="ui borderless fluid huge inverted menu">
             <a class="active green item" href="#root">KEC Student+</a>
-            <a class="item" id="index" href="index.php">Home</a>
+            <a class="item" id="home" href="home.php">Home</a>
 
-            <a class="right item" id="logout" href="../Logout.php"><i class="share square outline icon"></i>Logout</a>
+            <a class="right item" id="logout" href="./Logout.php"><i class="share square outline icon"></i>Logout</a>
         </div>
     </div>
     <div class="ui mobile only padded grid">
@@ -92,9 +93,9 @@
                 </div>
             </div>
             <div class="ui vertical borderless fluid inverted menu">
-                <a class="item" id="index">Home</a>
+                <a class="item" id="index" href="home.php">Home</a>
 
-                <a class="right item" id="logout"><i class="share square outline icon"></i>Logout</a>
+                <a class="right item" id="logout" href="./Logout.php"><i class="share square outline icon"></i>Logout</a>
             </div>
         </div>
     </div>

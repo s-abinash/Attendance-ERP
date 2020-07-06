@@ -72,9 +72,9 @@ else{
       <div class="two fields">
       <div class="field"><a href="https://https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAN__hxfHbFUOFNCUEFCVzQ1TERNTThDRVFFRk1FVzZJNi4u">
       <button class="ui primary button">Fill Feedback</button></a></div>
-      <div class="field"><button onclick="window.open('./index.php', '_self');" class="ui secondary button">Close</button></div>
+      <div class="field"><button onclick="window.open('./login.php', '_self');" class="ui secondary button">Close</button></div>
     </div></center></div>
-    <div class="ui bottom attached positive button" onclick="window.open('./index.php', '_self');">
+    <div class="ui bottom attached positive button" onclick="window.open('./login.php', '_self');">
       <i class="sign language icon"></i>
       Thank You!
     </div>

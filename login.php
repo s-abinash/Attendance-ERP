@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(isset($_SESSION['id']))
+{
+    header('Location: ./home.php');
+}
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -99,7 +106,7 @@
                 <label>Password</label>
             </div>
             <center>
-                <button type="submit"  class="ui positive button">Sign in</button>
+                <button type="submit" id="sub" class="ui positive button">Sign in</button>
             </center>           
         </form>
     </div>
@@ -108,7 +115,9 @@
   <script src="./assets/Fomantic/dist/semantic.min.js"></script>
 <script>
 $(document).ready(function(){
+  
     $("#login").on("submit",function(){
+        $("#sub").addClass("loading");
         var frm=$("#login").serialize();
         frm+="&usr=verified";
  
@@ -118,7 +127,19 @@ $(document).ready(function(){
             type:"POST",
             success:function(res)
             {
-                alert(res);
+               
+                $("#sub").removeClass("loading");
+           
+                if(res=="Success")
+                {
+                    Notiflix.Notify.Success("Logged in Successfully");
+                    window.location.replace("home.php");
+                }
+                else
+                {
+                    Notiflix.Notify.Failure("Credential Mismatch");
+                    $("#login")[0].reset();
+                }
             }
         });
 
