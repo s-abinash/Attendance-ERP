@@ -1,23 +1,49 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mark Attendance</title>
-    <link rel="icon" type="image/png" href=".images/KEC.png">
-  <link rel="stylesheet" href="./assets/Fomantic/dist/semantic.min.css" type="text/css" />
 
-
-  <!-- No Script Part -->
-  <noscript>
-    <meta http-equiv="refresh" content="0; URL='./errorfile/noscript.html'" /></noscript>
-  <!--  -->
-  <?php include_once('./assets/notiflix.php'); ?>
-  <script src="./assets/jquery.min.js"></script>
-  <script src="./assets/Fomantic/dist/semantic.min.js"></script>
 </head>
-<body>
-    
+
+<?php
+
+include_once('./navbar.php');
+$course="18CSE51-Theory of Computation";
+$date="06/07/2020";
+?>
+<style>
+body {
+    background: url("./images/bgpic.jpg");
+}
+
+#card {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+</style>
+
+<div class="ui raised padded container segment" id="card" style="margin:auto;">
+    <div class="ui form">
+        <div class="field">
+            <label>Course</label>
+            <input type="text" value="<?php echo $course; ?>" readonly />
+        </div>
+        <div class="field">
+            <label>Date</label>
+            <input type="text" value="<?php echo $date; ?>" readonly />
+        </div>
+
+    </div>
+</div>
+
 </body>
+
 </html>
 
 <?php
@@ -29,8 +55,8 @@ if ($xlsx = SimpleXLSX::parse('./files/sample.xlsx')) {
     foreach ($xlsx->rows(6) as $r) {
         $s = implode($r);
         $str = substr(trim($s), -8);
-        array_push($str);
-        echo $str . '<br/>';
+        array_push($a,$str);
+        //echo $str . '<br/>';
     }
 } else {
     echo SimpleXLSX::parseError();
