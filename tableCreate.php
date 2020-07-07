@@ -4,7 +4,7 @@
 
 
 $cnt=0;
-$str="CREATE TABLE `18-CSE-A` (date varchar(10) NOT NULL,code varchar(10) NOT NULL,period int NULL";
+$str="CREATE TABLE `18-CSE-A` (date varchar(10) NOT NULL,code varchar(10) NOT NULL,period int NULL,";
 
 for($i=1;$i<=9;$i++)
 {
