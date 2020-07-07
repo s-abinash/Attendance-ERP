@@ -40,6 +40,7 @@ session_start();
 <?php
 include_once('./navbar.php');
 $course="18CSE51-Theory of Computation";
+$code="18CSE51";
 $date="06/07/2020";
 $class="18CSE-A";
 $batch=2018;
@@ -109,7 +110,20 @@ if(isset($_POST["upload"]))
     <?php 
 if(isset($_POST['finalize']))
 {
-        
+        echo "<script>alert('Getting in');</script>";
+        $asst=$_SESSION['assoc'];
+        $into='(`date`,`code`,';
+        $vals='("'.$date.'","'.$code.'",';
+        foreach($asst as $roll=>$at)
+        {
+            $into.='`'.$roll.'`,';
+            $vals.='"'.$at.'",';
+        }
+        $into=substr($into,0,-1).')';
+        $vals=substr($vals,0,-1).');';
+        $sql="INSERT INTO `18-cse-a` ".$into." VALUES ".$vals;
+        echo $sql;
+        echo '<script>console.log("'.$sql.'");</script>';
 }
 ?>
 
@@ -230,6 +244,7 @@ if(isset($_POST['finalize']))
                             <td class="'.$class.'">'.$mark.'</td>
                         </tr>';
                         }
+                        $_SESSION['assoc']=$attend;
                     ?>
                     </tbody>
                 </table>
