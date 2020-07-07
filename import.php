@@ -9,12 +9,13 @@ session_start();
     <title>Mark Attendance</title>
     <script src="./assets/jquery.min.js"></script>
     <script src="./assets/Fomantic/dist/semantic.min.js"></script>
-    <script>
+    <!-- <script>
     $(document).ready(function() {
         $(".card-2").hide();
     });
-    </script>
-    <?php include_once('./assets/notiflix.php'); 
+    </script> -->
+    <?php include_once('./assets/notiflix.php'); ?>
+    <?php
 
     if(isset($_SESSION['upload']))
     {
@@ -22,10 +23,10 @@ session_start();
         {   
             echo '<script>
             $(document).ready(function(){
-                $(".card-1").hide();
+                $(".card-1").css("display", "none");
             });
             $(document).ready(function(){
-                $(".card-2").show();
+                $(".card-2").css("display", "");
             });
             </script>';
         }
@@ -66,24 +67,51 @@ if(isset($_POST["upload"]))
             {
                 
                 include_once('./assets/simplexlsx-master/src/SimpleXLSX.php');
-                $arr = array();
+                $arr1 = array();
+                $arr2 = array();
+                $arr3 = array();
                 if ($xlsx = SimpleXLSX::parse($targetfolder)) {
-                    foreach ($xlsx->rows(6) as $r) {
+
+                    // echo '<h1>Sheet1</h1>';
+                    foreach ($xlsx->rows(0) as $r) {
                         $s = implode($r);
                         $str = substr(trim($s), -8);
                         if((intval(substr($str,0,2))!=0)&&(intval(substr($str,-2))!=0))
                         {
-                            echo '<script>console.log("'.$str.'"</script>';
-                            array_push($arr,$str);
+                            array_push($arr1,$str);
+                           // echo $str.'</>';
                         }
-                        //echo $str . '<br/>';
                     }
+                    // echo '<h1>Sheet2</h1>';
+                    foreach ($xlsx->rows(1) as $r) {
+                        $s = implode($r);
+                        $str = substr(trim($s), -8);
+                        if((intval(substr($str,0,2))!=0)&&(intval(substr($str,-2))!=0))
+                        {          
+                            array_push($arr2,$str);
+                           // echo $str.'</br>';
+                        }
+                    }
+                    // echo '<h1>Sheet3</h1>';
+                    foreach ($xlsx->rows(2) as $r) {
+                        $s = implode($r);
+                        $str = substr(trim($s), -8);
+                        if((intval(substr($str,0,2))!=0)&&(intval(substr($str,-2))!=0))
+                        {
+                            array_push($arr3,$str);
+                           // echo $str.'</br>';
+                        }
+                    }
+
                     $_SESSION['upload']=true;
-                    $_SESSION['array']=$arr;
+                    $_SESSION['array1']=$arr1;
+                    $_SESSION['array2']=$arr2;
+                    $_SESSION['array3']=$arr3;
+                   // echo $_SESSION['array2'];
                 } else {
                     echo SimpleXLSX::parseError();
                 }
-                echo "<script>Notiflix.Report.Success('Proof Submitted Successfuly','The staff will verify and update the status. Wait Patiently','Okay',function(){});</script>";
+                echo "<script>Notiflix.Report.Success('File Submitted Successfuly','Proceed to check the Attendance','Okay',function(){window.location.replace('import.php');});</script>";
             }
             else
             {
@@ -110,7 +138,7 @@ if(isset($_POST["upload"]))
     <?php 
 if(isset($_POST['finalize']))
 {
-        echo "<script>alert('Getting in');</script>";
+
         $asst=$_SESSION['assoc'];
         $into='(`date`,`code`,';
         $vals='("'.$date.'","'.$code.'",';
@@ -122,8 +150,14 @@ if(isset($_POST['finalize']))
         $into=substr($into,0,-1).')';
         $vals=substr($vals,0,-1).');';
         $sql="INSERT INTO `18-cse-a` ".$into." VALUES ".$vals;
-        echo $sql;
         echo '<script>console.log("'.$sql.'");</script>';
+        unset($_SESSION['array1']);
+        unset($_SESSION['array2']);
+        unset($_SESSION['array3']);
+        unset($_SESSION['assoc']);
+        unset($_SESSION['upload']);
+        echo "<script>Notiflix.Report.Success('Success','Attendance Marked Successfully','Okay',function(){window.location.replace('home.php');});</script>";
+        exit();
 }
 ?>
 
@@ -198,7 +232,7 @@ if(isset($_POST['finalize']))
 
 
     <!-- Attendance Confirm Card -->
-    <div class="card-2">
+    <div class="card-2" style="display:none;">
         <div class="ui raised padded container segment" id="card" style="height:80%;overflow:auto;width:60%;">
             <center>
                 <h1 class="header">
@@ -216,7 +250,9 @@ if(isset($_POST['finalize']))
                     </thead>
                     <tbody>
                         <?php
-                        $arr=$_SESSION['array'];
+                        $arr1=$_SESSION['array1'];
+                        $arr2=$_SESSION['array2'];
+                        $arr3=$_SESSION['array3'];
                         $attend=array();
                         $sql="SELECT regno from registration where batch like '$batch' and sec like '$sec' and dept like '$dep'";
                         $data=$con->query($sql);
@@ -225,7 +261,7 @@ if(isset($_POST['finalize']))
                             $r=$r['regno'];
                             $mark='';
                             $class='';
-                            if(in_array($r,$arr))
+                            if((in_array($r,$arr1)&&in_array($r,$arr2))||(in_array($r,$arr2)&&in_array($r,$arr3))||(in_array($r,$arr1)&&in_array($r,$arr3)))
                             {
                                 $attend[$r]='P';
                                 $mark='<i class="large green checkmark icon"></i>';
