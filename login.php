@@ -18,7 +18,7 @@ if(isset($_SESSION['id']))
         margin:0;
         padding:0;
         font-family: sans-serif;
-        background:url("./Images/bgpic.jpg") ;
+        background:url("./images/bgpic.jpg") ;
         background-size: cover;
     }
     .box
