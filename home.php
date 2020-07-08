@@ -193,7 +193,7 @@
                         type: 'date',
                         enabledDates: arr,
                     });
-                    alert(btn[0]);
+                   
                     $('#tab').val(btn[0]);
                     $('#code').val(btn[1]);
                     $("#datepickermod").modal("show");
