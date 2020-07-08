@@ -149,7 +149,7 @@
                             <div class="ui header"><span class="ui inverted grey text"> Select <br>Period Handled</span>
                             </div>
                             <br>
-                            <select name="hrs" multiple="multiple" class="ui selection dropdown" id="hr" required>
+                            <select name="hrs[]" multiple="" class="ui selection dropdown" id="hr" required>
                                 <option value="">Select Period</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
