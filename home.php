@@ -144,11 +144,12 @@
                                 </div>
                             </div>
                         </div>
-                   
+
                         <div class="field">
-                            <div class="ui header"><span class="ui inverted grey text"> Select <br>Period Handled</span></div>
-                           <br>
-                            <select name="hrs" multiple="" class="ui selection dropdown" id="hr" required >
+                            <div class="ui header"><span class="ui inverted grey text"> Select <br>Period Handled</span>
+                            </div>
+                            <br>
+                            <select name="hrs" multiple="multiple" class="ui selection dropdown" id="hr" required>
                                 <option value="">Select Period</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -220,7 +221,9 @@
                         }
                     });
 
-                    $('#hr').dropdown({maxSelections: 2});
+                    $('#hr').dropdown({
+                        maxSelections: 2
+                    });
 
                     $('#tab').val(btn[0]);
                     $('#code').val(btn[1]);

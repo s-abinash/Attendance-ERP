@@ -92,6 +92,8 @@ include_once('./navbar.php');
                     </div>
 
                 </div>
+
+
                 <div class="field">
                     <center><button class="ui positive button" type="submit" name="fetch">Fetch</button></center>
                 </div>
@@ -107,8 +109,35 @@ include_once('./navbar.php');
                     Edit Attendance
                 </h1>
             </center>
-            
-
+            <?php
+            $sql="SELECT regno from registration where batch like '$batch' and sec like '$sec' and dept like '$dep'";
+            $data=$con->query($sql);
+            $sql1="SELECT * from ";
+            while($r=mysqli_fetch_array($data))
+            {  
+                $r=$r['regno'];
+                $mark='';
+                $cls='';
+                if((in_array($r,$arr1)&&in_array($r,$arr2))||(in_array($r,$arr2)&&in_array($r,$arr3))||(in_array($r,$arr1)&&in_array($r,$arr3)))
+                {
+                    $attend[$r]='P';
+                    $mark='<i class="large green checkmark icon"></i>';
+                    $cls='positive';
+                }    
+                else
+                {    
+                    $attend[$r]='A';
+                    $mark='<i class="large red times icon"></i>';
+                    $cls='negative';
+                }
+                echo '<tr>
+                <td class="'.$cls.'">
+                    '.$r.'
+                </td>
+                <td class="'.$cls.'">'.$mark.'</td>
+            </tr>';
+            }
+                ?>
         </div>
 </body>
 

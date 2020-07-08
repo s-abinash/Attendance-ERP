@@ -54,7 +54,12 @@ if(isset($_POST['homy']))
     $code=$_POST['code'];
     $class=strtolower($_POST['tab']);
     $table=$_POST['tab'];
-    $hrs=explode(',',$_POST['hrs'],2);
+    // $hrs=array();
+    // foreach($_POST['hrs'] as $hr)
+    // {
+    //     array_push($hr, $hrs);
+    // }
+    echo '<script>alert("'.$_POST['hrs'].'");</script>';
     $arr=explode('-',$table,3);
     $batch=intval('20'.$arr[0]);
     $dep=$arr[1];
@@ -178,8 +183,10 @@ if(isset($_POST['finalize']))
 {
     if($_POST['finalize']=="done")
     {
+        print_r($hrs);
         foreach($hrs as $h)
         {
+            echo $h;
             $asst=$_SESSION['assoc'];
             $into='(`date`,`code`,`period`,';
             $vals='("'.$date.'","'.$code.'","'.$h.'",';
@@ -191,7 +198,7 @@ if(isset($_POST['finalize']))
             $into=substr($into,0,-1).')';
             $vals=substr($vals,0,-1).');';
             $sql="INSERT INTO `".$class."` ".$into." VALUES ".$vals;
-            
+            echo $sql;
             $con->query($sql);
         }
         unset($_SESSION['array1']);
@@ -199,8 +206,8 @@ if(isset($_POST['finalize']))
         unset($_SESSION['array3']);
         unset($_SESSION['assoc']);
         unset($_SESSION['upload']);
-        echo "<script>Notiflix.Report.Success('Success','Attendance Marked Successfully','Okay',function(){window.location.replace('home.php');});</script>";
-        exit();
+        // echo "<script>Notiflix.Report.Success('Success','Attendance Marked Successfully','Okay',function(){window.location.replace('home.php');});</script>";
+        // exit();
 }
     else
     {
