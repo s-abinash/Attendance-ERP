@@ -1,11 +1,11 @@
 <?php
     session_start();
-    include_once("./db.php");
-    include_once("./navbar.php");
     if(!isset($_SESSION["id"]))
     {
         header('Location: ./login.php');
     }
+    include_once("./db.php");
+    include_once("./navbar.php");
 ?>
 <html lang="en">
 
@@ -138,24 +138,24 @@
                             <div class="ui header"><span class="ui inverted grey text"> Choose Date to mark the
                                     Attendance</span></div><br>
                             <div class="ui calendar" id="cal">
-                                <div class="ui  focus input large left icon">
+                                <div class="ui  focus input  left icon">
                                     <i class="calendar icon"></i>
                                     <input type="text" name="dates" placeholder="Date/Time" required>
                                 </div>
                             </div>
                         </div>
+                   
                         <div class="field">
-                            <div class="ui header"><span class="ui inverted grey text"> Select Hr:</span></div>
-                            <br /><br />
-                            <select name="hrs" class="ui large fluid search dropdown" id="hr" required>
-                                <option value="">Select the Hr</option>
+                            <div class="ui header"><span class="ui inverted grey text"> Select <br>Period Handled</span></div>
+                           <br>
+                            <select name="hrs" multiple="" class="ui selection dropdown" id="hr" required >
+                                <option value="">Select Period</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
                                 <option value="4">4</option>
                                 <option value="5">5</option>
                             </select>
-
                         </div>
                     </div>
                     <input type="hidden" name="tab" id="tab">
@@ -220,7 +220,7 @@
                         }
                     });
 
-                    $('#hr').dropdown();
+                    $('#hr').dropdown({maxSelections: 2});
 
                     $('#tab').val(btn[0]);
                     $('#code').val(btn[1]);
