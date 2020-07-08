@@ -165,9 +165,9 @@
         <script>
         var d = "";
 
-        function attend(id) {
-            var arr = id.split("/");
-            d = "tab=" + arr[0] + "&code=" + arr[1];
+                function attend(id) {
+            var btn = id.split("/");
+            d = "tab=" + btn[0] + "&code=" + btn[1];
             $.ajax({
                 url: "./AJAX/handler.php",
                 data: d,
@@ -183,21 +183,23 @@
                         return false;
                     }
                     
-
+                    
                     for (i of dates) {
-                        var res = i.split("-");
-                        arr.push(new Date(res[0], res[1] - 1, res[2]));
+                        var r = i.split("-");
+                        arr.push(new Date(r[0], r[1] - 1, r[2]));
                     }
-
+        
                     $('#cal').calendar({
                         type: 'date',
-                        enabledDates: arr
+                        enabledDates: arr,
                     });
-                    $('#tab').val(arr[0]);
-                    $('#code').val(arr[1]);
+                    alert(btn[0]);
+                    $('#tab').val(btn[0]);
+                    $('#code').val(btn[1]);
                     $("#datepickermod").modal("show");
 
                 }
+                
             });
 
 
