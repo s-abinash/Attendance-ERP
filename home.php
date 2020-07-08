@@ -176,7 +176,13 @@
                     var arr = [];
                     var i;
                     var dates = JSON.parse(res);
-
+                    
+                    if(!(Array.isArray(dates) && dates.length))
+                    {
+                        Notiflix.Notify.Info("You have no pending Attendance reports to be uploaded");
+                        return false;
+                    }
+                    
 
                     for (i of dates) {
                         var res = i.split("-");
