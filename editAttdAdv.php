@@ -4,13 +4,21 @@ if(!isset($_SESSION['id']))
 {
     header('Location: index.html');
 }
+// else 
+// {
+//     if($_SESSION['design']!='Advisor')
+//         header('Location: index.html');
+// }
+include_once('db.php');
+$batch=$_SESSION['batch'];
+
 ?>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mark Attendance</title>
+    <title>Edit Attendance</title>
     <script src="./assets/jquery.min.js"></script>
     <script src="./assets/Fomantic/dist/semantic.min.js"></script>
 
@@ -18,9 +26,35 @@ if(!isset($_SESSION['id']))
     <?php
 include_once('./navbar.php');
 ?>
+    <script>
+    var tdy = new Date();
+    $(document).ready(function() {
+        $('#cal').calendar({
+            type: 'date',
+            maxDate: tdy,
+            formatter: {
+                date: function(date, settings) {
+
+                    if (!date) return '';
+                    var day = date.getDate();
+                    var month = date.getMonth() + 1;
+                    var year = date.getFullYear();
+                    return day + '/' + month + '/' + year;
+                }
+            }
+        });
+
+        $('#code').dropdown();
+    });
+    </script>
 </head>
 
 <body>
+    <style>
+    body {
+        background: url('./images/bgpic.jpg');
+    }
+    </style>
     <div class="card-1">
         <div class="ui raised padded container segment" id="card" style="margin:auto;width:60%;">
             <center>
@@ -41,13 +75,41 @@ include_once('./navbar.php');
                     </div>
                     <div class="field">
                         <label>Course:</label>
-                        <select name="hrs" class="ui large fluid search dropdown" id="hr" required>
-                            <option value="">Select the Hr</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
+                        <select name="code" class="ui fluid search dropdown" id="code" required>
+                            <option value="">Select the Course</option>
+                            <?php 
+                                $sql="SELECT code,name from course_list WHERE batch like '$batch'";
+                                $data=$con->query($sql);
+                                while($row=mysqli_fetch_array($data))
+                                {
+                                    $cd=$row['code'];
+                                    $cn=$row['name'];
+                                    echo '<option value="'.$cd.'">'.$cn.'</option>';
+                                }
+                            ?>
+
                         </select>
                     </div>
+
                 </div>
+                <div class="field">
+                    <center><button class="ui positive button" type="submit" name="fetch">Fetch</button></center>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <div class="card-2" style="display: none">
+        <div class="ui raised padded container segment" id="card" style="margin:auto;width:60%;">
+            <center>
+                <h1 class="header">
+                    Edit Attendance
+                </h1>
+            </center>
+            
+
+        </div>
+</body>
+
+</html>

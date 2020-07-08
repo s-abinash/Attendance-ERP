@@ -15,6 +15,8 @@
             $_SESSION["id"]=$row['staffid'];
             $_SESSION["name"]=$row['name'];
             $_SESSION["dept"]=$row['dept'];
+            $_SESSION['batch']=$row['batch'];
+            $_SESSION['design']=$row['advisor'];
             echo "Success";
        }
        else

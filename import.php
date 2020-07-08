@@ -180,29 +180,28 @@ if(isset($_POST['finalize']))
     {
         foreach($hrs as $h)
         {
-        $asst=$_SESSION['assoc'];
-        $into='(`date`,`code`,`period`,';
-        $vals='("'.$date.'","'.$code.'","'.$h.'",';
-        foreach($asst as $roll=>$at)
-        {
-            $into.='`'.$roll.'`,';
-            $vals.='"'.$at.'",';
+            $asst=$_SESSION['assoc'];
+            $into='(`date`,`code`,`period`,';
+            $vals='("'.$date.'","'.$code.'","'.$h.'",';
+            foreach($asst as $roll=>$at)
+            {
+                $into.='`'.$roll.'`,';
+                $vals.='"'.$at.'",';
+            }
+            $into=substr($into,0,-1).')';
+            $vals=substr($vals,0,-1).');';
+            $sql="INSERT INTO `".$class."` ".$into." VALUES ".$vals;
+            
+            $con->query($sql);
         }
-        $into=substr($into,0,-1).')';
-        $vals=substr($vals,0,-1).');';
-        $sql="INSERT INTO `".$class."` ".$into." VALUES ".$vals;
-        
-        $con->query($sql);
-            unset($_SESSION['array1']);
-            unset($_SESSION['array2']);
-            unset($_SESSION['array3']);
-            unset($_SESSION['assoc']);
-            unset($_SESSION['upload']);
-            echo "<script>Notiflix.Report.Success('Success','Attendance Marked Successfully','Okay',function(){window.location.replace('home.php');});</script>";
-            exit();
-        
-        }
-    }
+        unset($_SESSION['array1']);
+        unset($_SESSION['array2']);
+        unset($_SESSION['array3']);
+        unset($_SESSION['assoc']);
+        unset($_SESSION['upload']);
+        echo "<script>Notiflix.Report.Success('Success','Attendance Marked Successfully','Okay',function(){window.location.replace('home.php');});</script>";
+        exit();
+}
     else
     {
             unset($_SESSION['array1']);
