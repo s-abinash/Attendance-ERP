@@ -1,5 +1,9 @@
 <?php
 session_start();
+if(!isset($_SESSION['id']))
+{
+    header('Location: index.html');
+}
 ?>
 <html lang="en">
 
@@ -9,11 +13,7 @@ session_start();
     <title>Mark Attendance</title>
     <script src="./assets/jquery.min.js"></script>
     <script src="./assets/Fomantic/dist/semantic.min.js"></script>
-    <!-- <script>
-    $(document).ready(function() {
-        $(".card-2").hide();
-    });
-    </script> -->
+
     <?php include_once('./assets/notiflix.php'); ?>
     <?php
 
@@ -31,9 +31,6 @@ session_start();
             </script>';
         }
     }
-    
-    
-    
     ?>
 
 </head>
@@ -57,7 +54,7 @@ if(isset($_POST['homy']))
     $code=$_POST['code'];
     $class=strtolower($_POST['tab']);
     $table=$_POST['tab'];
-    $hrs=$_POST['hrs'];
+    $hrs=explode(',',$_POST['hrs'],2);
     $arr=explode('-',$table,3);
     $batch=intval('20'.$arr[0]);
     $dep=$arr[1];
@@ -181,10 +178,11 @@ if(isset($_POST['finalize']))
 {
     if($_POST['finalize']=="done")
     {
-
+        foreach($hrs as $h)
+        {
         $asst=$_SESSION['assoc'];
         $into='(`date`,`code`,`period`,';
-        $vals='("'.$date.'","'.$code.'","'.$hrs.'",';
+        $vals='("'.$date.'","'.$code.'","'.$h.'",';
         foreach($asst as $roll=>$at)
         {
             $into.='`'.$roll.'`,';
@@ -194,8 +192,7 @@ if(isset($_POST['finalize']))
         $vals=substr($vals,0,-1).');';
         $sql="INSERT INTO `".$class."` ".$into." VALUES ".$vals;
         
-        if($con->query($sql))
-        {
+        $con->query($sql);
             unset($_SESSION['array1']);
             unset($_SESSION['array2']);
             unset($_SESSION['array3']);
@@ -203,16 +200,7 @@ if(isset($_POST['finalize']))
             unset($_SESSION['upload']);
             echo "<script>Notiflix.Report.Success('Success','Attendance Marked Successfully','Okay',function(){window.location.replace('home.php');});</script>";
             exit();
-        }
-        else
-        {
-            unset($_SESSION['array1']);
-            unset($_SESSION['array2']);
-            unset($_SESSION['array3']);
-            unset($_SESSION['assoc']);
-            unset($_SESSION['upload']);
-            echo "<script>Notiflix.Report.Failure('Error','Error in Marking Attendance','Try Again',function(){window.location.replace('home.php');});</script>";
-            exit();
+        
         }
     }
     else
