@@ -40,13 +40,22 @@ session_start();
 
 <?php
 include_once('./navbar.php');
-$course="18CSE51-Theory of Computation";
-$code="18CSE51";
-$date="06/07/2020";
-$class="18CSE-A";
-$batch=2018;
-$sec='A';
-$dep='CSE';
+?>
+<?php
+if(isset($_POST['homy']))
+{
+    $code=$_POST['dates'];
+    $table=$_POST['tab'];
+    
+}
+
+        $course="18CSE51-Theory of Computation";
+        $code="18CSE51";
+        $date="06/07/2020";
+        $class="18CSE-A";
+        $batch=2018;
+        $sec='A';
+        $dep='CSE';
 ?>
 
 <body>
@@ -206,7 +215,8 @@ if(isset($_POST['finalize']))
                     <div class="field">
                         <label>Sample</label>
                         <div class="ui message">
-                            <p>Download Sample Excel here, <i class="blue download icon"></i></p>
+                            <p>Download Sample Excel here, <a href="./files/CSEA.xlsx" download><i
+                                        class="blue download icon"></i></a></p>
                         </div>
                     </div>
                     <div class="field">

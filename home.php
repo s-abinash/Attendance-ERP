@@ -8,33 +8,34 @@
     }
 ?>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
- 
+
 </head>
-<body >
+
+<body>
     <style>
-    body
-    {
+    body {
         background-image: url("./images/bgpic.jpg");
     }
-    
     </style>
-    <div class="ui header" style="text-align:center;font-size:30px;margin-top:2%;color:#ADEFD1FF">Your Class Associations</div>
+    <div class="ui header" style="text-align:center;font-size:30px;margin-top:2%;color:#ADEFD1FF">Your Class
+        Associations</div>
     <table class="ui selectable striped  table" style="margin:auto;width:70%;margin-top:5%">
-  <thead>
-    <tr  style="color:black;font-size:20px" class="center aligned">
-      <th>Year</th>
-      <th>Section</th>
-      <th>Course Code</th>
-      <th>Course Name</th>
-      <th >Actions</th>
-    </tr>
-  </thead>
-  <tbody class="center aligned">
-  <?php
+        <thead>
+            <tr style="color:black;font-size:20px" class="center aligned">
+                <th>Year</th>
+                <th>Section</th>
+                <th>Course Code</th>
+                <th>Course Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody class="center aligned">
+            <?php
     $id=$_SESSION["id"];
     $sql="SELECT * FROM `course_list` WHERE staffA LIKE '$id' OR staffB LIKE '$id' OR staffC LIKE '$id' OR staffD LIKE '$id'";
    
@@ -50,7 +51,7 @@
         continue;
       }
       $batch=(2020%intval($row["batch"]))+1;
-      $year=$batch==2?"II":$batch==3?"III":"IV";
+      $year=$batch==2?"II":($batch==3?"III":"IV");
       if($row["staffA"]==$id)
       {
         $sec="A";
@@ -83,7 +84,7 @@
     echo '<tr ><td colspan="5" style="font-size:17px" class="left aligned"><em>Laboratory Course</em></td></tr>';
     
     $batch=(2020%intval($lab["batch"]))+1;
-    $year=$batch==2?"II":$batch==3?"III":"IV";
+    $year=$batch==2?"II":($batch==3?"III":"IV");
     if($lab["staffA"]==$id)
     {
       $sec="A";
@@ -116,93 +117,95 @@
   ?>
 
 
-  </tbody>
-</table>
+        </tbody>
+    </table>
 
-<div class="ui tiny inverted modal" id="datepickermod">
-    <div class="header">
-        KEC Student+
-      <button class="ui right floated negative icon button" id="closebtn1">
-          <i class=" close icon"></i>
-      </button>
-            </div>
-                  <div class="content">
-                   
-                    
-                          <form  class="ui form" method="POST" action="./import.php">
-                          <br></br>
-                          <center>
-                          <div class="ui header"><span class="ui inverted grey text"> Choose Date to mark the Attendance</span></div><br>
-                          <div class="ui calendar" id="cal">
-                            <div class="ui  focus input large left icon">
-                                <i class="calendar icon"></i>
-                                <input type="text" name="dates" placeholder="Date/Time" required>
-                            </div>
-                            </div>
-                            <input type="hidden" name="tab" id="tab">
-                            <input type="hidden" name="code" id="code">
-                            <!-- <input type="hidden" name="" id=""> -->
-                          <br></br>
-                          <br></br>
-                          <div class="ui inverted floating icon message">
-                          <i class="info icon"></i>
-                          <div class="content">
-                            <p style="font-size:16px;">Only Dates for Pending Attendance will be enabled!</p>
-                            </div>
+    <div class="ui tiny inverted modal" id="datepickermod">
+        <div class="header">
+            KEC Student+
+            <button class="ui right floated negative icon button" id="closebtn1">
+                <i class=" close icon"></i>
+            </button>
+        </div>
+        <div class="content">
+
+
+            <form class="ui form" method="POST" action="./import.php">
+                <br></br>
+                <center>
+                    <div class="ui header"><span class="ui inverted grey text"> Choose Date to mark the
+                            Attendance</span></div><br>
+                    <div class="ui calendar" id="cal">
+                        <div class="ui  focus input large left icon">
+                            <i class="calendar icon"></i>
+                            <input type="text" name="dates" placeholder="Date/Time" required>
                         </div>
-                         
-                          </center>
-                           
-                </div>
-            <div class="actions">
-              <button class="ui positive right labeled icon button" type="submit" name="submit">
-                  Proceed<i class="checkmark icon"></i>
-              </button>
-              </form>
-            </div>
-<script>
-var d="";
-function attend(id)
-  {
-    var arr=id.split("/");
-    d="tab="+arr[0]+"&code="+arr[1];
-    $.ajax({
-            url:"./AJAX/handler.php",
-            data:d,
-            type:"POST",
-            success:function(res)
-            {
-               var arr= [];var i;
-               var dates = JSON.parse(res);
-            
+                    </div>
+                    <input type="hidden" name="tab" id="tab">
+                    <input type="hidden" name="code" id="code">
+                    <!-- <input type="hidden" name="" id=""> -->
+                    <br></br>
+                    <br></br>
+                    <div class="ui inverted floating icon message">
+                        <i class="info icon"></i>
+                        <div class="content">
+                            <p style="font-size:16px;">Only Dates for Pending Attendance will be enabled!</p>
+                        </div>
+                    </div>
 
-              for (i of dates)
-              {                
-                var res = i.split("-");
-                arr.push(new Date(res[0],res[1]-1,res[2]));
-              }
-            
-              $('#cal').calendar({type: 'date',
-                enabledDates: arr
-              });
-              $('#tab').val(arr[0]);
-              $('#code').val(arr[1]);
-              $("#datepickermod").modal("show");
-            
-            }
+                </center>
+
+        </div>
+        <div class="actions">
+            <button class="ui positive right labeled icon button" type="submit" name="homy">
+                Proceed<i class="checkmark icon"></i>
+            </button>
+            </form>
+        </div>
+        <script>
+        var d = "";
+
+        function attend(id) {
+            var arr = id.split("/");
+            d = "tab=" + arr[0] + "&code=" + arr[1];
+            $.ajax({
+                url: "./AJAX/handler.php",
+                data: d,
+                type: "POST",
+                success: function(res) {
+                    var arr = [];
+                    var i;
+                    var dates = JSON.parse(res);
+
+
+                    for (i of dates) {
+                        var res = i.split("-");
+                        arr.push(new Date(res[0], res[1] - 1, res[2]));
+                    }
+
+                    $('#cal').calendar({
+                        type: 'date',
+                        enabledDates: arr
+                    });
+                    $('#tab').val(arr[0]);
+                    $('#code').val(arr[1]);
+                    $("#datepickermod").modal("show");
+
+                }
+            });
+
+
+        }
+        $(document).ready(function() {
+            $("#datepickermod").modal({});
+            $("#closebtn1").click(function() {
+                $("#datepickermod").modal("hide");
+            });
+            $('#cal').calendar({
+                type: 'date'
+            });
         });
-        
-
-  }
-$(document).ready(function(){
-    $("#datepickermod").modal({});
-    $("#closebtn1").click(function()            
-    {
-        $("#datepickermod").modal("hide");
-    });
-    $('#cal').calendar({type: 'date'});
-});
-
-</script>
+        </script>
 </body>
+
 </html>
