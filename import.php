@@ -50,18 +50,22 @@ $class="";
 $batch=0;
 $sec='';
 $dep='';
+$hrs='';
 if(isset($_POST['homy']))
 {
-    $date=$_POST['dates'];
+    $date=date("Y-m-d", strtotime(str_replace('/', '-', $_POST['dates'])));
     $code=$_POST['code'];
+    $class=strtolower($_POST['tab']);
     $table=$_POST['tab'];
-    echo '<script>alert("'.$date.'");</script>';
-    echo '<script>alert("'.$code.'");</script>';
-    echo '<script>alert("'.$table.'");</script>';
-    $arr=explode('-',$table,0);
-    $batch=intval($arr[0]);
+    $hrs=$_POST['hrs'];
+    $arr=explode('-',$table,3);
+    $batch=intval('20'.$arr[0]);
     $dep=$arr[1];
     $sec=strtoupper($arr[2]);
+    $sql="SELECT `name` from `course_list` WHERE `code` like '$code'";
+    //echo '<script>alert("'.$sql.'");</script>';
+    $row=($con->query($sql))->fetch_assoc();
+    $course=$row['name'];
     $_SESSION['course']=$course;
     $_SESSION['code']=$code;
     $_SESSION['date']=$date;
@@ -69,6 +73,7 @@ if(isset($_POST['homy']))
     $_SESSION['batch']=$batch;
     $_SESSION['sec']=$sec;
     $_SESSION['dep']=$dep;
+    $_SESSION['hrs']=$hrs;
 }
 else
 {
@@ -79,6 +84,7 @@ else
     $batch=$_SESSION['batch'];
     $sec=$_SESSION['sec'];
     $dep=$_SESSION['dep'];
+    $hrs=$_SESSION['hrs'];
 }
 
 ?>
@@ -173,10 +179,12 @@ if(isset($_POST["upload"]))
     <?php 
 if(isset($_POST['finalize']))
 {
+    if($_POST['finalize']=="done")
+    {
 
         $asst=$_SESSION['assoc'];
-        $into='(`date`,`code`,';
-        $vals='("'.$date.'","'.$code.'",';
+        $into='(`date`,`code`,`period`,';
+        $vals='("'.$date.'","'.$code.'","'.$hrs.'",';
         foreach($asst as $roll=>$at)
         {
             $into.='`'.$roll.'`,';
@@ -184,15 +192,40 @@ if(isset($_POST['finalize']))
         }
         $into=substr($into,0,-1).')';
         $vals=substr($vals,0,-1).');';
-        $sql="INSERT INTO `18-cse-a` ".$into." VALUES ".$vals;
-        echo '<script>console.log("'.$sql.'");</script>';
-        unset($_SESSION['array1']);
-        unset($_SESSION['array2']);
-        unset($_SESSION['array3']);
-        unset($_SESSION['assoc']);
-        unset($_SESSION['upload']);
-        echo "<script>Notiflix.Report.Success('Success','Attendance Marked Successfully','Okay',function(){window.location.replace('home.php');});</script>";
-        exit();
+        $sql="INSERT INTO `".$class."` ".$into." VALUES ".$vals;
+        
+        if($con->query($sql))
+        {
+            unset($_SESSION['array1']);
+            unset($_SESSION['array2']);
+            unset($_SESSION['array3']);
+            unset($_SESSION['assoc']);
+            unset($_SESSION['upload']);
+            echo "<script>Notiflix.Report.Success('Success','Attendance Marked Successfully','Okay',function(){window.location.replace('home.php');});</script>";
+            exit();
+        }
+        else
+        {
+            unset($_SESSION['array1']);
+            unset($_SESSION['array2']);
+            unset($_SESSION['array3']);
+            unset($_SESSION['assoc']);
+            unset($_SESSION['upload']);
+            echo "<script>Notiflix.Report.Failure('Error','Error in Marking Attendance','Try Again',function(){window.location.replace('home.php');});</script>";
+            exit();
+        }
+    }
+    else
+    {
+            unset($_SESSION['array1']);
+            unset($_SESSION['array2']);
+            unset($_SESSION['array3']);
+            unset($_SESSION['assoc']);
+            unset($_SESSION['upload']);
+            echo "<script>window.location.replace(./home.php);</script>";
+            exit();
+    }
+        
 }
 ?>
 
@@ -225,12 +258,12 @@ if(isset($_POST['finalize']))
                 enctype="multipart/form-data">
                 <div class="field">
                     <label>Course</label>
-                    <input type="text" value="<?php echo $course; ?>" readonly />
+                    <input type="text" value="<?php echo $code.' - '.$course; ?>" readonly />
                 </div>
                 <div class="two fields">
                     <div class="field">
                         <label>Class</label>
-                        <input type="text" value="<?php echo $class; ?>" readonly />
+                        <input type="text" value="<?php echo strtoupper($class); ?>" readonly />
                     </div>
                     <div class="field">
                         <label>Date</label>
@@ -296,24 +329,24 @@ if(isset($_POST['finalize']))
                         {  
                             $r=$r['regno'];
                             $mark='';
-                            $class='';
+                            $cls='';
                             if((in_array($r,$arr1)&&in_array($r,$arr2))||(in_array($r,$arr2)&&in_array($r,$arr3))||(in_array($r,$arr1)&&in_array($r,$arr3)))
                             {
                                 $attend[$r]='P';
                                 $mark='<i class="large green checkmark icon"></i>';
-                                $class='positive';
+                                $cls='positive';
                             }    
                             else
                             {    
                                 $attend[$r]='A';
                                 $mark='<i class="large red times icon"></i>';
-                                $class='negative';
+                                $cls='negative';
                             }
                             echo '<tr>
-                            <td class="'.$class.'">
+                            <td class="'.$cls.'">
                                 '.$r.'
                             </td>
-                            <td class="'.$class.'">'.$mark.'</td>
+                            <td class="'.$cls.'">'.$mark.'</td>
                         </tr>';
                         }
                         $_SESSION['assoc']=$attend;
@@ -321,8 +354,11 @@ if(isset($_POST['finalize']))
                     </tbody>
                 </table>
                 <form action="<?php echo $_SERVER['PHP_SELF'];?>" name="finalize" method="post">
-                    <button type="submit" name="finalize" style="float: right;"
-                        class="ui big black button">Finalize</button>
+                    <button type="submit" name="finalize" value="goback" style="float: left;"
+                        class="ui large black button">Go
+                        Back</button>
+                    <button type="submit" name="finalize" value="done" style="float: right;"
+                        class="ui large green button">Finalize</button>
                 </form>
             </div>
         </div>

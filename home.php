@@ -133,12 +133,29 @@
             <form class="ui form" method="POST" action="./import.php">
                 <br></br>
                 <center>
-                    <div class="ui header"><span class="ui inverted grey text"> Choose Date to mark the
-                            Attendance</span></div><br>
-                    <div class="ui calendar" id="cal">
-                        <div class="ui  focus input large left icon">
-                            <i class="calendar icon"></i>
-                            <input type="text" name="dates" placeholder="Date/Time" required>
+                    <div class="two fields">
+                        <div class="field">
+                            <div class="ui header"><span class="ui inverted grey text"> Choose Date to mark the
+                                    Attendance</span></div><br>
+                            <div class="ui calendar" id="cal">
+                                <div class="ui  focus input large left icon">
+                                    <i class="calendar icon"></i>
+                                    <input type="text" name="dates" placeholder="Date/Time" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui header"><span class="ui inverted grey text"> Select Hr:</span></div>
+                            <br /><br />
+                            <select name="hrs" class="ui large fluid search dropdown" id="hr" required>
+                                <option value="">Select the Hr</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+
                         </div>
                     </div>
                     <input type="hidden" name="tab" id="tab">
@@ -165,7 +182,7 @@
         <script>
         var d = "";
 
-                function attend(id) {
+        function attend(id) {
             var btn = id.split("/");
             d = "tab=" + btn[0] + "&code=" + btn[1];
             $.ajax({
@@ -176,30 +193,43 @@
                     var arr = [];
                     var i;
                     var dates = JSON.parse(res);
-                    
-                    if(!(Array.isArray(dates) && dates.length))
-                    {
+
+                    if (!(Array.isArray(dates) && dates.length)) {
                         Notiflix.Notify.Info("You have no pending Attendance reports to be uploaded");
                         return false;
                     }
-                    
-                    
+
+
                     for (i of dates) {
                         var r = i.split("-");
                         arr.push(new Date(r[0], r[1] - 1, r[2]));
                     }
-        
+
                     $('#cal').calendar({
                         type: 'date',
                         enabledDates: arr,
+                        formatter: {
+                            date: function(date, settings) {
+
+                                if (!date) return '';
+                                var day = date.getDate();
+                                var month = date.getMonth() + 1;
+                                var year = date.getFullYear();
+                                return day + '/' + month + '/' + year;
+                            }
+                        }
                     });
-                   
+
+                    $('#hr').dropdown();
+
                     $('#tab').val(btn[0]);
                     $('#code').val(btn[1]);
-                    $("#datepickermod").modal("show");
+                    $("#datepickermod").modal({
+                        centered: false
+                    }).modal("show");
 
                 }
-                
+
             });
 
 
