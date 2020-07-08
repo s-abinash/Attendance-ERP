@@ -129,7 +129,7 @@ $(document).ready(function(){
             {
                
                 $("#sub").removeClass("loading");
-           
+                alert(res);
                 if(res=="Success")
                 {
                     Notiflix.Notify.Success("Logged in Successfully");

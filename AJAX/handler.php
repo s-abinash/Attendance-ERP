@@ -8,20 +8,20 @@
         $sql="select * from staff where userid LIKE '$id' AND pass LIKE '$pass'";
         $res=$con->query($sql);
         $count=$res->num_rows;
-        $row=$res->fetch_assoc();
        if($count==1)
        {
-            session_start();
-            $_SESSION["id"]=$row['staffid'];
-            $_SESSION["name"]=$row['name'];
-            $_SESSION["dept"]=$row['dept'];
-            $_SESSION['batch']=$row['batch'];
-            $_SESSION['design']=$row['advisor'];
-            echo "Success";
+          session_start();
+          $row=$res->fetch_assoc();
+          $_SESSION["id"]=$row['staffid'];
+          $_SESSION["name"]=$row['name'];
+          $_SESSION["dept"]=$row['dept'];
+          $_SESSION['batch']=$row['batch'];
+          $_SESSION['design']=$row['designation'];
+          echo "Success";
        }
        else
        {
-            echo "Error";
+          echo "Error";
        }
       exit();
        
