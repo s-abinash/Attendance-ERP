@@ -42,20 +42,45 @@ session_start();
 include_once('./navbar.php');
 ?>
 <?php
+$date='';
+$course="";
+$code="";
+$date="";
+$class="";
+$batch=0;
+$sec='';
+$dep='';
 if(isset($_POST['homy']))
 {
-    $code=$_POST['dates'];
+    $date=$_POST['dates'];
+    $code=$_POST['code'];
     $table=$_POST['tab'];
-    
+    echo '<script>alert("'.$date.'");</script>';
+    echo '<script>alert("'.$code.'");</script>';
+    echo '<script>alert("'.$table.'");</script>';
+    $arr=explode('-',$table,0);
+    $batch=intval($arr[0]);
+    $dep=$arr[1];
+    $sec=strtoupper($arr[2]);
+    $_SESSION['course']=$course;
+    $_SESSION['code']=$code;
+    $_SESSION['date']=$date;
+    $_SESSION['class']=$class;
+    $_SESSION['batch']=$batch;
+    $_SESSION['sec']=$sec;
+    $_SESSION['dep']=$dep;
+}
+else
+{
+    $course=$_SESSION['course'];
+    $code=$_SESSION['code'];
+    $date=$_SESSION['date'];
+    $class=$_SESSION['class'];
+    $batch=$_SESSION['batch'];
+    $sec=$_SESSION['sec'];
+    $dep=$_SESSION['dep'];
 }
 
-        $course="18CSE51-Theory of Computation";
-        $code="18CSE51";
-        $date="06/07/2020";
-        $class="18CSE-A";
-        $batch=2018;
-        $sec='A';
-        $dep='CSE';
 ?>
 
 <body>
@@ -120,6 +145,7 @@ if(isset($_POST["upload"]))
                 } else {
                     echo SimpleXLSX::parseError();
                 }
+                unlink($targetfolder);
                 echo "<script>Notiflix.Report.Success('File Submitted Successfuly','Proceed to check the Attendance','Okay',function(){window.location.replace('import.php');});</script>";
             }
             else
