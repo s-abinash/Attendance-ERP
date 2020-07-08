@@ -205,7 +205,7 @@ if(isset($_POST['finalize']))
         unset($_SESSION['upload']);
         echo "<script>Notiflix.Report.Success('Success','Attendance Marked Successfully','Okay',function(){window.location.replace('home.php');});</script>";
         exit();
-}
+    }
     else
     {
             unset($_SESSION['array1']);
@@ -213,8 +213,8 @@ if(isset($_POST['finalize']))
             unset($_SESSION['array3']);
             unset($_SESSION['assoc']);
             unset($_SESSION['upload']);
-            echo "<script>window.location.replace(./home.php);</script>";
-            exit();
+            echo "<script>window.location.replace('./home.php');</script>";
+          
     }
         
 }
