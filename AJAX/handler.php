@@ -62,6 +62,78 @@
                $date=date_format(date_add(date_create($date),date_interval_create_from_date_string("1 days")),"Y-m-d");
          }
           echo json_encode($dates);
+          exit();
 
+    }
+    else if(isset($_POST["cls"]))
+    {
+         $tab=strtolower($_POST["cls"]);
+         $code=$_POST["code"];
+         $sql="SELECT name FROM `course_list` WHERE code LIKE '$code'";
+         $name=($con->query($sql))->fetch_assoc()["name"]; 
+         $sql="SELECT * FROM `$tab` WHERE code LIKE '$code' ORDER BY `date` DESC,`period` ASC"; 
+         $res=$con->query($sql);
+         $cnt=mysqli_num_fields($res)-3;
+         while($row=$res->fetch_assoc())
+         {
+              $d=$row["date"];
+              $h=$row["period"];
+          //     $abs=array();
+              $abs='<ol class="ui inverted list">';
+              foreach($row as $ind=>$val)
+              {
+                   if($val=="A")
+                   {
+                        $abs.='<li>'.$ind.'&nbsp; - &nbsp;'.($con->query("SELECT name from registration where regno like '$ind'"))->fetch_assoc()["name"].'</li>';
+                   }
+              }
+              $abs.='</ol>';
+              
+              $P=array_count_values($row)["P"];
+              $A=array_count_values($row)["A"];//<a class="ui red ribbon label">'.$d.'</a>
+               echo '<div class="ui raised  segment" style="width:50%;margin:auto;margin-top:3%;"><div class="ui black info right circular icon message">
+                         <div class="ui header">
+                              Date &nbsp;:&nbsp; '.$d.'  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;   Period &nbsp;: &nbsp '.$h.'</span>
+                         </div>
+                         <div class="content">
+                              <div class="ui inverted small statistics" style="margin-left:10%">
+                                   <div class="statistic">
+                                        <div class="value">
+                                             '.$P.'
+                                        </div>
+                                        <div class="label">
+                                             Present
+                                        </div>
+                                   </div>
+                                   <div class="red statistic" id="'.$d.$h.'" >
+                                        <div class="value">
+                                             '.$A.'
+                                        </div>
+                                        <div class="label">
+                                             Absent
+                                        </div>
+                                   </div>
+                                   <div class="blue statistic">
+                                        <div class="value">
+                                             '.$cnt.'
+                                        </div>
+                                        <div class="label">
+                                             Total
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+                    </div></div><div class="ui special inverted popup" id="pop'.$d.$h.'">'.$abs.'</div>
+                    <script>
+                    $(document).ready(function(){
+                         $("#'.$d.$h.'")
+  .popup({
+    popup: "#pop'.$d.$h.'"
+  })
+;
+                    });
+                    </script>';
+              
+         }
     }
 ?>

@@ -18,109 +18,116 @@
 
 <body>
     <style>
-    body {
-        background-image: url("./images/bgpic.jpg");
-    }
+        body 
+        {
+            background-image: url("./images/bgpic.jpg");
+        }
     </style>
-    <div class="ui header" style="text-align:center;font-size:30px;margin-top:2%;color:#ADEFD1FF">Your Class
-        Associations</div>
-    <table class="ui selectable striped  table" style="margin:auto;width:70%;margin-top:5%">
-        <thead>
-            <tr style="color:black;font-size:20px" class="center aligned">
-                <th>Year</th>
-                <th>Section</th>
-                <th>Course Code</th>
-                <th>Course Name</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody class="center aligned">
-            <?php
-    $id=$_SESSION["id"];
-    $sql="SELECT * FROM `course_list` WHERE staffA LIKE '$id' OR staffB LIKE '$id' OR staffC LIKE '$id' OR staffD LIKE '$id'";
-   
-    $res=$con->query($sql);
-    $lab="";
-    $word="Laboratory";
-    echo '<tr ><td colspan="5" style="font-size:17px" class="left aligned"><em>General Course</em></td></tr>';
-    while($row=$res->fetch_assoc())
-    {
-      if(strpos($row["name"],$word) !== false)
-      {
-        $lab=$row;
-        continue;
-      }
-      $batch=(2020%intval($row["batch"]))+1;
-      $year=$batch==2?"II":($batch==3?"III":"IV");
-      if($row["staffA"]==$id)
-      {
-        $sec="A";
-      }
-      else if($row["staffB"]==$id)
-      {
-        $sec="B";
-      }
-      else if($row["staffC"]==$id)
-      {
-        $sec="C";
-      }
-      else 
-      {
-        $sec="D";
-      }
-      $code=$row["code"];
-      $name=$row["name"];
-      $btn=strval($row["batch"]%2000)."-".$_SESSION["dept"]."-".$sec."/".$code;
-      echo '<tr>
-      <td>'.$year.'</td>
-      <td>'.$sec.'</td>
-      <td>'.$code.'</td>
-      <td>'.$name.'</td>
-      <td class="right aligned"><button class="ui primary right icon button" id="'.$btn.'" onclick="attend(this.id)"> Mark Attendance &nbsp&nbsp<i class="check icon"></i></button></td>
-    </tr>';
-    }
-   if($lab!="")
-   {
-    echo '<tr ><td colspan="5" style="font-size:17px" class="left aligned"><em>Laboratory Course</em></td></tr>';
-    
-    $batch=(2020%intval($lab["batch"]))+1;
-    $year=$batch==2?"II":($batch==3?"III":"IV");
-    if($lab["staffA"]==$id)
-    {
-      $sec="A";
-    }
-    else if($lab["staffB"]==$id)
-    {
-      $sec="B";
-    }
-    else if($lab["staffC"]==$id)
-    {
-      $sec="C";
-    }
-    else 
-    {
-      $sec="D";
-    }
-    $code=$lab["code"];
-    $name=$lab["name"];
-    $btn=strval($lab["batch"]%2000)."-".$_SESSION["dept"]."-".$sec."/".$code;
- 
-    echo '    <tr>
-    <td>'.$year.'</td>
-    <td>'.$sec.'</td>
-    <td>'.$code.'</td>
-    <td>'.$name.'</td>
-    <td class="right aligned"><button class="ui primary right icon button " id="'.$btn.'"  onclick="attend(this.id)"> Mark Attendance &nbsp&nbsp<i class="check icon"></i></button></td>
-  </tr>';
-   }
+    <div id="tabl">
+    <div class="ui header" style="text-align:center;font-size:30px;margin-top:2%;color:#ADEFD1FF">Your Class Associations</div>
+        <table class="ui selectable striped  table" style="margin:auto;width:70%;margin-top:5%">
+            <thead>
+                <tr style="color:black;font-size:20px" class="center aligned">
+                    <th>Year</th>
+                    <th>Section</th>
+                    <th>Course Code</th>
+                    <th>Course Name</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody class="center aligned">
+                <?php
+                    $id=$_SESSION["id"];
+                    $sql="SELECT * FROM `course_list` WHERE staffA LIKE '$id' OR staffB LIKE '$id' OR staffC LIKE '$id' OR staffD LIKE '$id'";
+                
+                    $res=$con->query($sql);
+                    $lab="";
+                    $word="Laboratory";
+                    echo '<tr ><td colspan="5" style="font-size:17px" class="left aligned"><em>General Course</em></td></tr>';
+                    while($row=$res->fetch_assoc())
+                    {
+                    if(strpos($row["name"],$word) !== false)
+                    {
+                        $lab=$row;
+                        continue;
+                    }
+                    $batch=(2020%intval($row["batch"]))+1;
+                    $year=$batch==2?"II":($batch==3?"III":"IV");
+                    if($row["staffA"]==$id)
+                    {
+                        $sec="A";
+                    }
+                    else if($row["staffB"]==$id)
+                    {
+                        $sec="B";
+                    }
+                    else if($row["staffC"]==$id)
+                    {
+                        $sec="C";
+                    }
+                    else 
+                    {
+                        $sec="D";
+                    }
+                    $code=$row["code"];
+                    $name=$row["name"];
+                    $btn=strval($row["batch"]%2000)."-".$_SESSION["dept"]."-".$sec."/".$code;
+                    echo '<tr>
+                    <td>'.$year.'</td>
+                    <td>'.$sec.'</td>
+                    <td>'.$code.'</td>
+                    <td>'.$name.'</td>
+                    <td class="right aligned"><button class="ui primary right icon button" id="'.$btn.'" onclick="attend(this.id)"> Mark Attendance &nbsp&nbsp<i class="check icon"></i></button>&nbsp;&nbsp;<button class="ui black right icon button" id="'.$btn.'" onclick="history(this.id)"> View History &nbsp&nbsp<i class="history icon"></i></button></td>
+                    </tr>';
+                    }
+                    if($lab!="")
+                    {
+                    echo '<tr ><td colspan="5" style="font-size:17px" class="left aligned"><em>Laboratory Course</em></td></tr>';
+                    
+                    $batch=(2020%intval($lab["batch"]))+1;
+                    $year=$batch==2?"II":($batch==3?"III":"IV");
+                    if($lab["staffA"]==$id)
+                    {
+                    $sec="A";
+                    }
+                    else if($lab["staffB"]==$id)
+                    {
+                    $sec="B";
+                    }
+                    else if($lab["staffC"]==$id)
+                    {
+                    $sec="C";
+                    }
+                    else 
+                    {
+                    $sec="D";
+                    }
+                    $code=$lab["code"];
+                    $name=$lab["name"];
+                    $btn=strval($lab["batch"]%2000)."-".$_SESSION["dept"]."-".$sec."/".$code;
+                
+                    echo '    <tr>
+                    <td>'.$year.'</td>
+                    <td>'.$sec.'</td>
+                    <td>'.$code.'</td>
+                    <td>'.$name.'</td>
+                    <td class="right aligned"><button class="ui primary right icon button " id="'.$btn.'"  onclick="attend(this.id)"> Mark Attendance &nbsp&nbsp<i class="check icon"></i></button><button class="ui black right icon button" id="'.$btn.'" onclick="history(this.id)"> View History &nbsp&nbsp<i class="history icon"></i></button></td>
+                </tr>';
+                }
 
-  ?>
+                ?>
+            </tbody>
+        </table>
+            </div>
+           
+    <div id="seg" style="display:none">
+    </div>
 
 
-        </tbody>
-    </table>
 
-    <div class="ui tiny inverted modal" id="datepickermod">
+
+
+<div class="ui tiny inverted modal" id="datepickermod">
         <div class="header">
             KEC Student+
             <button class="ui right floated negative icon button" id="closebtn1">
@@ -180,6 +187,7 @@
             </button>
             </form>
         </div>
+</div>
         <script>
         var d = "";
 
@@ -237,7 +245,27 @@
 
 
         }
+        function history(id)
+        {
+            var btn1 = id.split("/");
+            d1 = "cls=" + btn1[0] + "&code=" + btn1[1];
+            $.ajax({
+                url: "./AJAX/handler.php",
+                data: d1,
+                type: "POST",
+                success: function(r) {
+                    $("#seg").html("");
+                    $("#seg").append('<button class="ui right floated circular teal icon button" id="bt" data-tooltip="Back to classes" data-position="bottom right" data-inverted=""  onclick="clss()" style="margin-right:1%;"><i class="undo icon"></i></button><div class="ui header" style="text-align:center;font-size:30px;margin-top:2%;color:#ADEFD1FF">Attendance History &nbsp;&nbsp;<i class="history icon"></i></div>'+r);
+                    
+
+                    $("#tabl").hide();
+                    $("#seg").show();    
+                }
+            })
+        }
+    
         $(document).ready(function() {
+            
             $("#datepickermod").modal({});
             $("#closebtn1").click(function() {
                 $("#datepickermod").modal("hide");
@@ -245,7 +273,15 @@
             $('#cal').calendar({
                 type: 'date'
             });
+           
         });
+        function clss()
+        {
+           
+            $("#tabl").show();
+            $("#seg").hide();  
+        }
+        
         </script>
 </body>
 
