@@ -17,6 +17,7 @@
           $_SESSION["dept"]=$row['dept'];
           $_SESSION['batch']=$row['batch'];
           $_SESSION['design']=$row['designation'];
+          $_SESSION['sec']=$row['sec'];
           echo "Success";
        }
        else

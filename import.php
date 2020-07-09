@@ -186,10 +186,15 @@ if(isset($_POST['finalize']))
             $asst=$_SESSION['assoc'];
             $into='(`date`,`code`,`period`,';
             $vals='("'.$date.'","'.$code.'","'.$h.'",';
+            $stat='';
             foreach($asst as $roll=>$at)
             {
+                if(isset($_POST[$roll]))
+                    $stat='P';
+                else
+                    $stat='A';
                 $into.='`'.$roll.'`,';
-                $vals.='"'.$at.'",';
+                $vals.='"'.$stat.'",';
             }
             $into=substr($into,0,-1).')';
             $vals=substr($vals,0,-1).');';
@@ -298,18 +303,22 @@ if(isset($_POST['finalize']))
                 <h1 class="header">
                     Attendance Entry
                 </h1>
+                <div class="description">
+                    Color Diff refers changes that are currently made
+                </div>
             </center>
-            <div class="content">
-                <table class="ui compact table">
-                    <thead>
-                        <tr>
-                            <th colspan="2">
-                                Attendance Report
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
+            <form class="ui form" name="edit" action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
+                <div class="content">
+                    <table class="ui compact table">
+                        <thead>
+                            <tr>
+                                <th colspan="3">
+                                    Attendance Report
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
                         $arr1=$_SESSION['array1'];
                         $arr2=$_SESSION['array2'];
                         $arr3=$_SESSION['array3'];
@@ -323,11 +332,13 @@ if(isset($_POST['finalize']))
                             $r=$r['regno'];
                             $mark='';
                             $cls='';
+                            $check='';
                             if((in_array($r,$arr1)&&in_array($r,$arr2))||(in_array($r,$arr2)&&in_array($r,$arr3))||(in_array($r,$arr1)&&in_array($r,$arr3)))
                             {
                                 $attend[$r]='P';
                                 $mark='<i class="large green checkmark icon"></i>';
                                 $cls='positive';
+                                $check='checked';
                             }    
                             else
                             {    
@@ -336,25 +347,30 @@ if(isset($_POST['finalize']))
                                 $cls='negative';
                             }
                             echo '<tr>
-                            <td class="'.$cls.'">
+                            <td><div class="ui toggle checkbox">
+                            <input type="checkbox" name="'.$r.'" '.$check.'>
+                            <label></label>
+                            </div></td>
+                            <td id="'.$r.'" class="'.$cls.'">
                                 '.$r.'
                             </td>
-                            <td class="'.$cls.'">'.$mark.'</td>
+                            <td id="'.$r.'1'.'" class="'.$cls.'">'.$mark.'</td>
+                            
                         </tr>';
                         }
                         $_SESSION['assoc']=$attend;
                     ?>
-                    </tbody>
-                </table>
-                <form action="<?php echo $_SERVER['PHP_SELF'];?>" name="finalize" method="post">
+                        </tbody>
+                    </table>
+
                     <button type="submit" name="finalize" value="goback" style="float: left;"
                         class="ui large black button">Go
                         Back</button>
                     <button type="submit" name="finalize" value="done" style="float: right;"
                         class="ui large green button">Finalize</button>
-                </form>
-            </div>
+            </form>
         </div>
+    </div>
     </div>
 
     <script>
@@ -367,6 +383,27 @@ if(isset($_POST['finalize']))
             var name = e.target.files[0].name;
             $('input:text', $(e.target).parent()).val(name);
         });
+    </script>
+    <script>
+    $(document).ready(function() {
+        $('input[type="checkbox"]').on('change', function() {
+            var temp = $(this).attr("name");
+            var ele = document.getElementById(temp);
+            $(ele).toggleClass('positive', $(this).is(':checked'));
+
+            $(ele).toggleClass('negative', $(this).not(':checked'));
+
+            if ($(this).is(':checked')) {
+                var temp = $(this).attr("name") + 1;
+                var ele = document.getElementById(temp);
+                $(ele).children().attr("class", 'large green checkmark icon');
+            } else {
+                var temp = $(this).attr("name") + 1;
+                var ele = document.getElementById(temp);
+                $(ele).children().attr("class", 'large red times icon');
+            }
+        });
+    });
     </script>
     <style>
     .ui.action.input input[type="file"] {
