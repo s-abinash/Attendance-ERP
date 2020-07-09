@@ -77,7 +77,6 @@ if(isset($_POST['fetch']))
     $period=$_POST['hrs'];
     $class=strval(intval($batch)-2000).'-cse-'.strtolower($sec);
     $sql="SELECT * from `".$class."` WHERE `date` like '$date' and `code` like '$code' and `period` like '$period'";
-    echo $sql;
     $data=$con->query($sql);
     if($data->num_rows==0)
     {
@@ -107,50 +106,7 @@ if(isset($_POST['fetch']))
             </script>';
 }
 ?>
-    <?php 
-if(isset($_POST['finalize']))
-{
-    if($_POST['finalize']=="done")
-    {
-        
-        foreach($hrs as $h)
-        {
-            $asst=$_SESSION['assoc'];
-            $into='(`date`,`code`,`period`,';
-            $vals='("'.$date.'","'.$code.'","'.$h.'",';
-            foreach($asst as $roll=>$at)
-            {
-                $into.='`'.$roll.'`,';
-                $vals.='"'.$at.'",';
-            }
-            $into=substr($into,0,-1).')';
-            $vals=substr($vals,0,-1).');';
-            $sql="INSERT INTO `".$class."` ".$into." VALUES ".$vals;
-            
-            $con->query($sql);
-        }
-        
-        unset($_SESSION['array1']);
-        unset($_SESSION['array2']);
-        unset($_SESSION['array3']);
-        unset($_SESSION['assoc']);
-        unset($_SESSION['upload']);
-        echo "<script>Notiflix.Report.Success('Success','Attendance Marked Successfully','Okay',function(){window.location.replace('home.php');});</script>";
-        exit();
-    }
-    else
-    {
-            unset($_SESSION['array1']);
-            unset($_SESSION['array2']);
-            unset($_SESSION['array3']);
-            unset($_SESSION['assoc']);
-            unset($_SESSION['upload']);
-            echo "<script>window.location.replace('./home.php');</script>";
-          
-    }
-        
-}
-?>
+
     <div class="card-1">
         <div class="ui raised padded container segment" id="card" style="margin:auto;width:60%;">
             <center>
@@ -205,6 +161,55 @@ if(isset($_POST['finalize']))
         </div>
     </div>
 
+    <?php
+                            
+                            if(isset($_POST['finalize']))
+                            {
+                                    if($_POST['finalize']=='done')
+                                    {
+                                        //var_dump($_POST);
+                                        $date=$_SESSION['date'];
+                                        $code=$_SESSION['code'];
+                                        $period=$_SESSION['period'];
+                                        $class=strval(intval($batch)-2000).'-cse-'.strtolower($sec);
+                                        
+                                        $arr=array();
+                                        $sql="SELECT regno from registration where batch like '$batch' and sec like '$sec' and dept like '$dep'";
+                                        $data=$con->query($sql);
+                                        $sql='UPDATE `'.$class.'` SET ';
+                                        while($r=mysqli_fetch_array($data))
+                                        {
+                                            $r=$r['regno'];
+                                            if(isset($_POST[$r]))
+                                                $arr[$r]='P';
+                                            else
+                                                $arr[$r]='A';
+                                        }
+                                        foreach($arr as $a=>$b)
+                                        {
+                                            $sql.='`'.$a.'`="'.$b.'",';
+                                        }
+                                        $sql=substr($sql,0,-1);
+                                        $sql.=" WHERE `date` like '$date' and `code` like '$code' and `period` like '$period';";
+                                        //echo $sql;
+                                        if($con->query($sql))
+                                            echo "<script> Notiflix.Report.Success( 'Attendance Updated Successfully', 'You can review later.', 'Okay',function(){window.location.replace('home.php')} );</script>";
+                                        else
+                                            echo "<script> Notiflix.Report.Failure( 'Updation Failure', 'Contact Admin', 'Okay',function(){window.location.replace('home.php')} );</script>";
+                                        exit();
+                                    }
+                                    else
+                                    {
+                                        unset($_SESSION['date']);
+                                        unset($_SESSION['code']);
+                                        unset($_SESSION['period']);
+                                        echo '<script>window.location.replace("home.php");</script>';
+                                    }
+                            }
+                            
+                            
+                            
+                            ?>
 
     <div class="card-2" style="display: none">
         <div class="ui raised padded container segment" id="card" style="height:80%;overflow:auto;width:60%;">
