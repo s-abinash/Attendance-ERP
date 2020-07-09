@@ -77,10 +77,10 @@
          $cnt=mysqli_num_fields($res)-3;
          while($row=$res->fetch_assoc())
          {
-              $d=$row["date"];
+              $d=date("d-m-Y",strtotime($row["date"]));
               $h=$row["period"];
           //     $abs=array();
-              $abs='<ol class="ui inverted list">';
+              $abs='<b><em>Course &nbsp: &nbsp'.$name.'<br><br>Date &nbsp: &nbsp '.$d.'<br><br>Absentees:<br> <ol class="ui  list">';
               foreach($row as $ind=>$val)
               {
                    if($val=="A")
@@ -88,12 +88,13 @@
                         $abs.='<li>'.$ind.'&nbsp; - &nbsp;'.($con->query("SELECT name from registration where regno like '$ind'"))->fetch_assoc()["name"].'</li>';
                    }
               }
-              $abs.='</ol>';
+              $abs.='</ol></b></em>';
               
               $P=array_count_values($row)["P"];
               $A=array_count_values($row)["A"];//<a class="ui red ribbon label">'.$d.'</a>
                echo '<div class="ui raised  segment" style="width:50%;margin:auto;margin-top:3%;"><div class="ui black info right circular icon message">
                          <div class="ui header">
+                       
                               Date &nbsp;:&nbsp; '.$d.'  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;   Period &nbsp;: &nbsp '.$h.'</span>
                          </div>
                          <div class="content">
@@ -124,14 +125,15 @@
                                    </div>
                               </div>
                          </div>
-                    </div></div><div class="ui special inverted popup" id="pop'.$d.$h.'">'.$abs.'</div>
+                    </div></div><div class="ui popup" id="pop'.$d.$h.'" style="width:100%">'.$abs.'</div>
                     <script>
                     $(document).ready(function(){
                          $("#'.$d.$h.'")
-  .popup({
-    popup: "#pop'.$d.$h.'"
-  })
-;
+                         .popup({
+                         popup: "#pop'.$d.$h.'",
+                         inline     : true,
+                         hoverable  : true,
+                         });
                     });
                     </script>';
               
