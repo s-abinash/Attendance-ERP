@@ -119,7 +119,7 @@ if(isset($_SESSION['id']))
                 <a href="mailto:studentplus@kongu.edu?subject=Attendance Reg.," target="_blank">Contact Admin</a>
             </div><br /><br />
             <center>
-                <button type="submit" id="sub" class="ui positive button">Sign in</button>
+                <button type="submit" id="sub" class="ui large positive button">Sign in</button>
             </center>
         </form>
     </div>
