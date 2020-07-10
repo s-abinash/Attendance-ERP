@@ -96,7 +96,6 @@ if(isset($_POST["upload"]))
     if(isset($_FILES['excel']))
     {
         $file_type=$_FILES['excel']['type'];
-        echo '<script>console.log("'.$file_type.'");</script>';
         $file_size= $_FILES['excel']['size'];
         if ($file_type=="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" && $file_size < 1010000 )     //2010000bytes = 2mb
         {
@@ -111,6 +110,18 @@ if(isset($_POST["upload"]))
                 $arr3 = array();
                 if ($xlsx = SimpleXLSX::parse($targetfolder)) {
 
+                    try{
+                        if(empty($xlsx->rows(0)) || empty($xlsx->rows(1)) || empty($xlsx->rows(3)))
+                            throw new Exception();
+                    }
+                    catch(Exception $e) {
+                        unlink($targetfolder);
+                        echo "<script> Notiflix.Report.Failue( 'File Error', 'Upload file in desired format.', 'Okay',function(){window.location.replace('import.php');} );</script>";
+                        echo "<script>alert('File is not in desired format');</script>";
+                        echo "<script>window.location.replace('import.php');</script>";
+                        
+                        exit();
+                    }
                     // echo '<h1>Sheet1</h1>';
                     foreach ($xlsx->rows(0) as $r) {
                         $s = implode($r);
@@ -377,6 +388,10 @@ if(isset($_POST['finalize']))
     $("input:text").click(function() {
         $(this).parent().find("input:file").click();
     });
+    $(".ui.icon.button").click(function() {
+        $(this).parent().find("input:file").click();
+    });
+
 
     $('input:file', '.ui.action.input')
         .on('change', function(e) {
