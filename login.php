@@ -124,16 +124,20 @@ if(isset($_SESSION['id']))
         </form>
     </div>
     <div class="footer">
-        <p style="vertical-align: middle;padding: 10px;" id="aboutus"> Website developed by
-            <span style="color:violet;">Abinash S</span> and <span style="color:violet;">Ajay R </span></p>
+        <p style="vertical-align: middle;padding: 10px;"> Website developed by
+            <span style="color:violet;" id="abinash">Abinash S</span> and <span style="color:violet;" id="ajay">Ajay R
+            </span></p>
     </div>
 
     <script src="./assets/jquery.min.js"></script>
     <script src="./assets/Fomantic/dist/semantic.min.js"></script>
     <script>
     $(document).ready(function() {
-        $("#aboutus").on("click", function() {
-            window.location.href = "https://kecstudent.xyz/aboutUs";
+        $("#abinash").on("click", function() {
+            window.location.href = "mailto:s.abinash@outlook.com/subject=Attendance Reg.,";
+        });
+        $("#ajay").on("click", function() {
+            window.location.href = "mailto:ajayofficial@zohomail.in/subject=Attendance Reg.,";
         });
         $("#login").on("submit", function() {
             $("#sub").addClass("loading");
