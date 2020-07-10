@@ -202,24 +202,19 @@
                     var arr = [];
                     var i;
                     var dates = JSON.parse(res);
-
                     if (!(Array.isArray(dates) && dates.length)) {
                         Notiflix.Notify.Info("You have no pending Attendance reports to be uploaded");
                         return false;
                     }
-
-
                     for (i of dates) {
                         var r = i.split("-");
                         arr.push(new Date(r[0], r[1] - 1, r[2]));
                     }
-
                     $('#cal').calendar({
                         type: 'date',
                         enabledDates: arr,
                         formatter: {
                             date: function(date, settings) {
-
                                 if (!date) return '';
                                 var day = date.getDate();
                                 var month = date.getMonth() + 1;
@@ -228,22 +223,16 @@
                             }
                         }
                     });
-
                     $('#hr').dropdown({
                         maxSelections: 2
                     });
-
                     $('#tab').val(btn[0]);
                     $('#code').val(btn[1]);
                     $("#datepickermod").modal({
                         centered: false
                     }).modal("show");
-
                 }
-
             });
-
-
         }
         function history(id)
         {
@@ -255,12 +244,10 @@
                 type: "POST",
                 success: function(r) {
                     if(r=== '')
-                    {
-                       
+                    {             
                         Notiflix.Notify.Info("You haven't uploaded any Attendance reports yet");
                         return false;
-                    }
-                    
+                    }        
                     $("#seg").html("");
                     $("#seg").append('<button class="ui right floated circular teal icon button" id="bt" data-tooltip="Back to Home" data-position="bottom right" data-inverted=""  onclick="clss()" style="margin-right:1%;"><i class="undo icon"></i></button><div class="ui header" style="text-align:center;font-size:30px;margin-top:2%;color:#ADEFD1FF">Attendance History &nbsp;&nbsp;<i class="history icon"></i></div>'+r);
                     $("#tabl").hide();
@@ -279,14 +266,29 @@
             $('#cal').calendar({
                 type: 'date'
             });
-           
         });
         function clss()
         {   
             $("#tabl").show();
             $("#seg").hide();  
         }
-
+        function editor(val)
+        {
+            var e = val.split("/");
+            var arr={"e_code":e[0],"e_date":e[1],"e_period":e[2],"edittab":e[3],"editor":"edit"};
+            $.ajax({
+                url:"./AJAX/handler.php",
+                type:"POST",
+                data:arr,
+                success:function(r)
+                {
+                    if(r=="go&edit")
+                    {
+                        window.location.href="editAttdAdv.php";
+                    }                   
+                }
+            });
+        }
       
         
         </script>

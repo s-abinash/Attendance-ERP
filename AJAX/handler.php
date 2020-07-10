@@ -68,7 +68,10 @@
     }
     else if(isset($_POST["cls"]))
     {
+         
          $tab=strtolower($_POST["cls"]);
+
+
          $code=$_POST["code"];
          $sql="SELECT name FROM `course_list` WHERE code LIKE '$code'";
          $name=($con->query($sql))->fetch_assoc()["name"]; 
@@ -92,13 +95,16 @@
               
               $P=array_count_values($row)["P"];
               $A=array_count_values($row)["A"];//<a class="ui red ribbon label">'.$d.'</a>
-               echo '<div class="ui raised  segment" style="width:50%;margin:auto;margin-top:3%;"><div class="ui black info right circular icon message">
-                         <div class="ui header">
+               echo '<div class="ui raised  segment" style="width:50%;margin:auto;margin-top:3%;">
+                     
+               <div class="ui black info right circular icon message">
+             
+               <div class="ui header">
                        
                               Date &nbsp;:&nbsp; '.$d.'  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;   Period &nbsp;: &nbsp '.$h.'</span>
                          </div>
                          <div class="content">
-                              <div class="ui inverted small statistics" style="margin-left:10%">
+                              <div class="ui inverted small statistics" style="margin-left:5%">
                                    <div class="statistic">
                                         <div class="value">
                                              '.$P.'
@@ -123,9 +129,10 @@
                                              Total
                                         </div>
                                    </div>
-                              </div>
+                              
+                         <button class="ui right floated tertiary icon button" data-tooltip="Click to Edit Uploaded Attendance" id="'.$code."/".$d."/".$h."/".$tab.'" data-position="top left"   onclick="editor(this.id)" ><i class="edit large icon" style="color:cyan"></i></button>   </div>
                          </div>
-                    </div></div><div class="ui popup" id="pop'.$d.$h.'" style="width:100%">'.$abs.'</div>
+                    </div></div><div class="ui popup" id="pop'.$d.'/'.$h.'/'.$name.'" style="width:100%">'.$abs.'</div>
                     <script>
                     $(document).ready(function(){
                          $("#'.$d.$h.'")
@@ -136,7 +143,22 @@
                          });
                     });
                     </script>';
-              
+              exit();
          }
+    }
+    else if(isset($_POST["editor"]))
+    {
+         session_start();
+          $tab=strtoupper($_POST["edittab"]);
+          $_SESSION["sec"]=substr($tab,-1);
+          $_SESSION["batch"]=substr($tab,0,2);
+          $_SESSION["dept"]="CSE";
+          $_SESSION["code"]=$_POST["e_code"];
+          $_SESSION["period"]=$_POST["e_period"];
+          $_SESSION["date"]=$_POST["e_date"];
+          $_SESSION["EditAttnd"]="go&edit";
+          
+          echo "go&edit";
+          exit();
     }
 ?>
