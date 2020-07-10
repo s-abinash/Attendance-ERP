@@ -281,6 +281,7 @@ if(isset($_POST['finalize']))
                     <div class="field">
                         <label>Sample</label>
                         <div class="ui message">
+                            <p>XLSX with 3 sheets, each having list in the first column</p>
                             <p>Download Sample Excel here, <a href="./files/CSEA.xlsx" download><i
                                         class="blue download icon"></i></a></p>
                         </div>
