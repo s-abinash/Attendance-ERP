@@ -134,10 +134,10 @@ if(isset($_SESSION['id']))
     <script>
     $(document).ready(function() {
         $("#abinash").on("click", function() {
-            window.location.href = "mailto:s.abinash@outlook.com/subject=Attendance Reg.,";
+            window.location.href = "mailto:s.abinash@outlook.com?subject=Attendance Reg.,";
         });
         $("#ajay").on("click", function() {
-            window.location.href = "mailto:ajayofficial@zohomail.in/subject=Attendance Reg.,";
+            window.location.href = "mailto:ajayofficial@zohomail.in?subject=Attendance Reg.,";
         });
         $("#login").on("submit", function() {
             $("#sub").addClass("loading");
