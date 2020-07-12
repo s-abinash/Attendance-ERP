@@ -92,6 +92,8 @@
                    }
               }
               $abs.='</ol></b></em>';
+              $P=0;
+              $A=0;
               
               $P=array_count_values($row)["P"];
               $A=array_count_values($row)["A"];//<a class="ui red ribbon label">'.$d.'</a>
