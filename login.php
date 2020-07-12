@@ -116,8 +116,12 @@ if(isset($_SESSION['id']))
                 <label>Password</label>
             </div>
             <div style="float:left;color:pink;">
-                <a href="mailto:studentplus@kongu.edu?subject=Attendance Reg.," target="_blank">Contact Admin</a>
-            </div><br /><br />
+                <a href="mailto:studentplus@kongu.edu?subject=Attendance Reg.," target="_blank">Admin Mail</a>
+            </div>
+            <div style="float:right;color:pink;">
+                <a href="https://t.me/kecattendance" target="_blank">Telegram Help</a>
+            </div>
+            <br /><br />
             <center>
                 <button type="submit" id="sub" class="ui large positive button">Sign in</button>
             </center>
@@ -126,7 +130,9 @@ if(isset($_SESSION['id']))
     <div class="footer">
         <p style="vertical-align: middle;padding: 10px;"> Website developed by
             <span style="color:violet;" id="abinash">Abinash S</span> and <span style="color:violet;" id="ajay">Ajay R
-            </span></p>
+            </span>of III CSE - A
+
+        </p>
     </div>
 
     <script src="./assets/jquery.min.js"></script>

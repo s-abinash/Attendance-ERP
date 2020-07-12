@@ -53,14 +53,12 @@ if(isset($_SESSION["EditAttnd"]))
 
 <body>
     <style>
-    body 
-    {
+    body {
         background: url('./images/bgpic.jpg');
     }
 
 
-    #card 
-    {
+    #card {
         margin: 0;
         position: absolute;
         top: 50%;
@@ -69,7 +67,7 @@ if(isset($_SESSION["EditAttnd"]))
         transform: translate(-50%, -50%);
     }
     </style>
- 
+
     <?php
                             
     if(isset($_POST['finalize']))
@@ -124,7 +122,7 @@ if(isset($_SESSION["EditAttnd"]))
     
     ?>
 
-    <div class="card-2" >
+    <div class="card-2">
         <div class="ui raised padded container segment" id="card" style="height:80%;overflow:auto;width:60%;">
             <center>
                 <h1 class="header">
@@ -156,7 +154,7 @@ if(isset($_SESSION["EditAttnd"]))
                                 $class=strval($batch).'-cse-'.$sec;
                                 $sql1="SELECT * from `".$class."` WHERE `date` like '$date' and `code` like '$code' and `period` like '$period'";
                                 $data1=$con->query($sql1);
-                                
+                                echo $sql1;
                                 $row=$data1->fetch_assoc();
                         
                                 while($r=mysqli_fetch_array($data))
