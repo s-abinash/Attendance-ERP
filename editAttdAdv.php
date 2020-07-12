@@ -151,7 +151,7 @@ if(isset($_SESSION["EditAttnd"]))
                                 $sql="SELECT regno from registration where batch like '$bat' and sec like '$sec' and dept like '$dep'";
                                 $data=$con->query($sql);
                                 
-                                $class=strval($batch).'-cse-'.$sec;
+                                $class=tolower(strval($batch)).'-cse-'.tolower($sec);
                                 $sql1="SELECT * from `".$class."` WHERE `date` like '$date' and `code` like '$code' and `period` like '$period'";
                                 $data1=$con->query($sql1);
                                 echo $sql1;
