@@ -89,6 +89,21 @@ else
 ?>
 
 <body>
+    <style>
+    body {
+        background: url("./images/bgpic.jpg");
+    }
+
+    #card {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+    </style>
+
 
     <?php
 if(isset($_POST["upload"]))
@@ -108,18 +123,33 @@ if(isset($_POST["upload"]))
                 $arr1 = array();
                 $arr2 = array();
                 $arr3 = array();
+                
                 if ($xlsx = SimpleXLSX::parse($targetfolder)) {
-
+                    //var_dump($xlsx->rows(3));
                     try{
-                        if(empty($xlsx->rows(0)) || empty($xlsx->rows(1)) || empty($xlsx->rows(3)))
+                        if(empty($xlsx->rows(0)) || empty($xlsx->rows(1)) || empty($xlsx->rows(2)))
+                        {    
                             throw new Exception();
+                        }
                     }
                     catch(Exception $e) {
                         unlink($targetfolder);
-                        echo "<script> Notiflix.Report.Failue( 'File Error', 'Upload file in desired format.', 'Okay',function(){window.location.replace('import.php');} );</script>";
-                        echo "<script>alert('File is not in desired format');</script>";
-                        echo "<script>window.location.replace('import.php');</script>";
-                        
+                        echo "<script> Notiflix.Report.Failure( 'Format Error', 'Some sheets has not been filled', 'Okay',function(){window.location.replace('home.php');} );</script>";
+                        //echo "<script>alert('File is not in desired format');</script>";
+                        //echo "<script>window.location.replace('import.php');</script>";
+                        exit();
+                    }
+                    try{
+                        if(($xlsx->rows(0)==null) || ($xlsx->rows(1)==null) || ($xlsx->rows(2)==null))
+                        {    
+                            throw new Exception();
+                        }
+                    }
+                    catch(Exception $e) {
+                        unlink($targetfolder);
+                        echo "<script> Notiflix.Report.Failure('Format Error','3 sheets should be present.', 'Okay',function(){window.location.replace('home.php');} );</script>";
+                        //echo "<script>alert('File is not in desired format');</script>";
+                        //echo "<script>window.location.replace('import.php');</script>";
                         exit();
                     }
                     // echo '<h1>Sheet1</h1>';
@@ -166,6 +196,7 @@ if(isset($_POST["upload"]))
             }
             else
             {
+                unlink($targetfolder);
                 echo "<script> Notiflix.Report.Failure( 'Submisson Error', 'Some error occured. <br> Please try again.', 'Okay' );</script>";
             }
         }
@@ -173,11 +204,13 @@ if(isset($_POST["upload"]))
         {
             if ($file_type=="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
             {
+                unlink($targetfolder);
                 echo "<script> Notiflix.Report.Failure( 'Submisson Error', 'Only Excel sheets can be uploaded. <br> Please Convert and Submit.', 'Okay' );</script>";
                 
             }
             if($file_size > 1010000)
             {
+                unlink($targetfolder);
                 echo "<script> Notiflix.Report.Failue( 'Submisson Error', 'File size should be 1 MB max. <br> Please Compress and Submit.', 'Okay' );</script>";
             }
         }
@@ -235,22 +268,6 @@ if(isset($_POST['finalize']))
         
 }
 ?>
-
-
-    <style>
-    body {
-        background: url("./images/bgpic.jpg");
-    }
-
-    #card {
-        margin: 0;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        -ms-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
-    }
-    </style>
 
     <!-- File Upload Card  -->
 

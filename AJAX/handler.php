@@ -95,7 +95,7 @@
               
               $P=array_count_values($row)["P"];
               $A=array_count_values($row)["A"];//<a class="ui red ribbon label">'.$d.'</a>
-               echo '<div class="ui raised  segment" style="width:50%;margin:auto;margin-top:3%;">
+               echo '<div class="ui raised  segment" style="width:70%;margin:auto;margin-top:3%;">
                      
                <div class="ui black info right circular icon message">
              
@@ -104,7 +104,7 @@
                               Date &nbsp;:&nbsp; '.$d.'  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;   Period &nbsp;: &nbsp '.$h.'</span>
                          </div>
                          <div class="content">
-                              <div class="ui inverted small statistics" style="margin-left:5%">
+                              <div class="ui inverted small statistics" style="margin-left:25%">
                                    <div class="statistic">
                                         <div class="value">
                                              '.$P.'
@@ -129,8 +129,17 @@
                                              Total
                                         </div>
                                    </div>
+                                   <div class="statistic">
+                                        <div class="value">
+                                              <button class="ui right floated tertiary icon button" data-tooltip="Click to Edit Uploaded Attendance" id="'.$code."/".$d."/".$h."/".$tab.'" onclick="editor(this.id);" data-position="top left"><i class="edit large icon" style="color:cyan"></i></button>
+                                        </div>
+                                        <div class="label">
+                                             Edit
+                                        </div>
+                                   </div>
+                                   
                               
-                         <button class="ui right floated tertiary icon button" data-tooltip="Click to Edit Uploaded Attendance" id="'.$code."/".$d."/".$h."/".$tab.'" data-position="top left"   onclick="editor(this.id)" ><i class="edit large icon" style="color:cyan"></i></button>   </div>
+                         
                          </div>
                     </div></div><div class="ui popup" id="pop'.$d.'/'.$h.'/'.$name.'" style="width:100%">'.$abs.'</div>
                     <script>
