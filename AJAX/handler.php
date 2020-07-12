@@ -137,10 +137,7 @@
                                              Edit
                                         </div>
                                    </div>
-                                   
-                              
-                         
-                         </div>
+                         </div></div>
                     </div></div><div class="ui popup" id="pop'.$d.'/'.$h.'/'.$name.'" style="width:100%">'.$abs.'</div>
                     <script>
                     $(document).ready(function(){
