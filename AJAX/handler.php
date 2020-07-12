@@ -92,16 +92,13 @@
                    }
               }
               $abs.='</ol></b></em>';
-              
-              
               $P=array_count_values($row)["P"];
               $A=array_count_values($row)["A"];//<a class="ui red ribbon label">'.$d.'</a>
               if($A==null)
               {
                $A=0;
               }
-              echo '<script>console.log("'.$A.'")</script>';
-               echo '<div class="ui raised  segment" style="width:70%;margin:auto;margin-top:3%;">
+              echo '<div class="ui raised  segment" style="width:70%;margin:auto;margin-top:3%;">
                      
                <div class="ui black info right circular icon message">
              
