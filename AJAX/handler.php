@@ -143,8 +143,9 @@
                          });
                     });
                     </script>';
-              exit();
+              
          }
+        exit();
     }
     else if(isset($_POST["editor"]))
     {
