@@ -154,7 +154,7 @@ if(isset($_SESSION["EditAttnd"]))
                                 $class=strtolower(strval($batch)).'-cse-'.strtolower($sec);
                                 $sql1="SELECT * from `".$class."` WHERE `date` like '$date' and `code` like '$code' and `period` like '$period'";
                                 $data1=$con->query($sql1);
-                                echo $sql1;
+                                //echo $sql1;
                                 $row=$data1->fetch_assoc();
                         
                                 while($r=mysqli_fetch_array($data))
