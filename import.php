@@ -302,7 +302,7 @@ if(isset($_POST['finalize']))
                                     download><i class="blue download icon"></i></a></span>
                             <span style="float:right;">Download Manual Attendace Excel here, <a
                                     href="./files/Manual Attd.xlsx" download><i
-                                        class="green download icon"></i></a></span>
+                                        class="green download icon"></i></a></span><br/>
                         </div>
                     </div>
                     <div class="field">
