@@ -10,7 +10,7 @@ if(isset($_SESSION["EditAttnd"]))
 {
     $batch=$_SESSION['batch'];
     $sec=$_SESSION['sec'];
-    $dep=$_SESSION['dept'];   
+    $dep=$_SESSION['dep'];   
 }
 
 ?>
@@ -157,10 +157,9 @@ if(isset($_SESSION["EditAttnd"]))
                                 $sql="SELECT regno from registration where batch like '$bat' and sec like '$sec' and dept like '$dep'";
                                 $data=$con->query($sql);
                                 
-                                $class=strtolower(strval($batch)).'-cse-'.strtolower($sec);
+                                $class=strtolower(strval($batch))."-".strtolower($dep)."-".strtolower($sec);
                                 $sql1="SELECT * from `".$class."` WHERE `date` like '$date' and `code` like '$code' and `period` like '$period'";
                                 $data1=$con->query($sql1);
-                                //echo $sql1;
                                 $row=$data1->fetch_assoc();
                         
                                 while($r=mysqli_fetch_array($data))
