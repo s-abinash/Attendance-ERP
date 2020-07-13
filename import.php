@@ -243,8 +243,6 @@ if(isset($_POST['finalize']))
             $into=substr($into,0,-1).')';
             $vals=substr($vals,0,-1).');';
             $sql="INSERT INTO `".$class."` ".$into." VALUES ".$vals;
-            var_dump($sql);
-            exit();
             $con->query($sql);
         }
         
