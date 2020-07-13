@@ -34,9 +34,9 @@ include_once("../db.php");
 session_start();
 
 
-$tableName="17-cse-c";
+$tableName="17-cse-d";
 $batch="2017";
-$sec="C";
+$sec="D";
 
 $str="CREATE TABLE `$tableName` (date varchar(10) NOT NULL,code varchar(10) NOT NULL,period int NOT NULL,";
 $sql="SELECT regno FROM `registration` WHERE batch LIKE '$batch' AND sec LIKE '$sec'";
