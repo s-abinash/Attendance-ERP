@@ -36,7 +36,7 @@
          $day=array();
          while($row=$res->fetch_assoc())
          { 
-              $per = array($row["1"],$row["2"], $row["3"],$row["4"],$row["5"]);
+              $per = array($row["1"],$row["2"], $row["3"],$row["4"],$row["5"],$row["6"]);
               if(in_array($code, $per))
               {
                array_push($day,$row["day"]);
