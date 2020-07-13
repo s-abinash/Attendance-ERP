@@ -126,6 +126,7 @@ if(isset($_SESSION['id']))
                 <button type="submit" id="sub" class="ui large positive button">Sign in</button>
             </center>
         </form>
+        <center><span style="color:white; margin-bottom:0%;font-size:12px">Version : 1.0-beta</span></center>
     </div>
     <div class="footer">
         <p style="vertical-align: middle;padding: 10px;"> Website developed by
