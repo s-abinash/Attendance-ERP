@@ -38,7 +38,7 @@
             <tbody class="center aligned">
                 <?php
                     $id=$_SESSION["id"];
-                    $sql="SELECT * FROM `course_list` WHERE staffA LIKE '$id' OR staffB LIKE '$id' OR staffC LIKE '$id' OR staffD LIKE '$id'";
+                    $sql="SELECT * FROM `course_list` WHERE staffA LIKE '$id' OR staffB LIKE '$id' OR staffC LIKE '$id' OR staffD LIKE '$id' ORDER BY batch desc";
                 
                     $res=$con->query($sql);
                     $lab="";
