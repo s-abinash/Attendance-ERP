@@ -216,6 +216,10 @@ if(isset($_POST["upload"]))
         }
 
     }
+    else
+    {
+        echo "<script> Notiflix.Report.Failue( 'Submisson Error', 'File as well as Manual Entry is NULL', 'Try Again' );</script>";
+    }
 }
 
 ?>
@@ -303,17 +307,29 @@ if(isset($_POST['finalize']))
                                         class="green download icon"></i></a></span><br />
                         </div>
                     </div>
+
                     <div class="field">
-                        <label>Upload</label>
+                        <label>Manual Entry</label></bale>
+                        <div class="ui slider checkbox">
+                            <input type="checkbox" name="nofile" id="nofile">
+                            <label>Toggle for Manual Entry without XLSX</label>
+                        </div>
+                    </div>
+                    <div class="ui horizontal divider">
+                        Or
+                    </div>
+                    <div class="field">
+                        <label>File Upload</label>
                         <div class="ui action input">
                             <input type="text" placeholder="Upload xlsx" readonly>
-                            <input type="file" name="excel">
+                            <input type="file" name="excel" id="file">
                             <div class="ui icon button">
                                 <i class="attach icon"></i>
                                 Upload
                             </div>
                         </div>
                     </div>
+
                 </div>
                 <div class="field">
                     <center> <button type="submit" name="upload" class="ui positive button">Submit</button></center>
@@ -418,13 +434,22 @@ if(isset($_POST['finalize']))
     $(".ui.icon.button").click(function() {
         $(this).parent().find("input:file").click();
     });
-
-
-    $('input:file', '.ui.action.input')
-        .on('change', function(e) {
-            var name = e.target.files[0].name;
-            $('input:text', $(e.target).parent()).val(name);
+    $(document).ready(function() {
+        $('.slider.checkbox').checkbox({
+            onChecked: function() {
+                $('#file').attr('disabled', 'disabled');
+            },
+            onUnchecked: function() {
+                $('#file').removeAttr('disabled');
+            }
         });
+
+        $('input:file', '.ui.action.input')
+            .on('change', function(e) {
+                var name = e.target.files[0].name;
+                $('input:text', $(e.target).parent()).val(name);
+            });
+    });
     </script>
     <script>
     $(document).ready(function() {
