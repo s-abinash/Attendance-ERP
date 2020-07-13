@@ -173,7 +173,7 @@
           {
                echo "export_ready";
           }
-          else if(num==0)
+          else if($num==0)
           {
                echo "empty";
           }
