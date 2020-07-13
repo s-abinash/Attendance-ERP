@@ -39,7 +39,8 @@ $batch="2017";
 $sec="B";
 
 $str="CREATE TABLE `$tableName` (date varchar(10) NOT NULL,code varchar(10) NOT NULL,period int NOT NULL,";
-$sql="SELECT regno FROM REGISTRATION WHERE batch LIKE '$batch' AND sec LIKE='$sec'";
+$sql="SELECT regno FROM `registration` WHERE batch LIKE '$batch' AND sec LIKE='$sec'";
+echo $sql;
 $res=$con->query($sql);
 while($row=$res->fetch_assoc())
 {
@@ -47,7 +48,15 @@ while($row=$res->fetch_assoc())
     $str.=$roll." VARCHAR(2) NULL,";   
 }
 $str.="PRIMARY KEY(DATE,CODE),FOREIGN KEY (CODE) REFERENCES COURSE_LIST(CODE))";
-
+// if($con->query($str))
+// {
+//     echo "Successfull";
+// }
+// else
+// {
+//     echo $str;
+//     echo "error";
+// }
 echo $str;
 ?>
 
