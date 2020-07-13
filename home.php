@@ -25,7 +25,7 @@
     </style>
     <div id="tabl">
     <div class="ui header" style="text-align:center;font-size:30px;margin-top:2%;color:#ADEFD1FF">Your Class Associations</div>
-        <table class="ui selectable striped  table" style="margin:auto;width:70%;margin-top:5%">
+        <table class="ui selectable striped  table" style="margin:auto;width:80%;margin-top:5%">
             <thead>
                 <tr style="color:black;font-size:20px" class="center aligned">
                     <th>Year</th>
@@ -77,7 +77,7 @@
                     <td>'.$sec.'</td>
                     <td>'.$code.'</td>
                     <td>'.$name.'</td>
-                    <td class="right aligned"><button class="ui primary right icon button" id="'.$btn.'" onclick="attend(this.id)"> Mark Attendance &nbsp&nbsp<i class="check icon"></i></button>&nbsp;&nbsp;<button class="ui black right icon button" id="'.$btn.'" onclick="history(this.id)"> View History &nbsp&nbsp<i class="history icon"></i></button></td>
+                    <td class="right aligned"><button class="ui primary right icon button" id="'.$btn.'" onclick="attend(this.id)"> Mark Attendance &nbsp&nbsp<i class="check icon"></i></button>&nbsp;&nbsp;<button class="ui black right icon button" id="'.$btn.'" onclick="history(this.id)"> View History &nbsp&nbsp<i class="history icon"></i></button><button class="ui black right icon button" id="'.$btn.'" onclick="consolidate(this.id)"> Consolidation &nbsp&nbsp<i class="file export icon"></i></button></td>
                     </tr>';
                     }
                     if($lab!="")
@@ -111,7 +111,8 @@
                     <td>'.$sec.'</td>
                     <td>'.$code.'</td>
                     <td>'.$name.'</td>
-                    <td class="right aligned"><button class="ui primary right icon button " id="'.$btn.'"  onclick="attend(this.id)"> Mark Attendance &nbsp&nbsp<i class="check icon"></i></button><button class="ui black right icon button" id="'.$btn.'" onclick="history(this.id)"> View History &nbsp&nbsp<i class="history icon"></i></button></td>
+                    <td class="right aligned"><button class="ui primary right icon button " id="'.$btn.'"  onclick="attend(this.id)"> Mark Attendance &nbsp&nbsp<i class="check icon"></i></button><button class="ui black right icon button" id="'.$btn.'" onclick="history(this.id)"> View History &nbsp&nbsp<i class="history icon"></i></button><button class="ui black right icon button" id="'.$btn.'" onclick="consolidate(this.id)"> Consolidation &nbsp&nbsp<i class="file export icon"></i></button></td>
+                    
                 </tr>';
                 }
 
@@ -254,6 +255,34 @@
                     $("#tabl").hide();
                     $("#seg").show();    
                     Notiflix.Notify.Info("Hover on Absentees count to the view Absentees List");
+                }
+            })
+        }
+
+
+        function consolidate(id)
+        {
+            var btn2 = id.split("/");
+            d2 = "tname=" + btn2[0] + "&ccode=" + btn2[1]+"&consolidate=true";
+            $.ajax({
+                url: "./AJAX/handler.php",
+                data: d2,
+                type: "POST",
+                success: function(r) {
+                    if(r=== '')
+                    {             
+                        Notiflix.Notify.Info("You haven't uploaded any Attendance reports yet to consolidate");
+                        return false;
+                    } 
+                    else if(r==="export_ready")    
+                    {
+                        window.location.href="export.php";
+                    }  
+                    else
+                    {
+                        Notiflix.Notify.Warning("Error in retrieving data.Please try again else Contact Admin");
+                    }
+                    
                 }
             })
         }
