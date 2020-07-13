@@ -141,12 +141,12 @@
                                         </div>
                                    </div>
                          </div></div>
-                    </div></div><div class="ui popup" id="pop".$d.'/'.$h.'/'.$name style="width:100%">'.$abs.'</div>
+                    </div></div><div class="ui popup" id="#pop'.$d.$h.'" style="width:100%">'.$abs.'</div>
                     <script>
                     $(document).ready(function(){
                          $("#'.$d.$h.'")
                          .popup({
-                         popup: "#pop'.$d.'/'.$h.'/'.$name,
+                         popup: "#pop'.$d.$h.'",
                          inline     : true,
                          hoverable  : true,
                          });
