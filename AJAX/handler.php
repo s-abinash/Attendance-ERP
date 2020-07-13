@@ -162,12 +162,22 @@
     else if(isset($_POST["consolidate"]))
     {
          session_start();
+         $tab=$_POST["tname"];
           $code=$_POST["ccode"];
-         $_SESSION["tname"]=$_POST["tname"];
-         $_SESSION["ccode"]=$code;
-         $_SESSION["cname"]=$name=($con->query("SELECT name FROM `course_list` WHERE code LIKE '$code'"))->fetch_assoc()["name"]; 
+          $_SESSION["tname"]=$tab;
+          $_SESSION["ccode"]=$code;
+          $_SESSION["cname"]=$name=($con->query("SELECT name FROM `course_list` WHERE code LIKE '$code'"))->fetch_assoc()["name"]; 
+         $tab=strtolower($tab);
+         $num=($con->query("SELECT date from '$tab' where code LIKE '$code'"))->num_rows;
+          if($num!=0)
+          {
+               echo "export_ready";
+          }
+          else if(num==0)
+          {
+               echo "empty";
+          }
          
-         echo "export_ready";
          exit();
     }
     else if(isset($_POST["editor"]))

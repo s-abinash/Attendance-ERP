@@ -269,7 +269,7 @@
                 data: d2,
                 type: "POST",
                 success: function(r) {
-                    if(r=== '')
+                    if(r==='empty')
                     {             
                         Notiflix.Notify.Info("You haven't uploaded any Attendance reports yet to consolidate");
                         return false;
@@ -280,7 +280,7 @@
                     }  
                     else
                     {
-                        Notiflix.Notify.Warning("Error in retrieving data.Please try again else Contact Admin");
+                        Notiflix.Notify.Warning("Error in retrieving data.Please try again Else Contact Admin");
                     }
                     
                 }
