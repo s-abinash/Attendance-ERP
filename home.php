@@ -71,7 +71,7 @@
                     }
                     $code=$row["code"];
                     $name=$row["name"];
-                    $btn=strval($row["batch"]%2000)."-".$_SESSION["dept"]."-".$sec."/".$code;
+                    $btn=strval($row["batch"]%2000)."-".$row["dept"]."-".$sec."/".$code;
                     echo '<tr>
                     <td>'.$year.'</td>
                     <td>'.$sec.'</td>
@@ -104,7 +104,7 @@
                     }
                     $code=$lab["code"];
                     $name=$lab["name"];
-                    $btn=strval($lab["batch"]%2000)."-".$_SESSION["dept"]."-".$sec."/".$code;
+                    $btn=strval($lab["batch"]%2000)."-".$lab["dept"]."-".$sec."/".$code;
                 
                     echo '    <tr>
                     <td>'.$year.'</td>
