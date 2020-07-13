@@ -116,20 +116,23 @@ if(isset($_SESSION['id']))
                 <label>Password</label>
             </div>
             <div style="float:left;color:pink;">
-                <a href="mailto:studentplus@kongu.edu?subject=Attendance Reg.," target="_blank">Admin Mail</a>
+                <a href="mailto:studentplus@kongu.edu?subject=Attendance Reg.," target="_blank">Admin Mail <i
+                        class="envelope outline icon"></i></a>
             </div>
             <div style="float:right;color:pink;">
-                <a href="https://t.me/kecattd" target="_blank">Telegram Help</a>
+                <a href="https://t.me/kecattd" target="_blank">Telegram Help <i class="hands helping icon"></i></a>
             </div>
             <br /><br />
             <center>
                 <button type="submit" id="sub" class="ui large positive button">Sign in</button>
             </center>
         </form>
-        <center><span style="color:white; margin-bottom:0%;font-size:12px">Version : 1.0-beta</span></center>
+        <center><span style="color:#ffffb3; margin-top:10%;padding: 20px;font-size:12px">v1.0-beta</span></center>
+        <center><span style="color:bisque;font-size:11px">&copy; Kongu Engineering
+                College</span></center>
     </div>
     <div class="footer">
-        <p style="vertical-align: middle;padding: 10px;"> Website developed by
+        <p style="vertical-align: middle;  font-family: sans-serif; padding: 15px;"> Website developed by
             <span style="color:violet;" id="abinash">Abinash S</span> and <span style="color:violet;" id="ajay">Ajay R
             </span>of III CSE - A
 
@@ -141,10 +144,10 @@ if(isset($_SESSION['id']))
     <script>
     $(document).ready(function() {
         $("#abinash").on("click", function() {
-            window.location.href = "mailto:s.abinash@outlook.com?subject=Attendance Reg.,";
+            window.open("mailto:s.abinash@outlook.com?subject=Attendance Reg.,", "_blank");
         });
         $("#ajay").on("click", function() {
-            window.location.href = "mailto:ajayofficial@zohomail.in?subject=Attendance Reg.,";
+            window.open("mailto:ajayofficial@zohomail.in?subject=Attendance Reg.,", "_blank");
         });
         $("#login").on("submit", function() {
             $("#sub").addClass("loading");
