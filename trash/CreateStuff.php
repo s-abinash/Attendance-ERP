@@ -58,6 +58,7 @@ $str.="PRIMARY KEY(DATE,CODE),FOREIGN KEY (CODE) REFERENCES COURSE_LIST(CODE))";
 //     echo "error";
 // }
 echo $str;
+exit();
 ?>
 
 <!-- Table View -->
@@ -130,89 +131,3 @@ echo $str;
 
 
 
-
-<!-- Export template -->
-
-
-<?php
-session_start();
-if(!isset($_SESSION['id']))
-{
-    header('Location: index.html');
-}
-include_once("./db.php");
-$table="18-cse-a";
-$code="18ITT51";
-$course="Computer Networks";
-?>
-
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Export</title>
-    <script src="./assets/jquery.min.js"></script>
-    <script src="./assets/Fomantic/dist/semantic.min.js"></script>
-    <link rel="icon" type="image/png" href="./images/KEC.png">
-    <?php include_once('./assets/notiflix.php'); ?>
-</head>
-
-<body>
-    <?php
-include_once('./navbar.php');
-?>
-    <style>
-    body {
-        background: url("./images/bgpic.jpg");
-    }
-    </style>
-    <div class="ui header" style="text-align:center;font-size:30px;margin-top:2%;color:#ADEFD1FF">Export Attendance
-    </div>
-    <div class="ui message" style="text-align:center;width:80%;margin: 0 auto;">
-        <div class="header">
-           <?php echo $code;  ?> - Software Engineering
-        </div>
-    </div><br />
-    <div class="ui raised segment" style="height:90%;overflow:auto;width:90%;margin:0 auto;">
-    <table class="ui violet table">
-        <thead>
-            <tr>
-                <?php
-                $sql="SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N'$table'";
-                $res=$con->query($sql);
-                $row=$res->fetch_assoc();
-                $row=$res->fetch_assoc();$row=$res->fetch_assoc();
-                echo "<th>Date</th><th>Date</th>";
-                while($row=$res->fetch_assoc())
-                {
-                    echo "<th>".$row["COLUMN_NAME"]."</th>";
-                
-                }
-        
-                ?>
-            </tr>
-        </thead>
-        <tbody>
-            <?php         
-            $sql="SELECT * FROM `$table` where code LIKE '$code' ORDER BY  date ASC,period ASC";
-          
-            $res=$con->query($sql);
-            while($row=$res->fetch_assoc())
-            {
-                echo "<tr>";
-                foreach($row as $i)
-                {
-                    echo "<td>".$i."</td>";
-                }
-                echo "</tr>";
-            
-            }
-            ?>            
-        </tbody>
-    </table>
-        </div>
-
-</body>
-
-</html>
