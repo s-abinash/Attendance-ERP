@@ -216,6 +216,10 @@ if(isset($_POST["upload"]))
         }
 
     }
+    else
+    {
+        echo "<script> Notiflix.Report.Failue( 'Submisson Error', 'File as well as Manual Entry is NULL', 'Try Again' );</script>";
+    }
 }
 
 ?>
@@ -224,7 +228,6 @@ if(isset($_POST['finalize']))
 {
     if($_POST['finalize']=="done")
     {
-        
         foreach($hrs as $h)
         {
             $asst=$_SESSION['assoc'];
@@ -245,7 +248,6 @@ if(isset($_POST['finalize']))
             $sql="INSERT INTO `".$class."` ".$into." VALUES ".$vals;
             $con->query($sql);
         }
-        
         unset($_SESSION['array1']);
         unset($_SESSION['array2']);
         unset($_SESSION['array3']);
@@ -302,14 +304,25 @@ if(isset($_POST['finalize']))
                                     download><i class="blue download icon"></i></a></span>
                             <span style="float:right;">Download Manual Attendace Excel here, <a
                                     href="./files/Manual Attd.xlsx" download><i
-                                        class="green download icon"></i></a></span><br/>
+                                        class="green download icon"></i></a></span><br />
                         </div>
                     </div>
+
                     <div class="field">
-                        <label>Upload</label>
+                        <label>Manual Entry</label></bale>
+                        <div class="ui slider checkbox">
+                            <input type="checkbox" name="nofile" id="nofile">
+                            <label>Toggle for Manual Entry without XLSX</label>
+                        </div>
+                    </div>
+                    <div class="ui horizontal divider">
+                        Or
+                    </div>
+                    <div class="field">
+                        <label>File Upload</label>
                         <div class="ui action input">
                             <input type="text" placeholder="Upload xlsx" readonly>
-                            <input type="file" name="excel">
+                            <input type="file" name="excel" id="file">
                             <div class="ui icon button">
                                 <i class="attach icon"></i>
                                 Upload
@@ -321,7 +334,6 @@ if(isset($_POST['finalize']))
                 <div class="field">
                     <center> <button type="submit" name="upload" class="ui positive button">Submit</button></center>
                 </div>
-
             </form>
         </div>
     </div>
@@ -335,7 +347,7 @@ if(isset($_POST['finalize']))
                     Attendance Entry
                 </h1>
                 <div class="description">
-                    Color Diff refers changes that are currently made
+                    Color Difference refers changes that are done now
                 </div>
             </center>
             <form class="ui form" name="edit" action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
@@ -344,7 +356,13 @@ if(isset($_POST['finalize']))
                         <thead>
                             <tr>
                                 <th colspan="3">
-                                    Attendance Report
+
+                                    <div class="ui positive check button">Check</div>
+                                    <div class="ui negative uncheck button">Uncheck</div>
+                                    <div class="ui toggle button">Invert</div>
+                                </th>
+                                <th colspan="1">
+                                    Attendance Report (P/A)
                                 </th>
                             </tr>
                         </thead>
@@ -354,13 +372,15 @@ if(isset($_POST['finalize']))
                         $arr2=$_SESSION['array2'];
                         $arr3=$_SESSION['array3'];
                         $attend=array();
-                        $sql="SELECT regno from registration where batch like '$batch' and sec like '$sec' and dept like '$dep'"; 
+                        $sql="SELECT `regno`,`name` from registration where batch like '$batch' and sec like '$sec' and dept like '$dep'"; 
                       
                         $data=$con->query($sql);
                         // echo "<script>alert('".$sql."')</script>";
                         while($r=mysqli_fetch_array($data))
                         {  
+                            $name=$r['name'];
                             $r=$r['regno'];
+                            
                             $mark='';
                             $cls='';
                             $check='';
@@ -378,14 +398,17 @@ if(isset($_POST['finalize']))
                                 $cls='negative';
                             }
                             echo '<tr>
-                            <td><div class="ui toggle checkbox">
+                            <td><div class="ui toggle child checkbox">
                             <input type="checkbox" name="'.$r.'" '.$check.'>
                             <label></label>
                             </div></td>
                             <td id="'.$r.'" class="'.$cls.'">
                                 '.$r.'
                             </td>
-                            <td id="'.$r.'1'.'" class="'.$cls.'">'.$mark.'</td>
+                            <td id="'.$r.'1'.'" class="'.$cls.'">
+                                '.$name.'
+                            </td>
+                            <td id="'.$r.'2'.'" class="'.$cls.'">'.$mark.'</td>
                             
                         </tr>';
                         }
@@ -411,13 +434,22 @@ if(isset($_POST['finalize']))
     $(".ui.icon.button").click(function() {
         $(this).parent().find("input:file").click();
     });
-
-
-    $('input:file', '.ui.action.input')
-        .on('change', function(e) {
-            var name = e.target.files[0].name;
-            $('input:text', $(e.target).parent()).val(name);
+    $(document).ready(function() {
+        $('.slider.checkbox').checkbox({
+            onChecked: function() {
+                $('#file').attr('disabled', 'disabled');
+            },
+            onUnchecked: function() {
+                $('#file').removeAttr('disabled');
+            }
         });
+
+        $('input:file', '.ui.action.input')
+            .on('change', function(e) {
+                var name = e.target.files[0].name;
+                $('input:text', $(e.target).parent()).val(name);
+            });
+    });
     </script>
     <script>
     $(document).ready(function() {
@@ -429,15 +461,24 @@ if(isset($_POST['finalize']))
             $(ele).toggleClass('negative', $(this).not(':checked'));
 
             if ($(this).is(':checked')) {
-                var temp = $(this).attr("name") + 1;
+                var temp = $(this).attr("name") + 2;
                 var ele = document.getElementById(temp);
                 $(ele).children().attr("class", 'large green checkmark icon');
-            } else {
                 var temp = $(this).attr("name") + 1;
                 var ele = document.getElementById(temp);
+                $(ele).children().attr("class", 'positive');
+            } else {
+                var temp = $(this).attr("name") + 2;
+                var ele = document.getElementById(temp);
                 $(ele).children().attr("class", 'large red times icon');
+                var temp = $(this).attr("name") + 1;
+                var ele = document.getElementById(temp);
+                $(ele).children().attr("class", 'negative');
             }
         });
+        $('.toggle.checkbox').checkbox('attach events', '.toggle.button');
+        $('.toggle.checkbox').checkbox('attach events', '.check.button', 'check');
+        $('.toggle.checkbox').checkbox('attach events', '.uncheck.button', 'uncheck');
     });
     </script>
     <style>

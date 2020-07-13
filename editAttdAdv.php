@@ -129,7 +129,7 @@ if(isset($_SESSION["EditAttnd"]))
                     Edit Attendance
                 </h1>
                 <div class="description">
-                    Color Diff refers changes that are currently made
+                    Color Difference refers changes that are done now
                 </div>
             </center>
             <form class="ui form" name="edit" action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
@@ -138,7 +138,13 @@ if(isset($_SESSION["EditAttnd"]))
                         <thead>
                             <tr>
                                 <th colspan="3">
-                                    Attendance Report
+
+                                    <div class="ui positive check button">Check</div>
+                                    <div class="ui negative uncheck button">Uncheck</div>
+                                    <div class="ui toggle button">Invert</div>
+                                </th>
+                                <th colspan="1">
+                                    Attendance Report (P/A)
                                 </th>
                             </tr>
                         </thead>
@@ -158,7 +164,7 @@ if(isset($_SESSION["EditAttnd"]))
                         
                                 while($r=mysqli_fetch_array($data))
                                 {  
-                                  
+                                    $name=$r['name'];
                                     $r=$r['regno'];
                                     $mark='';
                                     $cls='';
@@ -182,7 +188,10 @@ if(isset($_SESSION["EditAttnd"]))
                                     <td id="'.$r.'" class="'.$cls.'">
                                         '.$r.'
                                     </td>
-                                    <td id="'.$r.'1'.'" class="'.$cls.'">'.$mark.'</td>
+                                    <td id="'.$r.'1'.'" class="'.$cls.'">
+                                '.$name.'
+                                    </td>
+                                    <td id="'.$r.'2'.'" class="'.$cls.'">'.$mark.'</td>
                                     
                                 </tr>';
                                 }
@@ -206,15 +215,24 @@ if(isset($_SESSION["EditAttnd"]))
                 $(ele).toggleClass('negative', $(this).not(':checked'));
 
                 if ($(this).is(':checked')) {
-                    var temp = $(this).attr("name") + 1;
+                    var temp = $(this).attr("name") + 2;
                     var ele = document.getElementById(temp);
                     $(ele).children().attr("class", 'large green checkmark icon');
-                } else {
                     var temp = $(this).attr("name") + 1;
                     var ele = document.getElementById(temp);
+                    $(ele).children().attr("class", 'positive');
+                } else {
+                    var temp = $(this).attr("name") + 2;
+                    var ele = document.getElementById(temp);
                     $(ele).children().attr("class", 'large red times icon');
+                    var temp = $(this).attr("name") + 1;
+                    var ele = document.getElementById(temp);
+                    $(ele).children().attr("class", 'negative');
                 }
             });
+            $('.toggle.checkbox').checkbox('attach events', '.toggle.button');
+            $('.toggle.checkbox').checkbox('attach events', '.check.button', 'check');
+            $('.toggle.checkbox').checkbox('attach events', '.uncheck.button', 'uncheck');
         });
         </script>
 </body>
