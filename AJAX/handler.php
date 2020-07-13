@@ -159,6 +159,17 @@
          }
         exit();
     }
+    else if(isset($_POST["consolidate"]))
+    {
+         session_start();
+          $code=$_POST["ccode"];
+         $_SESSION["tname"]=$_POST["tname"];
+         $_SESSION["ccode"]=$code;
+         $_SESSION["cname"]=$name=($con->query("SELECT name FROM `course_list` WHERE code LIKE '$code'"))->fetch_assoc()["name"]; 
+         
+         echo "export_ready";
+         exit();
+    }
     else if(isset($_POST["editor"]))
     {
          session_start();
