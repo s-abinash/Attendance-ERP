@@ -47,7 +47,7 @@ while($row=$res->fetch_assoc())
   $roll=$row["regno"];
     $str.=$roll." VARCHAR(2) NULL,";   
 }
-$str.="PRIMARY KEY(DATE,CODE),FOREIGN KEY (CODE) REFERENCES COURSE_LIST(CODE))";
+$str.="PRIMARY KEY(DATE,CODE))";
 if($con->query($str))
 {
     echo "Successfull";
