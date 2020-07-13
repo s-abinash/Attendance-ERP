@@ -6,7 +6,7 @@ if(!isset($_SESSION['id']))
 }
 
 include_once("./db.php");
-$table=$_SESSION["tname"];
+$table=strtoupper($_SESSION["tname"]);
 $code=$_SESSION["ccode"];
 $course=$_SESSION["cname"];
 ?>
