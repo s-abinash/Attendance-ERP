@@ -39,7 +39,7 @@ $batch="2017";
 $sec="B";
 
 $str="CREATE TABLE `$tableName` (date varchar(10) NOT NULL,code varchar(10) NOT NULL,period int NOT NULL,";
-$sql="SELECT regno FROM REGISTRATION WHERE batch LIKE '$batch' AND sec LIKE='$sec'"
+$sql="SELECT regno FROM REGISTRATION WHERE batch LIKE '$batch' AND sec LIKE='$sec'";
 $res=$con->query($sql);
 while($row=$res->fetch_assoc())
 {
