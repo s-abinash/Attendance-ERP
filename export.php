@@ -6,9 +6,9 @@ if(!isset($_SESSION['id']))
 }
 
 include_once("./db.php");
-$table="18-cse-a";
-$code="18ITT51";
-$course="Computer Networks";
+$table=$_SESSION["tname"];
+$code=$_SESSION["ccode"];
+$course=$_SESSION["cname"];
 ?>
 
 <html lang="en">
