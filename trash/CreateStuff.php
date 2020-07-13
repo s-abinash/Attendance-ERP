@@ -29,37 +29,62 @@
 
 <!--  Create Table -->
 
-<?php  
-include_once("../db.php");
-session_start();
+<!-- <?php   -->
+// include_once("../db.php");
+// session_start();
 
 
-$tableName="17-cse-d";
-$batch="2017";
-$sec="D";
+// $tableName="17-cse-d";
+// $batch="2017";
+// $sec="D";
 
-$str="CREATE TABLE `$tableName` (date varchar(10) NOT NULL,code varchar(10) NOT NULL,period int NOT NULL,";
-$sql="SELECT regno FROM `registration` WHERE batch LIKE '$batch' AND sec LIKE '$sec'";
+// $str="CREATE TABLE `$tableName` (date varchar(10) NOT NULL,code varchar(10) NOT NULL,period int NOT NULL,";
+// $sql="SELECT regno FROM `registration` WHERE batch LIKE '$batch' AND sec LIKE '$sec'";
 
-$res=$con->query($sql);
-while($row=$res->fetch_assoc())
-{
-  $roll=$row["regno"];
-    $str.=$roll." VARCHAR(2) NULL,";   
-}
-$str.="PRIMARY KEY(DATE,CODE))";
-if($con->query($str))
-{
-    echo "Successfull";
-}
-else
-{
-    echo $str;
-    echo "error";
-}
+// $res=$con->query($sql);
+// while($row=$res->fetch_assoc())
+// {
+//   $roll=$row["regno"];
+//     $str.=$roll." VARCHAR(2) NULL,";   
+// }
+// $str.="PRIMARY KEY(DATE,CODE))";
+// if($con->query($str))
+// {
+//     echo "Successfull";
+// }
+// else
+// {
+//     echo $str;
+//     echo "error";
+// }
 
-exit();
+// exit();
+// ?>
+
+<!-- Check Table Columns with Registration -->
+
+<?php
+// include_once("../db.php");
+// $batch="2017";
+// $tab="17-cse-c";
+// $sec="C";
+// $res=$con->query("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N'$tab' AND `COLUMN_NAME`");
+// $col=array();
+// while($row=$res->fetch_assoc())
+// {
+//     array_push($col,$row["COLUMN_NAME"]);
+// }
+// $res=$con->query("SELECT regno FROM registration WHERE batch LIKE '$batch' AND sec LIKE '$sec'");
+// $reg=array();
+// while($row=$res->fetch_assoc())
+// {
+//     array_push($reg,$row["regno"]);
+// }
+// print_r(array_diff($reg,$col));
+// print_r(array_diff($col,$reg));
 ?>
+
+
 
 <!-- Table View -->
 <!-- <?php 
