@@ -243,7 +243,8 @@ if(isset($_POST['finalize']))
             $into=substr($into,0,-1).')';
             $vals=substr($vals,0,-1).');';
             $sql="INSERT INTO `".$class."` ".$into." VALUES ".$vals;
-            
+            var_dump($sql);
+            exit();
             $con->query($sql);
         }
         
@@ -299,8 +300,11 @@ if(isset($_POST['finalize']))
                         <label>Sample</label>
                         <div class="ui message">
                             <p>XLSX with 3 sheets, each having list in the first column</p>
-                            <p>Download Sample Excel here, <a href="./files/CSEA.xlsx" download><i
-                                        class="blue download icon"></i></a></p>
+                            <span style="float:left;">Download Excel Format here, <a href="./files/CSEA.xlsx"
+                                    download><i class="blue download icon"></i></a></span>
+                            <span style="float:right;">Download Manual Attendace Excel here, <a
+                                    href="./files/Manual Attd.xlsx" download><i
+                                        class="green download icon"></i></a></span>
                         </div>
                     </div>
                     <div class="field">
