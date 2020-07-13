@@ -93,10 +93,13 @@
               }
               $abs.='</ol></b></em>';
               $P=array_count_values($row)["P"];
-              $A=array_count_values($row)["A"];//<a class="ui red ribbon label">'.$d.'</a>
-              if($A==null)
+              if(array_key_exists("A",array_count_values($row)))
               {
-               $A=0;
+                    $A=array_count_values($row)["A"];
+              }
+              else
+              {
+                    $A=0;
               }
               echo '<div class="ui raised  segment" style="width:70%;margin:auto;margin-top:3%;">
                      
@@ -160,9 +163,11 @@
     {
          session_start();
           $tab=strtoupper($_POST["edittab"]);
-          $_SESSION["sec"]=substr($tab,-1);
-          $_SESSION["batch"]=substr($tab,0,2);
-          $_SESSION["dept"]="CSE";
+
+          $arr=explode('-',$tab,3);
+          $_SESSION["sec"]=$arr[2];
+          $_SESSION["batch"]=$arr[0];
+          $_SESSION["dep"]=$arr[1];
           $_SESSION["code"]=$_POST["e_code"];
           $_SESSION["period"]=$_POST["e_period"];
           $_SESSION["date"]=$_POST["e_date"];
