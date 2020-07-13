@@ -63,6 +63,7 @@ include_once('./navbar.php');
         <tbody style="text-align:center">
             <?php
                 $sql="SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N'$table'";
+                echo $sql;
                 $res=$con->query($sql);
                 $row=$res->fetch_assoc();
                 $row=$res->fetch_assoc();$row=$res->fetch_assoc();  
@@ -79,7 +80,7 @@ include_once('./navbar.php');
 </div>
 <?php         
     $sql="SELECT * FROM `$table` where code LIKE '$code' ORDER BY  date ASC,period ASC";
-    
+    echo $sql;
     $res=$con->query($sql);
     while($row=$res->fetch_assoc())
     {
