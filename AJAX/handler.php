@@ -146,7 +146,7 @@
                     $(document).ready(function(){
                          $("#'.$d.$h.'")
                          .popup({
-                         popup: "#pop'.$d.$h.'",
+                         popup: "#pop'.$d.'/'.$h.'/'.$name.'",
                          inline     : true,
                          hoverable  : true,
                          });
