@@ -168,8 +168,8 @@
           $_SESSION["ccode"]=$code;
           $_SESSION["cname"]=$name=($con->query("SELECT name FROM `course_list` WHERE code LIKE '$code'"))->fetch_assoc()["name"]; 
          $tab=strtolower($tab);
-         $num=($con->query("SELECT date from '$tab' where code LIKE '$code'"))->num_rows;
-          if($num!=0)
+         $num=($con->query("SELECT date from `$tab` where code LIKE '$code'"))->num_rows;
+          if($num>=1)
           {
                echo "export_ready";
           }

@@ -269,12 +269,13 @@
                 data: d2,
                 type: "POST",
                 success: function(r) {
-                    if(r==='empty')
-                    {             
+                    if(r=='empty')
+                    {  
+                        alert(r);           
                         Notiflix.Notify.Info("You haven't uploaded any Attendance reports yet to consolidate");
                         return false;
                     } 
-                    else if(r==="export_ready")    
+                    else if(r=="export_ready")    
                     {
                         window.location.href="export.php";
                     }  
