@@ -150,7 +150,7 @@ include_once('./navbar.php');
             {
                     extend: 'pdfHtml5',
                     download: 'open',
-                    pageSize : 'A3',
+                    pageSize : 'A4',
                     orientation:'landscape' ,
                     "paging":true,
                     "autowidth":true,
