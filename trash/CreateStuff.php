@@ -1,5 +1,9 @@
-<!-- Insert Values into Class Table -->
-<!-- <?php 
+<?php
+
+//                                  ==============================
+//                                  Insert Values into Class Table
+//                                  ==============================
+
 //    include_once("./db.php");
 //    session_start();
 //        $cnt=0;
@@ -21,15 +25,16 @@
 //             echo "error";
 //         }
 
-?> -->
+
+
+
+//                                  ==============================
+//                                           Create  Table
+//                                  ==============================
 
 
 
 
-
-<!--  Create Table -->
-
-<!-- <?php   -->
 // include_once("../db.php");
 // session_start();
 
@@ -59,11 +64,14 @@
 // }
 
 // exit();
-// ?>
 
-<!-- Check Table Columns with Registration -->
 
-<?php
+
+//                                  =====================================
+//                                  Check Table Columns with Registration
+//                                  =====================================
+
+
 // include_once("../db.php");
 // $batch="2017";
 // $tab="17-cse-c";
@@ -82,12 +90,17 @@
 // }
 // print_r(array_diff($reg,$col));
 // print_r(array_diff($col,$reg));
-?>
 
 
 
-<!-- Table View -->
-<!-- <?php 
+//                                  =====================================
+//                                                Table View
+//                                  =====================================
+
+
+
+
+
 //     session_start();
 //     include_once("navbar.php");
 //     if(!isset($_SESSION["id"]))
