@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jul 06, 2020 at 07:47 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.2
+-- Host: localhost:3306
+-- Generation Time: Jul 13, 2020 at 09:12 PM
+-- Server version: 10.4.13-MariaDB
+-- PHP Version: 7.3.18
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -25,12 +24,310 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `17-cse-a`
+--
+
+CREATE TABLE `17-cse-a` (
+  `date` varchar(10) NOT NULL,
+  `code` varchar(10) NOT NULL,
+  `period` int(11) NOT NULL,
+  `17CSR001` varchar(2) DEFAULT NULL,
+  `17CSR002` varchar(2) DEFAULT NULL,
+  `17CSR003` varchar(2) DEFAULT NULL,
+  `17CSR004` varchar(2) DEFAULT NULL,
+  `17CSR005` varchar(2) DEFAULT NULL,
+  `17CSR006` varchar(2) DEFAULT NULL,
+  `17CSR007` varchar(2) DEFAULT NULL,
+  `17CSR008` varchar(2) DEFAULT NULL,
+  `17CSR009` varchar(2) DEFAULT NULL,
+  `17CSR010` varchar(2) DEFAULT NULL,
+  `17CSR011` varchar(2) DEFAULT NULL,
+  `17CSR012` varchar(2) DEFAULT NULL,
+  `17CSR013` varchar(2) DEFAULT NULL,
+  `17CSR014` varchar(2) DEFAULT NULL,
+  `17CSR015` varchar(2) DEFAULT NULL,
+  `17CSR016` varchar(2) DEFAULT NULL,
+  `17CSR017` varchar(2) DEFAULT NULL,
+  `17CSR018` varchar(2) DEFAULT NULL,
+  `17CSR019` varchar(2) DEFAULT NULL,
+  `17CSR020` varchar(2) DEFAULT NULL,
+  `17CSR021` varchar(2) DEFAULT NULL,
+  `17CSR022` varchar(2) DEFAULT NULL,
+  `17CSR023` varchar(2) DEFAULT NULL,
+  `17CSR024` varchar(2) DEFAULT NULL,
+  `17CSR025` varchar(2) DEFAULT NULL,
+  `17CSR027` varchar(2) DEFAULT NULL,
+  `17CSR028` varchar(2) DEFAULT NULL,
+  `17CSR029` varchar(2) DEFAULT NULL,
+  `17CSR030` varchar(2) DEFAULT NULL,
+  `17CSR031` varchar(2) DEFAULT NULL,
+  `17CSR033` varchar(2) DEFAULT NULL,
+  `17CSR034` varchar(2) DEFAULT NULL,
+  `17CSR035` varchar(2) DEFAULT NULL,
+  `17CSR036` varchar(2) DEFAULT NULL,
+  `17CSR037` varchar(2) DEFAULT NULL,
+  `17CSR038` varchar(2) DEFAULT NULL,
+  `17CSR039` varchar(2) DEFAULT NULL,
+  `17CSR040` varchar(2) DEFAULT NULL,
+  `17CSR041` varchar(2) DEFAULT NULL,
+  `17CSR042` varchar(2) DEFAULT NULL,
+  `17CSR043` varchar(2) DEFAULT NULL,
+  `17CSR044` varchar(2) DEFAULT NULL,
+  `17CSR045` varchar(2) DEFAULT NULL,
+  `17CSR046` varchar(2) DEFAULT NULL,
+  `17CSR047` varchar(2) DEFAULT NULL,
+  `17CSR048` varchar(2) DEFAULT NULL,
+  `17CSR049` varchar(2) DEFAULT NULL,
+  `17CSR050` varchar(2) DEFAULT NULL,
+  `17CSR051` varchar(2) DEFAULT NULL,
+  `17CSR052` varchar(2) DEFAULT NULL,
+  `17CSR053` varchar(2) DEFAULT NULL,
+  `17CSR054` varchar(2) DEFAULT NULL,
+  `17CSR055` varchar(2) DEFAULT NULL,
+  `17CSR056` varchar(2) DEFAULT NULL,
+  `17CSR057` varchar(2) DEFAULT NULL,
+  `17CSR058` varchar(2) DEFAULT NULL,
+  `17CSR059` varchar(2) DEFAULT NULL,
+  `16CSR046` varchar(2) DEFAULT NULL,
+  `17CSL239` varchar(2) DEFAULT NULL,
+  `17CSL240` varchar(2) DEFAULT NULL,
+  `17CSL241` varchar(2) DEFAULT NULL,
+  `17CSL242` varchar(2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `17-cse-b`
+--
+
+CREATE TABLE `17-cse-b` (
+  `date` varchar(10) NOT NULL,
+  `code` varchar(10) NOT NULL,
+  `period` int(11) NOT NULL,
+  `17CSL243` varchar(2) DEFAULT NULL,
+  `17CSL244` varchar(2) DEFAULT NULL,
+  `17CSL245` varchar(2) DEFAULT NULL,
+  `17CSL246` varchar(2) DEFAULT NULL,
+  `17CSR060` varchar(2) DEFAULT NULL,
+  `17CSR062` varchar(2) DEFAULT NULL,
+  `17CSR063` varchar(2) DEFAULT NULL,
+  `17CSR064` varchar(2) DEFAULT NULL,
+  `17CSR065` varchar(2) DEFAULT NULL,
+  `17CSR066` varchar(2) DEFAULT NULL,
+  `17CSR067` varchar(2) DEFAULT NULL,
+  `17CSR068` varchar(2) DEFAULT NULL,
+  `17CSR070` varchar(2) DEFAULT NULL,
+  `17CSR071` varchar(2) DEFAULT NULL,
+  `17CSR072` varchar(2) DEFAULT NULL,
+  `17CSR073` varchar(2) DEFAULT NULL,
+  `17CSR074` varchar(2) DEFAULT NULL,
+  `17CSR075` varchar(2) DEFAULT NULL,
+  `17CSR076` varchar(2) DEFAULT NULL,
+  `17CSR077` varchar(2) DEFAULT NULL,
+  `17CSR078` varchar(2) DEFAULT NULL,
+  `17CSR079` varchar(2) DEFAULT NULL,
+  `17CSR080` varchar(2) DEFAULT NULL,
+  `17CSR081` varchar(2) DEFAULT NULL,
+  `17CSR082` varchar(2) DEFAULT NULL,
+  `17CSR083` varchar(2) DEFAULT NULL,
+  `17CSR084` varchar(2) DEFAULT NULL,
+  `17CSR085` varchar(2) DEFAULT NULL,
+  `17CSR086` varchar(2) DEFAULT NULL,
+  `17CSR087` varchar(2) DEFAULT NULL,
+  `17CSR088` varchar(2) DEFAULT NULL,
+  `17CSR089` varchar(2) DEFAULT NULL,
+  `17CSR090` varchar(2) DEFAULT NULL,
+  `17CSR091` varchar(2) DEFAULT NULL,
+  `17CSR092` varchar(2) DEFAULT NULL,
+  `17CSR093` varchar(2) DEFAULT NULL,
+  `17CSR094` varchar(2) DEFAULT NULL,
+  `17CSR095` varchar(2) DEFAULT NULL,
+  `17CSR096` varchar(2) DEFAULT NULL,
+  `17CSR097` varchar(2) DEFAULT NULL,
+  `17CSR098` varchar(2) DEFAULT NULL,
+  `17CSR099` varchar(2) DEFAULT NULL,
+  `17CSR100` varchar(2) DEFAULT NULL,
+  `17CSR101` varchar(2) DEFAULT NULL,
+  `17CSR102` varchar(2) DEFAULT NULL,
+  `17CSR103` varchar(2) DEFAULT NULL,
+  `17CSR104` varchar(2) DEFAULT NULL,
+  `17CSR105` varchar(2) DEFAULT NULL,
+  `17CSR106` varchar(2) DEFAULT NULL,
+  `17CSR107` varchar(2) DEFAULT NULL,
+  `17CSR108` varchar(2) DEFAULT NULL,
+  `17CSR109` varchar(2) DEFAULT NULL,
+  `17CSR110` varchar(2) DEFAULT NULL,
+  `17CSR111` varchar(2) DEFAULT NULL,
+  `17CSR112` varchar(2) DEFAULT NULL,
+  `17CSR113` varchar(2) DEFAULT NULL,
+  `17CSR114` varchar(2) DEFAULT NULL,
+  `17CSR115` varchar(2) DEFAULT NULL,
+  `17CSR116` varchar(2) DEFAULT NULL,
+  `17CSR117` varchar(2) DEFAULT NULL,
+  `17CSR118` varchar(2) DEFAULT NULL,
+  `17CSR119` varchar(2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `17-cse-c`
+--
+
+CREATE TABLE `17-cse-c` (
+  `date` varchar(10) NOT NULL,
+  `code` varchar(10) NOT NULL,
+  `period` int(11) NOT NULL,
+  `17CSL247` varchar(2) DEFAULT NULL,
+  `17CSL248` varchar(2) DEFAULT NULL,
+  `17CSL249` varchar(2) DEFAULT NULL,
+  `17CSL250` varchar(2) DEFAULT NULL,
+  `17CSL251` varchar(2) DEFAULT NULL,
+  `17CSL252` varchar(2) DEFAULT NULL,
+  `17CSR121` varchar(2) DEFAULT NULL,
+  `17CSR122` varchar(2) DEFAULT NULL,
+  `17CSR123` varchar(2) DEFAULT NULL,
+  `17CSR124` varchar(2) DEFAULT NULL,
+  `17CSR126` varchar(2) DEFAULT NULL,
+  `17CSR128` varchar(2) DEFAULT NULL,
+  `17CSR129` varchar(2) DEFAULT NULL,
+  `17CSR130` varchar(2) DEFAULT NULL,
+  `17CSR131` varchar(2) DEFAULT NULL,
+  `17CSR132` varchar(2) DEFAULT NULL,
+  `17CSR133` varchar(2) DEFAULT NULL,
+  `17CSR134` varchar(2) DEFAULT NULL,
+  `17CSR135` varchar(2) DEFAULT NULL,
+  `17CSR136` varchar(2) DEFAULT NULL,
+  `17CSR137` varchar(2) DEFAULT NULL,
+  `17CSR138` varchar(2) DEFAULT NULL,
+  `17CSR139` varchar(2) DEFAULT NULL,
+  `17CSR140` varchar(2) DEFAULT NULL,
+  `17CSR141` varchar(2) DEFAULT NULL,
+  `17CSR142` varchar(2) DEFAULT NULL,
+  `17CSR143` varchar(2) DEFAULT NULL,
+  `17CSR144` varchar(2) DEFAULT NULL,
+  `17CSR145` varchar(2) DEFAULT NULL,
+  `17CSR146` varchar(2) DEFAULT NULL,
+  `17CSR147` varchar(2) DEFAULT NULL,
+  `17CSR148` varchar(2) DEFAULT NULL,
+  `17CSR149` varchar(2) DEFAULT NULL,
+  `17CSR150` varchar(2) DEFAULT NULL,
+  `17CSR151` varchar(2) DEFAULT NULL,
+  `17CSR152` varchar(2) DEFAULT NULL,
+  `17CSR153` varchar(2) DEFAULT NULL,
+  `17CSR154` varchar(2) DEFAULT NULL,
+  `17CSR155` varchar(2) DEFAULT NULL,
+  `17CSR156` varchar(2) DEFAULT NULL,
+  `17CSR157` varchar(2) DEFAULT NULL,
+  `17CSR158` varchar(2) DEFAULT NULL,
+  `17CSR159` varchar(2) DEFAULT NULL,
+  `17CSR160` varchar(2) DEFAULT NULL,
+  `17CSR161` varchar(2) DEFAULT NULL,
+  `17CSR162` varchar(2) DEFAULT NULL,
+  `17CSR163` varchar(2) DEFAULT NULL,
+  `17CSR164` varchar(2) DEFAULT NULL,
+  `17CSR165` varchar(2) DEFAULT NULL,
+  `17CSR166` varchar(2) DEFAULT NULL,
+  `17CSR167` varchar(2) DEFAULT NULL,
+  `17CSR168` varchar(2) DEFAULT NULL,
+  `17CSR169` varchar(2) DEFAULT NULL,
+  `17CSR170` varchar(2) DEFAULT NULL,
+  `17CSR171` varchar(2) DEFAULT NULL,
+  `17CSR172` varchar(2) DEFAULT NULL,
+  `17CSR173` varchar(2) DEFAULT NULL,
+  `17CSR174` varchar(2) DEFAULT NULL,
+  `17CSR175` varchar(2) DEFAULT NULL,
+  `17CSR176` varchar(2) DEFAULT NULL,
+  `17CSR177` varchar(2) DEFAULT NULL,
+  `17CSR178` varchar(2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `17-cse-d`
+--
+
+CREATE TABLE `17-cse-d` (
+  `date` varchar(10) NOT NULL,
+  `code` varchar(10) NOT NULL,
+  `period` int(11) NOT NULL,
+  `17CSL253` varchar(2) DEFAULT NULL,
+  `17CSL254` varchar(2) DEFAULT NULL,
+  `17CSL255` varchar(2) DEFAULT NULL,
+  `17CSR179` varchar(2) DEFAULT NULL,
+  `17CSR180` varchar(2) DEFAULT NULL,
+  `17CSR181` varchar(2) DEFAULT NULL,
+  `17CSR182` varchar(2) DEFAULT NULL,
+  `17CSR183` varchar(2) DEFAULT NULL,
+  `17CSR184` varchar(2) DEFAULT NULL,
+  `17CSR185` varchar(2) DEFAULT NULL,
+  `17CSR186` varchar(2) DEFAULT NULL,
+  `17CSR187` varchar(2) DEFAULT NULL,
+  `17CSR188` varchar(2) DEFAULT NULL,
+  `17CSR189` varchar(2) DEFAULT NULL,
+  `17CSR190` varchar(2) DEFAULT NULL,
+  `17CSR192` varchar(2) DEFAULT NULL,
+  `17CSR193` varchar(2) DEFAULT NULL,
+  `17CSR194` varchar(2) DEFAULT NULL,
+  `17CSR195` varchar(2) DEFAULT NULL,
+  `17CSR196` varchar(2) DEFAULT NULL,
+  `17CSR197` varchar(2) DEFAULT NULL,
+  `17CSR199` varchar(2) DEFAULT NULL,
+  `17CSR200` varchar(2) DEFAULT NULL,
+  `17CSR201` varchar(2) DEFAULT NULL,
+  `17CSR202` varchar(2) DEFAULT NULL,
+  `17CSR203` varchar(2) DEFAULT NULL,
+  `17CSR204` varchar(2) DEFAULT NULL,
+  `17CSR205` varchar(2) DEFAULT NULL,
+  `17CSR206` varchar(2) DEFAULT NULL,
+  `17CSR208` varchar(2) DEFAULT NULL,
+  `17CSR209` varchar(2) DEFAULT NULL,
+  `17CSR210` varchar(2) DEFAULT NULL,
+  `17CSR211` varchar(2) DEFAULT NULL,
+  `17CSR212` varchar(2) DEFAULT NULL,
+  `17CSR213` varchar(2) DEFAULT NULL,
+  `17CSR214` varchar(2) DEFAULT NULL,
+  `17CSR215` varchar(2) DEFAULT NULL,
+  `17CSR216` varchar(2) DEFAULT NULL,
+  `17CSR217` varchar(2) DEFAULT NULL,
+  `17CSR218` varchar(2) DEFAULT NULL,
+  `17CSR219` varchar(2) DEFAULT NULL,
+  `17CSR220` varchar(2) DEFAULT NULL,
+  `17CSR221` varchar(2) DEFAULT NULL,
+  `17CSR222` varchar(2) DEFAULT NULL,
+  `17CSR223` varchar(2) DEFAULT NULL,
+  `17CSR224` varchar(2) DEFAULT NULL,
+  `17CSR225` varchar(2) DEFAULT NULL,
+  `17CSR226` varchar(2) DEFAULT NULL,
+  `17CSR227` varchar(2) DEFAULT NULL,
+  `17CSR228` varchar(2) DEFAULT NULL,
+  `17CSR229` varchar(2) DEFAULT NULL,
+  `17CSR230` varchar(2) DEFAULT NULL,
+  `17CSR231` varchar(2) DEFAULT NULL,
+  `17CSR232` varchar(2) DEFAULT NULL,
+  `17CSR233` varchar(2) DEFAULT NULL,
+  `17CSR234` varchar(2) DEFAULT NULL,
+  `17CSR235` varchar(2) DEFAULT NULL,
+  `17CSR236` varchar(2) DEFAULT NULL,
+  `17CSR237` varchar(2) DEFAULT NULL,
+  `17CSR238` varchar(2) DEFAULT NULL,
+  `17CST256` varchar(2) DEFAULT NULL,
+  `17CST257` varchar(2) DEFAULT NULL,
+  `17CST258` varchar(2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `18-cse-a`
 --
 
 CREATE TABLE `18-cse-a` (
   `date` varchar(10) NOT NULL,
   `code` varchar(10) NOT NULL,
+  `period` int(11) NOT NULL,
   `18CSR001` varchar(2) DEFAULT NULL,
   `18CSR002` varchar(2) DEFAULT NULL,
   `18CSR003` varchar(2) DEFAULT NULL,
@@ -40,7 +337,7 @@ CREATE TABLE `18-cse-a` (
   `18CSR007` varchar(2) DEFAULT NULL,
   `18CSR008` varchar(2) DEFAULT NULL,
   `18CSR009` varchar(2) DEFAULT NULL,
-  `18CSR0010` varchar(2) DEFAULT NULL,
+  `18CSR010` varchar(2) DEFAULT NULL,
   `18CSR011` varchar(2) DEFAULT NULL,
   `18CSR012` varchar(2) DEFAULT NULL,
   `18CSR013` varchar(2) DEFAULT NULL,
@@ -91,11 +388,538 @@ CREATE TABLE `18-cse-a` (
   `18CSR058` varchar(2) DEFAULT NULL,
   `18CSR059` varchar(2) DEFAULT NULL,
   `18CSR060` varchar(2) DEFAULT NULL,
-  `18CSR239` varchar(2) DEFAULT NULL,
-  `18CSR240` varchar(2) DEFAULT NULL,
-  `18CSR241` varchar(2) DEFAULT NULL,
-  `18CSR242` varchar(2) DEFAULT NULL,
-  `18CSR243` varchar(2) DEFAULT NULL
+  `18CSL239` varchar(2) DEFAULT NULL,
+  `18CSL240` varchar(2) DEFAULT NULL,
+  `18CSL241` varchar(2) DEFAULT NULL,
+  `18CSL242` varchar(2) DEFAULT NULL,
+  `18CSL243` varchar(2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+
+--
+-- Dumping data for table `18-cse-a`
+--
+
+INSERT INTO `18-cse-a` (`date`, `code`, `period`, `18CSR001`, `18CSR002`, `18CSR003`, `18CSR004`, `18CSR005`, `18CSR006`, `18CSR007`, `18CSR008`, `18CSR009`, `18CSR010`, `18CSR011`, `18CSR012`, `18CSR013`, `18CSR014`, `18CSR015`, `18CSR016`, `18CSR017`, `18CSR018`, `18CSR019`, `18CSR020`, `18CSR021`, `18CSR022`, `18CSR023`, `18CSR024`, `18CSR025`, `18CSR026`, `18CSR027`, `18CSR028`, `18CSR029`, `18CSR030`, `18CSR031`, `18CSR032`, `18CSR033`, `18CSR034`, `18CSR035`, `18CSR036`, `18CSR037`, `18CSR038`, `18CSR039`, `18CSR040`, `18CSR041`, `18CSR042`, `18CSR043`, `18CSR044`, `18CSR045`, `18CSR046`, `18CSR047`, `18CSR048`, `18CSR049`, `18CSR050`, `18CSR051`, `18CSR052`, `18CSR053`, `18CSR054`, `18CSR055`, `18CSR056`, `18CSR057`, `18CSR058`, `18CSR059`, `18CSR060`, `18CSL239`, `18CSL240`, `18CSL241`, `18CSL242`, `18CSL243`) VALUES
+('2020-07-09', '18ITT51', 5, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-13', '18ITT51', 5, 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `18-cse-b`
+--
+
+CREATE TABLE `18-cse-b` (
+  `date` varchar(10) NOT NULL,
+  `code` varchar(10) NOT NULL,
+  `period` int(11) NOT NULL,
+  `18CSR061` varchar(2) DEFAULT NULL,
+  `18CSR062` varchar(2) DEFAULT NULL,
+  `18CSR063` varchar(2) DEFAULT NULL,
+  `18CSR064` varchar(2) DEFAULT NULL,
+  `18CSR065` varchar(2) DEFAULT NULL,
+  `18CSR066` varchar(2) DEFAULT NULL,
+  `18CSR067` varchar(2) DEFAULT NULL,
+  `18CSR068` varchar(2) DEFAULT NULL,
+  `18CSR069` varchar(2) DEFAULT NULL,
+  `18CSR070` varchar(2) DEFAULT NULL,
+  `18CSR071` varchar(2) DEFAULT NULL,
+  `18CSR072` varchar(2) DEFAULT NULL,
+  `18CSR073` varchar(2) DEFAULT NULL,
+  `18CSR074` varchar(2) DEFAULT NULL,
+  `18CSR076` varchar(2) DEFAULT NULL,
+  `18CSR077` varchar(2) DEFAULT NULL,
+  `18CSR078` varchar(2) DEFAULT NULL,
+  `18CSR079` varchar(2) DEFAULT NULL,
+  `18CSR080` varchar(2) DEFAULT NULL,
+  `18CSR081` varchar(2) DEFAULT NULL,
+  `18CSR082` varchar(2) DEFAULT NULL,
+  `18CSR083` varchar(2) DEFAULT NULL,
+  `18CSR084` varchar(2) DEFAULT NULL,
+  `18CSR085` varchar(2) DEFAULT NULL,
+  `18CSR086` varchar(2) DEFAULT NULL,
+  `18CSR087` varchar(2) DEFAULT NULL,
+  `18CSR088` varchar(2) DEFAULT NULL,
+  `18CSR089` varchar(2) DEFAULT NULL,
+  `18CSR090` varchar(2) DEFAULT NULL,
+  `18CSR091` varchar(2) DEFAULT NULL,
+  `18CSR092` varchar(2) DEFAULT NULL,
+  `18CSR093` varchar(2) DEFAULT NULL,
+  `18CSR094` varchar(2) DEFAULT NULL,
+  `18CSR095` varchar(2) DEFAULT NULL,
+  `18CSR096` varchar(2) DEFAULT NULL,
+  `18CSR097` varchar(2) DEFAULT NULL,
+  `18CSR098` varchar(2) DEFAULT NULL,
+  `18CSR099` varchar(2) DEFAULT NULL,
+  `18CSR100` varchar(2) DEFAULT NULL,
+  `18CSR101` varchar(2) DEFAULT NULL,
+  `18CSR102` varchar(2) DEFAULT NULL,
+  `18CSR103` varchar(2) DEFAULT NULL,
+  `18CSR104` varchar(2) DEFAULT NULL,
+  `18CSR105` varchar(2) DEFAULT NULL,
+  `18CSR106` varchar(2) DEFAULT NULL,
+  `18CSR107` varchar(2) DEFAULT NULL,
+  `18CSR108` varchar(2) DEFAULT NULL,
+  `18CSR109` varchar(2) DEFAULT NULL,
+  `18CSR110` varchar(2) DEFAULT NULL,
+  `18CSR111` varchar(2) DEFAULT NULL,
+  `18CSR112` varchar(2) DEFAULT NULL,
+  `18CSR113` varchar(2) DEFAULT NULL,
+  `18CSR114` varchar(2) DEFAULT NULL,
+  `18CSR115` varchar(2) DEFAULT NULL,
+  `18CSR116` varchar(2) DEFAULT NULL,
+  `18CSR117` varchar(2) DEFAULT NULL,
+  `18CSR118` varchar(2) DEFAULT NULL,
+  `18CSR119` varchar(2) DEFAULT NULL,
+  `18CSR120` varchar(2) DEFAULT NULL,
+  `18CSL244` varchar(2) DEFAULT NULL,
+  `18CSL245` varchar(2) DEFAULT NULL,
+  `18CSL246` varchar(2) DEFAULT NULL,
+  `18CSL247` varchar(2) DEFAULT NULL,
+  `18CSL248` varchar(2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+
+--
+-- Dumping data for table `18-cse-b`
+--
+
+INSERT INTO `18-cse-b` (`date`, `code`, `period`, `18CSR061`, `18CSR062`, `18CSR063`, `18CSR064`, `18CSR065`, `18CSR066`, `18CSR067`, `18CSR068`, `18CSR069`, `18CSR070`, `18CSR071`, `18CSR072`, `18CSR073`, `18CSR074`, `18CSR076`, `18CSR077`, `18CSR078`, `18CSR079`, `18CSR080`, `18CSR081`, `18CSR082`, `18CSR083`, `18CSR084`, `18CSR085`, `18CSR086`, `18CSR087`, `18CSR088`, `18CSR089`, `18CSR090`, `18CSR091`, `18CSR092`, `18CSR093`, `18CSR094`, `18CSR095`, `18CSR096`, `18CSR097`, `18CSR098`, `18CSR099`, `18CSR100`, `18CSR101`, `18CSR102`, `18CSR103`, `18CSR104`, `18CSR105`, `18CSR106`, `18CSR107`, `18CSR108`, `18CSR109`, `18CSR110`, `18CSR111`, `18CSR112`, `18CSR113`, `18CSR114`, `18CSR115`, `18CSR116`, `18CSR117`, `18CSR118`, `18CSR119`, `18CSR120`, `18CSL244`, `18CSL245`, `18CSL246`, `18CSL247`, `18CSL248`) VALUES
+('2020-07-13', '18CST51', 3, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `18-cse-c`
+--
+
+CREATE TABLE `18-cse-c` (
+  `date` varchar(10) NOT NULL,
+  `code` varchar(10) NOT NULL,
+  `period` int(11) NOT NULL,
+  `18CSR121` varchar(2) DEFAULT NULL,
+  `18CSR122` varchar(2) DEFAULT NULL,
+  `18CSR123` varchar(2) DEFAULT NULL,
+  `18CSR124` varchar(2) DEFAULT NULL,
+  `18CSR125` varchar(2) DEFAULT NULL,
+  `18CSR126` varchar(2) DEFAULT NULL,
+  `18CSR127` varchar(2) DEFAULT NULL,
+  `18CSR128` varchar(2) DEFAULT NULL,
+  `18CSR129` varchar(2) DEFAULT NULL,
+  `18CSR130` varchar(2) DEFAULT NULL,
+  `18CSR131` varchar(2) DEFAULT NULL,
+  `18CSR132` varchar(2) DEFAULT NULL,
+  `18CSR133` varchar(2) DEFAULT NULL,
+  `18CSR134` varchar(2) DEFAULT NULL,
+  `18CSR135` varchar(2) DEFAULT NULL,
+  `18CSR136` varchar(2) DEFAULT NULL,
+  `18CSR137` varchar(2) DEFAULT NULL,
+  `18CSR138` varchar(2) DEFAULT NULL,
+  `18CSR139` varchar(2) DEFAULT NULL,
+  `18CSR140` varchar(2) DEFAULT NULL,
+  `18CSR141` varchar(2) DEFAULT NULL,
+  `18CSR142` varchar(2) DEFAULT NULL,
+  `18CSR143` varchar(2) DEFAULT NULL,
+  `18CSR144` varchar(2) DEFAULT NULL,
+  `18CSR145` varchar(2) DEFAULT NULL,
+  `18CSR146` varchar(2) DEFAULT NULL,
+  `18CSR147` varchar(2) DEFAULT NULL,
+  `18CSR148` varchar(2) DEFAULT NULL,
+  `18CSR149` varchar(2) DEFAULT NULL,
+  `18CSR150` varchar(2) DEFAULT NULL,
+  `18CSR151` varchar(2) DEFAULT NULL,
+  `18CSR152` varchar(2) DEFAULT NULL,
+  `18CSR153` varchar(2) DEFAULT NULL,
+  `18CSR154` varchar(2) DEFAULT NULL,
+  `18CSR155` varchar(2) DEFAULT NULL,
+  `18CSR156` varchar(2) DEFAULT NULL,
+  `18CSR157` varchar(2) DEFAULT NULL,
+  `18CSR158` varchar(2) DEFAULT NULL,
+  `18CSR159` varchar(2) DEFAULT NULL,
+  `18CSR160` varchar(2) DEFAULT NULL,
+  `18CSR161` varchar(2) DEFAULT NULL,
+  `18CSR162` varchar(2) DEFAULT NULL,
+  `18CSR163` varchar(2) DEFAULT NULL,
+  `18CSR164` varchar(2) DEFAULT NULL,
+  `18CSR165` varchar(2) DEFAULT NULL,
+  `18CSR166` varchar(2) DEFAULT NULL,
+  `18CSR167` varchar(2) DEFAULT NULL,
+  `18CSR168` varchar(2) DEFAULT NULL,
+  `18CSR169` varchar(2) DEFAULT NULL,
+  `18CSR170` varchar(2) DEFAULT NULL,
+  `18CSR171` varchar(2) DEFAULT NULL,
+  `18CSR172` varchar(2) DEFAULT NULL,
+  `18CSR173` varchar(2) DEFAULT NULL,
+  `18CSR174` varchar(2) DEFAULT NULL,
+  `18CSR175` varchar(2) DEFAULT NULL,
+  `18CSR176` varchar(2) DEFAULT NULL,
+  `18CSR177` varchar(2) DEFAULT NULL,
+  `18CSR178` varchar(2) DEFAULT NULL,
+  `18CSR179` varchar(2) DEFAULT NULL,
+  `18CSL249` varchar(2) DEFAULT NULL,
+  `18CSL250` varchar(2) DEFAULT NULL,
+  `18CSL251` varchar(2) DEFAULT NULL,
+  `18CSL252` varchar(2) DEFAULT NULL,
+  `18CSL253` varchar(2) DEFAULT NULL,
+  `18CSL254` varchar(2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `18-cse-d`
+--
+
+CREATE TABLE `18-cse-d` (
+  `date` varchar(10) NOT NULL,
+  `code` varchar(10) NOT NULL,
+  `period` int(11) NOT NULL,
+  `18CSR180` varchar(2) DEFAULT NULL,
+  `18CSR181` varchar(2) DEFAULT NULL,
+  `18CSR182` varchar(2) DEFAULT NULL,
+  `18CSR183` varchar(2) DEFAULT NULL,
+  `18CSR184` varchar(2) DEFAULT NULL,
+  `18CSR185` varchar(2) DEFAULT NULL,
+  `18CSR186` varchar(2) DEFAULT NULL,
+  `18CSR187` varchar(2) DEFAULT NULL,
+  `18CSR188` varchar(2) DEFAULT NULL,
+  `18CSR189` varchar(2) DEFAULT NULL,
+  `18CSR190` varchar(2) DEFAULT NULL,
+  `18CSR191` varchar(2) DEFAULT NULL,
+  `18CSR192` varchar(2) DEFAULT NULL,
+  `18CSR193` varchar(2) DEFAULT NULL,
+  `18CSR194` varchar(2) DEFAULT NULL,
+  `18CSR195` varchar(2) DEFAULT NULL,
+  `18CSR196` varchar(2) DEFAULT NULL,
+  `18CSR197` varchar(2) DEFAULT NULL,
+  `18CSR198` varchar(2) DEFAULT NULL,
+  `18CSR199` varchar(2) DEFAULT NULL,
+  `18CSR200` varchar(2) DEFAULT NULL,
+  `18CSR201` varchar(2) DEFAULT NULL,
+  `18CSR203` varchar(2) DEFAULT NULL,
+  `18CSR204` varchar(2) DEFAULT NULL,
+  `18CSR205` varchar(2) DEFAULT NULL,
+  `18CSR206` varchar(2) DEFAULT NULL,
+  `18CSR207` varchar(2) DEFAULT NULL,
+  `18CSR208` varchar(2) DEFAULT NULL,
+  `18CSR209` varchar(2) DEFAULT NULL,
+  `18CSR210` varchar(2) DEFAULT NULL,
+  `18CSR211` varchar(2) DEFAULT NULL,
+  `18CSR212` varchar(2) DEFAULT NULL,
+  `18CSR213` varchar(2) DEFAULT NULL,
+  `18CSR214` varchar(2) DEFAULT NULL,
+  `18CSR215` varchar(2) DEFAULT NULL,
+  `18CSR216` varchar(2) DEFAULT NULL,
+  `18CSR217` varchar(2) DEFAULT NULL,
+  `18CSR218` varchar(2) DEFAULT NULL,
+  `18CSR219` varchar(2) DEFAULT NULL,
+  `18CSR220` varchar(2) DEFAULT NULL,
+  `18CSR221` varchar(2) DEFAULT NULL,
+  `18CSR222` varchar(2) DEFAULT NULL,
+  `18CSR223` varchar(2) DEFAULT NULL,
+  `18CSR224` varchar(2) DEFAULT NULL,
+  `18CSR225` varchar(2) DEFAULT NULL,
+  `18CSR226` varchar(2) DEFAULT NULL,
+  `18CSR227` varchar(2) DEFAULT NULL,
+  `18CSR228` varchar(2) DEFAULT NULL,
+  `18CSR229` varchar(2) DEFAULT NULL,
+  `18CSR230` varchar(2) DEFAULT NULL,
+  `18CSR231` varchar(2) DEFAULT NULL,
+  `18CSR232` varchar(2) DEFAULT NULL,
+  `18CSR233` varchar(2) DEFAULT NULL,
+  `18CSR234` varchar(2) DEFAULT NULL,
+  `18CSR235` varchar(2) DEFAULT NULL,
+  `18CSR236` varchar(2) DEFAULT NULL,
+  `18CSR237` varchar(2) DEFAULT NULL,
+  `18CSR238` varchar(2) DEFAULT NULL,
+  `17CSR120` varchar(2) DEFAULT NULL,
+  `18CSL256` varchar(2) DEFAULT NULL,
+  `18CSL257` varchar(2) DEFAULT NULL,
+  `18CSL258` varchar(2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `19-cse-a`
+--
+
+CREATE TABLE `19-cse-a` (
+  `date` varchar(10) NOT NULL,
+  `code` varchar(10) NOT NULL,
+  `period` int(11) NOT NULL,
+  `19CSR001` varchar(2) DEFAULT NULL,
+  `19CSR002` varchar(2) DEFAULT NULL,
+  `19CSR003` varchar(2) DEFAULT NULL,
+  `19CSR004` varchar(2) DEFAULT NULL,
+  `19CSR005` varchar(2) DEFAULT NULL,
+  `19CSR006` varchar(2) DEFAULT NULL,
+  `19CSR007` varchar(2) DEFAULT NULL,
+  `19CSR008` varchar(2) DEFAULT NULL,
+  `19CSR009` varchar(2) DEFAULT NULL,
+  `19CSR010` varchar(2) DEFAULT NULL,
+  `19CSR011` varchar(2) DEFAULT NULL,
+  `19CSR012` varchar(2) DEFAULT NULL,
+  `19CSR013` varchar(2) DEFAULT NULL,
+  `19CSR014` varchar(2) DEFAULT NULL,
+  `19CSR015` varchar(2) DEFAULT NULL,
+  `19CSR016` varchar(2) DEFAULT NULL,
+  `19CSR017` varchar(2) DEFAULT NULL,
+  `19CSR018` varchar(2) DEFAULT NULL,
+  `19CSR019` varchar(2) DEFAULT NULL,
+  `19CSR020` varchar(2) DEFAULT NULL,
+  `19CSR021` varchar(2) DEFAULT NULL,
+  `19CSR022` varchar(2) DEFAULT NULL,
+  `19CSR023` varchar(2) DEFAULT NULL,
+  `19CSR024` varchar(2) DEFAULT NULL,
+  `19CSR025` varchar(2) DEFAULT NULL,
+  `19CSR026` varchar(2) DEFAULT NULL,
+  `19CSR027` varchar(2) DEFAULT NULL,
+  `19CSR028` varchar(2) DEFAULT NULL,
+  `19CSR029` varchar(2) DEFAULT NULL,
+  `19CSR030` varchar(2) DEFAULT NULL,
+  `19CSR031` varchar(2) DEFAULT NULL,
+  `19CSR032` varchar(2) DEFAULT NULL,
+  `19CSR033` varchar(2) DEFAULT NULL,
+  `19CSR034` varchar(2) DEFAULT NULL,
+  `19CSR035` varchar(2) DEFAULT NULL,
+  `19CSR036` varchar(2) DEFAULT NULL,
+  `19CSR037` varchar(2) DEFAULT NULL,
+  `19CSR038` varchar(2) DEFAULT NULL,
+  `19CSR039` varchar(2) DEFAULT NULL,
+  `19CSR040` varchar(2) DEFAULT NULL,
+  `19CSR041` varchar(2) DEFAULT NULL,
+  `19CSR042` varchar(2) DEFAULT NULL,
+  `19CSR043` varchar(2) DEFAULT NULL,
+  `19CSR044` varchar(2) DEFAULT NULL,
+  `19CSR045` varchar(2) DEFAULT NULL,
+  `19CSR046` varchar(2) DEFAULT NULL,
+  `19CSR047` varchar(2) DEFAULT NULL,
+  `19CSR048` varchar(2) DEFAULT NULL,
+  `19CSR049` varchar(2) DEFAULT NULL,
+  `19CSR050` varchar(2) DEFAULT NULL,
+  `19CSR051` varchar(2) DEFAULT NULL,
+  `19CSR052` varchar(2) DEFAULT NULL,
+  `19CSR053` varchar(2) DEFAULT NULL,
+  `19CSR054` varchar(2) DEFAULT NULL,
+  `19CSR055` varchar(2) DEFAULT NULL,
+  `19CSR056` varchar(2) DEFAULT NULL,
+  `19CSR057` varchar(2) DEFAULT NULL,
+  `19CSR058` varchar(2) DEFAULT NULL,
+  `19CSR059` varchar(2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+
+--
+-- Dumping data for table `19-cse-a`
+--
+
+INSERT INTO `19-cse-a` (`date`, `code`, `period`, `19CSR001`, `19CSR002`, `19CSR003`, `19CSR004`, `19CSR005`, `19CSR006`, `19CSR007`, `19CSR008`, `19CSR009`, `19CSR010`, `19CSR011`, `19CSR012`, `19CSR013`, `19CSR014`, `19CSR015`, `19CSR016`, `19CSR017`, `19CSR018`, `19CSR019`, `19CSR020`, `19CSR021`, `19CSR022`, `19CSR023`, `19CSR024`, `19CSR025`, `19CSR026`, `19CSR027`, `19CSR028`, `19CSR029`, `19CSR030`, `19CSR031`, `19CSR032`, `19CSR033`, `19CSR034`, `19CSR035`, `19CSR036`, `19CSR037`, `19CSR038`, `19CSR039`, `19CSR040`, `19CSR041`, `19CSR042`, `19CSR043`, `19CSR044`, `19CSR045`, `19CSR046`, `19CSR047`, `19CSR048`, `19CSR049`, `19CSR050`, `19CSR051`, `19CSR052`, `19CSR053`, `19CSR054`, `19CSR055`, `19CSR056`, `19CSR057`, `19CSR058`, `19CSR059`) VALUES
+('2020-07-09', '18CST32', 3, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-10', '18CST32', 5, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-13', '18CST32', 4, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `19-cse-b`
+--
+
+CREATE TABLE `19-cse-b` (
+  `date` varchar(10) NOT NULL,
+  `code` varchar(10) NOT NULL,
+  `period` int(11) NOT NULL,
+  `19CSR061` varchar(2) DEFAULT NULL,
+  `19CSR062` varchar(2) DEFAULT NULL,
+  `19CSR063` varchar(2) DEFAULT NULL,
+  `19CSR064` varchar(2) DEFAULT NULL,
+  `19CSR065` varchar(2) DEFAULT NULL,
+  `19CSR066` varchar(2) DEFAULT NULL,
+  `19CSR067` varchar(2) DEFAULT NULL,
+  `19CSR068` varchar(2) DEFAULT NULL,
+  `19CSR069` varchar(2) DEFAULT NULL,
+  `19CSR070` varchar(2) DEFAULT NULL,
+  `19CSR071` varchar(2) DEFAULT NULL,
+  `19CSR072` varchar(2) DEFAULT NULL,
+  `19CSR073` varchar(2) DEFAULT NULL,
+  `19CSR074` varchar(2) DEFAULT NULL,
+  `19CSR075` varchar(2) DEFAULT NULL,
+  `19CSR076` varchar(2) DEFAULT NULL,
+  `19CSR077` varchar(2) DEFAULT NULL,
+  `19CSR078` varchar(2) DEFAULT NULL,
+  `19CSR079` varchar(2) DEFAULT NULL,
+  `19CSR080` varchar(2) DEFAULT NULL,
+  `19CSR081` varchar(2) DEFAULT NULL,
+  `19CSR082` varchar(2) DEFAULT NULL,
+  `19CSR083` varchar(2) DEFAULT NULL,
+  `19CSR084` varchar(2) DEFAULT NULL,
+  `19CSR085` varchar(2) DEFAULT NULL,
+  `19CSR086` varchar(2) DEFAULT NULL,
+  `19CSR087` varchar(2) DEFAULT NULL,
+  `19CSR088` varchar(2) DEFAULT NULL,
+  `19CSR089` varchar(2) DEFAULT NULL,
+  `19CSR090` varchar(2) DEFAULT NULL,
+  `19CSR091` varchar(2) DEFAULT NULL,
+  `19CSR092` varchar(2) DEFAULT NULL,
+  `19CSR093` varchar(2) DEFAULT NULL,
+  `19CSR094` varchar(2) DEFAULT NULL,
+  `19CSR095` varchar(2) DEFAULT NULL,
+  `19CSR096` varchar(2) DEFAULT NULL,
+  `19CSR097` varchar(2) DEFAULT NULL,
+  `19CSR098` varchar(2) DEFAULT NULL,
+  `19CSR099` varchar(2) DEFAULT NULL,
+  `19CSR100` varchar(2) DEFAULT NULL,
+  `19CSR101` varchar(2) DEFAULT NULL,
+  `19CSR102` varchar(2) DEFAULT NULL,
+  `19CSR103` varchar(2) DEFAULT NULL,
+  `19CSR104` varchar(2) DEFAULT NULL,
+  `19CSR105` varchar(2) DEFAULT NULL,
+  `19CSR106` varchar(2) DEFAULT NULL,
+  `19CSR107` varchar(2) DEFAULT NULL,
+  `19CSR108` varchar(2) DEFAULT NULL,
+  `19CSR109` varchar(2) DEFAULT NULL,
+  `19CSR110` varchar(2) DEFAULT NULL,
+  `19CSR111` varchar(2) DEFAULT NULL,
+  `19CSR112` varchar(2) DEFAULT NULL,
+  `19CSR113` varchar(2) DEFAULT NULL,
+  `19CSR114` varchar(2) DEFAULT NULL,
+  `19CSR115` varchar(2) DEFAULT NULL,
+  `19CSR116` varchar(2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `19-cse-c`
+--
+
+CREATE TABLE `19-cse-c` (
+  `date` varchar(10) NOT NULL,
+  `code` varchar(10) NOT NULL,
+  `period` int(11) NOT NULL,
+  `19CSR117` varchar(2) DEFAULT NULL,
+  `19CSR118` varchar(2) DEFAULT NULL,
+  `19CSR119` varchar(2) DEFAULT NULL,
+  `19CSR120` varchar(2) DEFAULT NULL,
+  `19CSR121` varchar(2) DEFAULT NULL,
+  `19CSR122` varchar(2) DEFAULT NULL,
+  `19CSR123` varchar(2) DEFAULT NULL,
+  `19CSR124` varchar(2) DEFAULT NULL,
+  `19CSR125` varchar(2) DEFAULT NULL,
+  `19CSR126` varchar(2) DEFAULT NULL,
+  `19CSR127` varchar(2) DEFAULT NULL,
+  `19CSR128` varchar(2) DEFAULT NULL,
+  `19CSR129` varchar(2) DEFAULT NULL,
+  `19CSR130` varchar(2) DEFAULT NULL,
+  `19CSR131` varchar(2) DEFAULT NULL,
+  `19CSR132` varchar(2) DEFAULT NULL,
+  `19CSR133` varchar(2) DEFAULT NULL,
+  `19CSR134` varchar(2) DEFAULT NULL,
+  `19CSR135` varchar(2) DEFAULT NULL,
+  `19CSR136` varchar(2) DEFAULT NULL,
+  `19CSR137` varchar(2) DEFAULT NULL,
+  `19CSR138` varchar(2) DEFAULT NULL,
+  `19CSR140` varchar(2) DEFAULT NULL,
+  `19CSR141` varchar(2) DEFAULT NULL,
+  `19CSR142` varchar(2) DEFAULT NULL,
+  `19CSR143` varchar(2) DEFAULT NULL,
+  `19CSR144` varchar(2) DEFAULT NULL,
+  `19CSR145` varchar(2) DEFAULT NULL,
+  `19CSR146` varchar(2) DEFAULT NULL,
+  `19CSR147` varchar(2) DEFAULT NULL,
+  `19CSR148` varchar(2) DEFAULT NULL,
+  `19CSR149` varchar(2) DEFAULT NULL,
+  `19CSR150` varchar(2) DEFAULT NULL,
+  `19CSR151` varchar(2) DEFAULT NULL,
+  `19CSR152` varchar(2) DEFAULT NULL,
+  `19CSR153` varchar(2) DEFAULT NULL,
+  `19CSR154` varchar(2) DEFAULT NULL,
+  `19CSR155` varchar(2) DEFAULT NULL,
+  `19CSR156` varchar(2) DEFAULT NULL,
+  `19CSR157` varchar(2) DEFAULT NULL,
+  `19CSR158` varchar(2) DEFAULT NULL,
+  `19CSR159` varchar(2) DEFAULT NULL,
+  `19CSR160` varchar(2) DEFAULT NULL,
+  `19CSR161` varchar(2) DEFAULT NULL,
+  `19CSR162` varchar(2) DEFAULT NULL,
+  `19CSR163` varchar(2) DEFAULT NULL,
+  `19CSR164` varchar(2) DEFAULT NULL,
+  `19CSR165` varchar(2) DEFAULT NULL,
+  `19CSR166` varchar(2) DEFAULT NULL,
+  `19CSR167` varchar(2) DEFAULT NULL,
+  `19CSR168` varchar(2) DEFAULT NULL,
+  `19CSR169` varchar(2) DEFAULT NULL,
+  `19CSR170` varchar(2) DEFAULT NULL,
+  `19CSR171` varchar(2) DEFAULT NULL,
+  `19CSR172` varchar(2) DEFAULT NULL,
+  `19CSR173` varchar(2) DEFAULT NULL,
+  `19CSR174` varchar(2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `19-cse-d`
+--
+
+CREATE TABLE `19-cse-d` (
+  `date` varchar(10) NOT NULL,
+  `code` varchar(10) NOT NULL,
+  `period` int(11) NOT NULL,
+  `19CSR175` varchar(2) DEFAULT NULL,
+  `19CSR176` varchar(2) DEFAULT NULL,
+  `19CSR177` varchar(2) DEFAULT NULL,
+  `19CSR178` varchar(2) DEFAULT NULL,
+  `19CSR179` varchar(2) DEFAULT NULL,
+  `19CSR180` varchar(2) DEFAULT NULL,
+  `19CSR182` varchar(2) DEFAULT NULL,
+  `19CSR183` varchar(2) DEFAULT NULL,
+  `19CSR184` varchar(2) DEFAULT NULL,
+  `19CSR185` varchar(2) DEFAULT NULL,
+  `19CSR186` varchar(2) DEFAULT NULL,
+  `19CSR187` varchar(2) DEFAULT NULL,
+  `19CSR188` varchar(2) DEFAULT NULL,
+  `19CSR189` varchar(2) DEFAULT NULL,
+  `19CSR190` varchar(2) DEFAULT NULL,
+  `19CSR191` varchar(2) DEFAULT NULL,
+  `19CSR192` varchar(2) DEFAULT NULL,
+  `19CSR193` varchar(2) DEFAULT NULL,
+  `19CSR194` varchar(2) DEFAULT NULL,
+  `19CSR195` varchar(2) DEFAULT NULL,
+  `19CSR196` varchar(2) DEFAULT NULL,
+  `19CSR197` varchar(2) DEFAULT NULL,
+  `19CSR198` varchar(2) DEFAULT NULL,
+  `19CSR199` varchar(2) DEFAULT NULL,
+  `19CSR200` varchar(2) DEFAULT NULL,
+  `19CSR201` varchar(2) DEFAULT NULL,
+  `19CSR202` varchar(2) DEFAULT NULL,
+  `19CSR203` varchar(2) DEFAULT NULL,
+  `19CSR204` varchar(2) DEFAULT NULL,
+  `19CSR205` varchar(2) DEFAULT NULL,
+  `19CSR206` varchar(2) DEFAULT NULL,
+  `19CSR207` varchar(2) DEFAULT NULL,
+  `19CSR208` varchar(2) DEFAULT NULL,
+  `19CSR210` varchar(2) DEFAULT NULL,
+  `19CSR211` varchar(2) DEFAULT NULL,
+  `19CSR212` varchar(2) DEFAULT NULL,
+  `19CSR213` varchar(2) DEFAULT NULL,
+  `19CSR214` varchar(2) DEFAULT NULL,
+  `19CSR215` varchar(2) DEFAULT NULL,
+  `19CSR216` varchar(2) DEFAULT NULL,
+  `19CSR217` varchar(2) DEFAULT NULL,
+  `19CSR218` varchar(2) DEFAULT NULL,
+  `19CSR219` varchar(2) DEFAULT NULL,
+  `19CSR220` varchar(2) DEFAULT NULL,
+  `19CSR221` varchar(2) DEFAULT NULL,
+  `19CSR222` varchar(2) DEFAULT NULL,
+  `19CSR223` varchar(2) DEFAULT NULL,
+  `19CSR224` varchar(2) DEFAULT NULL,
+  `19CSR225` varchar(2) DEFAULT NULL,
+  `19CSR226` varchar(2) DEFAULT NULL,
+  `19CSR227` varchar(2) DEFAULT NULL,
+  `19CSR228` varchar(2) DEFAULT NULL,
+  `19CSR229` varchar(2) DEFAULT NULL,
+  `19CSR230` varchar(2) DEFAULT NULL,
+  `19CSR231` varchar(2) DEFAULT NULL,
+  `19CSR232` varchar(2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
 -- --------------------------------------------------------
@@ -120,14 +944,26 @@ CREATE TABLE `course_list` (
 --
 
 INSERT INTO `course_list` (`code`, `name`, `dept`, `batch`, `staffA`, `staffB`, `staffC`, `staffD`) VALUES
-('18CST51', 'Theory of Computation', 'CSE', 2018, 'CSE013SF', NULL, NULL, NULL),
-('18CST52', 'Software Engineering ', 'CSE', 2018, 'CSE011SF', NULL, NULL, NULL),
-('18CST53', 'Distributed Systems', 'CSE', 2018, 'CSE008SF', NULL, NULL, NULL),
-('18ITL51', 'Computer Network Laboratory', 'CSE', 2018, 'CSE014SF', NULL, NULL, NULL),
-('18ITL52', 'Web Technology Laboratory', 'CSE', 2018, 'CSE045SF', NULL, NULL, NULL),
-('18ITO02', 'Advanced Java Programming', 'CSE', 2018, 'CSE023SF', NULL, NULL, NULL),
-('18ITT51', 'Computer Networks', 'CSE', 2018, 'CSE014SF', NULL, NULL, NULL),
-('18ITT52', 'Web Technology', 'CSE', 2018, 'CSE045SF', NULL, NULL, NULL),
+('14CSL71', 'Machine Learning Algorithm Laboratory', 'CSE', 2017, 'CSE012SF', 'CSE006SF', 'CSE017SF', 'CSE007SF'),
+('14CSL72', 'Mobile Communication Laboratory', 'CSE', 2017, 'CSE016SF', 'CSE041SF', 'CSE042SF', 'CSE028SF'),
+('14CST71', 'Machine Learning', 'CSE', 2017, 'CSE012SF', 'CSE006SF', 'CSE017SF', 'CSE007SF'),
+('14CST72', 'Mobile Communication', 'CSE', 2017, 'CSE016SF', 'CSE041SF', 'CSE042SF', 'CSE028SF'),
+('14GET71', 'Total Quality Management', 'CSE', 2017, 'CSE001SF', NULL, 'CSE003SF', 'CSE015SF'),
+('18CSL31', 'Data Structures Laboratory', 'CSE', 2019, 'CSE039SF', 'CSE003SF', 'CSE040SF', 'CSE043SF'),
+('18CSL33', 'Object Oriented Programming Laboratory', 'CSE', 2019, 'CSE013SF', 'CSE009SF', 'CSE046SF', 'CSE034SF'),
+('18CST31', 'Data Structures', 'CSE', 2019, 'CSE039SF', 'CSE003SF', 'CSE040SF', 'CSE043SF'),
+('18CST32', 'Computer Organisation', 'CSE', 2019, 'CSE004SF', 'CSE025SF', 'CSE010SF', 'CSE030SF'),
+('18CST33', 'Object Oriented Programming', 'CSE', 2019, 'CSE013SF', 'CSE009SF', 'CSE046SF', 'CSE034SF'),
+('18CST51', 'Theory of Computation', 'CSE', 2018, 'CSE013SF', 'CSE014SF', 'CSE026SF', 'CSE005SF'),
+('18CST52', 'Software Engineering ', 'CSE', 2018, 'CSE011SF', 'CSE021SF', 'CSE018SF', 'CSE008SF'),
+('18CST53', 'Distributed Systems', 'CSE', 2018, 'CSE008SF', 'CSE035SF', 'CSE011SF', 'CSE032SF'),
+('18ITC31', 'Digital Principles and Design', 'CSE', 2019, NULL, NULL, NULL, NULL),
+('18ITL51', 'Computer Network Laboratory', 'CSE', 2018, 'CSE014SF', 'CSE031SF', 'CSE010SF', 'CSE020SF'),
+('18ITL52', 'Web Technology Laboratory', 'CSE', 2018, 'CSE045SF', 'CSE019SF', 'CSE044SF', 'CSE026SF'),
+('18ITO02', 'Advanced Java Programming', 'CSE', 2018, 'CSE023SF', 'CSE020SF', 'CSE038SF', 'CSE022SF'),
+('18ITT51', 'Computer Networks', 'CSE', 2018, 'CSE014SF', 'CSE007SF', 'CSE010SF', 'CSE020SF'),
+('18ITT52', 'Web Technology', 'CSE', 2018, 'CSE045SF', 'CSE019SF', 'CSE044SF', 'CSE026SF'),
+('18MAT31', 'Discrete Mathematics', 'CSE', 2019, NULL, NULL, NULL, NULL),
 ('PST', 'Professional Skills Training', 'CSE', 2018, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
@@ -141,14 +977,14 @@ CREATE TABLE `registration` (
   `name` varchar(40) NOT NULL,
   `batch` int(11) NOT NULL,
   `sec` varchar(1) NOT NULL,
-  `department` varchar(5) NOT NULL DEFAULT 'CSE'
+  `dept` varchar(5) NOT NULL DEFAULT 'CSE'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
 --
 -- Dumping data for table `registration`
 --
 
-INSERT INTO `registration` (`regno`, `name`, `batch`, `sec`, `department`) VALUES
+INSERT INTO `registration` (`regno`, `name`, `batch`, `sec`, `dept`) VALUES
 ('16CSR046', 'Dharan Kumar M', 2017, 'A', 'CSE'),
 ('17CSL239', 'Efshiba  V', 2017, 'A', 'CSE'),
 ('17CSL240', 'Ezhil  Bharathi  P', 2017, 'A', 'CSE'),
@@ -761,6 +1597,7 @@ INSERT INTO `registration` (`regno`, `name`, `batch`, `sec`, `department`) VALUE
 ('19CSR106', 'Mithun K V', 2019, 'B', 'CSE'),
 ('19CSR107', 'Mithun P', 2019, 'B', 'CSE'),
 ('19CSR108', 'Mohamedroshan .M', 2019, 'B', 'CSE'),
+('19CSR109', 'Monish B', 2019, 'B', 'CSE'),
 ('19CSR110', 'Monisha A', 2019, 'B', 'CSE'),
 ('19CSR111', 'Mugilan.M', 2019, 'B', 'CSE'),
 ('19CSR112', 'Muthupriyanka R', 2019, 'B', 'CSE'),
@@ -889,7 +1726,7 @@ INSERT INTO `registration` (`regno`, `name`, `batch`, `sec`, `department`) VALUE
 --
 
 CREATE TABLE `staff` (
-  `staffid` varchar(8) NOT NULL,
+  `staffid` varchar(12) NOT NULL,
   `name` varchar(30) NOT NULL,
   `userid` varchar(30) NOT NULL,
   `pass` varchar(255) DEFAULT NULL,
@@ -906,53 +1743,53 @@ CREATE TABLE `staff` (
 --
 
 INSERT INTO `staff` (`staffid`, `name`, `userid`, `pass`, `mail`, `dept`, `batch`, `sec`, `designation`, `status`) VALUES
-('CSE001SF', 'Dr.N.Shanthi', 'shanthi', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'shanthi.cse@kongu.edu', 'CSE', NULL, NULL, 'HOD', 'Not Changed'),
-('CSE002SF', 'Dr.R.R.Rajalaxmi', 'rrr', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'rrr.cse@kongu.edu', 'CSE', NULL, NULL, NULL, 'Not Changed'),
-('CSE003SF', 'Dr.K.Kousalya', 'kouse', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'kouse.cse@kongu.edu', 'CSE', NULL, NULL, NULL, 'Not Changed'),
-('CSE004SF', 'Dr.S.Malliga', 'mallisenthil', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'mallisenthil.cse@kongu.edu', 'CSE', '2018', NULL, 'Year in Charge', 'Not Changed'),
-('CSE005SF', 'Dr.R.C.Suganthe', 'suganthe_rc', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'suganthe_rc.cse@kongu.edu', 'CSE', NULL, NULL, NULL, 'Not Changed'),
-('CSE006SF', 'Dr.P.Natesan', 'natesanp', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'natesanp.cse@kongu.edu', 'CSE', NULL, NULL, NULL, 'Not Changed'),
-('CSE007SF', 'Dr.C.S.Kanimozhi Selvi', 'kanimozhi', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'kanimozhi.cse@kongu.edu', 'CSE', '2019', NULL, 'Year in Charge', 'Not Changed'),
-('CSE008SF', 'Dr.E.Gothai', 'egothai', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'egothai.cse@kongu.edu', 'CSE', NULL, NULL, NULL, 'Not Changed'),
-('CSE009SF', 'Dr.P.Jayanthi', 'jayanthime', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'jayanthime.cse@kongu.edu', 'CSE', NULL, NULL, NULL, 'Not Changed'),
-('CSE010SF', 'Dr.S.Shanthi', 'shanthis', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'shanthis.cse@kongu.edu', 'CSE', NULL, NULL, NULL, 'Not Changed'),
-('CSE011SF', 'Mr.N.P.Saravanan', 'npsaravanan', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'npsaravanan.cse@kongu.edu', 'CSE', NULL, NULL, NULL, 'Not Changed'),
-('CSE012SF', 'Dr.K.Nirmala Devi', 'k_nirmal', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'k_nirmal.cse@kongu.edu', 'CSE', NULL, NULL, NULL, 'Not Changed'),
-('CSE013SF', 'Ms.PCD.Kalaivaani', 'kalairupa', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'kalairupa.cse@kongu.edu', 'CSE', NULL, NULL, NULL, 'Not Changed'),
-('CSE014SF', 'Dr.R.S.Latha', 'latha', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'latha.cse@kongu.edu', 'CSE', '2018', 'A', 'Advisor', 'Not Changed'),
-('CSE015SF', 'Dr.N.Krishnamoorthy', 'nmoorthy', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'nmoorthy.cse@kongu.edu', 'CSE', NULL, NULL, NULL, 'Not Changed'),
-('CSE016SF', 'Dr.K.Sangeetha', 'sangeetha_k', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'sangeetha_k.cse@kongu.edu', 'CSE', '2018', 'B', 'Advisor', 'Not Changed'),
-('CSE017SF', 'Dr.S.V.Kogilavani', 'kogilavani', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'kogilavani.cse@kongu.edu', 'CSE', NULL, NULL, NULL, 'Not Changed'),
-('CSE018SF', 'Dr.P.Vishnu Raja', 'pvishnu', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'pvishnu.cse@kongu.edu', 'CSE', NULL, NULL, NULL, 'Not Changed'),
-('CSE019SF', 'Dr.P.Keerthika', 'keerthika', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'keerthika.cse@kongu.edu', 'CSE', NULL, NULL, NULL, 'Not Changed'),
-('CSE01TSF', 'Test Staff', 'test', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'test.cse@kongu.edu', 'CSE', '2000', 'T', 'Advisor', 'Not Changed'),
-('CSE020SF', 'Dr.S.K.Nivetha', 'nivetha', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'nivetha.cse@kongu.edu', 'CSE', NULL, NULL, NULL, 'Not Changed'),
-('CSE021SF', 'Dr.R.S.Mohana', 'mohanapragash', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'mohanapragash.cse@kongu.edu', 'CSE', NULL, NULL, NULL, 'Not Changed'),
-('CSE022SF', 'Ms.M.Geetha', 'geetha', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'geetha.cse@kongu.edu', 'CSE', NULL, NULL, NULL, 'Not Changed'),
-('CSE023SF', 'Dr.R.Manjula Devi', 'manjuladevi', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'manjuladevi.cse@kongu.edu', 'CSE', NULL, NULL, NULL, 'Not Changed'),
-('CSE024SF', 'Mr.T.Kumaravel', 'tkumar', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'tkumar.cse@kongu.edu', 'CSE', '2018', 'C', 'Advisor', 'Not Changed'),
-('CSE025SF', 'Ms.S.Ramya', 'sramya', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'sramya.cse@kongu.edu', 'CSE', '2019', 'B', 'Advisor', 'Not Changed'),
-('CSE026SF', 'Mr.K.Devendran', 'skdeva', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'skdeva.cse@kongu.edu', 'CSE', '2018', 'D', 'Advisor', 'Not Changed'),
-('CSE027SF', 'Ms.N.Sasipriyaa', 'sasipriya', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'sasipriya.cse@kongu.edu', 'CSE', '2018', 'A', 'Advisor', 'Not Changed'),
-('CSE028SF', 'Mr.B.Bizu', 'bizu', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'bizu.cse@kongu.edu', 'CSE', NULL, NULL, NULL, 'Not Changed'),
-('CSE029SF', 'Mr.R.Sureshkumar', 'sureshkec', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'sureshkec.eie@kongu.edu', 'CSE', NULL, NULL, NULL, 'Not Changed'),
-('CSE030SF', 'Ms.D.Deepa', 'deepa', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'deepa.cse@kongu.edu', 'CSE', NULL, NULL, NULL, 'Not Changed'),
-('CSE031SF', 'Mr.S.Selvaraj', 'selvarajs', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'selvarajs.cse@kongu.edu', 'CSE', NULL, NULL, NULL, 'Not Changed'),
-('CSE032SF', 'Ms.M.Sangeetha', 'sangeetham', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'sangeetham.cse@kongu.edu', 'CSE', '2018', 'D', 'Advisor', 'Not Changed'),
-('CSE033SF', 'Ms.O.R.Deepa', 'ord', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'ord.cse@kongu.edu', 'CSE', NULL, NULL, NULL, 'Not Changed'),
-('CSE034SF', 'Mr.P.S.Prakash', 'psprakash', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'psprakash.cse@kongu.edu', 'CSE', '2019', 'B', 'Advisor', 'Not Changed'),
-('CSE035SF', 'Ms.K.S.Kalaivani', 'kalaivani', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'kalaivani.cse@kongu.edu', 'CSE', '2018', 'B', 'Advisor', 'Not Changed'),
-('CSE036SF', 'Mr.S.Santhoshkumar', 'sanvins', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'sanvins.cse@kongu.edu', 'CSE', '2019', 'D', 'Advisor', 'Not Changed'),
-('CSE037SF', 'Ms.C.Sagana', 'sagana', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'sagana.c.cse@kongu.edu', 'CSE', NULL, NULL, NULL, 'Not Changed'),
-('CSE038SF', 'Mr.B.Krishnakumar', 'krishnakumar', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'krishnakumar.cse@kongu.edu', 'CSE', NULL, NULL, NULL, 'Not Changed'),
-('CSE039SF', 'Ms.S.Mohana Saranya', 'mohanasaranya', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'mohanasaranya.cse@kongu.edu', 'CSE', '2019', 'A', 'Advisor', 'Not Changed'),
-('CSE040SF', 'Ms.S.Mohanapriya', 'mohanapriyas', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'mohanapriyas.cse@kongu.edu', 'CSE', '2019', 'C', 'Advisor', 'Not Changed'),
-('CSE041SF', 'Ms.P.S.Nandhini', 'nandhini', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'nandhini.cse@kongu.edu', 'CSE', '2019', 'A', 'Advisor', 'Not Changed'),
-('CSE042SF', 'Ms.K.Tamil Selvi', 'tamilselvik', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'tamilselvik.cse@kongu.edu', 'CSE', NULL, NULL, NULL, 'Not Changed'),
-('CSE043SF', 'Ms.M.K.Dharani', 'dharani', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'dharani.cse@kongu.edu', 'CSE', '2019', 'D', 'Advisor', 'Not Changed'),
-('CSE044SF', 'Ms.Vani Rajasekar', 'vanikecit', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'vanikecit.cse@kongu.edu', 'CSE', '2018', 'C', 'Advisor', 'Not Changed'),
-('CSE045SF', 'Ms.K.Venu', 'venu', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'venu.cse@kongu.edu', 'CSE', NULL, NULL, NULL, 'Not Changed'),
-('CSE046SF', 'Dr.K.Dinesh', 'dinesh', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'dinesh.cse@kongu.edu', 'CSE', '2019', 'C', 'Advisor', 'Not Changed');
+('CSE001SF', 'Dr.N.Shanthi', 'shanthi', 'b2d788c31f49e1601f12eed77581cc6efa2e9b52', 'shanthi.cse@kongu.edu', 'CSE', NULL, NULL, 'HOD', 'Not Changed'),
+('CSE002SF', 'Dr.R.R.Rajalaxmi', 'rrr', 'b2d788c31f49e1601f12eed77581cc6efa2e9b52', 'rrr.cse@kongu.edu', 'CSE', NULL, NULL, NULL, 'Not Changed'),
+('CSE003SF', 'Dr.K.Kousalya', 'kouse', 'b2d788c31f49e1601f12eed77581cc6efa2e9b52', 'kouse.cse@kongu.edu', 'CSE', NULL, NULL, NULL, 'Not Changed'),
+('CSE004SF', 'Dr.S.Malliga', 'mallisenthil', 'b2d788c31f49e1601f12eed77581cc6efa2e9b52', 'mallisenthil.cse@kongu.edu', 'CSE', '2018', NULL, 'Year in Charge', 'Not Changed'),
+('CSE005SF', 'Dr.R.C.Suganthe', 'suganthe_rc', 'b2d788c31f49e1601f12eed77581cc6efa2e9b52', 'suganthe_rc.cse@kongu.edu', 'CSE', NULL, NULL, NULL, 'Not Changed'),
+('CSE006SF', 'Dr.P.Natesan', 'natesanp', 'b2d788c31f49e1601f12eed77581cc6efa2e9b52', 'natesanp.cse@kongu.edu', 'CSE', NULL, NULL, NULL, 'Not Changed'),
+('CSE007SF', 'Dr.C.S.Kanimozhi Selvi', 'kanimozhi', 'b2d788c31f49e1601f12eed77581cc6efa2e9b52', 'kanimozhi.cse@kongu.edu', 'CSE', '2019', NULL, 'Year in Charge', 'Not Changed'),
+('CSE008SF', 'Dr.E.Gothai', 'egothai', 'b2d788c31f49e1601f12eed77581cc6efa2e9b52', 'egothai.cse@kongu.edu', 'CSE', NULL, NULL, NULL, 'Not Changed'),
+('CSE009SF', 'Dr.P.Jayanthi', 'jayanthime', 'b2d788c31f49e1601f12eed77581cc6efa2e9b52', 'jayanthime.cse@kongu.edu', 'CSE', NULL, NULL, NULL, 'Not Changed'),
+('CSE010SF', 'Dr.S.Shanthi', 'shanthis', 'b2d788c31f49e1601f12eed77581cc6efa2e9b52', 'shanthis.cse@kongu.edu', 'CSE', NULL, NULL, NULL, 'Not Changed'),
+('CSE011SF', 'Mr.N.P.Saravanan', 'npsaravanan', 'b2d788c31f49e1601f12eed77581cc6efa2e9b52', 'npsaravanan.cse@kongu.edu', 'CSE', NULL, NULL, NULL, 'Not Changed'),
+('CSE012SF', 'Dr.K.Nirmala Devi', 'k_nirmal', 'b2d788c31f49e1601f12eed77581cc6efa2e9b52', 'k_nirmal.cse@kongu.edu', 'CSE', NULL, NULL, NULL, 'Not Changed'),
+('CSE013SF', 'Ms.PCD.Kalaivaani', 'kalairupa', 'b2d788c31f49e1601f12eed77581cc6efa2e9b52', 'kalairupa.cse@kongu.edu', 'CSE', NULL, NULL, NULL, 'Not Changed'),
+('CSE014SF', 'Dr.R.S.Latha', 'latha', 'b2d788c31f49e1601f12eed77581cc6efa2e9b52', 'latha.cse@kongu.edu', 'CSE', '2018', 'A', 'Advisor', 'Not Changed'),
+('CSE015SF', 'Dr.N.Krishnamoorthy', 'nmoorthy', 'b2d788c31f49e1601f12eed77581cc6efa2e9b52', 'nmoorthy.cse@kongu.edu', 'CSE', NULL, NULL, NULL, 'Not Changed'),
+('CSE016SF', 'Dr.K.Sangeetha', 'sangeetha_k', 'b2d788c31f49e1601f12eed77581cc6efa2e9b52', 'sangeetha_k.cse@kongu.edu', 'CSE', '2018', 'B', 'Advisor', 'Not Changed'),
+('CSE017SF', 'Dr.S.V.Kogilavani', 'kogilavani', 'b2d788c31f49e1601f12eed77581cc6efa2e9b52', 'kogilavani.cse@kongu.edu', 'CSE', NULL, NULL, NULL, 'Not Changed'),
+('CSE018SF', 'Dr.P.Vishnu Raja', 'pvishnu', 'b2d788c31f49e1601f12eed77581cc6efa2e9b52', 'pvishnu.cse@kongu.edu', 'CSE', NULL, NULL, NULL, 'Not Changed'),
+('CSE019SF', 'Dr.P.Keerthika', 'keerthika', 'b2d788c31f49e1601f12eed77581cc6efa2e9b52', 'keerthika.cse@kongu.edu', 'CSE', NULL, NULL, NULL, 'Not Changed'),
+('CSE020SF', 'Dr.S.K.Nivetha', 'nivetha', 'b2d788c31f49e1601f12eed77581cc6efa2e9b52', 'nivetha.cse@kongu.edu', 'CSE', NULL, NULL, NULL, 'Not Changed'),
+('CSE021SF', 'Dr.R.S.Mohana', 'mohanapragash', 'b2d788c31f49e1601f12eed77581cc6efa2e9b52', 'mohanapragash.cse@kongu.edu', 'CSE', NULL, NULL, NULL, 'Not Changed'),
+('CSE022SF', 'Ms.M.Geetha', 'geetha', 'b2d788c31f49e1601f12eed77581cc6efa2e9b52', 'geetha.cse@kongu.edu', 'CSE', NULL, NULL, NULL, 'Not Changed'),
+('CSE023SF', 'Dr.R.Manjula Devi', 'manjuladevi', 'b2d788c31f49e1601f12eed77581cc6efa2e9b52', 'manjuladevi.cse@kongu.edu', 'CSE', NULL, NULL, NULL, 'Not Changed'),
+('CSE024SF', 'Mr.T.Kumaravel', 'tkumar', 'b2d788c31f49e1601f12eed77581cc6efa2e9b52', 'tkumar.cse@kongu.edu', 'CSE', '2018', 'C', 'Advisor', 'Not Changed'),
+('CSE025SF', 'Ms.S.Ramya', 'sramya', 'b2d788c31f49e1601f12eed77581cc6efa2e9b52', 'sramya.cse@kongu.edu', 'CSE', '2019', 'B', 'Advisor', 'Not Changed'),
+('CSE026SF', 'Mr.K.Devendran', 'skdeva', 'b2d788c31f49e1601f12eed77581cc6efa2e9b52', 'skdeva.cse@kongu.edu', 'CSE', '2018', 'D', 'Advisor', 'Not Changed'),
+('CSE027SF', 'Ms.N.Sasipriyaa', 'sasipriya', 'b2d788c31f49e1601f12eed77581cc6efa2e9b52', 'sasipriya.cse@kongu.edu', 'CSE', '2018', 'A', 'Advisor', 'Not Changed'),
+('CSE028SF', 'Mr.B.Bizu', 'bizu', 'b2d788c31f49e1601f12eed77581cc6efa2e9b52', 'bizu.cse@kongu.edu', 'CSE', NULL, NULL, NULL, 'Not Changed'),
+('CSE029SF', 'Mr.R.Sureshkumar', 'sureshkec', 'b2d788c31f49e1601f12eed77581cc6efa2e9b52', 'sureshkec.eie@kongu.edu', 'CSE', NULL, NULL, NULL, 'Not Changed'),
+('CSE030SF', 'Ms.D.Deepa', 'deepa', 'b2d788c31f49e1601f12eed77581cc6efa2e9b52', 'deepa.cse@kongu.edu', 'CSE', NULL, NULL, NULL, 'Not Changed'),
+('CSE031SF', 'Mr.S.Selvaraj', 'selvarajs', 'b2d788c31f49e1601f12eed77581cc6efa2e9b52', 'selvarajs.cse@kongu.edu', 'CSE', NULL, NULL, NULL, 'Not Changed'),
+('CSE032SF', 'Ms.M.Sangeetha', 'sangeetham', 'b2d788c31f49e1601f12eed77581cc6efa2e9b52', 'sangeetham.cse@kongu.edu', 'CSE', '2018', 'D', 'Advisor', 'Not Changed'),
+('CSE033SF', 'Ms.O.R.Deepa', 'ord', 'b2d788c31f49e1601f12eed77581cc6efa2e9b52', 'ord.cse@kongu.edu', 'CSE', NULL, NULL, NULL, 'Not Changed'),
+('CSE034SF', 'Mr.P.S.Prakash', 'psprakash', 'b2d788c31f49e1601f12eed77581cc6efa2e9b52', 'psprakash.cse@kongu.edu', 'CSE', '2019', 'B', 'Advisor', 'Not Changed'),
+('CSE035SF', 'Ms.K.S.Kalaivani', 'kalaivani', 'b2d788c31f49e1601f12eed77581cc6efa2e9b52', 'kalaivani.cse@kongu.edu', 'CSE', '2018', 'B', 'Advisor', 'Not Changed'),
+('CSE036SF', 'Mr.S.Santhoshkumar', 'sanvins', 'b2d788c31f49e1601f12eed77581cc6efa2e9b52', 'sanvins.cse@kongu.edu', 'CSE', '2019', 'D', 'Advisor', 'Not Changed'),
+('CSE037SF', 'Ms.C.Sagana', 'sagana', 'b2d788c31f49e1601f12eed77581cc6efa2e9b52', 'sagana.c.cse@kongu.edu', 'CSE', NULL, NULL, NULL, 'Not Changed'),
+('CSE038SF', 'Mr.B.Krishnakumar', 'krishnakumar', 'b2d788c31f49e1601f12eed77581cc6efa2e9b52', 'krishnakumar.cse@kongu.edu', 'CSE', NULL, NULL, NULL, 'Not Changed'),
+('CSE039SF', 'Ms.S.Mohana Saranya', 'mohanasaranya', 'b2d788c31f49e1601f12eed77581cc6efa2e9b52', 'mohanasaranya.cse@kongu.edu', 'CSE', '2019', 'A', 'Advisor', 'Not Changed'),
+('CSE040SF', 'Ms.S.Mohanapriya', 'mohanapriyas', 'b2d788c31f49e1601f12eed77581cc6efa2e9b52', 'mohanapriyas.cse@kongu.edu', 'CSE', '2019', 'C', 'Advisor', 'Not Changed'),
+('CSE041SF', 'Ms.P.S.Nandhini', 'nandhini', 'b2d788c31f49e1601f12eed77581cc6efa2e9b52', 'nandhini.cse@kongu.edu', 'CSE', '2019', 'A', 'Advisor', 'Not Changed'),
+('CSE042SF', 'Ms.K.Tamil Selvi', 'tamilselvik', 'b2d788c31f49e1601f12eed77581cc6efa2e9b52', 'tamilselvik.cse@kongu.edu', 'CSE', NULL, NULL, NULL, 'Not Changed'),
+('CSE043SF', 'Ms.M.K.Dharani', 'dharani', 'b2d788c31f49e1601f12eed77581cc6efa2e9b52', 'dharani.cse@kongu.edu', 'CSE', '2019', 'D', 'Advisor', 'Not Changed'),
+('CSE044SF', 'Ms.Vani Rajasekar', 'vanikecit', 'b2d788c31f49e1601f12eed77581cc6efa2e9b52', 'vanikecit.cse@kongu.edu', 'CSE', '2018', 'C', 'Advisor', 'Not Changed'),
+('CSE045SF', 'Ms.K.Venu', 'venu', 'b2d788c31f49e1601f12eed77581cc6efa2e9b52', 'venu.cse@kongu.edu', 'CSE', NULL, NULL, NULL, 'Not Changed'),
+('CSE046SF', 'Dr.K.Dinesh', 'dinesh', 'b2d788c31f49e1601f12eed77581cc6efa2e9b52', 'dinesh.cse@kongu.edu', 'CSE', '2019', 'C', 'Advisor', 'Not Changed'),
+('CSE100SF', 'Test Staff', 'test', 'b2d788c31f49e1601f12eed77581cc6efa2e9b52', 'test.cse@kongu.edu', 'CSE', '2018', 'A', 'Advisor', 'Changed');
 
 -- --------------------------------------------------------
 
@@ -963,44 +1800,173 @@ INSERT INTO `staff` (`staffid`, `name`, `userid`, `pass`, `mail`, `dept`, `batch
 CREATE TABLE `tt` (
   `class` varchar(12) NOT NULL,
   `day` varchar(10) NOT NULL,
-  `1` varchar(10) NOT NULL,
-  `2` varchar(10) NOT NULL,
-  `3` varchar(10) NOT NULL,
-  `4` varchar(10) NOT NULL,
-  `5` varchar(10) NOT NULL
+  `1` varchar(10) DEFAULT NULL,
+  `2` varchar(10) DEFAULT NULL,
+  `3` varchar(10) DEFAULT NULL,
+  `4` varchar(10) DEFAULT NULL,
+  `5` varchar(10) DEFAULT NULL,
+  `6` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
 --
 -- Dumping data for table `tt`
 --
 
-INSERT INTO `tt` (`class`, `day`, `1`, `2`, `3`, `4`, `5`) VALUES
-('18-cse-a', 'Friday', '18ITL51', '18ITT51', '18ITL52', '18ITO02', '18CST51'),
-('18-cse-a', 'Monday', '18ITT52', '18ITO02', '18CST51', '18CST53', '18ITT51'),
-('18-cse-a', 'Thursday', '18CST52', '18ITL52', '18ITL52', '18CST53', '18ITT51'),
-('18-cse-a', 'Tueday', '18CST51', '18ITT52', '18ITT51', '18CST53', '18CST52'),
-('18-cse-a', 'Wednesday', 'PST', 'PST', '18ITO02', '18CST52', '18CST51');
+INSERT INTO `tt` (`class`, `day`, `1`, `2`, `3`, `4`, `5`, `6`) VALUES
+('17-cse-a', 'Friday', NULL, NULL, NULL, '14CST71', '14GET71', NULL),
+('17-cse-a', 'Monday', NULL, NULL, '14CST72', NULL, NULL, '14GET71'),
+('17-cse-a', 'Thursday', NULL, NULL, '14CST71', NULL, '14CST72', NULL),
+('17-cse-a', 'Tuesday', NULL, NULL, NULL, NULL, NULL, '14CST71'),
+('17-cse-a', 'Wednesday', NULL, NULL, '14CST72', '14GET71', '14CSL71', '14CSL72'),
+('17-cse-b', 'Friday', NULL, NULL, NULL, '14CST71', '14GET71', NULL),
+('17-cse-b', 'Monday', NULL, NULL, '14CST72', NULL, NULL, '14GET71'),
+('17-cse-b', 'Thursday', NULL, NULL, '14CST71', NULL, '14CST72', NULL),
+('17-cse-b', 'Tuesday', NULL, NULL, NULL, NULL, NULL, '14CST71'),
+('17-cse-b', 'Wednesday', NULL, NULL, '14CST72', '14GET71', '14CSL71', '14CSL72'),
+('17-cse-c', 'Friday', NULL, NULL, NULL, '14CST71', '14GET71', NULL),
+('17-cse-c', 'Monday', NULL, NULL, '14CST72', NULL, NULL, '14GET71'),
+('17-cse-c', 'Thursday', NULL, NULL, '14CST71', NULL, '14CST72', NULL),
+('17-cse-c', 'Tuesday', NULL, NULL, NULL, NULL, NULL, '14CST71'),
+('17-cse-c', 'Wednesday', NULL, NULL, '14CST72', '14GET71', '14CSL71', '14CSL72'),
+('17-cse-d', 'Friday', NULL, NULL, NULL, '14CST71', '14GET71', NULL),
+('17-cse-d', 'Monday', NULL, NULL, '14CST72', NULL, NULL, '14GET71'),
+('17-cse-d', 'Thursday', NULL, NULL, '14CST71', NULL, '14CST72', NULL),
+('17-cse-d', 'Tuesday', NULL, NULL, NULL, NULL, NULL, '14CST71'),
+('17-cse-d', 'Wednesday', NULL, NULL, '14CST72', '14GET71', '14CSL71', '14CSL72'),
+('18-cse-a', 'Friday', '18ITL51', '18ITL51', '18ITT52', '18ITO02', '18CST51', NULL),
+('18-cse-a', 'Monday', '18ITT52', '18ITO02', '18CST51', '18CST53', '18ITT51', NULL),
+('18-cse-a', 'Thursday', '18CST52', '18ITL52', '18ITL52', '18CST53', '18ITT51', NULL),
+('18-cse-a', 'Tuesday', '18CST51', '18ITT52', '18ITT51', '18CST53', '18CST52', NULL),
+('18-cse-a', 'Wednesday', 'PST', 'PST', '18ITO02', '18CST52', '18CST51', NULL),
+('18-cse-b', 'Friday', '18ITL51', '18ITL51', '18ITT52', '18ITO02', '18CST51', NULL),
+('18-cse-b', 'Monday', '18ITT52', '18ITO02', '18CST51', '18CST53', '18ITT51', NULL),
+('18-cse-b', 'Thursday', '18CST52', '18ITL52', '18ITL52', '18CST53', '18ITT51', NULL),
+('18-cse-b', 'Tuesday', '18CST51', '18ITT52', '18ITT51', '18CST53', '18CST52', NULL),
+('18-cse-b', 'Wednesday', 'PST', 'PST', '18ITO02', '18CST52', '18CST51', NULL),
+('18-cse-c', 'Friday', '18ITL51', '18ITL51', '18ITL52', '18ITO02', '18CST51', NULL),
+('18-cse-c', 'Monday', '18ITT52', '18ITO02', '18CST51', '18CST53', '18ITT51', NULL),
+('18-cse-c', 'Thursday', '18CST52', '18ITL52', '18ITL52', '18CST53', '18ITT51', NULL),
+('18-cse-c', 'Tuesday', '18CST51', '18ITT52', '18ITT51', '18CST53', '18CST52', NULL),
+('18-cse-c', 'Wednesday', 'PST', 'PST', '18ITO02', '18CST52', '18CST51', NULL),
+('18-cse-d', 'Friday', '18ITL51', '18ITL51', '18ITT52', '18ITO02', '18CST51', NULL),
+('18-cse-d', 'Monday', '18ITT52', '18ITO02', '18CST51', '18CST53', '18ITT51', NULL),
+('18-cse-d', 'Thursday', '18CST52', '18ITL52', '18ITL52', '18CST53', '18ITT51', NULL),
+('18-cse-d', 'Tuesday', '18CST51', '18ITT52', '18ITT51', '18CST53', '18CST52', NULL),
+('18-cse-d', 'Wednesday', 'PST', 'PST', '18ITO02', '18CST52', '18CST51', NULL),
+('19-cse-a', 'Friday', '18MAT31', '18ITC31', '18CSL31', '18CSL31', '18CST32', NULL),
+('19-cse-a', 'Monday', '18ITC31', '18CST31', '18MAT31', '18CST32', '18CST33', NULL),
+('19-cse-a', 'Thursday', '18CST33', '18CST31', '18CST32', '18CST31', '18CST33', NULL),
+('19-cse-a', 'Tuesday', '18CST32', '18MAT31', '18CST33', '18CST31', '18ITC31', NULL),
+('19-cse-a', 'Wednesday', '18MAT31', '18CSL33', '18CSL33', '18CSL33', '18ITC31', NULL),
+('19-cse-b', 'Friday', '18MAT31', '18ITC31', '18CSL31', '18CSL31', '18CST32', NULL),
+('19-cse-b', 'Monday', '18ITC31', '18CST31', '18MAT31', '18CST32', '18CST33', NULL),
+('19-cse-b', 'Thursday', '18CST33', '18CST31', '18CST32', '18CST31', '18CST33', NULL),
+('19-cse-b', 'Tuesday', '18CST32', '18MAT31', '18CST33', '18CST31', '18ITC31', NULL),
+('19-cse-b', 'Wednesday', '18MAT31', '18CSL33', '18CSL33', '18CSL33', '18ITC31', NULL),
+('19-cse-c', 'Friday', '18MAT31', '18ITC31', '18CSL31', '18CSL31', '18CST32', NULL),
+('19-cse-c', 'Monday', '18ITC31', '18CST31', '18MAT31', '18CST32', '18CST33', NULL),
+('19-cse-c', 'Thursday', '18CST33', '18CST31', '18CST32', '18CST31', '18CST33', NULL),
+('19-cse-c', 'Tuesday', '18CST32', '18MAT31', '18CST33', '18CST31', '18ITC31', NULL),
+('19-cse-c', 'Wednesday', '18MAT31', '18CSL33', '18CSL33', '18CSL33', '18ITC31', NULL),
+('19-cse-d', 'Friday', '18MAT31', '18ITC31', '18CSL31', '18CSL31', '18CST32', NULL),
+('19-cse-d', 'Monday', '18ITC31', '18CST31', '18MAT31', '18CST32', '18CST33', NULL),
+('19-cse-d', 'Thursday', '18CST33', '18CST31', '18CST32', '18CST31', '18CST33', NULL),
+('19-cse-d', 'Tuesday', '18CST32', '18MAT31', '18CST33', '18CST31', '18ITC31', NULL),
+('19-cse-d', 'Wednesday', '18MAT31', '18CSL33', '18CSL33', '18CSL33', '18ITC31', NULL);
 
 --
 -- Indexes for dumped tables
 --
 
 --
+-- Indexes for table `17-cse-a`
+--
+ALTER TABLE `17-cse-a`
+  ADD PRIMARY KEY (`date`,`code`);
+
+--
+-- Indexes for table `17-cse-b`
+--
+ALTER TABLE `17-cse-b`
+  ADD PRIMARY KEY (`date`,`code`);
+
+--
+-- Indexes for table `17-cse-c`
+--
+ALTER TABLE `17-cse-c`
+  ADD PRIMARY KEY (`date`,`code`);
+
+--
+-- Indexes for table `17-cse-d`
+--
+ALTER TABLE `17-cse-d`
+  ADD PRIMARY KEY (`date`,`code`);
+
+--
 -- Indexes for table `18-cse-a`
 --
 ALTER TABLE `18-cse-a`
-  ADD PRIMARY KEY (`date`,`code`),
-  ADD KEY `18-cse-a_ibfk_1` (`code`);
+  ADD PRIMARY KEY (`date`,`code`,`period`),
+  ADD KEY `code` (`code`);
+
+--
+-- Indexes for table `18-cse-b`
+--
+ALTER TABLE `18-cse-b`
+  ADD PRIMARY KEY (`date`,`code`,`period`),
+  ADD KEY `code` (`code`);
+
+--
+-- Indexes for table `18-cse-c`
+--
+ALTER TABLE `18-cse-c`
+  ADD PRIMARY KEY (`date`,`code`,`period`),
+  ADD KEY `code` (`code`);
+
+--
+-- Indexes for table `18-cse-d`
+--
+ALTER TABLE `18-cse-d`
+  ADD PRIMARY KEY (`date`,`code`,`period`),
+  ADD KEY `code` (`code`);
+
+--
+-- Indexes for table `19-cse-a`
+--
+ALTER TABLE `19-cse-a`
+  ADD PRIMARY KEY (`date`,`code`,`period`),
+  ADD KEY `code` (`code`);
+
+--
+-- Indexes for table `19-cse-b`
+--
+ALTER TABLE `19-cse-b`
+  ADD PRIMARY KEY (`date`,`code`,`period`),
+  ADD KEY `code` (`code`);
+
+--
+-- Indexes for table `19-cse-c`
+--
+ALTER TABLE `19-cse-c`
+  ADD PRIMARY KEY (`date`,`code`,`period`),
+  ADD KEY `code` (`code`);
+
+--
+-- Indexes for table `19-cse-d`
+--
+ALTER TABLE `19-cse-d`
+  ADD PRIMARY KEY (`date`,`code`,`period`),
+  ADD KEY `code` (`code`);
 
 --
 -- Indexes for table `course_list`
 --
 ALTER TABLE `course_list`
   ADD PRIMARY KEY (`code`,`batch`),
-  ADD KEY `Staff1 Id Constraint` (`staffA`),
   ADD KEY `Staff2 Id Constraint` (`staffB`),
   ADD KEY `Staff3 ID Constraint` (`staffC`),
-  ADD KEY `Staff4 ID Constraint` (`staffD`);
+  ADD KEY `Staff4 ID Constraint` (`staffD`),
+  ADD KEY `StaffA` (`staffA`);
 
 --
 -- Indexes for table `registration`
@@ -1025,30 +1991,80 @@ ALTER TABLE `tt`
   ADD KEY `2` (`2`),
   ADD KEY `3` (`3`),
   ADD KEY `4` (`4`),
-  ADD KEY `5` (`5`);
+  ADD KEY `5` (`5`),
+  ADD KEY `P6` (`6`);
 
 --
 -- Constraints for dumped tables
 --
 
 --
+-- Constraints for table `18-cse-a`
+--
+ALTER TABLE `18-cse-a`
+  ADD CONSTRAINT `18-cse-a_ibfk_1` FOREIGN KEY (`code`) REFERENCES `course_list` (`code`);
+
+--
+-- Constraints for table `18-cse-b`
+--
+ALTER TABLE `18-cse-b`
+  ADD CONSTRAINT `18-cse-b_ibfk_1` FOREIGN KEY (`code`) REFERENCES `course_list` (`code`);
+
+--
+-- Constraints for table `18-cse-c`
+--
+ALTER TABLE `18-cse-c`
+  ADD CONSTRAINT `18-cse-c_ibfk_1` FOREIGN KEY (`code`) REFERENCES `course_list` (`code`);
+
+--
+-- Constraints for table `18-cse-d`
+--
+ALTER TABLE `18-cse-d`
+  ADD CONSTRAINT `18-cse-d_ibfk_1` FOREIGN KEY (`code`) REFERENCES `course_list` (`code`);
+
+--
+-- Constraints for table `19-cse-a`
+--
+ALTER TABLE `19-cse-a`
+  ADD CONSTRAINT `19-cse-a_ibfk_1` FOREIGN KEY (`code`) REFERENCES `course_list` (`code`);
+
+--
+-- Constraints for table `19-cse-b`
+--
+ALTER TABLE `19-cse-b`
+  ADD CONSTRAINT `19-cse-b_ibfk_1` FOREIGN KEY (`code`) REFERENCES `course_list` (`code`);
+
+--
+-- Constraints for table `19-cse-c`
+--
+ALTER TABLE `19-cse-c`
+  ADD CONSTRAINT `19-cse-c_ibfk_1` FOREIGN KEY (`code`) REFERENCES `course_list` (`code`);
+
+--
+-- Constraints for table `19-cse-d`
+--
+ALTER TABLE `19-cse-d`
+  ADD CONSTRAINT `19-cse-d_ibfk_1` FOREIGN KEY (`code`) REFERENCES `course_list` (`code`);
+
+--
 -- Constraints for table `course_list`
 --
 ALTER TABLE `course_list`
-  ADD CONSTRAINT `Staff1 Id Constraint` FOREIGN KEY (`staffA`) REFERENCES `staff` (`staffid`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  ADD CONSTRAINT `Staff2 Id Constraint` FOREIGN KEY (`staffB`) REFERENCES `staff` (`staffid`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  ADD CONSTRAINT `Staff3 ID Constraint` FOREIGN KEY (`staffC`) REFERENCES `staff` (`staffid`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  ADD CONSTRAINT `Staff4 ID Constraint` FOREIGN KEY (`staffD`) REFERENCES `staff` (`staffid`) ON DELETE NO ACTION ON UPDATE CASCADE;
+  ADD CONSTRAINT `StaffA` FOREIGN KEY (`staffA`) REFERENCES `staff` (`staffid`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `StaffB` FOREIGN KEY (`staffB`) REFERENCES `staff` (`staffid`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `StaffC` FOREIGN KEY (`staffC`) REFERENCES `staff` (`staffid`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `StaffD` FOREIGN KEY (`staffD`) REFERENCES `staff` (`staffid`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
 -- Constraints for table `tt`
 --
 ALTER TABLE `tt`
-  ADD CONSTRAINT `1` FOREIGN KEY (`1`) REFERENCES `course_list` (`code`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  ADD CONSTRAINT `2` FOREIGN KEY (`2`) REFERENCES `course_list` (`code`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  ADD CONSTRAINT `3` FOREIGN KEY (`3`) REFERENCES `course_list` (`code`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  ADD CONSTRAINT `4` FOREIGN KEY (`4`) REFERENCES `course_list` (`code`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  ADD CONSTRAINT `5` FOREIGN KEY (`5`) REFERENCES `course_list` (`code`) ON DELETE NO ACTION ON UPDATE CASCADE;
+  ADD CONSTRAINT `P1` FOREIGN KEY (`1`) REFERENCES `course_list` (`code`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `P2` FOREIGN KEY (`2`) REFERENCES `course_list` (`code`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `P3` FOREIGN KEY (`3`) REFERENCES `course_list` (`code`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `P4` FOREIGN KEY (`4`) REFERENCES `course_list` (`code`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `P5` FOREIGN KEY (`5`) REFERENCES `course_list` (`code`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `P6` FOREIGN KEY (`6`) REFERENCES `course_list` (`code`) ON DELETE NO ACTION ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
