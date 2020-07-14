@@ -64,7 +64,6 @@ include_once('./navbar.php');
             <tbody style="text-align:center">
                 <?php
                 $sql="SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N'$table'";
-                echo $sql;
                 $res=$con->query($sql);
                 
                 while($row=$res->fetch_assoc())
