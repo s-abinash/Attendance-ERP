@@ -65,10 +65,13 @@ include_once('./navbar.php');
                 $sql="SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N'$table'";
              
                 $res=$con->query($sql);
-                $row=$res->fetch_assoc();
-                $row=$res->fetch_assoc();$row=$res->fetch_assoc();  
+                  
                 while($row=$res->fetch_assoc())
                 {
+                    if(($row["COLUMN_NAME"]=="date")||($row["COLUMN_NAME"]=="code")||($row["COLUMN_NAME"]=="period"))
+                    {
+                        continue;
+                    }
                     $roll=$row["COLUMN_NAME"];
                     $reg=$con->query("SELECT name FROM `registration` where regno LIKE '$roll'")->fetch_assoc()["name"];
                     echo "<tr class='' id=".$row["COLUMN_NAME"]."><td style='text-indent:15px'>".$row["COLUMN_NAME"]."</td><td style='text-align:left'>".$reg."</td></tr>";
