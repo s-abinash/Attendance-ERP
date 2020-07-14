@@ -94,13 +94,13 @@ else
         background: url("./images/bgpic.jpg");
     }
 
-    #card {
+    /* #card {
         margin: 0;
         position: absolute;
         top: 50%;
         left: 50%;
         -ms-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%); */
     }
     </style>
 
@@ -299,7 +299,7 @@ if(isset($_POST['finalize']))
     <!-- File Upload Card  -->
 
     <div class="card-1">
-        <div class="ui raised padded container segment" id="card" style="margin:auto;width:60%;">
+        <div class="ui raised padded container segment" id="card" style="margin:auto;width:80%;">
             <center>
                 <h1 class="header">
                     Attendance Entry
@@ -328,9 +328,8 @@ if(isset($_POST['finalize']))
                             <p>XLSX with 3 sheets, each having list in the first column</p>
                             <span style="float:left;">Download Excel Format here, <a href="./files/CSEA.xlsx"
                                     download><i class="blue download icon"></i></a></span>
-                            <span style="float:right;">Download Manual Attendace Excel here, <a
-                                    href="./files/Manual Attd.xlsx" download><i
-                                        class="green download icon"></i></a></span><br />
+                            <span style="float:right;">View Manual Attd File, <a href="./files/Manual Attd.xlsx"
+                                    download><i class="green download icon"></i></a></span><br />
                         </div>
                     </div>
 
@@ -367,7 +366,7 @@ if(isset($_POST['finalize']))
 
     <!-- Attendance Confirm Card -->
     <div class="card-2" style="display:none;">
-        <div class="ui raised padded container segment" id="card" style="height:80%;overflow:auto;width:60%;">
+        <div class="ui raised padded container segment" id="card" style="height:80%;overflow:auto;width:80%;">
             <center>
                 <h1 class="header">
                     Attendance Entry
