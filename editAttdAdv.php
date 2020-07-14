@@ -78,7 +78,8 @@ if(isset($_SESSION["EditAttnd"]))
                 $date=date("Y-m-d",strtotime($_SESSION['date']));
                 $code=$_SESSION['code'];
                 $period=$_SESSION['period'];
-                $class=strval($batch).'-cse-'.strtolower($sec);
+
+                $class=strval($batch)."-".strtolower($dep)."-".strtolower($sec);
                 
                 $arr=array();
                 $bat="20".$_SESSION["batch"];
