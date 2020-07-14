@@ -108,15 +108,41 @@ else
     <?php
 if(isset($_POST["upload"]))
 {
-    if(isset($_FILES['excel']))
+    if(isset($_FILES['excel']) || isset($_POST['nofile']))
     {
-        $file_type=$_FILES['excel']['type'];
-        $file_size= $_FILES['excel']['size'];
-        if ($file_type=="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" && $file_size < 1010000 )     //2010000bytes = 2mb
+        $a=false;
+        $b=false;
+        if(isset($_FILES['excel']))
         {
+            $file_type=$_FILES['excel']['type'];
+            $file_size= $_FILES['excel']['size'];
+            if ($file_type=="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" && $file_size < 1010000 )
+            {
+                $a=true;
+                $b=true;
+                $filename='att'.strval(mt_rand(100000,1000000)).'.xlsx';
+                $targetfolder ='./files/'.$filename;
+                $fl=move_uploaded_file($_FILES['excel']['tmp_name'], $targetfolder);
+            }
+
+        }
+        else if(isset($_POST["nofile"]))
+        {
+            $source='./files/Manual Attd.xlsx';
             $filename='att'.strval(mt_rand(100000,1000000)).'.xlsx';
             $targetfolder ='./files/'.$filename;
-            if(move_uploaded_file($_FILES['excel']['tmp_name'], $targetfolder))
+            $fl=copy($source, $targetfolder);
+            $a=$b=true;
+        }
+        else
+        {
+            echo "<script> Notiflix.Report.Failure( 'Submisson Failure', 'Both Upload or Manual Not Given', 'Okay' );</script>";
+        }
+        
+        if($a==true && $b==true)
+        {
+            
+            if($fl==true)
             {
                 
                 include_once('./assets/simplexlsx-master/src/SimpleXLSX.php');
@@ -202,13 +228,13 @@ if(isset($_POST["upload"]))
         }
         else
         {
-            if ($file_type=="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
+            if ($a==false)
             {
                 unlink($targetfolder);
                 echo "<script> Notiflix.Report.Failure( 'Submisson Error', 'Only Excel sheets can be uploaded. <br> Please Convert and Submit.', 'Okay' );</script>";
                 
             }
-            if($file_size > 1010000)
+            if($b==false)
             {
                 unlink($targetfolder);
                 echo "<script> Notiflix.Report.Failue( 'Submisson Error', 'File size should be 1 MB max. <br> Please Compress and Submit.', 'Okay' );</script>";
