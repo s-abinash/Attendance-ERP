@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jul 13, 2020 at 09:12 PM
+-- Generation Time: Jul 14, 2020 at 09:43 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.3.18
 
@@ -94,6 +94,13 @@ CREATE TABLE `17-cse-a` (
   `17CSL241` varchar(2) DEFAULT NULL,
   `17CSL242` varchar(2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `17-cse-a`
+--
+
+INSERT INTO `17-cse-a` (`date`, `code`, `period`, `17CSR001`, `17CSR002`, `17CSR003`, `17CSR004`, `17CSR005`, `17CSR006`, `17CSR007`, `17CSR008`, `17CSR009`, `17CSR010`, `17CSR011`, `17CSR012`, `17CSR013`, `17CSR014`, `17CSR015`, `17CSR016`, `17CSR017`, `17CSR018`, `17CSR019`, `17CSR020`, `17CSR021`, `17CSR022`, `17CSR023`, `17CSR024`, `17CSR025`, `17CSR027`, `17CSR028`, `17CSR029`, `17CSR030`, `17CSR031`, `17CSR033`, `17CSR034`, `17CSR035`, `17CSR036`, `17CSR037`, `17CSR038`, `17CSR039`, `17CSR040`, `17CSR041`, `17CSR042`, `17CSR043`, `17CSR044`, `17CSR045`, `17CSR046`, `17CSR047`, `17CSR048`, `17CSR049`, `17CSR050`, `17CSR051`, `17CSR052`, `17CSR053`, `17CSR054`, `17CSR055`, `17CSR056`, `17CSR057`, `17CSR058`, `17CSR059`, `16CSR046`, `17CSL239`, `17CSL240`, `17CSL241`, `17CSL242`) VALUES
+('2020-07-13', '14GET71', 6, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P');
 
 -- --------------------------------------------------------
 
@@ -960,6 +967,7 @@ INSERT INTO `course_list` (`code`, `name`, `dept`, `batch`, `staffA`, `staffB`, 
 ('18ITC31', 'Digital Principles and Design', 'CSE', 2019, NULL, NULL, NULL, NULL),
 ('18ITL51', 'Computer Network Laboratory', 'CSE', 2018, 'CSE014SF', 'CSE031SF', 'CSE010SF', 'CSE020SF'),
 ('18ITL52', 'Web Technology Laboratory', 'CSE', 2018, 'CSE045SF', 'CSE019SF', 'CSE044SF', 'CSE026SF'),
+('18ITO01', 'Python Programming', 'EEE', 2018, NULL, NULL, NULL, NULL),
 ('18ITO02', 'Advanced Java Programming', 'CSE', 2018, 'CSE023SF', 'CSE020SF', 'CSE038SF', 'CSE022SF'),
 ('18ITT51', 'Computer Networks', 'CSE', 2018, 'CSE014SF', 'CSE007SF', 'CSE010SF', 'CSE020SF'),
 ('18ITT52', 'Web Technology', 'CSE', 2018, 'CSE045SF', 'CSE019SF', 'CSE044SF', 'CSE026SF'),
@@ -1853,6 +1861,9 @@ INSERT INTO `tt` (`class`, `day`, `1`, `2`, `3`, `4`, `5`, `6`) VALUES
 ('18-cse-d', 'Thursday', '18CST52', '18ITL52', '18ITL52', '18CST53', '18ITT51', NULL),
 ('18-cse-d', 'Tuesday', '18CST51', '18ITT52', '18ITT51', '18CST53', '18CST52', NULL),
 ('18-cse-d', 'Wednesday', 'PST', 'PST', '18ITO02', '18CST52', '18CST51', NULL),
+('18-eee-a', 'Friday', NULL, NULL, NULL, '18ITO01', NULL, NULL),
+('18-eee-a', 'Monday', NULL, '18ITO01', NULL, NULL, NULL, NULL),
+('18-eee-a', 'Wednesday', NULL, NULL, '18ITO01', NULL, NULL, NULL),
 ('19-cse-a', 'Friday', '18MAT31', '18ITC31', '18CSL31', '18CSL31', '18CST32', NULL),
 ('19-cse-a', 'Monday', '18ITC31', '18CST31', '18MAT31', '18CST32', '18CST33', NULL),
 ('19-cse-a', 'Thursday', '18CST33', '18CST31', '18CST32', '18CST31', '18CST33', NULL),
