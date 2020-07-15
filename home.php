@@ -138,7 +138,7 @@
         <div class="content">
 
 
-            <form class="ui form" method="POST" action="./import.php">
+            <form class="ui form" id="frm2" method="POST" action="./import.php">
                 <br></br>
                 <center>
                     <div class="two fields">
@@ -148,7 +148,7 @@
                             <div class="ui calendar" id="cal">
                                 <div class="ui  focus input  left icon">
                                     <i class="calendar icon"></i>
-                                    <input type="text" name="dates" placeholder="Date/Time" required>
+                                    <input type="text" name="dates" placeholder="Date/Time" id="dat" required>
                                 </div>
                             </div>
                         </div>
@@ -159,12 +159,7 @@
                             <br>
                             <select name="hrs[]" multiple="" class="ui selection dropdown" id="hr" required>
                                 <option value="">Select Period</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
+                             
                             </select>
                         </div>
                     </div>
@@ -192,6 +187,8 @@
     </div>
     <script>
     var d = "";
+    var response;
+    var dt;
 
     function attend(id) {
         var btn = id.split("/");
@@ -201,9 +198,10 @@
             data: d,
             type: "POST",
             success: function(res) {
+                 response=JSON.parse(res);
                 var arr = [];
                 var i;
-                var dates = JSON.parse(res);
+                var dates =response[0];
                 if (!(Array.isArray(dates) && dates.length)) {
                     Notiflix.Notify.Info("You have no pending Attendance reports to be uploaded");
                     return false;
@@ -223,6 +221,21 @@
                             var year = date.getFullYear();
                             return day + '/' + month + '/' + year;
                         }
+                    },
+                    onChange   : function(date, settings) {
+                        $('#hr').dropdown('clear');
+                        $("#hr").html("<option value=''>Select Period</option>");
+                            var ar=response[1][getWeekDay(date)];    
+                            for (i of ar)
+                            {
+                                $("#hr").append("<option value='"+i+"'>"+i+"</option>");
+                            }
+                            if(ar.length==1)
+                            {
+                               
+                                $('#frm2').form('set value', 'hrs', ar[0]);    
+                            }
+
                     }
                 });
                 $('#hr').dropdown({
@@ -282,12 +295,21 @@
             }
         })
     }
-
+    function getWeekDay(date)
+    {
+    var weekdays = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
+    var day = date.getDay();
+    
+    return weekdays[day];
+    }
     $(document).ready(function() {
 
-        $("#datepickermod").modal({});
+        $("#datepickermod").modal();
         $("#closebtn1").click(function() {
+            
             $("#datepickermod").modal("hide");
+            $('form').form('clear');
+            $('#hr').dropdown('clear');
         });
         $('#cal').calendar({
             type: 'date'

@@ -34,35 +34,53 @@
          $sql="SELECT * FROM `tt` WHERE `class` LIKE '$tab'";
          $res=$con->query($sql);
          $day=array();
+         $day_per=array();
          while($row=$res->fetch_assoc())
          { 
-              $per = array($row["1"],$row["2"], $row["3"],$row["4"],$row["5"],$row["6"]);
-              if(in_array($code, $per))
+              $per=array();
+              foreach($row as $in=>$v)
               {
-               array_push($day,$row["day"]);
+                   if($v==$code)
+                   {
+                        array_push($per,$in);
+                   }
+              }
+              if(!empty($per))
+              {
+                    $day_per+=array($row["day"]=>$per);
               }
          }
+      
          $x=date("Y-m-d");
          $tdy=date_create($x);
          $date=date("2020-07-08");
          $diff=intval(date_diff($tdy,date_create($date))->format("%a"))+1;
          $dates=array();
-     
+    
          for($i=1;$i<=$diff;$i++)
          {    
               $s=date("l", strtotime($date));
-               if(in_array($s,$day))
+               foreach($day_per as $d=>$pd)
                {
-                    $sql="SELECT * FROM `$tab` where date LIKE '$date' AND code LIKE '$code'"; 
-                    $r=$con->query($sql);
-                    if($r->num_rows==0)
-                    {    
-                         array_push($dates,$date);
+                    if($d==$s)
+                    {
+                         foreach($pd as $periods)
+                         {
+                              $sql="SELECT * FROM `$tab` where date LIKE '$date' AND code LIKE '$code' AND `period` LIKE '$periods'"; 
+                           
+                              $r=$con->query($sql);
+                              if($r->num_rows==0)
+                              {    
+                                   array_push($dates,$date);
+                              }
+                         }
                     }
                }
                $date=date_format(date_add(date_create($date),date_interval_create_from_date_string("1 days")),"Y-m-d");
-         }
-          echo json_encode($dates);
+          }
+               
+         
+          echo json_encode(array($dates,$day_per));
           exit();
 
     }
@@ -154,8 +172,7 @@
                          hoverable  : true,
                          });
                     });
-                    </script>';
-              
+                    </script>'; 
          }
         exit();
     }
