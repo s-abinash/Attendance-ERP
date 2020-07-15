@@ -39,17 +39,31 @@
                 <?php
                     $id=$_SESSION["id"];
                     $sql="SELECT * FROM `course_list` WHERE staffA LIKE '$id' OR staffB LIKE '$id' OR staffC LIKE '$id' OR staffD LIKE '$id' ORDER BY batch desc";
-                
                     $res=$con->query($sql);
-                    $lab="";
                     $word="Laboratory";
-                    echo '<tr ><td colspan="5" style="font-size:17px" class="left aligned"><em>General Course</em></td></tr>';
+                    $lab="";
+
+                    $ele=array("14CSE06","14CSE11","14CSO07","14ITO01");
+                    $ele_course=array();
+                    
+                    $t=1;
                     while($row=$res->fetch_assoc())
                     {
+
                     if(strpos($row["name"],$word) !== false)
                     {
                         $lab=$row;
                         continue;
+                    }
+                    else if(in_array($row["code"],$ele))
+                    {
+                        array_push($ele_course,$row);
+                        continue;
+                    }
+                    if($t==1)
+                    {
+                        echo '<tr ><td colspan="5" style="font-size:17px" class="left aligned"><em>General Course</em></td></tr>';
+                        $t=0;
                     }
                     $batch=(2020%intval($row["batch"]))+1;
                     $year=$batch==2?"II":($batch==3?"III":"IV");
@@ -79,6 +93,47 @@
                     <td>'.$name.'</td>
                     <td class="right aligned"><button class="ui primary right icon button" id="'.$btn.'" onclick="attend(this.id)"> Mark Attendance &nbsp&nbsp<i class="check icon"></i></button>&nbsp;&nbsp;<button class="ui black right icon button" id="'.$btn.'" onclick="history(this.id)"> View History &nbsp&nbsp<i class="history icon"></i></button><button class="ui brown right icon button" id="'.$btn.'" onclick="consolidate(this.id)"> Consolidation &nbsp&nbsp<i class="file export icon"></i></button></td>
                     </tr>';
+                    }
+                    if(!empty($ele_course))
+                    {
+                        echo '<tr ><td colspan="5" style="font-size:17px" class="left aligned"><em>Elective Course</em></td></tr>';
+                        foreach($ele_course as $row)
+                        {
+                            
+                            $batch=(2020%intval($row["batch"]))+1;
+                            $year=$batch==2?"II":($batch==3?"III":"IV");
+                            $sec="";
+                            if($row["staffA"]==$id)
+                            {
+                                $sec.="A ";
+                            }
+                            if($row["staffB"]==$id)
+                            {
+                                $sec.="B ";
+                            }
+                            if($row["staffC"]==$id)
+                            {
+                                $sec.="C ";
+                            }
+                            if($row["staffD"]==$id) 
+                            {
+                                $sec.="D ";
+                            }
+                            $code=$row["code"];
+                            $name=$row["name"];
+                            $btn=strval($row["batch"]%2000)."-".$row["dept"]."-".$sec[0]."/".$code;
+                            echo '<tr>
+                            <td>'.$year.'</td>
+                            <td>'.$sec.'</td>
+                            <td>'.$code.'</td>
+                            <td>'.$name.'</td>
+                            <td class="right aligned">
+                                <button class="ui primary right icon button" id="'.$btn.'" onclick="attend(this.id)"> Mark Attendance &nbsp&nbsp<i class="check icon"></i></button>&nbsp;&nbsp;
+                                <button class="ui black right icon button" id="'.$btn.'" onclick="history(this.id)"> View History &nbsp&nbsp<i class="history icon"></i></button>
+                                <button class="ui brown right icon button" id="'.$btn.'" onclick="consolidate(this.id)"> Consolidation &nbsp&nbsp<i class="file export icon"></i></button>
+                            </td>
+                            </tr>';
+                        }
                     }
                     if($lab!="")
                     {

@@ -35,35 +35,34 @@
 
 
 
-// include_once("../db.php");
-// session_start();
+include_once("../db.php");
+session_start();
 
 
-// $tableName="17-cse-d";
-// $batch="2017";
-// $sec="D";
+$tableName="14CSE11";
 
-// $str="CREATE TABLE `$tableName` (date varchar(10) NOT NULL,code varchar(10) NOT NULL,period int NOT NULL,";
-// $sql="SELECT regno FROM `registration` WHERE batch LIKE '$batch' AND sec LIKE '$sec'";
 
-// $res=$con->query($sql);
-// while($row=$res->fetch_assoc())
-// {
-//   $roll=$row["regno"];
-//     $str.=$roll." VARCHAR(2) NULL,";   
-// }
-// $str.="PRIMARY KEY(DATE,CODE))";
-// if($con->query($str))
-// {
-//     echo "Successfull";
-// }
-// else
-// {
-//     echo $str;
-//     echo "error";
-// }
+$str="CREATE TABLE `$tableName` (date varchar(10) NOT NULL,code varchar(10) NOT NULL,period int NOT NULL,";
+$sql="SELECT regno FROM `elective` WHERE `S1` LIKE 'CSE002SF'";
 
-// exit();
+$res=$con->query($sql);
+while($row=$res->fetch_assoc())
+{
+  $roll=$row["regno"];
+    $str.=$roll." VARCHAR(3) DEFAULT 'N/A',";   
+}
+$str.="PRIMARY KEY(DATE,CODE))";
+if($con->query($str))
+{
+    echo "Successfull";
+}
+else
+{
+    echo $str;
+    echo "error";
+}
+
+exit();
 
 
 

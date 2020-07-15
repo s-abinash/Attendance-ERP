@@ -1,6 +1,6 @@
 <?php
     include_once("../db.php");
-    
+    session_start();
     if (isset($_POST["usr"]))
     {   
         $id=$_POST["userid"];
@@ -10,7 +10,7 @@
         $count=$res->num_rows;
        if($count==1)
        {
-          session_start();
+          
           $row=$res->fetch_assoc();
           $_SESSION["id"]=$row['staffid'];
           $_SESSION["name"]=$row['name'];
@@ -32,6 +32,7 @@
          $tab=strtolower($_POST["tab"]);
          $code=$_POST["code"];
          $sql="SELECT * FROM `tt` WHERE `class` LIKE '$tab'";
+     
          $res=$con->query($sql);
          $day=array();
          $day_per=array();
@@ -40,23 +41,24 @@
               $per=array();
               foreach($row as $in=>$v)
               {
-                   if($v==$code)
+                   if(strpos($v,$code)!==false)
                    {
                         array_push($per,$in);
-                   }
+                   } 
               }
               if(!empty($per))
               {
                     $day_per+=array($row["day"]=>$per);
-              }
+              }   
          }
-      
+     
          $x=date("Y-m-d");
          $tdy=date_create($x);
          $date=date("2020-07-08");
          $diff=intval(date_diff($tdy,date_create($date))->format("%a"))+1;
          $dates=array();
-    
+
+        
          for($i=1;$i<=$diff;$i++)
          {    
               $s=date("l", strtotime($date));
@@ -66,7 +68,16 @@
                     {
                          foreach($pd as $periods)
                          {
-                              $sql="SELECT * FROM `$tab` where date LIKE '$date' AND code LIKE '$code' AND `period` LIKE '$periods'"; 
+                              if(in_array($code,array("14CSE06","14CSE11","14CSO07","14ITO01")))
+                              {
+                                   
+                                   $sid=$_SESSION["id"];
+                                   $sql="SELECT * FROM `$code` where date LIKE '$date' AND code LIKE '$sid' AND `period` LIKE '$periods'"; 
+                              }
+                              else
+                              {
+                                   $sql="SELECT * FROM `$tab` where date LIKE '$date' AND code LIKE '$code' AND `period` LIKE '$periods'"; 
+                              }
                            
                               $r=$con->query($sql);
                               if($r->num_rows==0)
