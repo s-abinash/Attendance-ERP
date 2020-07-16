@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jul 14, 2020 at 09:43 AM
--- Server version: 10.4.13-MariaDB
+-- Generation Time: Jul 17, 2020 at 12:05 AM
+-- Server version: 10.4.13-MariaDB-log
 -- PHP Version: 7.3.18
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -20,6 +20,445 @@ SET time_zone = "+00:00";
 --
 -- Database: `attendance`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `14CSE06`
+--
+
+CREATE TABLE `14CSE06` (
+  `date` varchar(10) NOT NULL,
+  `code` varchar(10) NOT NULL,
+  `period` int(11) NOT NULL,
+  `16CSR046` varchar(3) DEFAULT 'N/A',
+  `17CSL239` varchar(3) DEFAULT 'N/A',
+  `17CSL240` varchar(3) DEFAULT 'N/A',
+  `17CSL241` varchar(3) DEFAULT 'N/A',
+  `17CSL242` varchar(3) DEFAULT 'N/A',
+  `17CSL243` varchar(3) DEFAULT 'N/A',
+  `17CSL244` varchar(3) DEFAULT 'N/A',
+  `17CSL245` varchar(3) DEFAULT 'N/A',
+  `17CSL246` varchar(3) DEFAULT 'N/A',
+  `17CSL247` varchar(3) DEFAULT 'N/A',
+  `17CSL248` varchar(3) DEFAULT 'N/A',
+  `17CSL249` varchar(3) DEFAULT 'N/A',
+  `17CSL250` varchar(3) DEFAULT 'N/A',
+  `17CSL251` varchar(3) DEFAULT 'N/A',
+  `17CSL252` varchar(3) DEFAULT 'N/A',
+  `17CSL253` varchar(3) DEFAULT 'N/A',
+  `17CSL254` varchar(3) DEFAULT 'N/A',
+  `17CSL255` varchar(3) DEFAULT 'N/A',
+  `17CSR001` varchar(3) DEFAULT 'N/A',
+  `17CSR002` varchar(3) DEFAULT 'N/A',
+  `17CSR003` varchar(3) DEFAULT 'N/A',
+  `17CSR006` varchar(3) DEFAULT 'N/A',
+  `17CSR007` varchar(3) DEFAULT 'N/A',
+  `17CSR009` varchar(3) DEFAULT 'N/A',
+  `17CSR010` varchar(3) DEFAULT 'N/A',
+  `17CSR011` varchar(3) DEFAULT 'N/A',
+  `17CSR012` varchar(3) DEFAULT 'N/A',
+  `17CSR013` varchar(3) DEFAULT 'N/A',
+  `17CSR016` varchar(3) DEFAULT 'N/A',
+  `17CSR019` varchar(3) DEFAULT 'N/A',
+  `17CSR020` varchar(3) DEFAULT 'N/A',
+  `17CSR024` varchar(3) DEFAULT 'N/A',
+  `17CSR025` varchar(3) DEFAULT 'N/A',
+  `17CSR028` varchar(3) DEFAULT 'N/A',
+  `17CSR029` varchar(3) DEFAULT 'N/A',
+  `17CSR030` varchar(3) DEFAULT 'N/A',
+  `17CSR031` varchar(3) DEFAULT 'N/A',
+  `17CSR035` varchar(3) DEFAULT 'N/A',
+  `17CSR037` varchar(3) DEFAULT 'N/A',
+  `17CSR039` varchar(3) DEFAULT 'N/A',
+  `17CSR041` varchar(3) DEFAULT 'N/A',
+  `17CSR042` varchar(3) DEFAULT 'N/A',
+  `17CSR043` varchar(3) DEFAULT 'N/A',
+  `17CSR044` varchar(3) DEFAULT 'N/A',
+  `17CSR046` varchar(3) DEFAULT 'N/A',
+  `17CSR047` varchar(3) DEFAULT 'N/A',
+  `17CSR049` varchar(3) DEFAULT 'N/A',
+  `17CSR050` varchar(3) DEFAULT 'N/A',
+  `17CSR052` varchar(3) DEFAULT 'N/A',
+  `17CSR053` varchar(3) DEFAULT 'N/A',
+  `17CSR054` varchar(3) DEFAULT 'N/A',
+  `17CSR055` varchar(3) DEFAULT 'N/A',
+  `17CSR056` varchar(3) DEFAULT 'N/A',
+  `17CSR057` varchar(3) DEFAULT 'N/A',
+  `17CSR058` varchar(3) DEFAULT 'N/A',
+  `17CSR060` varchar(3) DEFAULT 'N/A',
+  `17CSR062` varchar(3) DEFAULT 'N/A',
+  `17CSR064` varchar(3) DEFAULT 'N/A',
+  `17CSR065` varchar(3) DEFAULT 'N/A',
+  `17CSR066` varchar(3) DEFAULT 'N/A',
+  `17CSR067` varchar(3) DEFAULT 'N/A',
+  `17CSR068` varchar(3) DEFAULT 'N/A',
+  `17CSR070` varchar(3) DEFAULT 'N/A',
+  `17CSR071` varchar(3) DEFAULT 'N/A',
+  `17CSR072` varchar(3) DEFAULT 'N/A',
+  `17CSR073` varchar(3) DEFAULT 'N/A',
+  `17CSR075` varchar(3) DEFAULT 'N/A',
+  `17CSR076` varchar(3) DEFAULT 'N/A',
+  `17CSR077` varchar(3) DEFAULT 'N/A',
+  `17CSR078` varchar(3) DEFAULT 'N/A',
+  `17CSR079` varchar(3) DEFAULT 'N/A',
+  `17CSR080` varchar(3) DEFAULT 'N/A',
+  `17CSR081` varchar(3) DEFAULT 'N/A',
+  `17CSR082` varchar(3) DEFAULT 'N/A',
+  `17CSR083` varchar(3) DEFAULT 'N/A',
+  `17CSR086` varchar(3) DEFAULT 'N/A',
+  `17CSR088` varchar(3) DEFAULT 'N/A',
+  `17CSR091` varchar(3) DEFAULT 'N/A',
+  `17CSR092` varchar(3) DEFAULT 'N/A',
+  `17CSR093` varchar(3) DEFAULT 'N/A',
+  `17CSR094` varchar(3) DEFAULT 'N/A',
+  `17CSR095` varchar(3) DEFAULT 'N/A',
+  `17CSR096` varchar(3) DEFAULT 'N/A',
+  `17CSR097` varchar(3) DEFAULT 'N/A',
+  `17CSR098` varchar(3) DEFAULT 'N/A',
+  `17CSR099` varchar(3) DEFAULT 'N/A',
+  `17CSR100` varchar(3) DEFAULT 'N/A',
+  `17CSR101` varchar(3) DEFAULT 'N/A',
+  `17CSR102` varchar(3) DEFAULT 'N/A',
+  `17CSR103` varchar(3) DEFAULT 'N/A',
+  `17CSR104` varchar(3) DEFAULT 'N/A',
+  `17CSR105` varchar(3) DEFAULT 'N/A',
+  `17CSR106` varchar(3) DEFAULT 'N/A',
+  `17CSR109` varchar(3) DEFAULT 'N/A',
+  `17CSR110` varchar(3) DEFAULT 'N/A',
+  `17CSR111` varchar(3) DEFAULT 'N/A',
+  `17CSR112` varchar(3) DEFAULT 'N/A',
+  `17CSR113` varchar(3) DEFAULT 'N/A',
+  `17CSR114` varchar(3) DEFAULT 'N/A',
+  `17CSR115` varchar(3) DEFAULT 'N/A',
+  `17CSR116` varchar(3) DEFAULT 'N/A',
+  `17CSR117` varchar(3) DEFAULT 'N/A',
+  `17CSR118` varchar(3) DEFAULT 'N/A',
+  `17CSR119` varchar(3) DEFAULT 'N/A',
+  `17CSR121` varchar(3) DEFAULT 'N/A',
+  `17CSR122` varchar(3) DEFAULT 'N/A',
+  `17CSR123` varchar(3) DEFAULT 'N/A',
+  `17CSR124` varchar(3) DEFAULT 'N/A',
+  `17CSR128` varchar(3) DEFAULT 'N/A',
+  `17CSR129` varchar(3) DEFAULT 'N/A',
+  `17CSR130` varchar(3) DEFAULT 'N/A',
+  `17CSR131` varchar(3) DEFAULT 'N/A',
+  `17CSR133` varchar(3) DEFAULT 'N/A',
+  `17CSR134` varchar(3) DEFAULT 'N/A',
+  `17CSR135` varchar(3) DEFAULT 'N/A',
+  `17CSR136` varchar(3) DEFAULT 'N/A',
+  `17CSR138` varchar(3) DEFAULT 'N/A',
+  `17CSR139` varchar(3) DEFAULT 'N/A',
+  `17CSR140` varchar(3) DEFAULT 'N/A',
+  `17CSR141` varchar(3) DEFAULT 'N/A',
+  `17CSR143` varchar(3) DEFAULT 'N/A',
+  `17CSR144` varchar(3) DEFAULT 'N/A',
+  `17CSR146` varchar(3) DEFAULT 'N/A',
+  `17CSR147` varchar(3) DEFAULT 'N/A',
+  `17CSR148` varchar(3) DEFAULT 'N/A',
+  `17CSR149` varchar(3) DEFAULT 'N/A',
+  `17CSR150` varchar(3) DEFAULT 'N/A',
+  `17CSR151` varchar(3) DEFAULT 'N/A',
+  `17CSR152` varchar(3) DEFAULT 'N/A',
+  `17CSR153` varchar(3) DEFAULT 'N/A',
+  `17CSR154` varchar(3) DEFAULT 'N/A',
+  `17CSR155` varchar(3) DEFAULT 'N/A',
+  `17CSR156` varchar(3) DEFAULT 'N/A',
+  `17CSR157` varchar(3) DEFAULT 'N/A',
+  `17CSR158` varchar(3) DEFAULT 'N/A',
+  `17CSR159` varchar(3) DEFAULT 'N/A',
+  `17CSR160` varchar(3) DEFAULT 'N/A',
+  `17CSR161` varchar(3) DEFAULT 'N/A',
+  `17CSR162` varchar(3) DEFAULT 'N/A',
+  `17CSR163` varchar(3) DEFAULT 'N/A',
+  `17CSR164` varchar(3) DEFAULT 'N/A',
+  `17CSR165` varchar(3) DEFAULT 'N/A',
+  `17CSR166` varchar(3) DEFAULT 'N/A',
+  `17CSR167` varchar(3) DEFAULT 'N/A',
+  `17CSR168` varchar(3) DEFAULT 'N/A',
+  `17CSR169` varchar(3) DEFAULT 'N/A',
+  `17CSR170` varchar(3) DEFAULT 'N/A',
+  `17CSR171` varchar(3) DEFAULT 'N/A',
+  `17CSR172` varchar(3) DEFAULT 'N/A',
+  `17CSR173` varchar(3) DEFAULT 'N/A',
+  `17CSR174` varchar(3) DEFAULT 'N/A',
+  `17CSR175` varchar(3) DEFAULT 'N/A',
+  `17CSR176` varchar(3) DEFAULT 'N/A',
+  `17CSR177` varchar(3) DEFAULT 'N/A',
+  `17CSR178` varchar(3) DEFAULT 'N/A',
+  `17CSR179` varchar(3) DEFAULT 'N/A',
+  `17CSR181` varchar(3) DEFAULT 'N/A',
+  `17CSR182` varchar(3) DEFAULT 'N/A',
+  `17CSR183` varchar(3) DEFAULT 'N/A',
+  `17CSR184` varchar(3) DEFAULT 'N/A',
+  `17CSR185` varchar(3) DEFAULT 'N/A',
+  `17CSR186` varchar(3) DEFAULT 'N/A',
+  `17CSR189` varchar(3) DEFAULT 'N/A',
+  `17CSR190` varchar(3) DEFAULT 'N/A',
+  `17CSR193` varchar(3) DEFAULT 'N/A',
+  `17CSR195` varchar(3) DEFAULT 'N/A',
+  `17CSR196` varchar(3) DEFAULT 'N/A',
+  `17CSR200` varchar(3) DEFAULT 'N/A',
+  `17CSR201` varchar(3) DEFAULT 'N/A',
+  `17CSR202` varchar(3) DEFAULT 'N/A',
+  `17CSR205` varchar(3) DEFAULT 'N/A',
+  `17CSR206` varchar(3) DEFAULT 'N/A',
+  `17CSR211` varchar(3) DEFAULT 'N/A',
+  `17CSR213` varchar(3) DEFAULT 'N/A',
+  `17CSR215` varchar(3) DEFAULT 'N/A',
+  `17CSR216` varchar(3) DEFAULT 'N/A',
+  `17CSR217` varchar(3) DEFAULT 'N/A',
+  `17CSR219` varchar(3) DEFAULT 'N/A',
+  `17CSR221` varchar(3) DEFAULT 'N/A',
+  `17CSR222` varchar(3) DEFAULT 'N/A',
+  `17CSR223` varchar(3) DEFAULT 'N/A',
+  `17CSR224` varchar(3) DEFAULT 'N/A',
+  `17CSR225` varchar(3) DEFAULT 'N/A',
+  `17CSR226` varchar(3) DEFAULT 'N/A',
+  `17CSR227` varchar(3) DEFAULT 'N/A',
+  `17CSR229` varchar(3) DEFAULT 'N/A',
+  `17CSR230` varchar(3) DEFAULT 'N/A',
+  `17CSR232` varchar(3) DEFAULT 'N/A',
+  `17CSR233` varchar(3) DEFAULT 'N/A',
+  `17CSR234` varchar(3) DEFAULT 'N/A',
+  `17CSR235` varchar(3) DEFAULT 'N/A',
+  `17CSR236` varchar(3) DEFAULT 'N/A',
+  `17CSR237` varchar(3) DEFAULT 'N/A',
+  `17CSR238` varchar(3) DEFAULT 'N/A',
+  `17CST256` varchar(3) DEFAULT 'N/A',
+  `17CST257` varchar(3) DEFAULT 'N/A',
+  `17CST258` varchar(3) DEFAULT 'N/A'
+) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `14CSE11`
+--
+
+CREATE TABLE `14CSE11` (
+  `date` varchar(10) NOT NULL,
+  `code` varchar(10) NOT NULL,
+  `period` int(11) NOT NULL,
+  `17CSR004` varchar(3) DEFAULT 'N/A',
+  `17CSR005` varchar(3) DEFAULT 'N/A',
+  `17CSR008` varchar(3) DEFAULT 'N/A',
+  `17CSR014` varchar(3) DEFAULT 'N/A',
+  `17CSR015` varchar(3) DEFAULT 'N/A',
+  `17CSR017` varchar(3) DEFAULT 'N/A',
+  `17CSR018` varchar(3) DEFAULT 'N/A',
+  `17CSR021` varchar(3) DEFAULT 'N/A',
+  `17CSR022` varchar(3) DEFAULT 'N/A',
+  `17CSR023` varchar(3) DEFAULT 'N/A',
+  `17CSR027` varchar(3) DEFAULT 'N/A',
+  `17CSR033` varchar(3) DEFAULT 'N/A',
+  `17CSR034` varchar(3) DEFAULT 'N/A',
+  `17CSR036` varchar(3) DEFAULT 'N/A',
+  `17CSR038` varchar(3) DEFAULT 'N/A',
+  `17CSR040` varchar(3) DEFAULT 'N/A',
+  `17CSR045` varchar(3) DEFAULT 'N/A',
+  `17CSR048` varchar(3) DEFAULT 'N/A',
+  `17CSR051` varchar(3) DEFAULT 'N/A',
+  `17CSR059` varchar(3) DEFAULT 'N/A',
+  `17CSR063` varchar(3) DEFAULT 'N/A',
+  `17CSR074` varchar(3) DEFAULT 'N/A',
+  `17CSR084` varchar(3) DEFAULT 'N/A',
+  `17CSR085` varchar(3) DEFAULT 'N/A',
+  `17CSR087` varchar(3) DEFAULT 'N/A',
+  `17CSR089` varchar(3) DEFAULT 'N/A',
+  `17CSR090` varchar(3) DEFAULT 'N/A',
+  `17CSR107` varchar(3) DEFAULT 'N/A',
+  `17CSR108` varchar(3) DEFAULT 'N/A',
+  `17CSR126` varchar(3) DEFAULT 'N/A',
+  `17CSR132` varchar(3) DEFAULT 'N/A',
+  `17CSR137` varchar(3) DEFAULT 'N/A',
+  `17CSR142` varchar(3) DEFAULT 'N/A',
+  `17CSR145` varchar(3) DEFAULT 'N/A',
+  `17CSR180` varchar(3) DEFAULT 'N/A',
+  `17CSR187` varchar(3) DEFAULT 'N/A',
+  `17CSR188` varchar(3) DEFAULT 'N/A',
+  `17CSR192` varchar(3) DEFAULT 'N/A',
+  `17CSR194` varchar(3) DEFAULT 'N/A',
+  `17CSR197` varchar(3) DEFAULT 'N/A',
+  `17CSR199` varchar(3) DEFAULT 'N/A',
+  `17CSR203` varchar(3) DEFAULT 'N/A',
+  `17CSR204` varchar(3) DEFAULT 'N/A',
+  `17CSR208` varchar(3) DEFAULT 'N/A',
+  `17CSR209` varchar(3) DEFAULT 'N/A',
+  `17CSR210` varchar(3) DEFAULT 'N/A',
+  `17CSR212` varchar(3) DEFAULT 'N/A',
+  `17CSR214` varchar(3) DEFAULT 'N/A',
+  `17CSR218` varchar(3) DEFAULT 'N/A',
+  `17CSR220` varchar(3) DEFAULT 'N/A',
+  `17CSR228` varchar(3) DEFAULT 'N/A',
+  `17CSR231` varchar(3) DEFAULT 'N/A'
+) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `14CSO07`
+--
+
+CREATE TABLE `14CSO07` (
+  `date` varchar(10) NOT NULL,
+  `code` varchar(10) NOT NULL,
+  `period` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `14ITO01`
+--
+
+CREATE TABLE `14ITO01` (
+  `date` varchar(10) NOT NULL,
+  `code` varchar(10) NOT NULL,
+  `period` int(11) NOT NULL,
+  `17CSL239` varchar(3) DEFAULT 'N/A',
+  `17CSL240` varchar(3) DEFAULT 'N/A',
+  `17CSL241` varchar(3) DEFAULT 'N/A',
+  `17CSL242` varchar(3) DEFAULT 'N/A',
+  `17CSL243` varchar(3) DEFAULT 'N/A',
+  `17CSL244` varchar(3) DEFAULT 'N/A',
+  `17CSL245` varchar(3) DEFAULT 'N/A',
+  `17CSL246` varchar(3) DEFAULT 'N/A',
+  `17CSL249` varchar(3) DEFAULT 'N/A',
+  `17CSL252` varchar(3) DEFAULT 'N/A',
+  `17CSR001` varchar(3) DEFAULT 'N/A',
+  `17CSR003` varchar(3) DEFAULT 'N/A',
+  `17CSR004` varchar(3) DEFAULT 'N/A',
+  `17CSR005` varchar(3) DEFAULT 'N/A',
+  `17CSR007` varchar(3) DEFAULT 'N/A',
+  `17CSR008` varchar(3) DEFAULT 'N/A',
+  `17CSR010` varchar(3) DEFAULT 'N/A',
+  `17CSR013` varchar(3) DEFAULT 'N/A',
+  `17CSR015` varchar(3) DEFAULT 'N/A',
+  `17CSR016` varchar(3) DEFAULT 'N/A',
+  `17CSR019` varchar(3) DEFAULT 'N/A',
+  `17CSR021` varchar(3) DEFAULT 'N/A',
+  `17CSR022` varchar(3) DEFAULT 'N/A',
+  `17CSR023` varchar(3) DEFAULT 'N/A',
+  `17CSR024` varchar(3) DEFAULT 'N/A',
+  `17CSR030` varchar(3) DEFAULT 'N/A',
+  `17CSR031` varchar(3) DEFAULT 'N/A',
+  `17CSR033` varchar(3) DEFAULT 'N/A',
+  `17CSR035` varchar(3) DEFAULT 'N/A',
+  `17CSR040` varchar(3) DEFAULT 'N/A',
+  `17CSR041` varchar(3) DEFAULT 'N/A',
+  `17CSR042` varchar(3) DEFAULT 'N/A',
+  `17CSR044` varchar(3) DEFAULT 'N/A',
+  `17CSR045` varchar(3) DEFAULT 'N/A',
+  `17CSR048` varchar(3) DEFAULT 'N/A',
+  `17CSR059` varchar(3) DEFAULT 'N/A',
+  `17CSR062` varchar(3) DEFAULT 'N/A',
+  `17CSR063` varchar(3) DEFAULT 'N/A',
+  `17CSR064` varchar(3) DEFAULT 'N/A',
+  `17CSR066` varchar(3) DEFAULT 'N/A',
+  `17CSR070` varchar(3) DEFAULT 'N/A',
+  `17CSR071` varchar(3) DEFAULT 'N/A',
+  `17CSR072` varchar(3) DEFAULT 'N/A',
+  `17CSR073` varchar(3) DEFAULT 'N/A',
+  `17CSR074` varchar(3) DEFAULT 'N/A',
+  `17CSR075` varchar(3) DEFAULT 'N/A',
+  `17CSR076` varchar(3) DEFAULT 'N/A',
+  `17CSR077` varchar(3) DEFAULT 'N/A',
+  `17CSR078` varchar(3) DEFAULT 'N/A',
+  `17CSR079` varchar(3) DEFAULT 'N/A',
+  `17CSR080` varchar(3) DEFAULT 'N/A',
+  `17CSR081` varchar(3) DEFAULT 'N/A',
+  `17CSR083` varchar(3) DEFAULT 'N/A',
+  `17CSR084` varchar(3) DEFAULT 'N/A',
+  `17CSR085` varchar(3) DEFAULT 'N/A',
+  `17CSR086` varchar(3) DEFAULT 'N/A',
+  `17CSR087` varchar(3) DEFAULT 'N/A',
+  `17CSR088` varchar(3) DEFAULT 'N/A',
+  `17CSR089` varchar(3) DEFAULT 'N/A',
+  `17CSR090` varchar(3) DEFAULT 'N/A',
+  `17CSR092` varchar(3) DEFAULT 'N/A',
+  `17CSR093` varchar(3) DEFAULT 'N/A',
+  `17CSR095` varchar(3) DEFAULT 'N/A',
+  `17CSR096` varchar(3) DEFAULT 'N/A',
+  `17CSR098` varchar(3) DEFAULT 'N/A',
+  `17CSR100` varchar(3) DEFAULT 'N/A',
+  `17CSR102` varchar(3) DEFAULT 'N/A',
+  `17CSR104` varchar(3) DEFAULT 'N/A',
+  `17CSR105` varchar(3) DEFAULT 'N/A',
+  `17CSR106` varchar(3) DEFAULT 'N/A',
+  `17CSR107` varchar(3) DEFAULT 'N/A',
+  `17CSR108` varchar(3) DEFAULT 'N/A',
+  `17CSR109` varchar(3) DEFAULT 'N/A',
+  `17CSR111` varchar(3) DEFAULT 'N/A',
+  `17CSR112` varchar(3) DEFAULT 'N/A',
+  `17CSR113` varchar(3) DEFAULT 'N/A',
+  `17CSR114` varchar(3) DEFAULT 'N/A',
+  `17CSR115` varchar(3) DEFAULT 'N/A',
+  `17CSR116` varchar(3) DEFAULT 'N/A',
+  `17CSR117` varchar(3) DEFAULT 'N/A',
+  `17CSR118` varchar(3) DEFAULT 'N/A',
+  `17CSR119` varchar(3) DEFAULT 'N/A',
+  `17CSR121` varchar(3) DEFAULT 'N/A',
+  `17CSR122` varchar(3) DEFAULT 'N/A',
+  `17CSR123` varchar(3) DEFAULT 'N/A',
+  `17CSR124` varchar(3) DEFAULT 'N/A',
+  `17CSR126` varchar(3) DEFAULT 'N/A',
+  `17CSR128` varchar(3) DEFAULT 'N/A',
+  `17CSR130` varchar(3) DEFAULT 'N/A',
+  `17CSR136` varchar(3) DEFAULT 'N/A',
+  `17CSR139` varchar(3) DEFAULT 'N/A',
+  `17CSR140` varchar(3) DEFAULT 'N/A',
+  `17CSR141` varchar(3) DEFAULT 'N/A',
+  `17CSR144` varchar(3) DEFAULT 'N/A',
+  `17CSR147` varchar(3) DEFAULT 'N/A',
+  `17CSR149` varchar(3) DEFAULT 'N/A',
+  `17CSR151` varchar(3) DEFAULT 'N/A',
+  `17CSR152` varchar(3) DEFAULT 'N/A',
+  `17CSR155` varchar(3) DEFAULT 'N/A',
+  `17CSR156` varchar(3) DEFAULT 'N/A',
+  `17CSR157` varchar(3) DEFAULT 'N/A',
+  `17CSR158` varchar(3) DEFAULT 'N/A',
+  `17CSR159` varchar(3) DEFAULT 'N/A',
+  `17CSR160` varchar(3) DEFAULT 'N/A',
+  `17CSR165` varchar(3) DEFAULT 'N/A',
+  `17CSR166` varchar(3) DEFAULT 'N/A',
+  `17CSR167` varchar(3) DEFAULT 'N/A',
+  `17CSR168` varchar(3) DEFAULT 'N/A',
+  `17CSR169` varchar(3) DEFAULT 'N/A',
+  `17CSR170` varchar(3) DEFAULT 'N/A',
+  `17CSR171` varchar(3) DEFAULT 'N/A',
+  `17CSR176` varchar(3) DEFAULT 'N/A',
+  `17CSR177` varchar(3) DEFAULT 'N/A',
+  `17CSR181` varchar(3) DEFAULT 'N/A',
+  `17CSR184` varchar(3) DEFAULT 'N/A',
+  `17CSR185` varchar(3) DEFAULT 'N/A',
+  `17CSR186` varchar(3) DEFAULT 'N/A',
+  `17CSR187` varchar(3) DEFAULT 'N/A',
+  `17CSR188` varchar(3) DEFAULT 'N/A',
+  `17CSR193` varchar(3) DEFAULT 'N/A',
+  `17CSR195` varchar(3) DEFAULT 'N/A',
+  `17CSR197` varchar(3) DEFAULT 'N/A',
+  `17CSR199` varchar(3) DEFAULT 'N/A',
+  `17CSR202` varchar(3) DEFAULT 'N/A',
+  `17CSR203` varchar(3) DEFAULT 'N/A',
+  `17CSR204` varchar(3) DEFAULT 'N/A',
+  `17CSR208` varchar(3) DEFAULT 'N/A',
+  `17CSR209` varchar(3) DEFAULT 'N/A',
+  `17CSR212` varchar(3) DEFAULT 'N/A',
+  `17CSR214` varchar(3) DEFAULT 'N/A',
+  `17CSR215` varchar(3) DEFAULT 'N/A',
+  `17CSR217` varchar(3) DEFAULT 'N/A',
+  `17CSR218` varchar(3) DEFAULT 'N/A',
+  `17CSR219` varchar(3) DEFAULT 'N/A',
+  `17CSR221` varchar(3) DEFAULT 'N/A',
+  `17CSR223` varchar(3) DEFAULT 'N/A',
+  `17CSR224` varchar(3) DEFAULT 'N/A',
+  `17CSR229` varchar(3) DEFAULT 'N/A',
+  `17CSR233` varchar(3) DEFAULT 'N/A',
+  `17CSR235` varchar(3) DEFAULT 'N/A',
+  `17CSR237` varchar(3) DEFAULT 'N/A',
+  `17CSR238` varchar(3) DEFAULT 'N/A'
+) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
 -- --------------------------------------------------------
 
@@ -100,7 +539,9 @@ CREATE TABLE `17-cse-a` (
 --
 
 INSERT INTO `17-cse-a` (`date`, `code`, `period`, `17CSR001`, `17CSR002`, `17CSR003`, `17CSR004`, `17CSR005`, `17CSR006`, `17CSR007`, `17CSR008`, `17CSR009`, `17CSR010`, `17CSR011`, `17CSR012`, `17CSR013`, `17CSR014`, `17CSR015`, `17CSR016`, `17CSR017`, `17CSR018`, `17CSR019`, `17CSR020`, `17CSR021`, `17CSR022`, `17CSR023`, `17CSR024`, `17CSR025`, `17CSR027`, `17CSR028`, `17CSR029`, `17CSR030`, `17CSR031`, `17CSR033`, `17CSR034`, `17CSR035`, `17CSR036`, `17CSR037`, `17CSR038`, `17CSR039`, `17CSR040`, `17CSR041`, `17CSR042`, `17CSR043`, `17CSR044`, `17CSR045`, `17CSR046`, `17CSR047`, `17CSR048`, `17CSR049`, `17CSR050`, `17CSR051`, `17CSR052`, `17CSR053`, `17CSR054`, `17CSR055`, `17CSR056`, `17CSR057`, `17CSR058`, `17CSR059`, `16CSR046`, `17CSL239`, `17CSL240`, `17CSL241`, `17CSL242`) VALUES
-('2020-07-13', '14GET71', 6, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P');
+('2020-07-08', '14GET71', 4, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-13', '14GET71', 6, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-15', '14GET71', 4, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P');
 
 -- --------------------------------------------------------
 
@@ -408,7 +849,8 @@ CREATE TABLE `18-cse-a` (
 
 INSERT INTO `18-cse-a` (`date`, `code`, `period`, `18CSR001`, `18CSR002`, `18CSR003`, `18CSR004`, `18CSR005`, `18CSR006`, `18CSR007`, `18CSR008`, `18CSR009`, `18CSR010`, `18CSR011`, `18CSR012`, `18CSR013`, `18CSR014`, `18CSR015`, `18CSR016`, `18CSR017`, `18CSR018`, `18CSR019`, `18CSR020`, `18CSR021`, `18CSR022`, `18CSR023`, `18CSR024`, `18CSR025`, `18CSR026`, `18CSR027`, `18CSR028`, `18CSR029`, `18CSR030`, `18CSR031`, `18CSR032`, `18CSR033`, `18CSR034`, `18CSR035`, `18CSR036`, `18CSR037`, `18CSR038`, `18CSR039`, `18CSR040`, `18CSR041`, `18CSR042`, `18CSR043`, `18CSR044`, `18CSR045`, `18CSR046`, `18CSR047`, `18CSR048`, `18CSR049`, `18CSR050`, `18CSR051`, `18CSR052`, `18CSR053`, `18CSR054`, `18CSR055`, `18CSR056`, `18CSR057`, `18CSR058`, `18CSR059`, `18CSR060`, `18CSL239`, `18CSL240`, `18CSL241`, `18CSL242`, `18CSL243`) VALUES
 ('2020-07-09', '18ITT51', 5, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
-('2020-07-13', '18ITT51', 5, 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P');
+('2020-07-13', '18ITT51', 5, 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-14', '18ITT51', 3, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P');
 
 -- --------------------------------------------------------
 
@@ -491,7 +933,12 @@ CREATE TABLE `18-cse-b` (
 --
 
 INSERT INTO `18-cse-b` (`date`, `code`, `period`, `18CSR061`, `18CSR062`, `18CSR063`, `18CSR064`, `18CSR065`, `18CSR066`, `18CSR067`, `18CSR068`, `18CSR069`, `18CSR070`, `18CSR071`, `18CSR072`, `18CSR073`, `18CSR074`, `18CSR076`, `18CSR077`, `18CSR078`, `18CSR079`, `18CSR080`, `18CSR081`, `18CSR082`, `18CSR083`, `18CSR084`, `18CSR085`, `18CSR086`, `18CSR087`, `18CSR088`, `18CSR089`, `18CSR090`, `18CSR091`, `18CSR092`, `18CSR093`, `18CSR094`, `18CSR095`, `18CSR096`, `18CSR097`, `18CSR098`, `18CSR099`, `18CSR100`, `18CSR101`, `18CSR102`, `18CSR103`, `18CSR104`, `18CSR105`, `18CSR106`, `18CSR107`, `18CSR108`, `18CSR109`, `18CSR110`, `18CSR111`, `18CSR112`, `18CSR113`, `18CSR114`, `18CSR115`, `18CSR116`, `18CSR117`, `18CSR118`, `18CSR119`, `18CSR120`, `18CSL244`, `18CSL245`, `18CSL246`, `18CSL247`, `18CSL248`) VALUES
-('2020-07-13', '18CST51', 3, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A');
+('2020-07-09', '18CST53', 4, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-13', '18CST51', 3, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A'),
+('2020-07-13', '18CST53', 4, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-14', '18CST53', 4, 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-15', '18CST51', 5, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-16', '18CST53', 4, 'P', 'A', 'P', 'P', 'A', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P');
 
 -- --------------------------------------------------------
 
@@ -570,6 +1017,13 @@ CREATE TABLE `18-cse-c` (
   `18CSL254` varchar(2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
+--
+-- Dumping data for table `18-cse-c`
+--
+
+INSERT INTO `18-cse-c` (`date`, `code`, `period`, `18CSR121`, `18CSR122`, `18CSR123`, `18CSR124`, `18CSR125`, `18CSR126`, `18CSR127`, `18CSR128`, `18CSR129`, `18CSR130`, `18CSR131`, `18CSR132`, `18CSR133`, `18CSR134`, `18CSR135`, `18CSR136`, `18CSR137`, `18CSR138`, `18CSR139`, `18CSR140`, `18CSR141`, `18CSR142`, `18CSR143`, `18CSR144`, `18CSR145`, `18CSR146`, `18CSR147`, `18CSR148`, `18CSR149`, `18CSR150`, `18CSR151`, `18CSR152`, `18CSR153`, `18CSR154`, `18CSR155`, `18CSR156`, `18CSR157`, `18CSR158`, `18CSR159`, `18CSR160`, `18CSR161`, `18CSR162`, `18CSR163`, `18CSR164`, `18CSR165`, `18CSR166`, `18CSR167`, `18CSR168`, `18CSR169`, `18CSR170`, `18CSR171`, `18CSR172`, `18CSR173`, `18CSR174`, `18CSR175`, `18CSR176`, `18CSR177`, `18CSR178`, `18CSR179`, `18CSL249`, `18CSL250`, `18CSL251`, `18CSL252`, `18CSL253`, `18CSL254`) VALUES
+('2020-07-16', '18CST52', 1, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P');
+
 -- --------------------------------------------------------
 
 --
@@ -643,6 +1097,81 @@ CREATE TABLE `18-cse-d` (
   `18CSL257` varchar(2) DEFAULT NULL,
   `18CSL258` varchar(2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `18-eee-a`
+--
+
+CREATE TABLE `18-eee-a` (
+  `date` varchar(10) NOT NULL,
+  `code` varchar(10) NOT NULL,
+  `period` int(11) NOT NULL,
+  `18EEL119` varchar(2) DEFAULT NULL,
+  `18EEL121` varchar(2) DEFAULT NULL,
+  `18EEL123` varchar(2) DEFAULT NULL,
+  `18EEL124` varchar(2) DEFAULT NULL,
+  `18EEL129` varchar(2) DEFAULT NULL,
+  `18EEL132` varchar(2) DEFAULT NULL,
+  `18EER001` varchar(2) DEFAULT NULL,
+  `18EER002` varchar(2) DEFAULT NULL,
+  `18EER003` varchar(2) DEFAULT NULL,
+  `18EER004` varchar(2) DEFAULT NULL,
+  `18EER006` varchar(2) DEFAULT NULL,
+  `18EER007` varchar(2) DEFAULT NULL,
+  `18EER008` varchar(2) DEFAULT NULL,
+  `18EER009` varchar(2) DEFAULT NULL,
+  `18EER011` varchar(2) DEFAULT NULL,
+  `18EER013` varchar(2) DEFAULT NULL,
+  `18EER014` varchar(2) DEFAULT NULL,
+  `18EER015` varchar(2) DEFAULT NULL,
+  `18EER016` varchar(2) DEFAULT NULL,
+  `18EER017` varchar(2) DEFAULT NULL,
+  `18EER018` varchar(2) DEFAULT NULL,
+  `18EER019` varchar(2) DEFAULT NULL,
+  `18EER020` varchar(2) DEFAULT NULL,
+  `18EER021` varchar(2) DEFAULT NULL,
+  `18EER023` varchar(2) DEFAULT NULL,
+  `18EER025` varchar(2) DEFAULT NULL,
+  `18EER027` varchar(2) DEFAULT NULL,
+  `18EER028` varchar(2) DEFAULT NULL,
+  `18EER029` varchar(2) DEFAULT NULL,
+  `18EER030` varchar(2) DEFAULT NULL,
+  `18EER031` varchar(2) DEFAULT NULL,
+  `18EER032` varchar(2) DEFAULT NULL,
+  `18EER033` varchar(2) DEFAULT NULL,
+  `18EER034` varchar(2) DEFAULT NULL,
+  `18EER035` varchar(2) DEFAULT NULL,
+  `18EER036` varchar(2) DEFAULT NULL,
+  `18EER037` varchar(2) DEFAULT NULL,
+  `18EER038` varchar(2) DEFAULT NULL,
+  `18EER039` varchar(2) DEFAULT NULL,
+  `18EER040` varchar(2) DEFAULT NULL,
+  `18EER041` varchar(2) DEFAULT NULL,
+  `18EER042` varchar(2) DEFAULT NULL,
+  `18EER043` varchar(2) DEFAULT NULL,
+  `18EER044` varchar(2) DEFAULT NULL,
+  `18EER045` varchar(2) DEFAULT NULL,
+  `18EER046` varchar(2) DEFAULT NULL,
+  `18EER047` varchar(2) DEFAULT NULL,
+  `18EER048` varchar(2) DEFAULT NULL,
+  `18EER049` varchar(2) DEFAULT NULL,
+  `18EER050` varchar(2) DEFAULT NULL,
+  `18EER051` varchar(2) DEFAULT NULL,
+  `18EER052` varchar(2) DEFAULT NULL,
+  `18EER053` varchar(2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `18-eee-a`
+--
+
+INSERT INTO `18-eee-a` (`date`, `code`, `period`, `18EEL119`, `18EEL121`, `18EEL123`, `18EEL124`, `18EEL129`, `18EEL132`, `18EER001`, `18EER002`, `18EER003`, `18EER004`, `18EER006`, `18EER007`, `18EER008`, `18EER009`, `18EER011`, `18EER013`, `18EER014`, `18EER015`, `18EER016`, `18EER017`, `18EER018`, `18EER019`, `18EER020`, `18EER021`, `18EER023`, `18EER025`, `18EER027`, `18EER028`, `18EER029`, `18EER030`, `18EER031`, `18EER032`, `18EER033`, `18EER034`, `18EER035`, `18EER036`, `18EER037`, `18EER038`, `18EER039`, `18EER040`, `18EER041`, `18EER042`, `18EER043`, `18EER044`, `18EER045`, `18EER046`, `18EER047`, `18EER048`, `18EER049`, `18EER050`, `18EER051`, `18EER052`, `18EER053`) VALUES
+('2020-07-08', '18ITO01', 3, 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-10', '18ITO01', 4, 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-13', '18ITO01', 2, 'A', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-15', '18ITO01', 3, 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P');
 
 -- --------------------------------------------------------
 
@@ -722,7 +1251,9 @@ CREATE TABLE `19-cse-a` (
 INSERT INTO `19-cse-a` (`date`, `code`, `period`, `19CSR001`, `19CSR002`, `19CSR003`, `19CSR004`, `19CSR005`, `19CSR006`, `19CSR007`, `19CSR008`, `19CSR009`, `19CSR010`, `19CSR011`, `19CSR012`, `19CSR013`, `19CSR014`, `19CSR015`, `19CSR016`, `19CSR017`, `19CSR018`, `19CSR019`, `19CSR020`, `19CSR021`, `19CSR022`, `19CSR023`, `19CSR024`, `19CSR025`, `19CSR026`, `19CSR027`, `19CSR028`, `19CSR029`, `19CSR030`, `19CSR031`, `19CSR032`, `19CSR033`, `19CSR034`, `19CSR035`, `19CSR036`, `19CSR037`, `19CSR038`, `19CSR039`, `19CSR040`, `19CSR041`, `19CSR042`, `19CSR043`, `19CSR044`, `19CSR045`, `19CSR046`, `19CSR047`, `19CSR048`, `19CSR049`, `19CSR050`, `19CSR051`, `19CSR052`, `19CSR053`, `19CSR054`, `19CSR055`, `19CSR056`, `19CSR057`, `19CSR058`, `19CSR059`) VALUES
 ('2020-07-09', '18CST32', 3, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
 ('2020-07-10', '18CST32', 5, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P'),
-('2020-07-13', '18CST32', 4, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P');
+('2020-07-13', '18CST32', 4, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-14', '18CST32', 1, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-16', '18CST32', 3, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P');
 
 -- --------------------------------------------------------
 
@@ -937,7 +1468,7 @@ CREATE TABLE `19-cse-d` (
 
 CREATE TABLE `course_list` (
   `code` varchar(8) NOT NULL,
-  `name` varchar(40) NOT NULL,
+  `name` varchar(45) NOT NULL,
   `dept` varchar(40) NOT NULL,
   `batch` year(4) NOT NULL,
   `staffA` varchar(8) DEFAULT NULL,
@@ -951,11 +1482,15 @@ CREATE TABLE `course_list` (
 --
 
 INSERT INTO `course_list` (`code`, `name`, `dept`, `batch`, `staffA`, `staffB`, `staffC`, `staffD`) VALUES
+('14CSE06', 'Software Testing', 'CSE', 2017, NULL, 'CSE027SF', 'CSE019SF', 'CSE022SF'),
+('14CSE11', 'Business Intelligence and its Application', 'CSE', 2017, 'CSE002SF', 'CSE002SF', 'CSE002SF', 'CSE002SF'),
 ('14CSL71', 'Machine Learning Algorithm Laboratory', 'CSE', 2017, 'CSE012SF', 'CSE006SF', 'CSE017SF', 'CSE007SF'),
 ('14CSL72', 'Mobile Communication Laboratory', 'CSE', 2017, 'CSE016SF', 'CSE041SF', 'CSE042SF', 'CSE028SF'),
+('14CSO07', 'E-Commerce', 'CSE', 2017, 'CSE024SF', 'CSE021SF', 'CSE012SF', 'CSE018SF'),
 ('14CST71', 'Machine Learning', 'CSE', 2017, 'CSE012SF', 'CSE006SF', 'CSE017SF', 'CSE007SF'),
 ('14CST72', 'Mobile Communication', 'CSE', 2017, 'CSE016SF', 'CSE041SF', 'CSE042SF', 'CSE028SF'),
-('14GET71', 'Total Quality Management', 'CSE', 2017, 'CSE001SF', NULL, 'CSE003SF', 'CSE015SF'),
+('14GET71', 'Total Quality Management', 'CSE', 2017, 'CSE001SF', 'CSE029SF', 'CSE003SF', 'CSE015SF'),
+('14ITO01', 'Internet of Things', 'CSE', 2017, 'CSE034SF', 'CSE036SF', 'CSE031SF', 'CSE016SF'),
 ('18CSL31', 'Data Structures Laboratory', 'CSE', 2019, 'CSE039SF', 'CSE003SF', 'CSE040SF', 'CSE043SF'),
 ('18CSL33', 'Object Oriented Programming Laboratory', 'CSE', 2019, 'CSE013SF', 'CSE009SF', 'CSE046SF', 'CSE034SF'),
 ('18CST31', 'Data Structures', 'CSE', 2019, 'CSE039SF', 'CSE003SF', 'CSE040SF', 'CSE043SF'),
@@ -964,15 +1499,286 @@ INSERT INTO `course_list` (`code`, `name`, `dept`, `batch`, `staffA`, `staffB`, 
 ('18CST51', 'Theory of Computation', 'CSE', 2018, 'CSE013SF', 'CSE014SF', 'CSE026SF', 'CSE005SF'),
 ('18CST52', 'Software Engineering ', 'CSE', 2018, 'CSE011SF', 'CSE021SF', 'CSE018SF', 'CSE008SF'),
 ('18CST53', 'Distributed Systems', 'CSE', 2018, 'CSE008SF', 'CSE035SF', 'CSE011SF', 'CSE032SF'),
-('18ITC31', 'Digital Principles and Design', 'CSE', 2019, NULL, NULL, NULL, NULL),
+('18ITC31', 'Digital Principles and Design', 'CSE', 2019, 'CSE024SF', 'CSE015SF', 'CSE033SF', 'CSE029SF'),
 ('18ITL51', 'Computer Network Laboratory', 'CSE', 2018, 'CSE014SF', 'CSE031SF', 'CSE010SF', 'CSE020SF'),
 ('18ITL52', 'Web Technology Laboratory', 'CSE', 2018, 'CSE045SF', 'CSE019SF', 'CSE044SF', 'CSE026SF'),
-('18ITO01', 'Python Programming', 'EEE', 2018, NULL, NULL, NULL, NULL),
+('18ITO01', 'Python Programming', 'EEE', 2018, 'CSE004SF', NULL, NULL, NULL),
 ('18ITO02', 'Advanced Java Programming', 'CSE', 2018, 'CSE023SF', 'CSE020SF', 'CSE038SF', 'CSE022SF'),
 ('18ITT51', 'Computer Networks', 'CSE', 2018, 'CSE014SF', 'CSE007SF', 'CSE010SF', 'CSE020SF'),
 ('18ITT52', 'Web Technology', 'CSE', 2018, 'CSE045SF', 'CSE019SF', 'CSE044SF', 'CSE026SF'),
 ('18MAT31', 'Discrete Mathematics', 'CSE', 2019, NULL, NULL, NULL, NULL),
 ('PST', 'Professional Skills Training', 'CSE', 2018, NULL, NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `elective`
+--
+
+CREATE TABLE `elective` (
+  `regno` varchar(10) NOT NULL,
+  `E1` varchar(20) DEFAULT NULL,
+  `S1` varchar(10) DEFAULT NULL,
+  `E2` varchar(20) DEFAULT NULL,
+  `S2` varchar(10) DEFAULT NULL,
+  `E3` varchar(20) DEFAULT NULL,
+  `S3` varchar(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+
+--
+-- Dumping data for table `elective`
+--
+
+INSERT INTO `elective` (`regno`, `E1`, `S1`, `E2`, `S2`, `E3`, `S3`) VALUES
+('16CSR046', '14CSE06', 'CSE027SF', NULL, NULL, '14CSO07', 'CSE024SF'),
+('17CSL239', '14CSE06', 'CSE027SF', '14ITO01', 'CSE034SF', '14CSO07', 'CSE024SF'),
+('17CSL240', '14CSE06', 'CSE027SF', '14ITO01', 'CSE034SF', '14CSO07', 'CSE024SF'),
+('17CSL241', '14CSE06', 'CSE027SF', '14ITO01', 'CSE034SF', '14CSO07', 'CSE024SF'),
+('17CSL242', '14CSE06', 'CSE027SF', '14ITO01', 'CSE034SF', '14CSO07', 'CSE024SF'),
+('17CSL243', '14CSE06', 'CSE027SF', '14ITO01', 'CSE036SF', '14CSO07', 'CSE021SF'),
+('17CSL244', '14CSE06', 'CSE027SF', '14ITO01', 'CSE036SF', '14CSO07', 'CSE021SF'),
+('17CSL245', '14CSE06', 'CSE027SF', '14ITO01', 'CSE036SF', '14CSO07', 'CSE021SF'),
+('17CSL246', '14CSE06', 'CSE027SF', '14ITO01', 'CSE036SF', '14CSO07', 'CSE021SF'),
+('17CSL247', '14CSE06', 'CSE019SF', NULL, NULL, NULL, NULL),
+('17CSL248', '14CSE06', 'CSE019SF', NULL, NULL, '14CSO07', 'CSE012SF'),
+('17CSL249', '14CSE06', 'CSE019SF', '14ITO01', 'CSE031SF', '14CSO07', 'CSE012SF'),
+('17CSL250', '14CSE06', 'CSE019SF', NULL, NULL, '14CSO07', 'CSE012SF'),
+('17CSL251', '14CSE06', 'CSE019SF', NULL, NULL, '14CSO07', 'CSE012SF'),
+('17CSL252', '14CSE06', 'CSE019SF', '14ITO01', 'CSE031SF', '14CSO07', 'CSE012SF'),
+('17CSL253', '14CSE06', 'CSE022SF', NULL, NULL, NULL, NULL),
+('17CSL254', '14CSE06', 'CSE022SF', NULL, NULL, NULL, NULL),
+('17CSL255', '14CSE06', 'CSE022SF', NULL, NULL, NULL, NULL),
+('17CSR001', '14CSE06', 'CSE027SF', '14ITO01', 'CSE034SF', '14CSO07', 'CSE024SF'),
+('17CSR002', '14CSE06', 'CSE027SF', NULL, NULL, '14CSO07', 'CSE024SF'),
+('17CSR003', '14CSE06', 'CSE027SF', '14ITO01', 'CSE034SF', '14CSO07', 'CSE024SF'),
+('17CSR004', '14CSE11', 'CSE002SF', '14ITO01', 'CSE034SF', '14CSO07', 'CSE024SF'),
+('17CSR005', '14CSE11', 'CSE002SF', '14ITO01', 'CSE034SF', '14CSO07', 'CSE024SF'),
+('17CSR006', '14CSE06', 'CSE027SF', NULL, NULL, '14CSO07', 'CSE024SF'),
+('17CSR007', '14CSE06', 'CSE027SF', '14ITO01', 'CSE034SF', '14CSO07', 'CSE024SF'),
+('17CSR008', '14CSE11', 'CSE002SF', '14ITO01', 'CSE034SF', '14CSO07', 'CSE024SF'),
+('17CSR009', '14CSE06', 'CSE027SF', NULL, NULL, '14CSO07', 'CSE024SF'),
+('17CSR010', '14CSE06', 'CSE027SF', '14ITO01', 'CSE034SF', '14CSO07', 'CSE024SF'),
+('17CSR011', '14CSE06', 'CSE027SF', NULL, NULL, '14CSO07', 'CSE024SF'),
+('17CSR012', '14CSE06', 'CSE019SF', NULL, NULL, '14CSO07', 'CSE024SF'),
+('17CSR013', '14CSE06', 'CSE019SF', '14ITO01', 'CSE034SF', '14CSO07', 'CSE024SF'),
+('17CSR014', '14CSE11', 'CSE002SF', NULL, NULL, NULL, NULL),
+('17CSR015', '14CSE11', 'CSE002SF', '14ITO01', 'CSE034SF', '14CSO07', 'CSE024SF'),
+('17CSR016', '14CSE06', 'CSE019SF', '14ITO01', 'CSE034SF', '14CSO07', 'CSE024SF'),
+('17CSR017', '14CSE11', 'CSE002SF', NULL, NULL, '14CSO07', 'CSE024SF'),
+('17CSR018', '14CSE11', 'CSE002SF', NULL, NULL, '14CSO07', 'CSE024SF'),
+('17CSR019', '14CSE06', 'CSE019SF', '14ITO01', 'CSE034SF', '14CSO07', 'CSE024SF'),
+('17CSR020', '14CSE06', 'CSE019SF', NULL, NULL, NULL, NULL),
+('17CSR021', '14CSE11', 'CSE002SF', '14ITO01', 'CSE034SF', '14CSO07', 'CSE024SF'),
+('17CSR022', '14CSE11', 'CSE002SF', '14ITO01', 'CSE034SF', '14CSO07', 'CSE024SF'),
+('17CSR023', '14CSE11', 'CSE002SF', '14ITO01', 'CSE034SF', '14CSO07', 'CSE024SF'),
+('17CSR024', '14CSE06', 'CSE019SF', '14ITO01', 'CSE034SF', '14CSO07', 'CSE024SF'),
+('17CSR025', '14CSE06', 'CSE019SF', NULL, NULL, '14CSO07', 'CSE024SF'),
+('17CSR027', '14CSE11', 'CSE002SF', NULL, NULL, '14CSO07', 'CSE024SF'),
+('17CSR028', '14CSE06', 'CSE019SF', NULL, NULL, '14CSO07', 'CSE024SF'),
+('17CSR029', '14CSE06', 'CSE019SF', NULL, NULL, NULL, NULL),
+('17CSR030', '14CSE06', 'CSE022SF', '14ITO01', 'CSE034SF', NULL, NULL),
+('17CSR031', '14CSE06', 'CSE022SF', '14ITO01', 'CSE034SF', NULL, NULL),
+('17CSR033', '14CSE11', 'CSE002SF', '14ITO01', 'CSE034SF', '14CSO07', 'CSE024SF'),
+('17CSR034', '14CSE11', 'CSE002SF', NULL, NULL, NULL, NULL),
+('17CSR035', '14CSE06', 'CSE022SF', '14ITO01', 'CSE034SF', '14CSO07', 'CSE024SF'),
+('17CSR036', '14CSE11', 'CSE002SF', NULL, NULL, '14CSO07', 'CSE024SF'),
+('17CSR037', '14CSE06', 'CSE022SF', NULL, NULL, '14CSO07', 'CSE024SF'),
+('17CSR038', '14CSE11', 'CSE002SF', NULL, NULL, '14CSO07', 'CSE024SF'),
+('17CSR039', '14CSE06', 'CSE022SF', NULL, NULL, '14CSO07', 'CSE024SF'),
+('17CSR040', '14CSE11', 'CSE002SF', '14ITO01', 'CSE034SF', '14CSO07', 'CSE024SF'),
+('17CSR041', '14CSE06', 'CSE022SF', '14ITO01', 'CSE034SF', '14CSO07', 'CSE024SF'),
+('17CSR042', '14CSE06', 'CSE022SF', '14ITO01', 'CSE034SF', '14CSO07', 'CSE024SF'),
+('17CSR043', '14CSE06', 'CSE022SF', NULL, NULL, '14CSO07', 'CSE024SF'),
+('17CSR044', '14CSE06', 'CSE022SF', '14ITO01', 'CSE034SF', '14CSO07', 'CSE024SF'),
+('17CSR045', '14CSE11', 'CSE002SF', '14ITO01', 'CSE034SF', '14CSO07', 'CSE024SF'),
+('17CSR046', '14CSE06', 'CSE022SF', NULL, NULL, NULL, NULL),
+('17CSR047', '14CSE06', 'CSE022SF', NULL, NULL, '14CSO07', 'CSE024SF'),
+('17CSR048', '14CSE11', 'CSE002SF', '14ITO01', 'CSE034SF', '14CSO07', 'CSE024SF'),
+('17CSR049', '14CSE06', 'CSE022SF', NULL, NULL, '14CSO07', 'CSE024SF'),
+('17CSR050', '14CSE06', 'CSE022SF', NULL, NULL, '14CSO07', 'CSE024SF'),
+('17CSR051', '14CSE11', 'CSE002SF', NULL, NULL, '14CSO07', 'CSE024SF'),
+('17CSR052', '14CSE06', 'CSE022SF', NULL, NULL, '14CSO07', 'CSE024SF'),
+('17CSR053', '14CSE06', 'CSE022SF', NULL, NULL, '14CSO07', 'CSE024SF'),
+('17CSR054', '14CSE06', 'CSE022SF', NULL, NULL, '14CSO07', 'CSE024SF'),
+('17CSR055', '14CSE06', 'CSE022SF', NULL, NULL, NULL, NULL),
+('17CSR056', '14CSE06', 'CSE022SF', NULL, NULL, NULL, NULL),
+('17CSR057', '14CSE06', 'CSE022SF', NULL, NULL, '14CSO07', 'CSE024SF'),
+('17CSR058', '14CSE06', 'CSE022SF', NULL, NULL, '14CSO07', 'CSE024SF'),
+('17CSR059', '14CSE11', 'CSE002SF', '14ITO01', 'CSE034SF', '14CSO07', 'CSE024SF'),
+('17CSR060', '14CSE06', 'CSE027SF', NULL, NULL, '14CSO07', 'CSE021SF'),
+('17CSR062', '14CSE06', 'CSE027SF', '14ITO01', 'CSE036SF', NULL, NULL),
+('17CSR063', '14CSE11', 'CSE002SF', '14ITO01', 'CSE036SF', '14CSO07', 'CSE021SF'),
+('17CSR064', '14CSE06', 'CSE027SF', '14ITO01', 'CSE036SF', '14CSO07', 'CSE021SF'),
+('17CSR065', '14CSE06', 'CSE027SF', NULL, NULL, '14CSO07', 'CSE021SF'),
+('17CSR066', '14CSE06', 'CSE027SF', '14ITO01', 'CSE036SF', '14CSO07', 'CSE021SF'),
+('17CSR067', '14CSE06', 'CSE027SF', NULL, NULL, '14CSO07', 'CSE021SF'),
+('17CSR068', '14CSE06', 'CSE027SF', NULL, NULL, '14CSO07', 'CSE021SF'),
+('17CSR070', '14CSE06', 'CSE027SF', '14ITO01', 'CSE036SF', '14CSO07', 'CSE021SF'),
+('17CSR071', '14CSE06', 'CSE027SF', '14ITO01', 'CSE036SF', '14CSO07', 'CSE021SF'),
+('17CSR072', '14CSE06', 'CSE027SF', '14ITO01', 'CSE036SF', '14CSO07', 'CSE021SF'),
+('17CSR073', '14CSE06', 'CSE027SF', '14ITO01', 'CSE036SF', '14CSO07', 'CSE021SF'),
+('17CSR074', '14CSE11', 'CSE002SF', '14ITO01', 'CSE036SF', '14CSO07', 'CSE021SF'),
+('17CSR075', '14CSE06', 'CSE027SF', '14ITO01', 'CSE036SF', '14CSO07', 'CSE021SF'),
+('17CSR076', '14CSE06', 'CSE027SF', '14ITO01', 'CSE036SF', '14CSO07', 'CSE021SF'),
+('17CSR077', '14CSE06', 'CSE027SF', '14ITO01', 'CSE036SF', '14CSO07', 'CSE021SF'),
+('17CSR078', '14CSE06', 'CSE027SF', '14ITO01', 'CSE036SF', '14CSO07', 'CSE021SF'),
+('17CSR079', '14CSE06', 'CSE027SF', '14ITO01', 'CSE036SF', '14CSO07', 'CSE021SF'),
+('17CSR080', '14CSE06', 'CSE027SF', '14ITO01', 'CSE036SF', '14CSO07', 'CSE021SF'),
+('17CSR081', '14CSE06', 'CSE027SF', '14ITO01', 'CSE036SF', '14CSO07', 'CSE021SF'),
+('17CSR082', '14CSE06', 'CSE027SF', NULL, NULL, '14CSO07', 'CSE021SF'),
+('17CSR083', '14CSE06', 'CSE027SF', '14ITO01', 'CSE036SF', '14CSO07', 'CSE021SF'),
+('17CSR084', '14CSE11', 'CSE002SF', '14ITO01', 'CSE036SF', '14CSO07', 'CSE021SF'),
+('17CSR085', '14CSE11', 'CSE002SF', '14ITO01', 'CSE036SF', '14CSO07', 'CSE021SF'),
+('17CSR086', '14CSE06', 'CSE027SF', '14ITO01', 'CSE036SF', '14CSO07', 'CSE021SF'),
+('17CSR087', '14CSE11', 'CSE002SF', '14ITO01', 'CSE036SF', '14CSO07', 'CSE021SF'),
+('17CSR088', '14CSE06', 'CSE027SF', '14ITO01', 'CSE036SF', NULL, NULL),
+('17CSR089', '14CSE11', 'CSE002SF', '14ITO01', 'CSE036SF', '14CSO07', 'CSE021SF'),
+('17CSR090', '14CSE11', 'CSE002SF', '14ITO01', 'CSE036SF', '14CSO07', 'CSE021SF'),
+('17CSR091', '14CSE06', 'CSE027SF', NULL, NULL, '14CSO07', 'CSE021SF'),
+('17CSR092', '14CSE06', 'CSE027SF', '14ITO01', 'CSE036SF', '14CSO07', 'CSE021SF'),
+('17CSR093', '14CSE06', 'CSE027SF', '14ITO01', 'CSE036SF', '14CSO07', 'CSE021SF'),
+('17CSR094', '14CSE06', 'CSE027SF', NULL, NULL, '14CSO07', 'CSE021SF'),
+('17CSR095', '14CSE06', 'CSE027SF', '14ITO01', 'CSE036SF', '14CSO07', 'CSE021SF'),
+('17CSR096', '14CSE06', 'CSE027SF', '14ITO01', 'CSE036SF', '14CSO07', 'CSE021SF'),
+('17CSR097', '14CSE06', 'CSE027SF', NULL, NULL, '14CSO07', 'CSE021SF'),
+('17CSR098', '14CSE06', 'CSE027SF', '14ITO01', 'CSE036SF', '14CSO07', 'CSE021SF'),
+('17CSR099', '14CSE06', 'CSE027SF', NULL, NULL, '14CSO07', 'CSE021SF'),
+('17CSR100', '14CSE06', 'CSE027SF', '14ITO01', 'CSE036SF', '14CSO07', 'CSE021SF'),
+('17CSR101', '14CSE06', 'CSE027SF', NULL, NULL, '14CSO07', 'CSE021SF'),
+('17CSR102', '14CSE06', 'CSE027SF', '14ITO01', 'CSE036SF', '14CSO07', 'CSE021SF'),
+('17CSR103', '14CSE06', 'CSE027SF', NULL, NULL, '14CSO07', 'CSE021SF'),
+('17CSR104', '14CSE06', 'CSE027SF', '14ITO01', 'CSE036SF', '14CSO07', 'CSE021SF'),
+('17CSR105', '14CSE06', 'CSE027SF', '14ITO01', 'CSE036SF', '14CSO07', 'CSE021SF'),
+('17CSR106', '14CSE06', 'CSE027SF', '14ITO01', 'CSE036SF', '14CSO07', 'CSE021SF'),
+('17CSR107', '14CSE11', 'CSE002SF', '14ITO01', 'CSE036SF', '14CSO07', 'CSE021SF'),
+('17CSR108', '14CSE11', 'CSE002SF', '14ITO01', 'CSE036SF', '14CSO07', 'CSE021SF'),
+('17CSR109', '14CSE06', 'CSE027SF', '14ITO01', 'CSE036SF', '14CSO07', 'CSE021SF'),
+('17CSR110', '14CSE06', 'CSE027SF', NULL, NULL, NULL, NULL),
+('17CSR111', '14CSE06', 'CSE027SF', '14ITO01', 'CSE036SF', '14CSO07', 'CSE021SF'),
+('17CSR112', '14CSE06', 'CSE027SF', '14ITO01', 'CSE036SF', '14CSO07', 'CSE021SF'),
+('17CSR113', '14CSE06', 'CSE027SF', '14ITO01', 'CSE036SF', '14CSO07', 'CSE021SF'),
+('17CSR114', '14CSE06', 'CSE027SF', '14ITO01', 'CSE036SF', '14CSO07', 'CSE021SF'),
+('17CSR115', '14CSE06', 'CSE027SF', '14ITO01', 'CSE036SF', '14CSO07', 'CSE021SF'),
+('17CSR116', '14CSE06', 'CSE027SF', '14ITO01', 'CSE036SF', '14CSO07', 'CSE021SF'),
+('17CSR117', '14CSE06', 'CSE027SF', '14ITO01', 'CSE036SF', '14CSO07', 'CSE021SF'),
+('17CSR118', '14CSE06', 'CSE027SF', '14ITO01', 'CSE036SF', '14CSO07', 'CSE021SF'),
+('17CSR119', '14CSE06', 'CSE027SF', '14ITO01', 'CSE036SF', '14CSO07', 'CSE021SF'),
+('17CSR121', '14CSE06', 'CSE019SF', '14ITO01', 'CSE031SF', '14CSO07', 'CSE012SF'),
+('17CSR122', '14CSE06', 'CSE019SF', '14ITO01', 'CSE031SF', '14CSO07', 'CSE012SF'),
+('17CSR123', '14CSE06', 'CSE019SF', '14ITO01', 'CSE031SF', '14CSO07', 'CSE012SF'),
+('17CSR124', '14CSE06', 'CSE019SF', '14ITO01', 'CSE031SF', '14CSO07', 'CSE012SF'),
+('17CSR126', '14CSE11', 'CSE002SF', '14ITO01', 'CSE031SF', '14CSO07', 'CSE012SF'),
+('17CSR128', '14CSE06', 'CSE019SF', '14ITO01', 'CSE031SF', '14CSO07', 'CSE012SF'),
+('17CSR129', '14CSE06', 'CSE019SF', NULL, NULL, '14CSO07', 'CSE012SF'),
+('17CSR130', '14CSE06', 'CSE019SF', '14ITO01', 'CSE031SF', '14CSO07', 'CSE012SF'),
+('17CSR131', '14CSE06', 'CSE019SF', NULL, NULL, '14CSO07', 'CSE012SF'),
+('17CSR132', '14CSE11', 'CSE002SF', NULL, NULL, '14CSO07', 'CSE012SF'),
+('17CSR133', '14CSE06', 'CSE019SF', NULL, NULL, '14CSO07', 'CSE012SF'),
+('17CSR134', '14CSE06', 'CSE019SF', NULL, NULL, '14CSO07', 'CSE012SF'),
+('17CSR135', '14CSE06', 'CSE019SF', NULL, NULL, '14CSO07', 'CSE012SF'),
+('17CSR136', '14CSE06', 'CSE019SF', '14ITO01', 'CSE031SF', NULL, NULL),
+('17CSR137', '14CSE11', 'CSE002SF', NULL, NULL, '14CSO07', 'CSE012SF'),
+('17CSR138', '14CSE06', 'CSE019SF', NULL, NULL, '14CSO07', 'CSE012SF'),
+('17CSR139', '14CSE06', 'CSE019SF', '14ITO01', 'CSE031SF', '14CSO07', 'CSE012SF'),
+('17CSR140', '14CSE06', 'CSE019SF', '14ITO01', 'CSE031SF', '14CSO07', 'CSE012SF'),
+('17CSR141', '14CSE06', 'CSE019SF', '14ITO01', 'CSE031SF', '14CSO07', 'CSE012SF'),
+('17CSR142', '14CSE11', 'CSE002SF', NULL, NULL, '14CSO07', 'CSE012SF'),
+('17CSR143', '14CSE06', 'CSE019SF', NULL, NULL, '14CSO07', 'CSE012SF'),
+('17CSR144', '14CSE06', 'CSE019SF', '14ITO01', 'CSE031SF', '14CSO07', 'CSE012SF'),
+('17CSR145', '14CSE11', 'CSE002SF', NULL, NULL, '14CSO07', 'CSE012SF'),
+('17CSR146', '14CSE06', 'CSE019SF', NULL, NULL, '14CSO07', 'CSE012SF'),
+('17CSR147', '14CSE06', 'CSE019SF', '14ITO01', 'CSE031SF', '14CSO07', 'CSE012SF'),
+('17CSR148', '14CSE06', 'CSE019SF', NULL, NULL, '14CSO07', 'CSE012SF'),
+('17CSR149', '14CSE06', 'CSE019SF', '14ITO01', 'CSE031SF', '14CSO07', 'CSE012SF'),
+('17CSR150', '14CSE06', 'CSE019SF', NULL, NULL, '14CSO07', 'CSE012SF'),
+('17CSR151', '14CSE06', 'CSE019SF', '14ITO01', 'CSE031SF', '14CSO07', 'CSE012SF'),
+('17CSR152', '14CSE06', 'CSE019SF', '14ITO01', 'CSE031SF', '14CSO07', 'CSE012SF'),
+('17CSR153', '14CSE06', 'CSE019SF', NULL, NULL, '14CSO07', 'CSE012SF'),
+('17CSR154', '14CSE06', 'CSE019SF', NULL, NULL, '14CSO07', 'CSE012SF'),
+('17CSR155', '14CSE06', 'CSE019SF', '14ITO01', 'CSE031SF', '14CSO07', 'CSE012SF'),
+('17CSR156', '14CSE06', 'CSE019SF', '14ITO01', 'CSE031SF', '14CSO07', 'CSE012SF'),
+('17CSR157', '14CSE06', 'CSE019SF', '14ITO01', 'CSE031SF', '14CSO07', 'CSE012SF'),
+('17CSR158', '14CSE06', 'CSE019SF', '14ITO01', 'CSE031SF', '14CSO07', 'CSE012SF'),
+('17CSR159', '14CSE06', 'CSE019SF', '14ITO01', 'CSE031SF', '14CSO07', 'CSE012SF'),
+('17CSR160', '14CSE06', 'CSE019SF', '14ITO01', 'CSE031SF', '14CSO07', 'CSE012SF'),
+('17CSR161', '14CSE06', 'CSE019SF', NULL, NULL, '14CSO07', 'CSE012SF'),
+('17CSR162', '14CSE06', 'CSE019SF', NULL, NULL, '14CSO07', 'CSE012SF'),
+('17CSR163', '14CSE06', 'CSE019SF', NULL, NULL, '14CSO07', 'CSE012SF'),
+('17CSR164', '14CSE06', 'CSE019SF', NULL, NULL, '14CSO07', 'CSE012SF'),
+('17CSR165', '14CSE06', 'CSE019SF', '14ITO01', 'CSE031SF', '14CSO07', 'CSE012SF'),
+('17CSR166', '14CSE06', 'CSE019SF', '14ITO01', 'CSE031SF', '14CSO07', 'CSE012SF'),
+('17CSR167', '14CSE06', 'CSE019SF', '14ITO01', 'CSE031SF', '14CSO07', 'CSE012SF'),
+('17CSR168', '14CSE06', 'CSE019SF', '14ITO01', 'CSE031SF', '14CSO07', 'CSE012SF'),
+('17CSR169', '14CSE06', 'CSE019SF', '14ITO01', 'CSE031SF', '14CSO07', 'CSE012SF'),
+('17CSR170', '14CSE06', 'CSE019SF', '14ITO01', 'CSE031SF', '14CSO07', 'CSE012SF'),
+('17CSR171', '14CSE06', 'CSE019SF', '14ITO01', 'CSE031SF', '14CSO07', 'CSE012SF'),
+('17CSR172', '14CSE06', 'CSE019SF', NULL, NULL, '14CSO07', 'CSE012SF'),
+('17CSR173', '14CSE06', 'CSE019SF', NULL, NULL, '14CSO07', 'CSE012SF'),
+('17CSR174', '14CSE06', 'CSE019SF', NULL, NULL, '14CSO07', 'CSE012SF'),
+('17CSR175', '14CSE06', 'CSE019SF', NULL, NULL, '14CSO07', 'CSE012SF'),
+('17CSR176', '14CSE06', 'CSE019SF', '14ITO01', 'CSE031SF', NULL, NULL),
+('17CSR177', '14CSE06', 'CSE019SF', '14ITO01', 'CSE031SF', '14CSO07', 'CSE012SF'),
+('17CSR178', '14CSE06', 'CSE019SF', NULL, NULL, '14CSO07', 'CSE012SF'),
+('17CSR179', '14CSE06', 'CSE022SF', NULL, NULL, NULL, NULL),
+('17CSR180', '14CSE11', 'CSE002SF', NULL, NULL, '14CSO07', 'CSE018SF'),
+('17CSR181', '14CSE06', 'CSE022SF', '14ITO01', 'CSE016SF', '14CSO07', 'CSE018SF'),
+('17CSR182', '14CSE06', 'CSE022SF', NULL, NULL, '14CSO07', 'CSE018SF'),
+('17CSR183', '14CSE06', 'CSE022SF', NULL, NULL, '14CSO07', 'CSE018SF'),
+('17CSR184', '14CSE06', 'CSE022SF', '14ITO01', 'CSE016SF', '14CSO07', 'CSE018SF'),
+('17CSR185', '14CSE06', 'CSE022SF', '14ITO01', 'CSE016SF', '14CSO07', 'CSE018SF'),
+('17CSR186', '14CSE06', 'CSE022SF', '14ITO01', 'CSE016SF', '14CSO07', 'CSE018SF'),
+('17CSR187', '14CSE11', 'CSE002SF', '14ITO01', 'CSE016SF', '14CSO07', 'CSE018SF'),
+('17CSR188', '14CSE11', 'CSE002SF', '14ITO01', 'CSE016SF', '14CSO07', 'CSE018SF'),
+('17CSR189', '14CSE06', 'CSE022SF', NULL, NULL, '14CSO07', 'CSE018SF'),
+('17CSR190', '14CSE06', 'CSE022SF', NULL, NULL, NULL, NULL),
+('17CSR192', '14CSE11', 'CSE002SF', NULL, NULL, '14CSO07', 'CSE018SF'),
+('17CSR193', '14CSE06', 'CSE022SF', '14ITO01', 'CSE016SF', '14CSO07', 'CSE018SF'),
+('17CSR194', '14CSE11', 'CSE002SF', NULL, NULL, '14CSO07', 'CSE018SF'),
+('17CSR195', '14CSE06', 'CSE022SF', '14ITO01', 'CSE016SF', '14CSO07', 'CSE018SF'),
+('17CSR196', '14CSE06', 'CSE022SF', NULL, NULL, '14CSO07', 'CSE018SF'),
+('17CSR197', '14CSE11', 'CSE002SF', '14ITO01', 'CSE016SF', '14CSO07', 'CSE018SF'),
+('17CSR199', '14CSE11', 'CSE002SF', '14ITO01', 'CSE016SF', '14CSO07', 'CSE018SF'),
+('17CSR200', '14CSE06', 'CSE022SF', NULL, NULL, '14CSO07', 'CSE018SF'),
+('17CSR201', '14CSE06', 'CSE022SF', NULL, NULL, NULL, NULL),
+('17CSR202', '14CSE06', 'CSE022SF', '14ITO01', 'CSE016SF', '14CSO07', 'CSE018SF'),
+('17CSR203', '14CSE11', 'CSE002SF', '14ITO01', 'CSE016SF', '14CSO07', 'CSE018SF'),
+('17CSR204', '14CSE11', 'CSE002SF', '14ITO01', 'CSE016SF', '14CSO07', 'CSE018SF'),
+('17CSR205', '14CSE06', 'CSE022SF', NULL, NULL, '14CSO07', 'CSE018SF'),
+('17CSR206', '14CSE06', 'CSE022SF', NULL, NULL, '14CSO07', 'CSE018SF'),
+('17CSR208', '14CSE11', 'CSE002SF', '14ITO01', 'CSE016SF', '14CSO07', 'CSE018SF'),
+('17CSR209', '14CSE11', 'CSE002SF', '14ITO01', 'CSE016SF', '14CSO07', 'CSE018SF'),
+('17CSR210', '14CSE11', 'CSE002SF', NULL, NULL, '14CSO07', 'CSE018SF'),
+('17CSR211', '14CSE06', 'CSE022SF', NULL, NULL, '14CSO07', 'CSE018SF'),
+('17CSR212', '14CSE11', 'CSE002SF', '14ITO01', 'CSE016SF', '14CSO07', 'CSE018SF'),
+('17CSR213', '14CSE06', 'CSE022SF', NULL, NULL, '14CSO07', 'CSE018SF'),
+('17CSR214', '14CSE11', 'CSE002SF', '14ITO01', 'CSE016SF', '14CSO07', 'CSE018SF'),
+('17CSR215', '14CSE06', 'CSE022SF', '14ITO01', 'CSE016SF', '14CSO07', 'CSE018SF'),
+('17CSR216', '14CSE06', 'CSE022SF', NULL, NULL, '14CSO07', 'CSE018SF'),
+('17CSR217', '14CSE06', 'CSE022SF', '14ITO01', 'CSE016SF', '14CSO07', 'CSE018SF'),
+('17CSR218', '14CSE11', 'CSE002SF', '14ITO01', 'CSE016SF', '14CSO07', 'CSE018SF'),
+('17CSR219', '14CSE06', 'CSE022SF', '14ITO01', 'CSE016SF', NULL, NULL),
+('17CSR220', '14CSE11', 'CSE002SF', NULL, NULL, '14CSO07', 'CSE018SF'),
+('17CSR221', '14CSE06', 'CSE022SF', '14ITO01', 'CSE016SF', '14CSO07', 'CSE018SF'),
+('17CSR222', '14CSE06', 'CSE022SF', NULL, NULL, '14CSO07', 'CSE018SF'),
+('17CSR223', '14CSE06', 'CSE022SF', '14ITO01', 'CSE016SF', '14CSO07', 'CSE018SF'),
+('17CSR224', '14CSE06', 'CSE022SF', '14ITO01', 'CSE016SF', '14CSO07', 'CSE018SF'),
+('17CSR225', '14CSE06', 'CSE022SF', NULL, NULL, '14CSO07', 'CSE018SF'),
+('17CSR226', '14CSE06', 'CSE022SF', NULL, NULL, NULL, NULL),
+('17CSR227', '14CSE06', 'CSE022SF', NULL, NULL, NULL, NULL),
+('17CSR228', '14CSE11', 'CSE002SF', NULL, NULL, '14CSO07', 'CSE018SF'),
+('17CSR229', '14CSE06', 'CSE022SF', '14ITO01', 'CSE016SF', '14CSO07', 'CSE018SF'),
+('17CSR230', '14CSE06', 'CSE022SF', NULL, NULL, NULL, NULL),
+('17CSR231', '14CSE11', 'CSE002SF', NULL, NULL, NULL, NULL),
+('17CSR232', '14CSE06', 'CSE022SF', NULL, NULL, '14CSO07', 'CSE018SF'),
+('17CSR233', '14CSE06', 'CSE022SF', '14ITO01', 'CSE016SF', '14CSO07', 'CSE018SF'),
+('17CSR234', '14CSE06', 'CSE022SF', NULL, NULL, NULL, NULL),
+('17CSR235', '14CSE06', 'CSE022SF', '14ITO01', 'CSE016SF', '14CSO07', 'CSE018SF'),
+('17CSR236', '14CSE06', 'CSE022SF', NULL, NULL, NULL, NULL),
+('17CSR237', '14CSE06', 'CSE022SF', '14ITO01', 'CSE016SF', '14CSO07', 'CSE018SF'),
+('17CSR238', '14CSE06', 'CSE022SF', '14ITO01', 'CSE016SF', '14CSO07', 'CSE018SF'),
+('17CST256', '14CSE06', 'CSE022SF', NULL, NULL, NULL, NULL),
+('17CST257', '14CSE06', 'CSE022SF', NULL, NULL, '14CSO07', 'CSE018SF'),
+('17CST258', '14CSE06', 'CSE022SF', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1498,6 +2304,59 @@ INSERT INTO `registration` (`regno`, `name`, `batch`, `sec`, `dept`) VALUES
 ('18CSR236', 'Yoga Priya.P', 2018, 'D', 'CSE'),
 ('18CSR237', 'Yokesh P', 2018, 'D', 'CSE'),
 ('18CSR238', 'Yuvan Prasad.S', 2018, 'D', 'CSE'),
+('18EEL119', 'Kavin P', 2018, 'A', 'EEE'),
+('18EEL121', 'Krishna B', 2018, 'A', 'EEE'),
+('18EEL123', 'Nishanth S ', 2018, 'A', 'EEE'),
+('18EEL124', 'Nithish G', 2018, 'A', 'EEE'),
+('18EEL129', 'Shubhashree S', 2018, 'A', 'EEE'),
+('18EEL132', 'Yogeshwaran S ', 2018, 'A', 'EEE'),
+('18EER001', 'Aarthi L', 2018, 'A', 'EEE'),
+('18EER002', 'Ahamed Riyas K', 2018, 'A', 'EEE'),
+('18EER003', 'Ajay Kumar N', 2018, 'A', 'EEE'),
+('18EER004', 'Akshayaa M', 2018, 'A', 'EEE'),
+('18EER006', 'Anupriya R', 2018, 'A', 'EEE'),
+('18EER007', 'Arihararuban M', 2018, 'A', 'EEE'),
+('18EER008', 'Charan Ganesh S', 2018, 'A', 'EEE'),
+('18EER009', 'Deepana M', 2018, 'A', 'EEE'),
+('18EER011', 'Dhanish Kumar J J', 2018, 'A', 'EEE'),
+('18EER013', 'Dinesh P', 2018, 'A', 'EEE'),
+('18EER014', 'Dinesh S', 2018, 'A', 'EEE'),
+('18EER015', 'Divya Briya S', 2018, 'A', 'EEE'),
+('18EER016', 'Elakiya V', 2018, 'A', 'EEE'),
+('18EER017', 'Ganeshraj M', 2018, 'A', 'EEE'),
+('18EER018', 'Gokul R', 2018, 'A', 'EEE'),
+('18EER019', 'Gokul K R', 2018, 'A', 'EEE'),
+('18EER020', 'Gokul T', 2018, 'A', 'EEE'),
+('18EER021', 'Gopinath N', 2018, 'A', 'EEE'),
+('18EER023', 'Gowthamkrishna S G', 2018, 'A', 'EEE'),
+('18EER025', 'Hariharan V', 2018, 'A', 'EEE'),
+('18EER027', 'Harish Kumar S', 2018, 'A', 'EEE'),
+('18EER028', 'Harshini S', 2018, 'A', 'EEE'),
+('18EER029', 'Jagadeeswaran S', 2018, 'A', 'EEE'),
+('18EER030', 'Janakrithick S', 2018, 'A', 'EEE'),
+('18EER031', 'Javagar P', 2018, 'A', 'EEE'),
+('18EER032', 'Jayakumar K', 2018, 'A', 'EEE'),
+('18EER033', 'Jeevananth S', 2018, 'A', 'EEE'),
+('18EER034', 'Kangiyaraj P', 2018, 'A', 'EEE'),
+('18EER035', 'Kanimozhi K K', 2018, 'A', 'EEE'),
+('18EER036', 'Karthikeyan J', 2018, 'A', 'EEE'),
+('18EER037', 'Kathir K', 2018, 'A', 'EEE'),
+('18EER038', 'Kavaskar K', 2018, 'A', 'EEE'),
+('18EER039', 'Kishok A', 2018, 'A', 'EEE'),
+('18EER040', 'Kishore M', 2018, 'A', 'EEE'),
+('18EER041', 'Kowseka R', 2018, 'A', 'EEE'),
+('18EER042', 'Krishna M P', 2018, 'A', 'EEE'),
+('18EER043', 'Krithik S', 2018, 'A', 'EEE'),
+('18EER044', 'Krithick Saran M S', 2018, 'A', 'EEE'),
+('18EER045', 'Kulothangan S', 2018, 'A', 'EEE'),
+('18EER046', 'Logesh S', 2018, 'A', 'EEE'),
+('18EER047', 'Logeshwaran R', 2018, 'A', 'EEE'),
+('18EER048', 'Madhumathi P ', 2018, 'A', 'EEE'),
+('18EER049', 'Mala Sundari P', 2018, 'A', 'EEE'),
+('18EER050', 'Manikandan A', 2018, 'A', 'EEE'),
+('18EER051', 'Manivannan G', 2018, 'A', 'EEE'),
+('18EER052', 'Meenatchi Sundharam U ', 2018, 'A', 'EEE'),
+('18EER053', 'Mohan Krishna R', 2018, 'A', 'EEE'),
 ('19CSR001', 'Aathish R', 2019, 'A', 'CSE'),
 ('19CSR002', 'Abinaya.C ', 2019, 'A', 'CSE'),
 ('19CSR003', 'Abishankari S', 2019, 'A', 'CSE'),
@@ -1808,12 +2667,12 @@ INSERT INTO `staff` (`staffid`, `name`, `userid`, `pass`, `mail`, `dept`, `batch
 CREATE TABLE `tt` (
   `class` varchar(12) NOT NULL,
   `day` varchar(10) NOT NULL,
-  `1` varchar(10) DEFAULT NULL,
-  `2` varchar(10) DEFAULT NULL,
-  `3` varchar(10) DEFAULT NULL,
-  `4` varchar(10) DEFAULT NULL,
-  `5` varchar(10) DEFAULT NULL,
-  `6` varchar(10) DEFAULT NULL
+  `1` varchar(40) DEFAULT NULL,
+  `2` varchar(40) DEFAULT NULL,
+  `3` varchar(40) DEFAULT NULL,
+  `4` varchar(40) DEFAULT NULL,
+  `5` varchar(40) DEFAULT NULL,
+  `6` varchar(40) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
 --
@@ -1821,26 +2680,26 @@ CREATE TABLE `tt` (
 --
 
 INSERT INTO `tt` (`class`, `day`, `1`, `2`, `3`, `4`, `5`, `6`) VALUES
-('17-cse-a', 'Friday', NULL, NULL, NULL, '14CST71', '14GET71', NULL),
-('17-cse-a', 'Monday', NULL, NULL, '14CST72', NULL, NULL, '14GET71'),
-('17-cse-a', 'Thursday', NULL, NULL, '14CST71', NULL, '14CST72', NULL),
-('17-cse-a', 'Tuesday', NULL, NULL, NULL, NULL, NULL, '14CST71'),
-('17-cse-a', 'Wednesday', NULL, NULL, '14CST72', '14GET71', '14CSL71', '14CSL72'),
-('17-cse-b', 'Friday', NULL, NULL, NULL, '14CST71', '14GET71', NULL),
-('17-cse-b', 'Monday', NULL, NULL, '14CST72', NULL, NULL, '14GET71'),
-('17-cse-b', 'Thursday', NULL, NULL, '14CST71', NULL, '14CST72', NULL),
-('17-cse-b', 'Tuesday', NULL, NULL, NULL, NULL, NULL, '14CST71'),
-('17-cse-b', 'Wednesday', NULL, NULL, '14CST72', '14GET71', '14CSL71', '14CSL72'),
-('17-cse-c', 'Friday', NULL, NULL, NULL, '14CST71', '14GET71', NULL),
-('17-cse-c', 'Monday', NULL, NULL, '14CST72', NULL, NULL, '14GET71'),
-('17-cse-c', 'Thursday', NULL, NULL, '14CST71', NULL, '14CST72', NULL),
-('17-cse-c', 'Tuesday', NULL, NULL, NULL, NULL, NULL, '14CST71'),
-('17-cse-c', 'Wednesday', NULL, NULL, '14CST72', '14GET71', '14CSL71', '14CSL72'),
-('17-cse-d', 'Friday', NULL, NULL, NULL, '14CST71', '14GET71', NULL),
-('17-cse-d', 'Monday', NULL, NULL, '14CST72', NULL, NULL, '14GET71'),
-('17-cse-d', 'Thursday', NULL, NULL, '14CST71', NULL, '14CST72', NULL),
-('17-cse-d', 'Tuesday', NULL, NULL, NULL, NULL, NULL, '14CST71'),
-('17-cse-d', 'Wednesday', NULL, NULL, '14CST72', '14GET71', '14CSL71', '14CSL72'),
+('17-cse-a', 'Friday', NULL, NULL, '14ITO01 14ITO04 14EEO04', '14CST71', '14GET71', '14CSE06 14CSE11'),
+('17-cse-a', 'Monday', NULL, NULL, '14CST72', '14CSO07 14ITO06 14MEO07 14ECO07', '14CSE06 14CSE11', '14GET71'),
+('17-cse-a', 'Thursday', NULL, NULL, '14CST71', '14ITO01 14ITO04 14EEO04', '14CST72', '14CSO07 14ITO06 14MEO07 14ECO07'),
+('17-cse-a', 'Tuesday', NULL, NULL, '14CSO07 14ITO06 14MEO07 14ECO07', '14CSE06 14CSE11', '14ITO01 14ITO04 14EEO04', '14CST71'),
+('17-cse-a', 'Wednesday', NULL, NULL, '14CST72', '14GET71', '14CSL71 14CSL72', '14CSL71 14CSL72'),
+('17-cse-b', 'Friday', NULL, NULL, '14ITO01 14ITO04 14EEO04', '14CST71', '14GET71', '14CSE06 14CSE11'),
+('17-cse-b', 'Monday', NULL, NULL, '14CST72', '14CSO07 14ITO06 14MEO07 14ECO07', '14CSE06 14CSE11', '14GET71'),
+('17-cse-b', 'Thursday', NULL, NULL, '14CST71', '14ITO01 14ITO04 14EEO04', '14CST72', '14CSO07 14ITO06 14MEO07 14ECO07'),
+('17-cse-b', 'Tuesday', NULL, NULL, '14CSO07 14ITO06 14MEO07 14ECO07', '14CSE06 14CSE11', '14ITO01 14ITO04 14EEO04', '14CST71'),
+('17-cse-b', 'Wednesday', NULL, NULL, '14CST72', '14GET71', '14CSL71 14CSL72', '14CSL71 14CSL72'),
+('17-cse-c', 'Friday', NULL, NULL, '14ITO01 14ITO04 14EEO04', '14CST71', '14GET71', '14CSE06 14CSE11'),
+('17-cse-c', 'Monday', NULL, NULL, '14CST72', '14CSO07 14ITO06 14MEO07 14ECO07', '14CSE06 14CSE11', '14GET71'),
+('17-cse-c', 'Thursday', NULL, NULL, '14CST71', '14ITO01 14ITO04 14EEO04', '14CST72', '14CSO07 14ITO06 14MEO07 14ECO07'),
+('17-cse-c', 'Tuesday', NULL, NULL, '14CSO07 14ITO06 14MEO07 14ECO07', '14CSE06 14CSE11', '14ITO01 14ITO04 14EEO04', '14CST71'),
+('17-cse-c', 'Wednesday', NULL, NULL, '14CST72', '14GET71', '14CSL71 14CSL72', '14CSL71 14CSL72'),
+('17-cse-d', 'Friday', NULL, NULL, '14ITO01 14ITO04 14EEO04', '14CST71', '14GET71', '14CSE06 14CSE11'),
+('17-cse-d', 'Monday', NULL, NULL, '14CST72', '14CSO07 14ITO06 14MEO07 14ECO07', '14CSE06 14CSE11', '14GET71'),
+('17-cse-d', 'Thursday', NULL, NULL, '14CST71', '14ITO01 14ITO04 14EEO04', '14CST72', '14CSO07 14ITO06 14MEO07 14ECO07'),
+('17-cse-d', 'Tuesday', NULL, NULL, '14CSO07 14ITO06 14MEO07 14ECO07', '14CSE06 14CSE11', '14ITO01 14ITO04 14EEO04', '14CST71'),
+('17-cse-d', 'Wednesday', NULL, NULL, '14CST72', '14GET71', '14CSL71 14CSL72', '14CSL71 14CSL72'),
 ('18-cse-a', 'Friday', '18ITL51', '18ITL51', '18ITT52', '18ITO02', '18CST51', NULL),
 ('18-cse-a', 'Monday', '18ITT52', '18ITO02', '18CST51', '18CST53', '18ITT51', NULL),
 ('18-cse-a', 'Thursday', '18CST52', '18ITL52', '18ITL52', '18CST53', '18ITT51', NULL),
@@ -1888,6 +2747,30 @@ INSERT INTO `tt` (`class`, `day`, `1`, `2`, `3`, `4`, `5`, `6`) VALUES
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `14CSE06`
+--
+ALTER TABLE `14CSE06`
+  ADD PRIMARY KEY (`date`,`code`,`period`);
+
+--
+-- Indexes for table `14CSE11`
+--
+ALTER TABLE `14CSE11`
+  ADD PRIMARY KEY (`date`,`code`,`period`);
+
+--
+-- Indexes for table `14CSO07`
+--
+ALTER TABLE `14CSO07`
+  ADD PRIMARY KEY (`date`,`code`,`period`);
+
+--
+-- Indexes for table `14ITO01`
+--
+ALTER TABLE `14ITO01`
+  ADD PRIMARY KEY (`date`,`code`,`period`);
 
 --
 -- Indexes for table `17-cse-a`
@@ -1942,6 +2825,12 @@ ALTER TABLE `18-cse-d`
   ADD KEY `code` (`code`);
 
 --
+-- Indexes for table `18-eee-a`
+--
+ALTER TABLE `18-eee-a`
+  ADD PRIMARY KEY (`date`,`code`);
+
+--
 -- Indexes for table `19-cse-a`
 --
 ALTER TABLE `19-cse-a`
@@ -1978,6 +2867,18 @@ ALTER TABLE `course_list`
   ADD KEY `Staff3 ID Constraint` (`staffC`),
   ADD KEY `Staff4 ID Constraint` (`staffD`),
   ADD KEY `StaffA` (`staffA`);
+
+--
+-- Indexes for table `elective`
+--
+ALTER TABLE `elective`
+  ADD PRIMARY KEY (`regno`),
+  ADD KEY `s1` (`S1`),
+  ADD KEY `s2` (`S2`),
+  ADD KEY `s3` (`S3`),
+  ADD KEY `e1` (`E1`),
+  ADD KEY `e2` (`E2`),
+  ADD KEY `e3` (`E3`);
 
 --
 -- Indexes for table `registration`
@@ -2067,15 +2968,16 @@ ALTER TABLE `course_list`
   ADD CONSTRAINT `StaffD` FOREIGN KEY (`staffD`) REFERENCES `staff` (`staffid`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
--- Constraints for table `tt`
+-- Constraints for table `elective`
 --
-ALTER TABLE `tt`
-  ADD CONSTRAINT `P1` FOREIGN KEY (`1`) REFERENCES `course_list` (`code`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  ADD CONSTRAINT `P2` FOREIGN KEY (`2`) REFERENCES `course_list` (`code`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  ADD CONSTRAINT `P3` FOREIGN KEY (`3`) REFERENCES `course_list` (`code`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  ADD CONSTRAINT `P4` FOREIGN KEY (`4`) REFERENCES `course_list` (`code`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  ADD CONSTRAINT `P5` FOREIGN KEY (`5`) REFERENCES `course_list` (`code`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  ADD CONSTRAINT `P6` FOREIGN KEY (`6`) REFERENCES `course_list` (`code`) ON DELETE NO ACTION ON UPDATE CASCADE;
+ALTER TABLE `elective`
+  ADD CONSTRAINT `e1` FOREIGN KEY (`E1`) REFERENCES `course_list` (`code`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `e2` FOREIGN KEY (`E2`) REFERENCES `course_list` (`code`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `e3` FOREIGN KEY (`E3`) REFERENCES `course_list` (`code`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `regno` FOREIGN KEY (`regno`) REFERENCES `registration` (`regno`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `s1` FOREIGN KEY (`S1`) REFERENCES `staff` (`staffid`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `s2` FOREIGN KEY (`S2`) REFERENCES `staff` (`staffid`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `s3` FOREIGN KEY (`S3`) REFERENCES `staff` (`staffid`) ON DELETE NO ACTION ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
