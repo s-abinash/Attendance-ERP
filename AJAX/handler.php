@@ -66,6 +66,24 @@
                }
                $date=date_format(date_add(date_create($date),date_interval_create_from_date_string("1 days")),"Y-m-d");
           }
+          if(in_array($code,array("14CSL71","14CSL72")))
+          {
+               $c=$dates;
+               $dates=array();
+               foreach($c as $dt)
+               {
+                    $x=date_diff(date_create(date("2020-07-08")),date_create(date($dt)))->format("%a");
+                    if(($code=="14CSL71")&&(($x/7)%2))
+                    {
+                         array_push($dates,$dt);
+                    }
+                    else if(($code=="14CSL72")&&((($x/7)%2)==0))
+                    {
+                         array_push($dates,$dt);
+                    }
+                    
+               }
+          }
                
          
           echo json_encode(array($dates,$day_per));

@@ -91,7 +91,7 @@
                     <td>'.$sec.'</td>
                     <td>'.$code.'</td>
                     <td>'.$name.'</td>
-                    <td class="right aligned"><button class="ui primary right icon button" id="'.$btn.'" onclick="attend(this.id)"> Mark Attendance &nbsp&nbsp<i class="check icon"></i></button>&nbsp;&nbsp;<button class="ui black right icon button" id="'.$btn.'" onclick="history(this.id)"> View History &nbsp&nbsp<i class="history icon"></i></button><button class="ui brown right icon button" id="'.$btn.'" onclick="consolidate(this.id)"> Consolidation &nbsp&nbsp<i class="file export icon"></i></button></td>
+                    <td class="right aligned"><button class="ui primary right icon button" id="'.$btn.'" onclick="attend(this.id)"> Mark Attendance &nbsp&nbsp<i class="check icon"></i></button><button class="ui black right icon button" id="'.$btn.'" onclick="history(this.id)"> View History &nbsp&nbsp<i class="history icon"></i></button><button class="ui brown right icon button" id="'.$btn.'" onclick="consolidate(this.id)"> Consolidation &nbsp&nbsp<i class="file export icon"></i></button></td>
                     </tr>';
                     }
                     if(!empty($ele_course))
@@ -128,9 +128,9 @@
                             <td>'.$code.'</td>
                             <td>'.$name.'</td>
                             <td class="right aligned">
-                                <button class="ui primary right icon button" id="'.$btn.'" onclick="attend(this.id)"> Mark Attendance &nbsp&nbsp<i class="check icon"></i></button>&nbsp;&nbsp;
-                                <button class="ui black right icon button" id="'.$btn.'" onclick="history(this.id)"> View History &nbsp&nbsp<i class="history icon"></i></button>
-                                <button class="ui brown right icon button" id="'.$btn.'" onclick="consolidate(this.id)"> Consolidation &nbsp&nbsp<i class="file export icon"></i></button>
+                                <button class="ui primary right icon button" id="'.$btn.'" onclick="attend(this.id)"> Mark Attendance &nbsp; &nbsp;<i class="check icon"></i></button>
+                                <button class="ui black right icon button" id="'.$btn.'" onclick="history(this.id)"> View History &nbsp; &nbsp;<i class="history icon"></i></button>
+                                <button class="ui brown right icon button" id="'.$btn.'" onclick="consolidate(this.id)"> Consolidation &nbsp; &nbsp;<i class="file export icon"></i></button>
                             </td>
                             </tr>';
                         }
@@ -166,7 +166,7 @@
                     <td>'.$sec.'</td>
                     <td>'.$code.'</td>
                     <td>'.$name.'</td>
-                    <td class="right aligned"><button class="ui primary right icon button " id="'.$btn.'"  onclick="attend(this.id)"> Mark Attendance &nbsp&nbsp<i class="check icon"></i></button><button class="ui black right icon button" id="'.$btn.'" onclick="history(this.id)"> View History &nbsp&nbsp<i class="history icon"></i></button><button class="ui brown right icon button" id="'.$btn.'" onclick="consolidate(this.id)"> Consolidation &nbsp&nbsp<i class="file export icon"></i></button></td>
+                    <td class="right aligned"><button class="ui primary right icon button " id="'.$btn.'"  onclick="attend(this.id)"> Mark Attendance &nbsp;&nbsp;<i class="check icon"></i></button><button class="ui black right icon button" id="'.$btn.'" onclick="history(this.id)"> View History &nbsp;&nbsp;<i class="history icon"></i></button><button class="ui brown right icon button" id="'.$btn.'" onclick="consolidate(this.id)"> Consolidation &nbsp; &nbsp;<i class="file export icon"></i></button></td>
                     
                 </tr>';
                 }
@@ -253,6 +253,7 @@
             data: d,
             type: "POST",
             success: function(res) {
+                
                  response=JSON.parse(res);
                 var arr = [];
                 var i;
@@ -300,7 +301,7 @@
                 $('#code').val(btn[1]);
                 if(elec.includes(btn[1]))
                 {
-                    alert("Hi");
+        
                     $('#frm2').attr('action','importElec.php');
                 }
                 

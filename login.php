@@ -6,32 +6,7 @@ if(isset($_SESSION['id']))
 }
 include_once("./db.php");
 include_once('./assets/notiflix.php');
-if (isset($_POST["usr"]))
-    {   
-        $id=$_POST["userid"];
-        $pass=SHA1($_POST["pass"]);
-        $sql="select * from staff where userid LIKE '$id' AND pass LIKE '$pass'";
-        $res=$con->query($sql);
-        $count=$res->num_rows;
-       if($count==1)
-       {     
-          $row=$res->fetch_assoc();
-          $_SESSION["id"]=$row['staffid'];
-          $_SESSION["name"]=$row['name'];
-          $_SESSION["dept"]=$row['dept'];
-          $_SESSION['batch']=$row['batch'];
-          $_SESSION['design']=$row['designation'];
-          $_SESSION['sec']=$row['sec'];
-          echo '<script>Notiflix.Notify.Success("Logged in Successfully");</script>';
-          echo '<script>location.href="./home.php";</script>';
-       }
-       else
-       {
-        echo '<script>Notiflix.Notify.Failure("Credential Mismatch");</script>';
-       }
-      
-       
-    }
+
 ?>
 <html lang="en">
 
@@ -183,5 +158,30 @@ if (isset($_POST["usr"]))
     </script>
 
 </body>
-
+<?php
+if (isset($_POST["usr"]))
+{   
+    $id=$_POST["userid"];
+    $pass=SHA1($_POST["pass"]);
+    $sql="select * from staff where userid LIKE '$id' AND pass LIKE '$pass'";
+    $res=$con->query($sql);
+    $count=$res->num_rows;
+   if($count==1)
+   {     
+      $row=$res->fetch_assoc();
+      $_SESSION["id"]=$row['staffid'];
+      $_SESSION["name"]=$row['name'];
+      $_SESSION["dept"]=$row['dept'];
+      $_SESSION['batch']=$row['batch'];
+      $_SESSION['design']=$row['designation'];
+      $_SESSION['sec']=$row['sec'];
+      echo '<body><script>Notiflix.Notify.Success("Logged in Successfully");</script></body>';
+      echo '<script>location.href="./home.php";</script>';
+   }
+   else
+   {
+    echo '<body><script>Notiflix.Notify.Failure("Credential Mismatch");</script></body>';
+   }
+}
+?>
 </html>
