@@ -125,11 +125,12 @@ include_once('./assets/notiflix.php');
                         class="envelope outline icon"></i></a>
             </div>
             <div style="float:right;color:pink;">
-                <a href="https://t.me/kecattd" target="_blank">Telegram Help <i class="hands helping icon"></i></a>
+                <a href="http://t.me/kecattd" target="_blank">Telegram Help <i class="hands helping icon"></i></a>
             </div>
             <br /><br />
             <center>
-                <button type="submit" id="sub" name="usr" val="verified" class="ui large positive button">Sign in</button>
+                <button type="submit" id="sub" name="usr" val="verified" class="ui large positive button">Sign
+                    in</button>
             </center>
         </form>
         <center><span style="color:#ffffb3; margin-top:10%;padding: 20px;font-size:12px">v1.1-beta</span></center>
@@ -153,7 +154,7 @@ include_once('./assets/notiflix.php');
         });
         $("#ajay").on("click", function() {
             window.open("mailto:ajayofficial@zohomail.in?subject=Attendance Reg.,", "_blank");
-        });     
+        });
     });
     </script>
 
@@ -184,4 +185,5 @@ if (isset($_POST["usr"]))
    }
 }
 ?>
+
 </html>
