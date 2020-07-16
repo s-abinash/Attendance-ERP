@@ -8,9 +8,7 @@ include_once('db.php');
 
 if(isset($_SESSION["EditAttnd"]))
 {
-    $batch=$_SESSION['batch'];
-    $sec=$_SESSION['sec'];
-    $dep=$_SESSION['dep'];   
+    $sid=$_SESSION['id'];
 }
 
 ?>
@@ -76,14 +74,12 @@ if(isset($_SESSION["EditAttnd"]))
             {
      
                 $date=date("Y-m-d",strtotime($_SESSION['date']));
-                $code=$_SESSION['code'];
+                $code=$sid;
                 $period=$_SESSION['period'];
-
-                $class=strval($batch)."-".strtolower($dep)."-".strtolower($sec);
-                
+                $class=$_SESSION['code'];
                 $arr=array();
-                $bat="20".$_SESSION["batch"];
-                $sql="SELECT regno from registration where batch like '$bat' and sec like '$sec' and dept like '$dep'";
+              
+                $sql="SELECT regno from elective where ( E1 LIKE '$class' AND S1 LIKE '$sid') OR ( E2 LIKE '$class' AND S2 LIKE '$sid') OR ( E3 LIKE '$class' AND S3 LIKE '$sid')" ;
                 $data=$con->query($sql);
                
                 $sql='UPDATE `'.$class.'` SET ';
@@ -152,14 +148,13 @@ if(isset($_SESSION["EditAttnd"]))
                         <tbody>
                             <?php
                                 $date=date("Y-m-d",strtotime($_SESSION['date']));
-                                $code=$_SESSION['code'];
+                                $code=$sid;
                                 $period=$_SESSION['period'];
-                                $bat="20".$batch;
-                                $sql="SELECT regno,name from registration where batch like '$bat' and sec like '$sec' and dept like '$dep'";
-                                $data=$con->query($sql);
                                 
-                                $class=strtolower(strval($batch))."-".strtolower($dep)."-".strtolower($sec);
-                                $sql1="SELECT * from `".$class."` WHERE `date` like '$date' and `code` like '$code' and `period` like '$period'";
+                                $class=$_SESSION['code'];
+                                $sql="SELECT e.regno,r.name  from elective e ,registration r where (( E1 LIKE '$class' AND S1 LIKE '$sid') OR ( E2 LIKE '$class' AND S2 LIKE '$sid') OR ( E3 LIKE '$class' AND S3 LIKE '$sid') ) AND e.regno LIKE r.regno" ;
+                                $data=$con->query($sql);
+                                $sql1="SELECT * from `".$class."` WHERE `date` like '$date' and `code` like '$sid' and `period` like '$period'";
                                 $data1=$con->query($sql1);
                                 $row=$data1->fetch_assoc();
                         

@@ -91,7 +91,7 @@
                     <td>'.$sec.'</td>
                     <td>'.$code.'</td>
                     <td>'.$name.'</td>
-                    <td class="right aligned"><button class="ui primary right icon button" id="'.$btn.'" onclick="attend(this.id)"> Mark Attendance &nbsp&nbsp<i class="check icon"></i></button>&nbsp;&nbsp;<button class="ui black right icon button" id="'.$btn.'" onclick="history(this.id)"> View History &nbsp&nbsp<i class="history icon"></i></button><button class="ui brown right icon button" id="'.$btn.'" onclick="consolidate(this.id)"> Consolidation &nbsp&nbsp<i class="file export icon"></i></button></td>
+                    <td class="right aligned"><button class="ui primary right icon button" id="'.$btn.'" onclick="attend(this.id)"> Mark Attendance &nbsp&nbsp<i class="check icon"></i></button><button class="ui black right icon button" id="'.$btn.'" onclick="history(this.id)"> View History &nbsp&nbsp<i class="history icon"></i></button><button class="ui brown right icon button" id="'.$btn.'" onclick="consolidate(this.id)"> Consolidation &nbsp&nbsp<i class="file export icon"></i></button></td>
                     </tr>';
                     }
                     if(!empty($ele_course))
@@ -128,9 +128,9 @@
                             <td>'.$code.'</td>
                             <td>'.$name.'</td>
                             <td class="right aligned">
-                                <button class="ui primary right icon button" id="'.$btn.'" onclick="attend(this.id)"> Mark Attendance &nbsp&nbsp<i class="check icon"></i></button>&nbsp;&nbsp;
-                                <button class="ui black right icon button" id="'.$btn.'" onclick="history(this.id)"> View History &nbsp&nbsp<i class="history icon"></i></button>
-                                <button class="ui brown right icon button" id="'.$btn.'" onclick="consolidate(this.id)"> Consolidation &nbsp&nbsp<i class="file export icon"></i></button>
+                                <button class="ui primary right icon button" id="'.$btn.'" onclick="attend(this.id)"> Mark Attendance &nbsp; &nbsp;<i class="check icon"></i></button>
+                                <button class="ui black right icon button" id="'.$btn.'" onclick="history(this.id)"> View History &nbsp; &nbsp;<i class="history icon"></i></button>
+                                <button class="ui brown right icon button" id="'.$btn.'" onclick="consolidate(this.id)"> Consolidation &nbsp; &nbsp;<i class="file export icon"></i></button>
                             </td>
                             </tr>';
                         }
@@ -166,7 +166,7 @@
                     <td>'.$sec.'</td>
                     <td>'.$code.'</td>
                     <td>'.$name.'</td>
-                    <td class="right aligned"><button class="ui primary right icon button " id="'.$btn.'"  onclick="attend(this.id)"> Mark Attendance &nbsp&nbsp<i class="check icon"></i></button><button class="ui black right icon button" id="'.$btn.'" onclick="history(this.id)"> View History &nbsp&nbsp<i class="history icon"></i></button><button class="ui brown right icon button" id="'.$btn.'" onclick="consolidate(this.id)"> Consolidation &nbsp&nbsp<i class="file export icon"></i></button></td>
+                    <td class="right aligned"><button class="ui primary right icon button " id="'.$btn.'"  onclick="attend(this.id)"> Mark Attendance &nbsp;&nbsp;<i class="check icon"></i></button><button class="ui black right icon button" id="'.$btn.'" onclick="history(this.id)"> View History &nbsp;&nbsp;<i class="history icon"></i></button><button class="ui brown right icon button" id="'.$btn.'" onclick="consolidate(this.id)"> Consolidation &nbsp; &nbsp;<i class="file export icon"></i></button></td>
                     
                 </tr>';
                 }
@@ -244,7 +244,7 @@
     var d = "";
     var response;
     var dt;
-
+    var elec=["14CSE06","14CSE11","14CSO07","14ITO01"];
     function attend(id) {
         var btn = id.split("/");
         d = "tab=" + btn[0] + "&code=" + btn[1];
@@ -253,6 +253,7 @@
             data: d,
             type: "POST",
             success: function(res) {
+                
                  response=JSON.parse(res);
                 var arr = [];
                 var i;
@@ -298,6 +299,12 @@
                 });
                 $('#tab').val(btn[0]);
                 $('#code').val(btn[1]);
+                if(elec.includes(btn[1]))
+                {
+        
+                    $('#frm2').attr('action','importElec.php');
+                }
+                
                 $("#datepickermod").modal({
                     centered: false
                 }).modal("show");
@@ -343,6 +350,8 @@
                     return false;
                 } else if (r == "export_ready") {
                     window.location.href = "export.php";
+                }else if (r == "export_ready_for_Elec") {
+                    window.location.href = "exportElec.php";
                 } else {
                     Notiflix.Notify.Warning("Error in retrieving data.Please try again Else Contact Admin");
                 }
@@ -377,6 +386,7 @@
     }
 
     function editor(val) {
+    
         var e = val.split("/");
         var arr = {
             "e_code": e[0],
@@ -390,8 +400,12 @@
             type: "POST",
             data: arr,
             success: function(r) {
+                
                 if (r == "go&edit") {
                     window.location.href = "editAttdAdv.php";
+                }
+                else if (r == "go&editElec") {
+                    window.location.href = "editAttdElec.php";
                 }
             }
         });

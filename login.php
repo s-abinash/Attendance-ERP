@@ -4,6 +4,9 @@ if(isset($_SESSION['id']))
 {
     header('Location: ./home.php');
 }
+include_once("./db.php");
+include_once('./assets/notiflix.php');
+
 ?>
 <html lang="en">
 
@@ -108,7 +111,7 @@ if(isset($_SESSION['id']))
     <?php include_once('./assets/notiflix.php'); ?>
     <div class="box">
         <h2 class="animate__animated animate__bounce "> Staff Login</h2>
-        <form id="login">
+        <form id="login" action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
             <div class="inputBox">
                 <input type="text" name="userid" id="userid" required>
                 <label>User Id</label>
@@ -126,7 +129,7 @@ if(isset($_SESSION['id']))
             </div>
             <br /><br />
             <center>
-                <button type="submit" id="sub" class="ui large positive button">Sign in</button>
+                <button type="submit" id="sub" name="usr" val="verified" class="ui large positive button">Sign in</button>
             </center>
         </form>
         <center><span style="color:#ffffb3; margin-top:10%;padding: 20px;font-size:12px">v1.1-beta</span></center>
@@ -150,35 +153,35 @@ if(isset($_SESSION['id']))
         });
         $("#ajay").on("click", function() {
             window.open("mailto:ajayofficial@zohomail.in?subject=Attendance Reg.,", "_blank");
-        });
-        $("#login").on("submit", function() {
-            $("#sub").addClass("loading");
-            var frm = $("#login").serialize();
-            frm += "&usr=verified";
-
-            $.ajax({
-                url: "./AJAX/handler.php",
-                data: frm,
-                type: "POST",
-                success: function(res) {
-
-                    $("#sub").removeClass("loading");
-                    if (res == "Success") {
-                        Notiflix.Notify.Success("Logged in Successfully");
-                        window.location.replace("home.php");
-                    } else {
-                        Notiflix.Notify.Failure("Credential Mismatch");
-                        $("#login")[0].reset();
-                    }
-                }
-            });
-
-            return false;
-
-        });
+        });     
     });
     </script>
 
 </body>
-
+<?php
+if (isset($_POST["usr"]))
+{   
+    $id=$_POST["userid"];
+    $pass=SHA1($_POST["pass"]);
+    $sql="select * from staff where userid LIKE '$id' AND pass LIKE '$pass'";
+    $res=$con->query($sql);
+    $count=$res->num_rows;
+   if($count==1)
+   {     
+      $row=$res->fetch_assoc();
+      $_SESSION["id"]=$row['staffid'];
+      $_SESSION["name"]=$row['name'];
+      $_SESSION["dept"]=$row['dept'];
+      $_SESSION['batch']=$row['batch'];
+      $_SESSION['design']=$row['designation'];
+      $_SESSION['sec']=$row['sec'];
+      echo '<body><script>Notiflix.Notify.Success("Logged in Successfully");</script></body>';
+      echo '<script>location.href="./home.php";</script>';
+   }
+   else
+   {
+    echo '<body><script>Notiflix.Notify.Failure("Credential Mismatch");</script></body>';
+   }
+}
+?>
 </html>
