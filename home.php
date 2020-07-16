@@ -244,7 +244,7 @@
     var d = "";
     var response;
     var dt;
-
+    var elec=["14CSE06","14CSE11","14CSO07","14ITO01"];
     function attend(id) {
         var btn = id.split("/");
         d = "tab=" + btn[0] + "&code=" + btn[1];
@@ -298,6 +298,12 @@
                 });
                 $('#tab').val(btn[0]);
                 $('#code').val(btn[1]);
+                if(elec.includes(btn[1]))
+                {
+                    alert("Hi");
+                    $('#frm2').attr('action','importElec.php');
+                }
+                
                 $("#datepickermod").modal({
                     centered: false
                 }).modal("show");
@@ -343,6 +349,8 @@
                     return false;
                 } else if (r == "export_ready") {
                     window.location.href = "export.php";
+                }else if (r == "export_ready_for_Elec") {
+                    window.location.href = "exportElec.php";
                 } else {
                     Notiflix.Notify.Warning("Error in retrieving data.Please try again Else Contact Admin");
                 }
@@ -377,6 +385,7 @@
     }
 
     function editor(val) {
+    
         var e = val.split("/");
         var arr = {
             "e_code": e[0],
@@ -390,8 +399,12 @@
             type: "POST",
             data: arr,
             success: function(r) {
+                
                 if (r == "go&edit") {
                     window.location.href = "editAttdAdv.php";
+                }
+                else if (r == "go&editElec") {
+                    window.location.href = "editAttdElec.php";
                 }
             }
         });

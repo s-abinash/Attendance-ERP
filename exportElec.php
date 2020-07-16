@@ -7,6 +7,7 @@ if(!isset($_SESSION['id']))
 
 include_once("./db.php");
 $table=strtolower($_SESSION["tname"]);
+$sid=$_SESSION["id"];
 $code=$_SESSION["ccode"];
 $course=$_SESSION["cname"];
 ?>
@@ -63,17 +64,22 @@ include_once('./navbar.php');
             </thead>
             <tbody style="text-align:center">
                 <?php
-                $sql="SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N'$table'";
+                $sql="SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N'$code'";
                 $res=$con->query($sql);
-                
+                $arr=array();
                 while($row=$res->fetch_assoc())
                 {
                     if($row["COLUMN_NAME"]!='code' && $row["COLUMN_NAME"]!='date' && $row["COLUMN_NAME"]!='period')
                     {
                         $roll=$row["COLUMN_NAME"];
-                        $sql="SELECT name FROM `registration` where regno LIKE '$roll';";
-                        $reg=$con->query($sql)->fetch_assoc()["name"];
-                        echo "<tr class='' id=".$row["COLUMN_NAME"]."><td style='text-indent:15px'>".$row["COLUMN_NAME"]."</td><td style='text-align:left'>".$reg."</td></tr>";
+                        $sql="SELECT * FROM elective e,registration r WHERE e.regno LIKE r.regno AND (( E1 LIKE '$code' AND S1 LIKE '$sid') OR ( E2 LIKE '$code' AND S2 LIKE '$sid') OR ( E3 LIKE '$code' AND S3 LIKE '$sid') ) AND e.regno LIKE '$roll' ";
+                        if($con->query($sql)->num_rows!=0)
+                        {
+                            $reg=$con->query($sql)->fetch_assoc()["name"];
+                            array_push($arr,$roll);
+                            echo "<tr class='' id=".$row["COLUMN_NAME"]."><td style='text-indent:15px'>".$row["COLUMN_NAME"]."</td><td style='text-align:left'>".$reg."</td></tr>";
+                        }
+                        
                     }    
                 }
             ?>
@@ -81,12 +87,12 @@ include_once('./navbar.php');
         </table>
     </div>
     <?php         
-    $sql="SELECT * FROM `$table` where code LIKE '$code' ORDER BY  date ASC,period ASC";
+    $sql="SELECT * FROM `$code` where code LIKE '$sid' ORDER BY  date ASC,period ASC";
  
     $res=$con->query($sql);
     while($row=$res->fetch_assoc())
     {
-        
+
         foreach($row as $ind=>$val)
         {
             if(($ind=="date") || ($ind=="code") || ($ind=="period"))
@@ -97,7 +103,7 @@ include_once('./navbar.php');
                 }
                 continue;
             }
-            else
+            else if(in_array($ind,$arr))
             {
                 echo "<script>$('#".$ind."').append('<td>".$val."</td>')</script>";
             }

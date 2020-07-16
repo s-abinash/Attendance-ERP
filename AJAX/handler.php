@@ -1,33 +1,10 @@
 <?php
     include_once("../db.php");
     session_start();
-    if (isset($_POST["usr"]))
-    {   
-        $id=$_POST["userid"];
-        $pass=SHA1($_POST["pass"]);
-        $sql="select * from staff where userid LIKE '$id' AND pass LIKE '$pass'";
-        $res=$con->query($sql);
-        $count=$res->num_rows;
-       if($count==1)
-       {
-          
-          $row=$res->fetch_assoc();
-          $_SESSION["id"]=$row['staffid'];
-          $_SESSION["name"]=$row['name'];
-          $_SESSION["dept"]=$row['dept'];
-          $_SESSION['batch']=$row['batch'];
-          $_SESSION['design']=$row['designation'];
-          $_SESSION['sec']=$row['sec'];
-          echo "Success";
-       }
-       else
-       {
-          echo "Error";
-       }
-      exit();
-       
-    }
-    else if(isset($_POST["tab"]))
+    $sid=$_SESSION["id"];
+    $ele=array("14CSE06","14CSE11","14CSO07","14ITO01");
+    
+    if(isset($_POST["tab"]))
     {
          $tab=strtolower($_POST["tab"]);
          $code=$_POST["code"];
@@ -68,10 +45,10 @@
                     {
                          foreach($pd as $periods)
                          {
-                              if(in_array($code,array("14CSE06","14CSE11","14CSO07","14ITO01")))
+                              if(in_array($code,$ele))
                               {
                                    
-                                   $sid=$_SESSION["id"];
+                                   
                                    $sql="SELECT * FROM `$code` where date LIKE '$date' AND code LIKE '$sid' AND `period` LIKE '$periods'"; 
                               }
                               else
@@ -104,7 +81,15 @@
          $code=$_POST["code"];
          $sql="SELECT name FROM `course_list` WHERE code LIKE '$code'";
          $name=($con->query($sql))->fetch_assoc()["name"]; 
-         $sql="SELECT * FROM `$tab` WHERE code LIKE '$code' ORDER BY `date` DESC,`period` ASC"; 
+         if(in_array($code,$ele))
+         {
+          $sql="SELECT * FROM `$code` WHERE code LIKE '$sid' ORDER BY `date` DESC,`period` ASC"; 
+          $tab=$code;
+          $code=$code;
+         }
+         else{
+              $sql="SELECT * FROM `$tab` WHERE code LIKE '$code' ORDER BY `date` DESC,`period` ASC"; 
+         }
          $res=$con->query($sql);
          $cnt=mysqli_num_fields($res)-3;
          while($row=$res->fetch_assoc())
@@ -121,7 +106,14 @@
                    }
               }
               $abs.='</ol></b></em>';
-              $P=array_count_values($row)["P"];
+              if(array_key_exists("P",array_count_values($row)))
+              {
+               $P=array_count_values($row)["P"];
+              }
+              else
+              {
+                    $P=0;
+              }
               if(array_key_exists("A",array_count_values($row)))
               {
                     $A=array_count_values($row)["A"];
@@ -130,6 +122,16 @@
               {
                     $A=0;
               }
+             
+              if(array_key_exists("N/A",array_count_values($row)))
+              {
+                    $na=array_count_values($row)["N/A"];
+              }
+              else
+              {
+                    $na=0;
+              }
+              $cnt-=$na;
               echo '<div class="ui raised  segment" style="width:70%;margin:auto;margin-top:3%;">
                      
                <div class="ui black info right circular icon message">
@@ -189,19 +191,32 @@
     }
     else if(isset($_POST["consolidate"]))
     {
-         session_start();
+         
          $tab=$_POST["tname"];
           $code=$_POST["ccode"];
           $_SESSION["tname"]=$tab;
           $_SESSION["ccode"]=$code;
           $_SESSION["cname"]=$name=($con->query("SELECT name FROM `course_list` WHERE code LIKE '$code'"))->fetch_assoc()["name"]; 
          $tab=strtolower($tab);
-         $num=($con->query("SELECT date from `$tab` where code LIKE '$code'"))->num_rows;
+         if(in_array($_POST["ccode"],$ele))
+         {
+          $num=($con->query("SELECT date from `$code` where code LIKE '$sid'"))->num_rows;
+          if($num>=1)
+          {
+               echo "export_ready_for_Elec";
+          }
+         }
+         else
+         {
+          $num=($con->query("SELECT date from `$tab` where code LIKE '$code'"))->num_rows;
           if($num>=1)
           {
                echo "export_ready";
           }
-          else if($num==0)
+         }
+         
+          
+         if($num==0)
           {
                echo "empty";
           }
@@ -210,19 +225,21 @@
     }
     else if(isset($_POST["editor"]))
     {
-         session_start();
-          $tab=strtoupper($_POST["edittab"]);
-
-          $arr=explode('-',$tab,3);
-          $_SESSION["sec"]=$arr[2];
-          $_SESSION["batch"]=$arr[0];
-          $_SESSION["dep"]=$arr[1];
           $_SESSION["code"]=$_POST["e_code"];
           $_SESSION["period"]=$_POST["e_period"];
           $_SESSION["date"]=$_POST["e_date"];
           $_SESSION["EditAttnd"]="go&edit";
-          
+         if(!in_array($_POST["e_code"],$ele))
+         {
+          $tab=strtoupper($_POST["edittab"]);
+          $arr=explode('-',$tab,3);
+          $_SESSION["sec"]=$arr[2];
+          $_SESSION["batch"]=$arr[0];
+          $_SESSION["dep"]=$arr[1];
           echo "go&edit";
+          exit();
+         }
+         echo "go&editElec";
           exit();
     }
 ?>
