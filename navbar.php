@@ -57,7 +57,7 @@
         right: auto;
 
     }
-  </style>
+    </style>
     <link rel="icon" type="image/png" href="./images/KEC.png">
     <link rel="stylesheet" href="./assets/Fomantic/dist/semantic.min.css" type="text/css" />
 
@@ -77,7 +77,8 @@
         <div class="ui borderless fluid huge inverted menu">
             <a class="active green item" href="#root">KEC Student+</a>
             <a class="item" id="home" href="home.php">Home</a>
-            <a class="right item" style="margin-right:1%;font-weight:bold;color:cyan"><em><?php echo $_SESSION["name"]?><em></a>
+            <a class="right item"
+                style="margin-right:1%;font-weight:bold;color:cyan"><em><?php echo $_SESSION["name"]?><em></a>
             <a class="right item" id="logout" href="./Logout.php"><i class="share square outline icon"></i>Logout</a>
         </div>
     </div>
@@ -93,8 +94,10 @@
             </div>
             <div class="ui vertical borderless fluid inverted menu">
                 <a class="item" id="index" href="home.php">Home</a>
-                <a class="right item" style="margin-right:1%;font-weight:bold;color:cyan"><em><?php echo $_SESSION["name"]?><em></a>
-                <a class="right item" id="logout" href="./Logout.php"><i class="share square outline icon"></i>Logout</a>
+                <a class="right item"
+                    style="margin-right:1%;font-weight:bold;color:cyan"><em><?php echo $_SESSION["name"]?><em></a>
+                <a class="right item" id="logout" href="./Logout.php"><i
+                        class="share square outline icon"></i>Logout</a>
             </div>
         </div>
     </div>
@@ -109,3 +112,33 @@
         });
     });
     </script>
+    <style>
+    /* Refers the whole setup */
+    ::-webkit-scrollbar {
+        width: 11px;
+        border-radius: 13px;
+    }
+
+    /* Refers tracking path */
+    ::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        border-radius: 13px;
+        opacity: 1.0;
+        /* background-color: #F5F5F5; */
+    }
+
+    /* Refers Draggable Bar */
+    ::-webkit-scrollbar-thumb {
+        border-radius: 13px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+
+        background-color: #555;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #ef8376;
+    }
+    </style>
