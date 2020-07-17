@@ -68,6 +68,7 @@ if(isset($_POST['homy']))
     $_SESSION['code']=$code;
     $_SESSION['date']=$date;
     $_SESSION['class']=$class;
+    $_SESSION['t']=$table;
     $_SESSION['batch']=$batch;
     $_SESSION['sec']=$sec;
     $_SESSION['dep']=$dep;
@@ -80,6 +81,7 @@ else
     $date=$_SESSION['date'];
     $class=$_SESSION['class'];
     $batch=$_SESSION['batch'];
+    $table=$_SESSION['t'];
     $sec=$_SESSION['sec'];
     $dep=$_SESSION['dep'];
     $hrs=$_SESSION['hrs'];
@@ -317,7 +319,7 @@ if(isset($_POST['finalize']))
                 <div class="two fields">
                     <div class="field">
                         <label>Class</label>
-                        <input type="text" value="<?php echo strtoupper($class); ?>" readonly />
+                        <input type="text" value="<?php echo strtoupper($table); ?>" readonly />
                     </div>
                     <div class="field">
                         <label>Date</label>
@@ -329,10 +331,9 @@ if(isset($_POST['finalize']))
                         <label>Sample</label>
                         <div class="ui message">
                             <p>XLSX with 3 sheets, each having list in the first column</p>
-                            <span style="float:left;">Download Excel Format here, <a href="./files/CSEA.xlsx"
+                            <span style="float:right;">Download Excel Format here, <a href="./files/CSEA.xlsx"
                                     download><i class="blue download icon"></i></a></span>
-                            <span style="float:right;">View Manual Attd File, <a href="./files/Manual Attd.xlsx"
-                                    download><i class="green download icon"></i></a></span><br />
+                            <br>
                         </div>
                     </div>
 
