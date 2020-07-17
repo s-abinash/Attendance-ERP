@@ -43,7 +43,7 @@
                     $word="Laboratory";
                     $lab="";
 
-                    $ele=array("14CSE06","14CSE11","14CSO07","14ITO01");
+                    $ele=array("14CSE06","14CSE11","14CSO07","14ITO01","18ITO02","18MEO01");
                     $ele_course=array();
                     
                     $t=1;
@@ -244,7 +244,7 @@
     var d = "";
     var response;
     var dt;
-    var elec=["14CSE06","14CSE11","14CSO07","14ITO01"];
+    var elec=["14CSE06","14CSE11","14CSO07","14ITO01","18ITO02","18MEO01"];
     function attend(id) {
         var btn = id.split("/");
         d = "tab=" + btn[0] + "&code=" + btn[1];
