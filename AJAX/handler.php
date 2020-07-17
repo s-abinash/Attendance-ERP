@@ -2,7 +2,7 @@
     include_once("../db.php");
     session_start();
     $sid=$_SESSION["id"];
-    $ele=array("14CSE06","14CSE11","14CSO07","14ITO01");
+    $ele=array("14CSE06","14CSE11","14CSO07","14ITO01","18ITO02","18MEO01");
     
     if(isset($_POST["tab"]))
     {
