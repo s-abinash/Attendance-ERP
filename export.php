@@ -45,7 +45,7 @@ include_once('./navbar.php');
     </div>
     <div class="ui message" style="text-align:center;width:80%;margin: 0 auto;">
         <div class="ui header">
-            <?php echo ($code!=="18MSE13"?$code:"18MSE12"; 
+            <?php echo ($code!=="18MSE13"?$code:"18MSE12"); 
                  echo "  -  ";   
                  echo $course;
             ?>
