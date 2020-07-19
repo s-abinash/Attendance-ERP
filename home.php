@@ -162,9 +162,10 @@
                     $btn=strval($lab["batch"]%2000)."-".$lab["dept"]."-".$sec."/".$code;
                 
                     echo '    <tr>
-                    <td>'.$year.'</td>
-                    <td>'.$sec.'</td>
-                    <td>'.$code.'</td>
+                    <td>'.($row["dept"]!=="MCSE"?$year:"M E").'</td>
+                    <td>'.($row["dept"]!=="MCSE"?$sec:" - ").'</td>
+                    <td>'.($code!=="18MSE13"?$code:"18MSE12").'</td>
+                
                     <td>'.$name.'</td>
                     <td class="right aligned"><button class="ui primary right icon button " id="'.$btn.'"  onclick="attend(this.id)"> Mark Attendance &nbsp;&nbsp;<i class="check icon"></i></button><button class="ui black right icon button" id="'.$btn.'" onclick="history(this.id)"> View History &nbsp;&nbsp;<i class="history icon"></i></button><button class="ui brown right icon button" id="'.$btn.'" onclick="consolidate(this.id)"> Consolidation &nbsp; &nbsp;<i class="file export icon"></i></button></td>
                     
