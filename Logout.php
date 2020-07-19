@@ -64,11 +64,13 @@ else{
                     <div class="content">
                         <a class="header"><?php echo $status; ?></a>
                         <div class="description">
-                            You have logged out out successfuly.<br> Have a Nice Day!.<br>
+                            You have logged out successfuly.<br />
+                            You will be redirected to the homepage. <br />
+                            Have a Nice Day!<br />
                         </div>
                     </div>
                     <div class="extra content">
-                        <div class="ui bottom attached black button" onclick="window.open('./login.php', '_self');">
+                        <div class="ui bottom attached green button" onclick="window.open('./login.php', '_self');">
                             <i class="sign language icon"></i>
                             Thank You!
                         </div>
@@ -78,7 +80,12 @@ else{
     </center>
     <style>
     .ui.container {
-        /* margin-top: 60px; */
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
     }
 
     .ui.card {

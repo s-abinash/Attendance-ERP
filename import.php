@@ -326,15 +326,14 @@ if(isset($_POST['finalize']))
                         <label>Sample</label>
                         <div class="ui message">
                             <p>XLSX with 3 sheets, each having list in the first column</p>
-                            <span style="float:left;">Download Excel Format here, <a href="./files/CSEA.xlsx"
-                                    download><i class="blue download icon"></i></a></span>
-                            <span style="float:right;">View Manual Attd File, <a href="./files/Manual Attd.xlsx"
-                                    download><i class="green download icon"></i></a></span><br />
+                            <span style="float:left;"><a href="./files/CSEA.xlsx" download>Download Excel Format <i
+                                        class="blue download icon"></i></a></span>
+                            <br />
                         </div>
                     </div>
 
                     <div class="field">
-                        <label>Manual Entry</label></bale>
+                        <label>Manual Entry</label></bale><br />
                         <div class="ui slider checkbox">
                             <input type="checkbox" name="nofile" id="nofile">
                             <label>Toggle for Manual Entry without XLSX</label>
