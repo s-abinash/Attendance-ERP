@@ -87,8 +87,8 @@
                     $name=$row["name"];
                     $btn=strval($row["batch"]%2000)."-".$row["dept"]."-".$sec."/".$code;
                     echo '<tr>
-                    <td>'.$year.'</td>
-                    <td>'.$sec.'</td>
+                    <td>'.($row["dept"]!=="MCSE"?$year:"M E").'</td>
+                    <td>'.($row["dept"]!=="MCSE"?$sec:" - ").'</td>
                     <td>'.$code.'</td>
                     <td>'.$name.'</td>
                     <td class="right aligned"><button class="ui primary right icon button" id="'.$btn.'" onclick="attend(this.id)"> Mark Attendance &nbsp&nbsp<i class="check icon"></i></button><button class="ui black right icon button" id="'.$btn.'" onclick="history(this.id)"> View History &nbsp&nbsp<i class="history icon"></i></button><button class="ui brown right icon button" id="'.$btn.'" onclick="consolidate(this.id)"> Consolidation &nbsp&nbsp<i class="file export icon"></i></button></td>
