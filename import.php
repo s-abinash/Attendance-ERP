@@ -309,12 +309,12 @@ if(isset($_POST['finalize']))
                 enctype="multipart/form-data">
                 <div class="field">
                     <label>Course</label>
-                    <input type="text" value="<?php echo $code.' - '.$course; ?>" readonly />
+                    <input type="text" value="<?php echo ($code!=="18MSE13"?$code:"18MSE12").' - '.$course; ?>" readonly />
                 </div>
                 <div class="two fields">
                     <div class="field">
                         <label>Class</label>
-                        <input type="text" value="<?php echo strtoupper($class); ?>" readonly />
+                        <input type="text" value="<?php echo (strtoupper($class)!=="19-MCSE-A"?strtoupper($class):"M E"); ?>" readonly />
                     </div>
                     <div class="field">
                         <label>Date</label>
