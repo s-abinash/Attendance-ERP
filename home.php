@@ -162,8 +162,8 @@
                     $btn=strval($lab["batch"]%2000)."-".$lab["dept"]."-".$sec."/".$code;
                 
                     echo '    <tr>
-                    <td>'.($row["dept"]!=="MCSE"?$year:"M E").'</td>
-                    <td>'.($row["dept"]!=="MCSE"?$sec:" - ").'</td>
+                    <td>'.($lab["dept"]!=="MCSE"?$year:"M E").'</td>
+                    <td>'.($lab["dept"]!=="MCSE"?$sec:" - ").'</td>
                     <td>'.($code!=="18MSE13"?$code:"18MSE12").'</td>
                 
                     <td>'.$name.'</td>
