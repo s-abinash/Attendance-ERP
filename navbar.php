@@ -73,6 +73,11 @@
 
 <body>
     <?php include_once('./db.php'); ?>
+    <div class="preloader">
+        <div class="ui active dimmer" style="position: fixed;">
+            <div class="ui massive active green elastic loader"></div>
+        </div>
+    </div>
     <div class="ui tablet computer only padded grid">
         <div class="ui borderless fluid huge inverted menu">
             <a class="active green item" href="#root">KEC Student+</a>
@@ -110,6 +115,10 @@
         $(".ui.toggle.button").click(function() {
             $(".mobile.only.grid .ui.vertical.menu").toggle(100);
         });
+    });
+
+    $(window).on("load", function() {
+        $('.preloader').hide();
     });
     </script>
     <style>
