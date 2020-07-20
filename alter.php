@@ -34,7 +34,7 @@ include_once('./navbar.php');
     body {
         background: url("./images/bgpic.jpg");
     }
-    #card {
+    /* #card {
         margin: 0;
         position: absolute;
         top: 50%;
@@ -42,7 +42,7 @@ include_once('./navbar.php');
         -ms-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%);
     }
-   
+    */
     </style>
 <div class="card-1">
         <div class="ui raised padded container segment" id="card" style="margin:auto;width:50%;">
@@ -83,7 +83,7 @@ include_once('./navbar.php');
                 <div class="ui horizontal divider">
                     To
                 </div><br/>
-               
+                <div class="two field">
                 <div class="field">
                     <label>Staff to Alter:</label>
                     <select class="ui search dropdown" id="alterfrom">
@@ -92,14 +92,22 @@ include_once('./navbar.php');
                     <option value="CSE002SF">Dr. R.R.Rajalakshmi</option>
                     </select>
                 </div>
-                
+                <div class="field">
+                    <label>Course to Alter:</label>
+                    <select class="ui search dropdown" id="alterfrom">
+                    <option value="">Select Course</option>
+                    <option value="18CST51">Computer Networks</option>
+                    <option value="18CST52">Theory of Computation</option>
+                    </select>
+                </div>
+                </div>
                 <button style="float: right;" class="ui positive button" type="submit">Confirm Alter</button>
                 <br/><br/>
             </form>
             <div class="ui warning message">
             <i class="close icon"></i>
             <div class="header">
-                Once altered cannot be changed again
+                Attendance Once altered cannot be done again
             </div>
         </div>
         </div>

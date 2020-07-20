@@ -82,7 +82,7 @@
         <div class="ui borderless fluid huge inverted menu">
             <a class="active green item" href="#root">KEC Student+</a>
             <a class="item" id="home" href="home.php">Home</a>
-            <a class="item" id="alter" href="#">Alter (Alpha)</a>
+            <a class="item" id="alter" href="#">Alter <sub style="font-size:10px;color:gray;"> - Under Construction <i class="tools icon"></i></sub></a>
             <a class="right item"
                 style="margin-right:1%;font-weight:bold;color:cyan"><em><?php echo $_SESSION["name"]?><em></a>
             <a class="right item" id="logout" href="./Logout.php"><i class="share square outline icon"></i>Logout</a>
