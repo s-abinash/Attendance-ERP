@@ -84,9 +84,56 @@
                     
                }
           }
-               
+          $altsql="SELECT date,period FROM `alteration` WHERE `s1` LIKE '$sid' AND `c1` LIKE '$code' AND date<=CURRENT_DATE";
+          $res=$con->query($altsql);
+          $alt=array();
+          while($row=$res->fetch_assoc())
+          { 
+          
+               $alt+=array($row["date"]=>explode(",",$row["period"]));   
+          }  
+          if(empty($alt))
+          {
+               $alt="Empty";
+          }  
+          $alted="SELECT date,period FROM `alteration` WHERE `s2` LIKE '$sid' AND `c2` LIKE '$code' AND date<=CURRENT_DATE";
+          $res=$con->query($alted);
+          $alted=array();
          
-          echo json_encode(array($dates,$day_per));
+          while($row=$res->fetch_assoc())
+          { 
+               $per=array();
+               $dated= $row["date"];
+               $bv=explode(",",$row["period"]);
+               foreach($bv as $periods)
+               {
+                    if(in_array($code,$ele))
+                    { 
+                         $sql="SELECT * FROM `$code` where date LIKE '$dated' AND code LIKE '$sid' AND `period` LIKE '$periods'"; 
+                    }
+                    else
+                    {
+                         $sql="SELECT * FROM `$tab` where date LIKE '$dated' AND code LIKE '$code' AND `period` LIKE '$periods'"; 
+                    }
+                    
+                                           
+                    $r=$con->query($sql);
+                    if($r->num_rows==0)
+                    {    
+                         array_push($per,$periods);
+                    } 
+               } 
+               if(!empty($per))
+              {
+                    $alted+=array($row["date"]=>$per);
+              }   
+
+          }  
+          if(empty($alted))
+          {
+               $alted="Empty";
+          }  
+          echo json_encode(array($dates,$day_per,$alt,$alted));
           exit();
 
     }

@@ -243,9 +243,17 @@
     </div>
     <script>
     var d = "";
+    var x,y;
     var response;
     var dt;
     var elec=["14CSE06","14CSE11","14CSO07","14ITO01","18ITO02","18MEO01"];
+    function getWeekDay(date)
+    {
+    var weekdays = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
+    var day = date.getDay();
+    
+    return weekdays[day];
+    }
     function attend(id) {
         var btn = id.split("/");
         d = "tab=" + btn[0] + "&code=" + btn[1];
@@ -254,22 +262,74 @@
             data: d,
             type: "POST",
             success: function(res) {
-                
-                 response=JSON.parse(res);
+                // alert(res);
+                // return false;
+                response=JSON.parse(res);
                 var arr = [];
                 var i;
                 var dates =response[0];
+                var alt=response[2];
+                var alted=response[3];
+                
                 if (!(Array.isArray(dates) && dates.length)) {
                     Notiflix.Notify.Info("You have no pending Attendance reports to be uploaded");
                     return false;
                 }
-                for (i of dates) {
+                for (i of dates) 
+                {
                     var r = i.split("-");
                     arr.push(new Date(r[0], r[1] - 1, r[2]));
                 }
+                var deldate=[];
+                var delday=[];
+                if(alt!="Empty")
+                {
+                    for (const altdat in alt) {
+                        var r = altdat.split("-");
+                        var alt_date=new Date(r[0], r[1] - 1, r[2]);
+                        var alt_day=response[1][getWeekDay(alt_date)];  
+                        if(alt_day.length==alt[altdat].length)
+                        {
+                            deldate.push(alt_date);
+                        }
+                        else
+                        {
+                            delday.push(altdat);
+                        }
+
+                    }
+            
+                }
+                var al=[];
+                var foc=[];
+                if(alted!="Empty")
+                {
+                    for (const alteddat in alted) {
+                        var r = alteddat.split("-");
+                        var p=new Date(r[0], r[1] - 1, r[2]);
+                        arr.push(p);
+                        foc.push(p);
+                        al.push(alteddat);
+                    }
+                }
+                
+          
                 $('#cal').calendar({
                     type: 'date',
                     enabledDates: arr,
+                    disabledDates: [
+                        {
+                            date: deldate,
+                            message: 'Altered'
+                        }
+                    ],
+                    eventClass: 'inverted red',
+                    eventDates: [    
+                        {
+                            date: foc,
+                            message: 'Altered Period'
+                        }
+                    ],
                     formatter: {
                         date: function(date, settings) {
                             if (!date) return '';
@@ -282,17 +342,47 @@
                     onChange   : function(date, settings) {
                         $('#hr').dropdown('clear');
                         $("#hr").html("<option value=''>Select Period</option>");
-                            var ar=response[1][getWeekDay(date)];    
-                            for (i of ar)
+                        if (!date) return '';
+                            
+                            x=(date.getMonth() + 1);
+                            y=date.getDate()
+                            if(x<=9)
                             {
-                                $("#hr").append("<option value='"+i+"'>"+i+"</option>");
+                                x="0"+x;
                             }
-                            if(ar.length==1)
+                            if(y<=9)
                             {
-                               
-                                $('#frm2').form('set value', 'hrs', ar[0]);    
+                                y="0"+y;
                             }
-
+                            var day = date.getFullYear() + '-' +x+ '-' +y ;
+                            if(dates.includes(day))
+                            {
+                                var ar=response[1][getWeekDay(date)];    
+                                for (i of ar)
+                                {
+                                    $("#hr").append("<option value='"+i+"'>"+i+"</option>");
+                                }
+                            }                            
+                            if(al.includes(day))
+                            {
+                                for(i of alted[day])
+                                {
+                                    $("#hr").append("<option value='"+i+"'>"+i+"</option>");
+                                }
+                                
+                            }
+                            if(delday.includes(day))
+                            {
+                                for(i of alt[day])
+                                {
+                                    $("#hr option[value='"+i+"']").remove();
+                                }
+                                
+                            }
+                            // if($('#hr > option').length==1)
+                            // {   
+                            //     $('#frm2').form('set value', 'hrs', ar[0]);    
+                            // }
                     }
                 });
                 $('#hr').dropdown({
@@ -360,13 +450,7 @@
             }
         })
     }
-    function getWeekDay(date)
-    {
-    var weekdays = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
-    var day = date.getDay();
-    
-    return weekdays[day];
-    }
+
     $(document).ready(function() {
 
         $("#datepickermod").modal();
