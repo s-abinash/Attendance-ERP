@@ -18,6 +18,10 @@ include_once('./assets/notiflix.php');
     <link rel="icon" type="image/png" href="./images/KEC.png">
     <link rel="stylesheet" href="./assets/Fomantic/dist/semantic.min.css" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
+    <script> 
+        if (navigator.onLine==false)  
+            window.location.href="./errorfile/nointernet.html";
+    </script> 
     <style>
     body {
         margin: 0;
