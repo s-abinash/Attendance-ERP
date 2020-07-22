@@ -156,12 +156,12 @@
               $sql="SELECT * FROM `$tab` WHERE code LIKE '$code' ORDER BY `date` DESC,`period` ASC"; 
          }
          $res=$con->query($sql);
-         $cnt=mysqli_num_fields($res)-3;
+    
          while($row=$res->fetch_assoc())
          {
+               $cnt=mysqli_num_fields($res)-3;
               $d=date("d-m-Y",strtotime($row["date"]));
               $h=$row["period"];
-          //     $abs=array();
               $abs='<b><em>Course &nbsp: &nbsp'.$name.'<br><br>Date &nbsp: &nbsp '.$d.'<br><br>Absentees:<br> <ol class="ui  list">';
               foreach($row as $ind=>$val)
               {
@@ -173,7 +173,7 @@
               $abs.='</ol></b></em>';
               if(array_key_exists("P",array_count_values($row)))
               {
-               $P=array_count_values($row)["P"];
+                    $P=array_count_values($row)["P"];
               }
               else
               {

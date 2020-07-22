@@ -271,7 +271,7 @@
                 var alt=response[2];
                 var alted=response[3];
                 
-                if (!(Array.isArray(dates) && dates.length)) {
+                if (!(Array.isArray(dates) && dates.length) && alted=="Empty") {
                     Notiflix.Notify.Info("You have no pending Attendance reports to be uploaded");
                     return false;
                 }
@@ -425,8 +425,6 @@
             }
         })
     }
-
-
     function consolidate(id) {
         var btn2 = id.split("/");
         d2 = "tname=" + btn2[0] + "&ccode=" + btn2[1] + "&consolidate=true";
