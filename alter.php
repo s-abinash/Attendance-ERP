@@ -101,8 +101,10 @@ if(isset($_POST['period']))
                 </div>
                 <div class="field">
                     <label>Course to Alter:</label>
-                    <input type="text" name='c2'  id="altc1"placeholder='Course Handled' readonly hidden required>
-                    <input type="text" name='altc2'  id="altc2"placeholder='Course Handled' readonly required>
+                    <select class="ui search dropdown" name="c2" id="altc2" required>
+                    <option value="">Select Course Associated</option>
+                 
+                    </select>
                 </div>
                 </div>
                 <button style="float: right;" class="ui positive button" type="submit">Confirm Alter</button>
@@ -127,7 +129,7 @@ if(isset($_POST['period']))
                 return weekdays[day];
             }
             $(document).ready(function(){
-                $('#hr').dropdown({
+                $('#hr,#altc2').dropdown({
                     clearable: true
                 });
                 $('#cal').calendar({
@@ -288,7 +290,7 @@ if(isset($_POST['period']))
                                     $('#alts2').dropdown('clear');
                                     $("#alts2").html("<option value=''>Select Staff to be Assigned</option>");
                                     Object.keys(altto).forEach(key => {
-                                        $("#alts2").append("<option value='"+key+"'>"+altto[key][0]+"</option>");
+                                        $("#alts2").append("<option value='"+key+"'>"+altto[key][0][0]+"</option>");
                                     });
                                    
 
@@ -301,8 +303,14 @@ if(isset($_POST['period']))
                 $("#alts2").dropdown({
                     clearable :true,
                     onChange: function(value, text, $selectedItem) {
-                        $("#ifrm").form('set value','c2',altto[value][1]);
-                        $("#ifrm").form('set value','altc2',altto[value][2]);
+                        $('#altc2').dropdown('clear');
+                        $("#altc2").html("<option value=''>Select Associated Course</option>");
+                        for(i of altto[value])
+                        {
+                            $("#altc2").append("<option value='"+i[1]+"'>"+i[2]+"</option>");
+                        }
+                    
+                       
                     }
                 });
             });

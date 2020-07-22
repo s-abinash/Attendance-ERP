@@ -43,13 +43,23 @@
         $b1=$row['batch'];
         $d1='staff'.strtoupper($sec);
         $ss2="SELECT code,name,`$d1` from course_list where dept LIKE '$c1' AND batch LIKE '$b1' AND `$d1` IS NOT NULL AND `$d1` NOT LIKE '$sid'";
+     
         $ref=$con->query($ss2);
         $s2=array();
+        $s3=array();
         while($rs=$ref->fetch_assoc())
         {
+           
             $stfid=$rs[$d1];
             $stfname=$con->query("SELECT name from staff where staffid LIKE '$stfid'")->fetch_assoc()['name'];
-            $s2+=array($stfid=>array($stfname,$rs["code"],$rs["name"]));
+            if(!array_key_exists($stfid,$s2))
+            {
+                $s2+=array($stfid=>array(array($stfname,$rs["code"],$rs["name"])));
+            }
+            else
+            {
+                $s2[$stfid][1]=array($stfname,$rs["code"],$rs["name"]);
+            }
         }
         
         $tab=$b."-".$c."-".$sec;
