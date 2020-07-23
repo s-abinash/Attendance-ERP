@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jul 17, 2020 at 12:05 AM
+-- Generation Time: Jul 23, 2020 at 09:34 AM
 -- Server version: 10.4.13-MariaDB-log
 -- PHP Version: 7.3.18
 
@@ -230,6 +230,15 @@ CREATE TABLE `14CSE06` (
   `17CST258` varchar(3) DEFAULT 'N/A'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
+--
+-- Dumping data for table `14CSE06`
+--
+
+INSERT INTO `14CSE06` (`date`, `code`, `period`, `16CSR046`, `17CSL239`, `17CSL240`, `17CSL241`, `17CSL242`, `17CSL243`, `17CSL244`, `17CSL245`, `17CSL246`, `17CSL247`, `17CSL248`, `17CSL249`, `17CSL250`, `17CSL251`, `17CSL252`, `17CSL253`, `17CSL254`, `17CSL255`, `17CSR001`, `17CSR002`, `17CSR003`, `17CSR006`, `17CSR007`, `17CSR009`, `17CSR010`, `17CSR011`, `17CSR012`, `17CSR013`, `17CSR016`, `17CSR019`, `17CSR020`, `17CSR024`, `17CSR025`, `17CSR028`, `17CSR029`, `17CSR030`, `17CSR031`, `17CSR035`, `17CSR037`, `17CSR039`, `17CSR041`, `17CSR042`, `17CSR043`, `17CSR044`, `17CSR046`, `17CSR047`, `17CSR049`, `17CSR050`, `17CSR052`, `17CSR053`, `17CSR054`, `17CSR055`, `17CSR056`, `17CSR057`, `17CSR058`, `17CSR060`, `17CSR062`, `17CSR064`, `17CSR065`, `17CSR066`, `17CSR067`, `17CSR068`, `17CSR070`, `17CSR071`, `17CSR072`, `17CSR073`, `17CSR075`, `17CSR076`, `17CSR077`, `17CSR078`, `17CSR079`, `17CSR080`, `17CSR081`, `17CSR082`, `17CSR083`, `17CSR086`, `17CSR088`, `17CSR091`, `17CSR092`, `17CSR093`, `17CSR094`, `17CSR095`, `17CSR096`, `17CSR097`, `17CSR098`, `17CSR099`, `17CSR100`, `17CSR101`, `17CSR102`, `17CSR103`, `17CSR104`, `17CSR105`, `17CSR106`, `17CSR109`, `17CSR110`, `17CSR111`, `17CSR112`, `17CSR113`, `17CSR114`, `17CSR115`, `17CSR116`, `17CSR117`, `17CSR118`, `17CSR119`, `17CSR121`, `17CSR122`, `17CSR123`, `17CSR124`, `17CSR128`, `17CSR129`, `17CSR130`, `17CSR131`, `17CSR133`, `17CSR134`, `17CSR135`, `17CSR136`, `17CSR138`, `17CSR139`, `17CSR140`, `17CSR141`, `17CSR143`, `17CSR144`, `17CSR146`, `17CSR147`, `17CSR148`, `17CSR149`, `17CSR150`, `17CSR151`, `17CSR152`, `17CSR153`, `17CSR154`, `17CSR155`, `17CSR156`, `17CSR157`, `17CSR158`, `17CSR159`, `17CSR160`, `17CSR161`, `17CSR162`, `17CSR163`, `17CSR164`, `17CSR165`, `17CSR166`, `17CSR167`, `17CSR168`, `17CSR169`, `17CSR170`, `17CSR171`, `17CSR172`, `17CSR173`, `17CSR174`, `17CSR175`, `17CSR176`, `17CSR177`, `17CSR178`, `17CSR179`, `17CSR181`, `17CSR182`, `17CSR183`, `17CSR184`, `17CSR185`, `17CSR186`, `17CSR189`, `17CSR190`, `17CSR193`, `17CSR195`, `17CSR196`, `17CSR200`, `17CSR201`, `17CSR202`, `17CSR205`, `17CSR206`, `17CSR211`, `17CSR213`, `17CSR215`, `17CSR216`, `17CSR217`, `17CSR219`, `17CSR221`, `17CSR222`, `17CSR223`, `17CSR224`, `17CSR225`, `17CSR226`, `17CSR227`, `17CSR229`, `17CSR230`, `17CSR232`, `17CSR233`, `17CSR234`, `17CSR235`, `17CSR236`, `17CSR237`, `17CSR238`, `17CST256`, `17CST257`, `17CST258`) VALUES
+('2020-07-20', 'CSE019SF', 5, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'A', 'P', 'A', 'P', 'P', 'P', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'A', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A'),
+('2020-07-21', 'CSE019SF', 4, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'P', 'A', 'A', 'P', 'P', 'A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A'),
+('2020-07-21', 'CSE027SF', 4, 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'A', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'A', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A');
+
 -- --------------------------------------------------------
 
 --
@@ -294,6 +303,13 @@ CREATE TABLE `14CSE11` (
   `17CSR231` varchar(3) DEFAULT 'N/A'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
+--
+-- Dumping data for table `14CSE11`
+--
+
+INSERT INTO `14CSE11` (`date`, `code`, `period`, `17CSR004`, `17CSR005`, `17CSR008`, `17CSR014`, `17CSR015`, `17CSR017`, `17CSR018`, `17CSR021`, `17CSR022`, `17CSR023`, `17CSR027`, `17CSR033`, `17CSR034`, `17CSR036`, `17CSR038`, `17CSR040`, `17CSR045`, `17CSR048`, `17CSR051`, `17CSR059`, `17CSR063`, `17CSR074`, `17CSR084`, `17CSR085`, `17CSR087`, `17CSR089`, `17CSR090`, `17CSR107`, `17CSR108`, `17CSR126`, `17CSR132`, `17CSR137`, `17CSR142`, `17CSR145`, `17CSR180`, `17CSR187`, `17CSR188`, `17CSR192`, `17CSR194`, `17CSR197`, `17CSR199`, `17CSR203`, `17CSR204`, `17CSR208`, `17CSR209`, `17CSR210`, `17CSR212`, `17CSR214`, `17CSR218`, `17CSR220`, `17CSR228`, `17CSR231`) VALUES
+('2020-07-21', 'CSE002SF', 4, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'A', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P');
+
 -- --------------------------------------------------------
 
 --
@@ -303,7 +319,226 @@ CREATE TABLE `14CSE11` (
 CREATE TABLE `14CSO07` (
   `date` varchar(10) NOT NULL,
   `code` varchar(10) NOT NULL,
-  `period` int(11) NOT NULL
+  `period` int(11) NOT NULL,
+  `16CSR046` varchar(3) DEFAULT 'N/A',
+  `17CSL239` varchar(3) DEFAULT 'N/A',
+  `17CSL240` varchar(3) DEFAULT 'N/A',
+  `17CSL241` varchar(3) DEFAULT 'N/A',
+  `17CSL242` varchar(3) DEFAULT 'N/A',
+  `17CSL243` varchar(3) DEFAULT 'N/A',
+  `17CSL244` varchar(3) DEFAULT 'N/A',
+  `17CSL245` varchar(3) DEFAULT 'N/A',
+  `17CSL246` varchar(3) DEFAULT 'N/A',
+  `17CSL248` varchar(3) DEFAULT 'N/A',
+  `17CSL249` varchar(3) DEFAULT 'N/A',
+  `17CSL250` varchar(3) DEFAULT 'N/A',
+  `17CSL251` varchar(3) DEFAULT 'N/A',
+  `17CSL252` varchar(3) DEFAULT 'N/A',
+  `17CSR001` varchar(3) DEFAULT 'N/A',
+  `17CSR002` varchar(3) DEFAULT 'N/A',
+  `17CSR003` varchar(3) DEFAULT 'N/A',
+  `17CSR004` varchar(3) DEFAULT 'N/A',
+  `17CSR005` varchar(3) DEFAULT 'N/A',
+  `17CSR006` varchar(3) DEFAULT 'N/A',
+  `17CSR007` varchar(3) DEFAULT 'N/A',
+  `17CSR008` varchar(3) DEFAULT 'N/A',
+  `17CSR009` varchar(3) DEFAULT 'N/A',
+  `17CSR010` varchar(3) DEFAULT 'N/A',
+  `17CSR011` varchar(3) DEFAULT 'N/A',
+  `17CSR012` varchar(3) DEFAULT 'N/A',
+  `17CSR013` varchar(3) DEFAULT 'N/A',
+  `17CSR015` varchar(3) DEFAULT 'N/A',
+  `17CSR016` varchar(3) DEFAULT 'N/A',
+  `17CSR017` varchar(3) DEFAULT 'N/A',
+  `17CSR018` varchar(3) DEFAULT 'N/A',
+  `17CSR019` varchar(3) DEFAULT 'N/A',
+  `17CSR021` varchar(3) DEFAULT 'N/A',
+  `17CSR022` varchar(3) DEFAULT 'N/A',
+  `17CSR023` varchar(3) DEFAULT 'N/A',
+  `17CSR024` varchar(3) DEFAULT 'N/A',
+  `17CSR025` varchar(3) DEFAULT 'N/A',
+  `17CSR027` varchar(3) DEFAULT 'N/A',
+  `17CSR028` varchar(3) DEFAULT 'N/A',
+  `17CSR033` varchar(3) DEFAULT 'N/A',
+  `17CSR035` varchar(3) DEFAULT 'N/A',
+  `17CSR036` varchar(3) DEFAULT 'N/A',
+  `17CSR037` varchar(3) DEFAULT 'N/A',
+  `17CSR038` varchar(3) DEFAULT 'N/A',
+  `17CSR039` varchar(3) DEFAULT 'N/A',
+  `17CSR040` varchar(3) DEFAULT 'N/A',
+  `17CSR041` varchar(3) DEFAULT 'N/A',
+  `17CSR042` varchar(3) DEFAULT 'N/A',
+  `17CSR043` varchar(3) DEFAULT 'N/A',
+  `17CSR044` varchar(3) DEFAULT 'N/A',
+  `17CSR045` varchar(3) DEFAULT 'N/A',
+  `17CSR047` varchar(3) DEFAULT 'N/A',
+  `17CSR048` varchar(3) DEFAULT 'N/A',
+  `17CSR049` varchar(3) DEFAULT 'N/A',
+  `17CSR050` varchar(3) DEFAULT 'N/A',
+  `17CSR051` varchar(3) DEFAULT 'N/A',
+  `17CSR052` varchar(3) DEFAULT 'N/A',
+  `17CSR053` varchar(3) DEFAULT 'N/A',
+  `17CSR054` varchar(3) DEFAULT 'N/A',
+  `17CSR057` varchar(3) DEFAULT 'N/A',
+  `17CSR058` varchar(3) DEFAULT 'N/A',
+  `17CSR059` varchar(3) DEFAULT 'N/A',
+  `17CSR060` varchar(3) DEFAULT 'N/A',
+  `17CSR063` varchar(3) DEFAULT 'N/A',
+  `17CSR064` varchar(3) DEFAULT 'N/A',
+  `17CSR065` varchar(3) DEFAULT 'N/A',
+  `17CSR066` varchar(3) DEFAULT 'N/A',
+  `17CSR067` varchar(3) DEFAULT 'N/A',
+  `17CSR068` varchar(3) DEFAULT 'N/A',
+  `17CSR070` varchar(3) DEFAULT 'N/A',
+  `17CSR071` varchar(3) DEFAULT 'N/A',
+  `17CSR072` varchar(3) DEFAULT 'N/A',
+  `17CSR073` varchar(3) DEFAULT 'N/A',
+  `17CSR074` varchar(3) DEFAULT 'N/A',
+  `17CSR075` varchar(3) DEFAULT 'N/A',
+  `17CSR076` varchar(3) DEFAULT 'N/A',
+  `17CSR077` varchar(3) DEFAULT 'N/A',
+  `17CSR078` varchar(3) DEFAULT 'N/A',
+  `17CSR079` varchar(3) DEFAULT 'N/A',
+  `17CSR080` varchar(3) DEFAULT 'N/A',
+  `17CSR081` varchar(3) DEFAULT 'N/A',
+  `17CSR082` varchar(3) DEFAULT 'N/A',
+  `17CSR083` varchar(3) DEFAULT 'N/A',
+  `17CSR084` varchar(3) DEFAULT 'N/A',
+  `17CSR085` varchar(3) DEFAULT 'N/A',
+  `17CSR086` varchar(3) DEFAULT 'N/A',
+  `17CSR087` varchar(3) DEFAULT 'N/A',
+  `17CSR089` varchar(3) DEFAULT 'N/A',
+  `17CSR090` varchar(3) DEFAULT 'N/A',
+  `17CSR091` varchar(3) DEFAULT 'N/A',
+  `17CSR092` varchar(3) DEFAULT 'N/A',
+  `17CSR093` varchar(3) DEFAULT 'N/A',
+  `17CSR094` varchar(3) DEFAULT 'N/A',
+  `17CSR095` varchar(3) DEFAULT 'N/A',
+  `17CSR096` varchar(3) DEFAULT 'N/A',
+  `17CSR097` varchar(3) DEFAULT 'N/A',
+  `17CSR098` varchar(3) DEFAULT 'N/A',
+  `17CSR099` varchar(3) DEFAULT 'N/A',
+  `17CSR100` varchar(3) DEFAULT 'N/A',
+  `17CSR101` varchar(3) DEFAULT 'N/A',
+  `17CSR102` varchar(3) DEFAULT 'N/A',
+  `17CSR103` varchar(3) DEFAULT 'N/A',
+  `17CSR104` varchar(3) DEFAULT 'N/A',
+  `17CSR105` varchar(3) DEFAULT 'N/A',
+  `17CSR106` varchar(3) DEFAULT 'N/A',
+  `17CSR107` varchar(3) DEFAULT 'N/A',
+  `17CSR108` varchar(3) DEFAULT 'N/A',
+  `17CSR109` varchar(3) DEFAULT 'N/A',
+  `17CSR111` varchar(3) DEFAULT 'N/A',
+  `17CSR112` varchar(3) DEFAULT 'N/A',
+  `17CSR113` varchar(3) DEFAULT 'N/A',
+  `17CSR114` varchar(3) DEFAULT 'N/A',
+  `17CSR115` varchar(3) DEFAULT 'N/A',
+  `17CSR116` varchar(3) DEFAULT 'N/A',
+  `17CSR117` varchar(3) DEFAULT 'N/A',
+  `17CSR118` varchar(3) DEFAULT 'N/A',
+  `17CSR119` varchar(3) DEFAULT 'N/A',
+  `17CSR121` varchar(3) DEFAULT 'N/A',
+  `17CSR122` varchar(3) DEFAULT 'N/A',
+  `17CSR123` varchar(3) DEFAULT 'N/A',
+  `17CSR124` varchar(3) DEFAULT 'N/A',
+  `17CSR126` varchar(3) DEFAULT 'N/A',
+  `17CSR128` varchar(3) DEFAULT 'N/A',
+  `17CSR129` varchar(3) DEFAULT 'N/A',
+  `17CSR130` varchar(3) DEFAULT 'N/A',
+  `17CSR131` varchar(3) DEFAULT 'N/A',
+  `17CSR132` varchar(3) DEFAULT 'N/A',
+  `17CSR133` varchar(3) DEFAULT 'N/A',
+  `17CSR134` varchar(3) DEFAULT 'N/A',
+  `17CSR135` varchar(3) DEFAULT 'N/A',
+  `17CSR137` varchar(3) DEFAULT 'N/A',
+  `17CSR138` varchar(3) DEFAULT 'N/A',
+  `17CSR139` varchar(3) DEFAULT 'N/A',
+  `17CSR140` varchar(3) DEFAULT 'N/A',
+  `17CSR141` varchar(3) DEFAULT 'N/A',
+  `17CSR142` varchar(3) DEFAULT 'N/A',
+  `17CSR143` varchar(3) DEFAULT 'N/A',
+  `17CSR144` varchar(3) DEFAULT 'N/A',
+  `17CSR145` varchar(3) DEFAULT 'N/A',
+  `17CSR146` varchar(3) DEFAULT 'N/A',
+  `17CSR147` varchar(3) DEFAULT 'N/A',
+  `17CSR148` varchar(3) DEFAULT 'N/A',
+  `17CSR149` varchar(3) DEFAULT 'N/A',
+  `17CSR150` varchar(3) DEFAULT 'N/A',
+  `17CSR151` varchar(3) DEFAULT 'N/A',
+  `17CSR152` varchar(3) DEFAULT 'N/A',
+  `17CSR153` varchar(3) DEFAULT 'N/A',
+  `17CSR154` varchar(3) DEFAULT 'N/A',
+  `17CSR155` varchar(3) DEFAULT 'N/A',
+  `17CSR156` varchar(3) DEFAULT 'N/A',
+  `17CSR157` varchar(3) DEFAULT 'N/A',
+  `17CSR158` varchar(3) DEFAULT 'N/A',
+  `17CSR159` varchar(3) DEFAULT 'N/A',
+  `17CSR160` varchar(3) DEFAULT 'N/A',
+  `17CSR161` varchar(3) DEFAULT 'N/A',
+  `17CSR162` varchar(3) DEFAULT 'N/A',
+  `17CSR163` varchar(3) DEFAULT 'N/A',
+  `17CSR164` varchar(3) DEFAULT 'N/A',
+  `17CSR165` varchar(3) DEFAULT 'N/A',
+  `17CSR166` varchar(3) DEFAULT 'N/A',
+  `17CSR167` varchar(3) DEFAULT 'N/A',
+  `17CSR168` varchar(3) DEFAULT 'N/A',
+  `17CSR169` varchar(3) DEFAULT 'N/A',
+  `17CSR170` varchar(3) DEFAULT 'N/A',
+  `17CSR171` varchar(3) DEFAULT 'N/A',
+  `17CSR172` varchar(3) DEFAULT 'N/A',
+  `17CSR173` varchar(3) DEFAULT 'N/A',
+  `17CSR174` varchar(3) DEFAULT 'N/A',
+  `17CSR175` varchar(3) DEFAULT 'N/A',
+  `17CSR177` varchar(3) DEFAULT 'N/A',
+  `17CSR178` varchar(3) DEFAULT 'N/A',
+  `17CSR180` varchar(3) DEFAULT 'N/A',
+  `17CSR181` varchar(3) DEFAULT 'N/A',
+  `17CSR182` varchar(3) DEFAULT 'N/A',
+  `17CSR183` varchar(3) DEFAULT 'N/A',
+  `17CSR184` varchar(3) DEFAULT 'N/A',
+  `17CSR185` varchar(3) DEFAULT 'N/A',
+  `17CSR186` varchar(3) DEFAULT 'N/A',
+  `17CSR187` varchar(3) DEFAULT 'N/A',
+  `17CSR188` varchar(3) DEFAULT 'N/A',
+  `17CSR189` varchar(3) DEFAULT 'N/A',
+  `17CSR192` varchar(3) DEFAULT 'N/A',
+  `17CSR193` varchar(3) DEFAULT 'N/A',
+  `17CSR194` varchar(3) DEFAULT 'N/A',
+  `17CSR195` varchar(3) DEFAULT 'N/A',
+  `17CSR196` varchar(3) DEFAULT 'N/A',
+  `17CSR197` varchar(3) DEFAULT 'N/A',
+  `17CSR199` varchar(3) DEFAULT 'N/A',
+  `17CSR200` varchar(3) DEFAULT 'N/A',
+  `17CSR202` varchar(3) DEFAULT 'N/A',
+  `17CSR203` varchar(3) DEFAULT 'N/A',
+  `17CSR204` varchar(3) DEFAULT 'N/A',
+  `17CSR205` varchar(3) DEFAULT 'N/A',
+  `17CSR206` varchar(3) DEFAULT 'N/A',
+  `17CSR208` varchar(3) DEFAULT 'N/A',
+  `17CSR209` varchar(3) DEFAULT 'N/A',
+  `17CSR210` varchar(3) DEFAULT 'N/A',
+  `17CSR211` varchar(3) DEFAULT 'N/A',
+  `17CSR212` varchar(3) DEFAULT 'N/A',
+  `17CSR213` varchar(3) DEFAULT 'N/A',
+  `17CSR214` varchar(3) DEFAULT 'N/A',
+  `17CSR215` varchar(3) DEFAULT 'N/A',
+  `17CSR216` varchar(3) DEFAULT 'N/A',
+  `17CSR217` varchar(3) DEFAULT 'N/A',
+  `17CSR218` varchar(3) DEFAULT 'N/A',
+  `17CSR220` varchar(3) DEFAULT 'N/A',
+  `17CSR221` varchar(3) DEFAULT 'N/A',
+  `17CSR222` varchar(3) DEFAULT 'N/A',
+  `17CSR223` varchar(3) DEFAULT 'N/A',
+  `17CSR224` varchar(3) DEFAULT 'N/A',
+  `17CSR225` varchar(3) DEFAULT 'N/A',
+  `17CSR228` varchar(3) DEFAULT 'N/A',
+  `17CSR229` varchar(3) DEFAULT 'N/A',
+  `17CSR232` varchar(3) DEFAULT 'N/A',
+  `17CSR233` varchar(3) DEFAULT 'N/A',
+  `17CSR235` varchar(3) DEFAULT 'N/A',
+  `17CSR237` varchar(3) DEFAULT 'N/A',
+  `17CSR238` varchar(3) DEFAULT 'N/A',
+  `17CST257` varchar(3) DEFAULT 'N/A'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
 -- --------------------------------------------------------
@@ -532,16 +767,27 @@ CREATE TABLE `17-cse-a` (
   `17CSL240` varchar(2) DEFAULT NULL,
   `17CSL241` varchar(2) DEFAULT NULL,
   `17CSL242` varchar(2) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
 --
 -- Dumping data for table `17-cse-a`
 --
 
 INSERT INTO `17-cse-a` (`date`, `code`, `period`, `17CSR001`, `17CSR002`, `17CSR003`, `17CSR004`, `17CSR005`, `17CSR006`, `17CSR007`, `17CSR008`, `17CSR009`, `17CSR010`, `17CSR011`, `17CSR012`, `17CSR013`, `17CSR014`, `17CSR015`, `17CSR016`, `17CSR017`, `17CSR018`, `17CSR019`, `17CSR020`, `17CSR021`, `17CSR022`, `17CSR023`, `17CSR024`, `17CSR025`, `17CSR027`, `17CSR028`, `17CSR029`, `17CSR030`, `17CSR031`, `17CSR033`, `17CSR034`, `17CSR035`, `17CSR036`, `17CSR037`, `17CSR038`, `17CSR039`, `17CSR040`, `17CSR041`, `17CSR042`, `17CSR043`, `17CSR044`, `17CSR045`, `17CSR046`, `17CSR047`, `17CSR048`, `17CSR049`, `17CSR050`, `17CSR051`, `17CSR052`, `17CSR053`, `17CSR054`, `17CSR055`, `17CSR056`, `17CSR057`, `17CSR058`, `17CSR059`, `16CSR046`, `17CSL239`, `17CSL240`, `17CSL241`, `17CSL242`) VALUES
-('2020-07-08', '14GET71', 4, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-08', '14GET71', 4, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A'),
+('2020-07-09', '14CST71', 3, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-10', '14CST71', 4, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-10', '14GET71', 6, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A'),
 ('2020-07-13', '14GET71', 6, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
-('2020-07-15', '14GET71', 4, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P');
+('2020-07-14', '14CST71', 6, 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-15', '14GET71', 4, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-17', '14CST71', 4, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-17', '14GET71', 6, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'A', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-20', '14CST72', 3, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P'),
+('2020-07-20', '14GET71', 6, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'A', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P'),
+('2020-07-21', '14CST71', 6, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-22', '14CST72', 3, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P'),
+('2020-07-22', '14GET71', 4, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'A');
 
 -- --------------------------------------------------------
 
@@ -551,7 +797,7 @@ INSERT INTO `17-cse-a` (`date`, `code`, `period`, `17CSR001`, `17CSR002`, `17CSR
 
 CREATE TABLE `17-cse-b` (
   `date` varchar(10) NOT NULL,
-  `code` varchar(10) NOT NULL,
+  `code` varchar(8) NOT NULL,
   `period` int(11) NOT NULL,
   `17CSL243` varchar(2) DEFAULT NULL,
   `17CSL244` varchar(2) DEFAULT NULL,
@@ -615,7 +861,24 @@ CREATE TABLE `17-cse-b` (
   `17CSR117` varchar(2) DEFAULT NULL,
   `17CSR118` varchar(2) DEFAULT NULL,
   `17CSR119` varchar(2) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+
+--
+-- Dumping data for table `17-cse-b`
+--
+
+INSERT INTO `17-cse-b` (`date`, `code`, `period`, `17CSL243`, `17CSL244`, `17CSL245`, `17CSL246`, `17CSR060`, `17CSR062`, `17CSR063`, `17CSR064`, `17CSR065`, `17CSR066`, `17CSR067`, `17CSR068`, `17CSR070`, `17CSR071`, `17CSR072`, `17CSR073`, `17CSR074`, `17CSR075`, `17CSR076`, `17CSR077`, `17CSR078`, `17CSR079`, `17CSR080`, `17CSR081`, `17CSR082`, `17CSR083`, `17CSR084`, `17CSR085`, `17CSR086`, `17CSR087`, `17CSR088`, `17CSR089`, `17CSR090`, `17CSR091`, `17CSR092`, `17CSR093`, `17CSR094`, `17CSR095`, `17CSR096`, `17CSR097`, `17CSR098`, `17CSR099`, `17CSR100`, `17CSR101`, `17CSR102`, `17CSR103`, `17CSR104`, `17CSR105`, `17CSR106`, `17CSR107`, `17CSR108`, `17CSR109`, `17CSR110`, `17CSR111`, `17CSR112`, `17CSR113`, `17CSR114`, `17CSR115`, `17CSR116`, `17CSR117`, `17CSR118`, `17CSR119`) VALUES
+('2020-07-08', '14CSL72', 5, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-08', '14CSL72', 6, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-08', '14CST72', 3, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-09', '14CST72', 5, 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-13', '14CST72', 3, 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-15', '14CST72', 3, 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-16', '14CST72', 5, 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-20', '14CST72', 3, 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-22', '14CSL72', 5, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-22', '14CSL72', 6, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-22', '14CST72', 3, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P');
 
 -- --------------------------------------------------------
 
@@ -689,7 +952,16 @@ CREATE TABLE `17-cse-c` (
   `17CSR176` varchar(2) DEFAULT NULL,
   `17CSR177` varchar(2) DEFAULT NULL,
   `17CSR178` varchar(2) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+
+--
+-- Dumping data for table `17-cse-c`
+--
+
+INSERT INTO `17-cse-c` (`date`, `code`, `period`, `17CSL247`, `17CSL248`, `17CSL249`, `17CSL250`, `17CSL251`, `17CSL252`, `17CSR121`, `17CSR122`, `17CSR123`, `17CSR124`, `17CSR126`, `17CSR128`, `17CSR129`, `17CSR130`, `17CSR131`, `17CSR132`, `17CSR133`, `17CSR134`, `17CSR135`, `17CSR136`, `17CSR137`, `17CSR138`, `17CSR139`, `17CSR140`, `17CSR141`, `17CSR142`, `17CSR143`, `17CSR144`, `17CSR145`, `17CSR146`, `17CSR147`, `17CSR148`, `17CSR149`, `17CSR150`, `17CSR151`, `17CSR152`, `17CSR153`, `17CSR154`, `17CSR155`, `17CSR156`, `17CSR157`, `17CSR158`, `17CSR159`, `17CSR160`, `17CSR161`, `17CSR162`, `17CSR163`, `17CSR164`, `17CSR165`, `17CSR166`, `17CSR167`, `17CSR168`, `17CSR169`, `17CSR170`, `17CSR171`, `17CSR172`, `17CSR173`, `17CSR174`, `17CSR175`, `17CSR176`, `17CSR177`, `17CSR178`) VALUES
+('2020-07-20', '14CST72', 3, 'A', 'P', 'A', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'A', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-21', '14CST71', 6, 'A', 'A', 'A', 'P', 'A', 'P', 'P', 'A', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-22', '14CST72', 3, 'P', 'A', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P');
 
 -- --------------------------------------------------------
 
@@ -764,7 +1036,7 @@ CREATE TABLE `17-cse-d` (
   `17CST256` varchar(2) DEFAULT NULL,
   `17CST257` varchar(2) DEFAULT NULL,
   `17CST258` varchar(2) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
 -- --------------------------------------------------------
 
@@ -848,9 +1120,32 @@ CREATE TABLE `18-cse-a` (
 --
 
 INSERT INTO `18-cse-a` (`date`, `code`, `period`, `18CSR001`, `18CSR002`, `18CSR003`, `18CSR004`, `18CSR005`, `18CSR006`, `18CSR007`, `18CSR008`, `18CSR009`, `18CSR010`, `18CSR011`, `18CSR012`, `18CSR013`, `18CSR014`, `18CSR015`, `18CSR016`, `18CSR017`, `18CSR018`, `18CSR019`, `18CSR020`, `18CSR021`, `18CSR022`, `18CSR023`, `18CSR024`, `18CSR025`, `18CSR026`, `18CSR027`, `18CSR028`, `18CSR029`, `18CSR030`, `18CSR031`, `18CSR032`, `18CSR033`, `18CSR034`, `18CSR035`, `18CSR036`, `18CSR037`, `18CSR038`, `18CSR039`, `18CSR040`, `18CSR041`, `18CSR042`, `18CSR043`, `18CSR044`, `18CSR045`, `18CSR046`, `18CSR047`, `18CSR048`, `18CSR049`, `18CSR050`, `18CSR051`, `18CSR052`, `18CSR053`, `18CSR054`, `18CSR055`, `18CSR056`, `18CSR057`, `18CSR058`, `18CSR059`, `18CSR060`, `18CSL239`, `18CSL240`, `18CSL241`, `18CSL242`, `18CSL243`) VALUES
-('2020-07-09', '18ITT51', 5, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
-('2020-07-13', '18ITT51', 5, 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
-('2020-07-14', '18ITT51', 3, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P');
+('2020-07-08', '18CST53', 5, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-09', '18CSL52', 2, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-09', '18CSL52', 3, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-09', '18CST51', 5, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-10', '18CST52', 3, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-10', '18CST53', 5, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P'),
+('2020-07-13', '18CST51', 5, 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-13', '18CST52', 1, 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-13', '18CST53', 3, 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-14', '18CST51', 3, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-14', '18CST52', 2, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-14', '18CST53', 1, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-15', '18CST53', 5, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P'),
+('2020-07-16', '18CSL52', 2, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P'),
+('2020-07-16', '18CSL52', 3, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P'),
+('2020-07-17', '18CST52', 3, 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-17', '18CST53', 5, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-20', '18CST51', 5, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-20', '18CST52', 1, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-20', '18CST53', 3, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-20', '18CST54', 4, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-21', '18CST51', 3, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-21', '18CST52', 2, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-21', '18CST53', 1, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P'),
+('2020-07-21', '18CST54', 4, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A'),
+('2020-07-22', '18CST53', 5, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A');
 
 -- --------------------------------------------------------
 
@@ -933,12 +1228,19 @@ CREATE TABLE `18-cse-b` (
 --
 
 INSERT INTO `18-cse-b` (`date`, `code`, `period`, `18CSR061`, `18CSR062`, `18CSR063`, `18CSR064`, `18CSR065`, `18CSR066`, `18CSR067`, `18CSR068`, `18CSR069`, `18CSR070`, `18CSR071`, `18CSR072`, `18CSR073`, `18CSR074`, `18CSR076`, `18CSR077`, `18CSR078`, `18CSR079`, `18CSR080`, `18CSR081`, `18CSR082`, `18CSR083`, `18CSR084`, `18CSR085`, `18CSR086`, `18CSR087`, `18CSR088`, `18CSR089`, `18CSR090`, `18CSR091`, `18CSR092`, `18CSR093`, `18CSR094`, `18CSR095`, `18CSR096`, `18CSR097`, `18CSR098`, `18CSR099`, `18CSR100`, `18CSR101`, `18CSR102`, `18CSR103`, `18CSR104`, `18CSR105`, `18CSR106`, `18CSR107`, `18CSR108`, `18CSR109`, `18CSR110`, `18CSR111`, `18CSR112`, `18CSR113`, `18CSR114`, `18CSR115`, `18CSR116`, `18CSR117`, `18CSR118`, `18CSR119`, `18CSR120`, `18CSL244`, `18CSL245`, `18CSL246`, `18CSL247`, `18CSL248`) VALUES
-('2020-07-09', '18CST53', 4, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
-('2020-07-13', '18CST51', 3, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A'),
-('2020-07-13', '18CST53', 4, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
-('2020-07-14', '18CST53', 4, 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
-('2020-07-15', '18CST51', 5, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
-('2020-07-16', '18CST53', 4, 'P', 'A', 'P', 'P', 'A', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P');
+('2020-07-09', '18CST54', 4, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-13', '18CST53', 3, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A'),
+('2020-07-13', '18CST54', 4, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-14', '18CST54', 4, 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-15', '18CST53', 5, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-16', '18CST54', 4, 'P', 'A', 'P', 'P', 'A', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P'),
+('2020-07-20', '18CST52', 1, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'A', 'P'),
+('2020-07-20', '18CST53', 3, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P'),
+('2020-07-20', '18CST54', 4, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P'),
+('2020-07-21', '18CST52', 2, 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P'),
+('2020-07-21', '18CST53', 1, 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-21', '18CST54', 4, 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P'),
+('2020-07-22', '18CST53', 5, 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P');
 
 -- --------------------------------------------------------
 
@@ -1022,7 +1324,30 @@ CREATE TABLE `18-cse-c` (
 --
 
 INSERT INTO `18-cse-c` (`date`, `code`, `period`, `18CSR121`, `18CSR122`, `18CSR123`, `18CSR124`, `18CSR125`, `18CSR126`, `18CSR127`, `18CSR128`, `18CSR129`, `18CSR130`, `18CSR131`, `18CSR132`, `18CSR133`, `18CSR134`, `18CSR135`, `18CSR136`, `18CSR137`, `18CSR138`, `18CSR139`, `18CSR140`, `18CSR141`, `18CSR142`, `18CSR143`, `18CSR144`, `18CSR145`, `18CSR146`, `18CSR147`, `18CSR148`, `18CSR149`, `18CSR150`, `18CSR151`, `18CSR152`, `18CSR153`, `18CSR154`, `18CSR155`, `18CSR156`, `18CSR157`, `18CSR158`, `18CSR159`, `18CSR160`, `18CSR161`, `18CSR162`, `18CSR163`, `18CSR164`, `18CSR165`, `18CSR166`, `18CSR167`, `18CSR168`, `18CSR169`, `18CSR170`, `18CSR171`, `18CSR172`, `18CSR173`, `18CSR174`, `18CSR175`, `18CSR176`, `18CSR177`, `18CSR178`, `18CSR179`, `18CSL249`, `18CSL250`, `18CSL251`, `18CSL252`, `18CSL253`, `18CSL254`) VALUES
-('2020-07-16', '18CST52', 1, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P');
+('2020-07-09', '18CSL52', 2, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-09', '18CSL52', 3, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-09', '18CST51', 5, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-10', '18CSL51', 1, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-10', '18CSL51', 2, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-10', '18CST52', 3, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-13', '18CST51', 5, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-13', '18CST52', 1, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-14', '18CST51', 3, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-14', '18CST52', 2, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-16', '18CSC51', 1, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-16', '18CSL52', 2, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'A', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A'),
+('2020-07-16', '18CSL52', 3, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'A', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A'),
+('2020-07-16', '18CST51', 5, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'A', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P'),
+('2020-07-17', '18CSL51', 1, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-17', '18CSL51', 2, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-17', '18CST52', 3, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-20', '18CST51', 5, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A'),
+('2020-07-20', '18CST52', 1, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-20', '18CST53', 3, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-21', '18CST51', 3, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A'),
+('2020-07-21', '18CST52', 2, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-21', '18CST53', 1, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P'),
+('2020-07-22', '18CST53', 5, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'A', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P');
 
 -- --------------------------------------------------------
 
@@ -1098,6 +1423,26 @@ CREATE TABLE `18-cse-d` (
   `18CSL258` varchar(2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
+--
+-- Dumping data for table `18-cse-d`
+--
+
+INSERT INTO `18-cse-d` (`date`, `code`, `period`, `18CSR180`, `18CSR181`, `18CSR182`, `18CSR183`, `18CSR184`, `18CSR185`, `18CSR186`, `18CSR187`, `18CSR188`, `18CSR189`, `18CSR190`, `18CSR191`, `18CSR192`, `18CSR193`, `18CSR194`, `18CSR195`, `18CSR196`, `18CSR197`, `18CSR198`, `18CSR199`, `18CSR200`, `18CSR201`, `18CSR203`, `18CSR204`, `18CSR205`, `18CSR206`, `18CSR207`, `18CSR208`, `18CSR209`, `18CSR210`, `18CSR211`, `18CSR212`, `18CSR213`, `18CSR214`, `18CSR215`, `18CSR216`, `18CSR217`, `18CSR218`, `18CSR219`, `18CSR220`, `18CSR221`, `18CSR222`, `18CSR223`, `18CSR224`, `18CSR225`, `18CSR226`, `18CSR227`, `18CSR228`, `18CSR229`, `18CSR230`, `18CSR231`, `18CSR232`, `18CSR233`, `18CSR234`, `18CSR235`, `18CSR236`, `18CSR237`, `18CSR238`, `17CSR120`, `18CSL256`, `18CSL257`, `18CSL258`) VALUES
+('2020-07-08', '18CST53', 5, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-10', '18CST53', 5, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-13', '18CST53', 3, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-14', '18CST53', 1, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'A', 'P', 'P'),
+('2020-07-15', '18CST53', 5, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'A', 'P', 'P'),
+('2020-07-17', '18CST53', 5, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'A'),
+('2020-07-20', '18CST53', 3, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-20', '18CST54', 4, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-21', '18CSC51', 5, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P'),
+('2020-07-21', '18CST52', 2, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-21', '18CST53', 1, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-21', '18CST54', 4, 'A', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-22', '18CSC51', 4, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-22', '18CST53', 5, 'A', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'A', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P');
+
 -- --------------------------------------------------------
 
 --
@@ -1161,7 +1506,7 @@ CREATE TABLE `18-eee-a` (
   `18EER051` varchar(2) DEFAULT NULL,
   `18EER052` varchar(2) DEFAULT NULL,
   `18EER053` varchar(2) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
 --
 -- Dumping data for table `18-eee-a`
@@ -1171,7 +1516,278 @@ INSERT INTO `18-eee-a` (`date`, `code`, `period`, `18EEL119`, `18EEL121`, `18EEL
 ('2020-07-08', '18ITO01', 3, 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
 ('2020-07-10', '18ITO01', 4, 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
 ('2020-07-13', '18ITO01', 2, 'A', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
-('2020-07-15', '18ITO01', 3, 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P');
+('2020-07-15', '18ITO01', 3, 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-17', '18ITO01', 4, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-20', '18ITO01', 2, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-22', '18ITO01', 3, 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `18ITO02`
+--
+
+CREATE TABLE `18ITO02` (
+  `date` varchar(10) NOT NULL,
+  `code` varchar(10) NOT NULL,
+  `period` int(11) NOT NULL,
+  `18CSL239` varchar(3) DEFAULT 'N/A',
+  `18CSL240` varchar(3) DEFAULT 'N/A',
+  `18CSL241` varchar(3) DEFAULT 'N/A',
+  `18CSL242` varchar(3) DEFAULT 'N/A',
+  `18CSL243` varchar(3) DEFAULT 'N/A',
+  `18CSL244` varchar(3) DEFAULT 'N/A',
+  `18CSL245` varchar(3) DEFAULT 'N/A',
+  `18CSL246` varchar(3) DEFAULT 'N/A',
+  `18CSL247` varchar(3) DEFAULT 'N/A',
+  `18CSL248` varchar(3) DEFAULT 'N/A',
+  `18CSL249` varchar(3) DEFAULT 'N/A',
+  `18CSL250` varchar(3) DEFAULT 'N/A',
+  `18CSL252` varchar(3) DEFAULT 'N/A',
+  `18CSL253` varchar(3) DEFAULT 'N/A',
+  `18CSL254` varchar(3) DEFAULT 'N/A',
+  `18CSL256` varchar(3) DEFAULT 'N/A',
+  `18CSL257` varchar(3) DEFAULT 'N/A',
+  `18CSL258` varchar(3) DEFAULT 'N/A',
+  `18CSR001` varchar(3) DEFAULT 'N/A',
+  `18CSR002` varchar(3) DEFAULT 'N/A',
+  `18CSR003` varchar(3) DEFAULT 'N/A',
+  `18CSR004` varchar(3) DEFAULT 'N/A',
+  `18CSR005` varchar(3) DEFAULT 'N/A',
+  `18CSR006` varchar(3) DEFAULT 'N/A',
+  `18CSR007` varchar(3) DEFAULT 'N/A',
+  `18CSR008` varchar(3) DEFAULT 'N/A',
+  `18CSR009` varchar(3) DEFAULT 'N/A',
+  `18CSR010` varchar(3) DEFAULT 'N/A',
+  `18CSR011` varchar(3) DEFAULT 'N/A',
+  `18CSR012` varchar(3) DEFAULT 'N/A',
+  `18CSR013` varchar(3) DEFAULT 'N/A',
+  `18CSR014` varchar(3) DEFAULT 'N/A',
+  `18CSR015` varchar(3) DEFAULT 'N/A',
+  `18CSR016` varchar(3) DEFAULT 'N/A',
+  `18CSR017` varchar(3) DEFAULT 'N/A',
+  `18CSR018` varchar(3) DEFAULT 'N/A',
+  `18CSR019` varchar(3) DEFAULT 'N/A',
+  `18CSR020` varchar(3) DEFAULT 'N/A',
+  `18CSR021` varchar(3) DEFAULT 'N/A',
+  `18CSR022` varchar(3) DEFAULT 'N/A',
+  `18CSR023` varchar(3) DEFAULT 'N/A',
+  `18CSR024` varchar(3) DEFAULT 'N/A',
+  `18CSR025` varchar(3) DEFAULT 'N/A',
+  `18CSR026` varchar(3) DEFAULT 'N/A',
+  `18CSR027` varchar(3) DEFAULT 'N/A',
+  `18CSR028` varchar(3) DEFAULT 'N/A',
+  `18CSR029` varchar(3) DEFAULT 'N/A',
+  `18CSR030` varchar(3) DEFAULT 'N/A',
+  `18CSR031` varchar(3) DEFAULT 'N/A',
+  `18CSR032` varchar(3) DEFAULT 'N/A',
+  `18CSR033` varchar(3) DEFAULT 'N/A',
+  `18CSR034` varchar(3) DEFAULT 'N/A',
+  `18CSR035` varchar(3) DEFAULT 'N/A',
+  `18CSR036` varchar(3) DEFAULT 'N/A',
+  `18CSR037` varchar(3) DEFAULT 'N/A',
+  `18CSR038` varchar(3) DEFAULT 'N/A',
+  `18CSR039` varchar(3) DEFAULT 'N/A',
+  `18CSR040` varchar(3) DEFAULT 'N/A',
+  `18CSR041` varchar(3) DEFAULT 'N/A',
+  `18CSR042` varchar(3) DEFAULT 'N/A',
+  `18CSR043` varchar(3) DEFAULT 'N/A',
+  `18CSR044` varchar(3) DEFAULT 'N/A',
+  `18CSR045` varchar(3) DEFAULT 'N/A',
+  `18CSR046` varchar(3) DEFAULT 'N/A',
+  `18CSR047` varchar(3) DEFAULT 'N/A',
+  `18CSR048` varchar(3) DEFAULT 'N/A',
+  `18CSR049` varchar(3) DEFAULT 'N/A',
+  `18CSR050` varchar(3) DEFAULT 'N/A',
+  `18CSR051` varchar(3) DEFAULT 'N/A',
+  `18CSR052` varchar(3) DEFAULT 'N/A',
+  `18CSR053` varchar(3) DEFAULT 'N/A',
+  `18CSR054` varchar(3) DEFAULT 'N/A',
+  `18CSR055` varchar(3) DEFAULT 'N/A',
+  `18CSR056` varchar(3) DEFAULT 'N/A',
+  `18CSR057` varchar(3) DEFAULT 'N/A',
+  `18CSR058` varchar(3) DEFAULT 'N/A',
+  `18CSR059` varchar(3) DEFAULT 'N/A',
+  `18CSR060` varchar(3) DEFAULT 'N/A',
+  `18CSR061` varchar(3) DEFAULT 'N/A',
+  `18CSR062` varchar(3) DEFAULT 'N/A',
+  `18CSR063` varchar(3) DEFAULT 'N/A',
+  `18CSR064` varchar(3) DEFAULT 'N/A',
+  `18CSR065` varchar(3) DEFAULT 'N/A',
+  `18CSR066` varchar(3) DEFAULT 'N/A',
+  `18CSR067` varchar(3) DEFAULT 'N/A',
+  `18CSR068` varchar(3) DEFAULT 'N/A',
+  `18CSR069` varchar(3) DEFAULT 'N/A',
+  `18CSR070` varchar(3) DEFAULT 'N/A',
+  `18CSR071` varchar(3) DEFAULT 'N/A',
+  `18CSR072` varchar(3) DEFAULT 'N/A',
+  `18CSR073` varchar(3) DEFAULT 'N/A',
+  `18CSR074` varchar(3) DEFAULT 'N/A',
+  `18CSR076` varchar(3) DEFAULT 'N/A',
+  `18CSR077` varchar(3) DEFAULT 'N/A',
+  `18CSR078` varchar(3) DEFAULT 'N/A',
+  `18CSR079` varchar(3) DEFAULT 'N/A',
+  `18CSR080` varchar(3) DEFAULT 'N/A',
+  `18CSR081` varchar(3) DEFAULT 'N/A',
+  `18CSR082` varchar(3) DEFAULT 'N/A',
+  `18CSR083` varchar(3) DEFAULT 'N/A',
+  `18CSR084` varchar(3) DEFAULT 'N/A',
+  `18CSR085` varchar(3) DEFAULT 'N/A',
+  `18CSR086` varchar(3) DEFAULT 'N/A',
+  `18CSR087` varchar(3) DEFAULT 'N/A',
+  `18CSR088` varchar(3) DEFAULT 'N/A',
+  `18CSR089` varchar(3) DEFAULT 'N/A',
+  `18CSR090` varchar(3) DEFAULT 'N/A',
+  `18CSR091` varchar(3) DEFAULT 'N/A',
+  `18CSR092` varchar(3) DEFAULT 'N/A',
+  `18CSR093` varchar(3) DEFAULT 'N/A',
+  `18CSR094` varchar(3) DEFAULT 'N/A',
+  `18CSR095` varchar(3) DEFAULT 'N/A',
+  `18CSR096` varchar(3) DEFAULT 'N/A',
+  `18CSR097` varchar(3) DEFAULT 'N/A',
+  `18CSR098` varchar(3) DEFAULT 'N/A',
+  `18CSR099` varchar(3) DEFAULT 'N/A',
+  `18CSR100` varchar(3) DEFAULT 'N/A',
+  `18CSR101` varchar(3) DEFAULT 'N/A',
+  `18CSR103` varchar(3) DEFAULT 'N/A',
+  `18CSR104` varchar(3) DEFAULT 'N/A',
+  `18CSR105` varchar(3) DEFAULT 'N/A',
+  `18CSR106` varchar(3) DEFAULT 'N/A',
+  `18CSR107` varchar(3) DEFAULT 'N/A',
+  `18CSR108` varchar(3) DEFAULT 'N/A',
+  `18CSR109` varchar(3) DEFAULT 'N/A',
+  `18CSR110` varchar(3) DEFAULT 'N/A',
+  `18CSR111` varchar(3) DEFAULT 'N/A',
+  `18CSR112` varchar(3) DEFAULT 'N/A',
+  `18CSR113` varchar(3) DEFAULT 'N/A',
+  `18CSR114` varchar(3) DEFAULT 'N/A',
+  `18CSR115` varchar(3) DEFAULT 'N/A',
+  `18CSR116` varchar(3) DEFAULT 'N/A',
+  `18CSR117` varchar(3) DEFAULT 'N/A',
+  `18CSR118` varchar(3) DEFAULT 'N/A',
+  `18CSR119` varchar(3) DEFAULT 'N/A',
+  `18CSR120` varchar(3) DEFAULT 'N/A',
+  `18CSR121` varchar(3) DEFAULT 'N/A',
+  `18CSR122` varchar(3) DEFAULT 'N/A',
+  `18CSR123` varchar(3) DEFAULT 'N/A',
+  `18CSR124` varchar(3) DEFAULT 'N/A',
+  `18CSR125` varchar(3) DEFAULT 'N/A',
+  `18CSR127` varchar(3) DEFAULT 'N/A',
+  `18CSR128` varchar(3) DEFAULT 'N/A',
+  `18CSR129` varchar(3) DEFAULT 'N/A',
+  `18CSR130` varchar(3) DEFAULT 'N/A',
+  `18CSR133` varchar(3) DEFAULT 'N/A',
+  `18CSR134` varchar(3) DEFAULT 'N/A',
+  `18CSR136` varchar(3) DEFAULT 'N/A',
+  `18CSR137` varchar(3) DEFAULT 'N/A',
+  `18CSR139` varchar(3) DEFAULT 'N/A',
+  `18CSR140` varchar(3) DEFAULT 'N/A',
+  `18CSR141` varchar(3) DEFAULT 'N/A',
+  `18CSR142` varchar(3) DEFAULT 'N/A',
+  `18CSR143` varchar(3) DEFAULT 'N/A',
+  `18CSR144` varchar(3) DEFAULT 'N/A',
+  `18CSR146` varchar(3) DEFAULT 'N/A',
+  `18CSR147` varchar(3) DEFAULT 'N/A',
+  `18CSR148` varchar(3) DEFAULT 'N/A',
+  `18CSR149` varchar(3) DEFAULT 'N/A',
+  `18CSR150` varchar(3) DEFAULT 'N/A',
+  `18CSR151` varchar(3) DEFAULT 'N/A',
+  `18CSR152` varchar(3) DEFAULT 'N/A',
+  `18CSR153` varchar(3) DEFAULT 'N/A',
+  `18CSR154` varchar(3) DEFAULT 'N/A',
+  `18CSR155` varchar(3) DEFAULT 'N/A',
+  `18CSR156` varchar(3) DEFAULT 'N/A',
+  `18CSR158` varchar(3) DEFAULT 'N/A',
+  `18CSR159` varchar(3) DEFAULT 'N/A',
+  `18CSR160` varchar(3) DEFAULT 'N/A',
+  `18CSR161` varchar(3) DEFAULT 'N/A',
+  `18CSR162` varchar(3) DEFAULT 'N/A',
+  `18CSR163` varchar(3) DEFAULT 'N/A',
+  `18CSR164` varchar(3) DEFAULT 'N/A',
+  `18CSR165` varchar(3) DEFAULT 'N/A',
+  `18CSR166` varchar(3) DEFAULT 'N/A',
+  `18CSR167` varchar(3) DEFAULT 'N/A',
+  `18CSR168` varchar(3) DEFAULT 'N/A',
+  `18CSR169` varchar(3) DEFAULT 'N/A',
+  `18CSR170` varchar(3) DEFAULT 'N/A',
+  `18CSR171` varchar(3) DEFAULT 'N/A',
+  `18CSR172` varchar(3) DEFAULT 'N/A',
+  `18CSR173` varchar(3) DEFAULT 'N/A',
+  `18CSR174` varchar(3) DEFAULT 'N/A',
+  `18CSR175` varchar(3) DEFAULT 'N/A',
+  `18CSR176` varchar(3) DEFAULT 'N/A',
+  `18CSR177` varchar(3) DEFAULT 'N/A',
+  `18CSR178` varchar(3) DEFAULT 'N/A',
+  `18CSR179` varchar(3) DEFAULT 'N/A',
+  `18CSR180` varchar(3) DEFAULT 'N/A',
+  `18CSR181` varchar(3) DEFAULT 'N/A',
+  `18CSR182` varchar(3) DEFAULT 'N/A',
+  `18CSR183` varchar(3) DEFAULT 'N/A',
+  `18CSR184` varchar(3) DEFAULT 'N/A',
+  `18CSR185` varchar(3) DEFAULT 'N/A',
+  `18CSR186` varchar(3) DEFAULT 'N/A',
+  `18CSR187` varchar(3) DEFAULT 'N/A',
+  `18CSR188` varchar(3) DEFAULT 'N/A',
+  `18CSR189` varchar(3) DEFAULT 'N/A',
+  `18CSR190` varchar(3) DEFAULT 'N/A',
+  `18CSR191` varchar(3) DEFAULT 'N/A',
+  `18CSR192` varchar(3) DEFAULT 'N/A',
+  `18CSR193` varchar(3) DEFAULT 'N/A',
+  `18CSR194` varchar(3) DEFAULT 'N/A',
+  `18CSR195` varchar(3) DEFAULT 'N/A',
+  `18CSR196` varchar(3) DEFAULT 'N/A',
+  `18CSR197` varchar(3) DEFAULT 'N/A',
+  `18CSR198` varchar(3) DEFAULT 'N/A',
+  `18CSR199` varchar(3) DEFAULT 'N/A',
+  `18CSR200` varchar(3) DEFAULT 'N/A',
+  `18CSR201` varchar(3) DEFAULT 'N/A',
+  `18CSR203` varchar(3) DEFAULT 'N/A',
+  `18CSR204` varchar(3) DEFAULT 'N/A',
+  `18CSR205` varchar(3) DEFAULT 'N/A',
+  `18CSR206` varchar(3) DEFAULT 'N/A',
+  `18CSR207` varchar(3) DEFAULT 'N/A',
+  `18CSR208` varchar(3) DEFAULT 'N/A',
+  `18CSR209` varchar(3) DEFAULT 'N/A',
+  `18CSR210` varchar(3) DEFAULT 'N/A',
+  `18CSR211` varchar(3) DEFAULT 'N/A',
+  `18CSR212` varchar(3) DEFAULT 'N/A',
+  `18CSR213` varchar(3) DEFAULT 'N/A',
+  `18CSR214` varchar(3) DEFAULT 'N/A',
+  `18CSR215` varchar(3) DEFAULT 'N/A',
+  `18CSR216` varchar(3) DEFAULT 'N/A',
+  `18CSR217` varchar(3) DEFAULT 'N/A',
+  `18CSR218` varchar(3) DEFAULT 'N/A',
+  `18CSR219` varchar(3) DEFAULT 'N/A',
+  `18CSR220` varchar(3) DEFAULT 'N/A',
+  `18CSR221` varchar(3) DEFAULT 'N/A',
+  `18CSR222` varchar(3) DEFAULT 'N/A',
+  `18CSR223` varchar(3) DEFAULT 'N/A',
+  `18CSR225` varchar(3) DEFAULT 'N/A',
+  `18CSR226` varchar(3) DEFAULT 'N/A',
+  `18CSR227` varchar(3) DEFAULT 'N/A',
+  `18CSR228` varchar(3) DEFAULT 'N/A',
+  `18CSR229` varchar(3) DEFAULT 'N/A',
+  `18CSR230` varchar(3) DEFAULT 'N/A',
+  `18CSR231` varchar(3) DEFAULT 'N/A',
+  `18CSR232` varchar(3) DEFAULT 'N/A',
+  `18CSR233` varchar(3) DEFAULT 'N/A',
+  `18CSR234` varchar(3) DEFAULT 'N/A',
+  `18CSR235` varchar(3) DEFAULT 'N/A',
+  `18CSR236` varchar(3) DEFAULT 'N/A',
+  `18CSR237` varchar(3) DEFAULT 'N/A',
+  `18CSR238` varchar(3) DEFAULT 'N/A'
+) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+
+--
+-- Dumping data for table `18ITO02`
+--
+
+INSERT INTO `18ITO02` (`date`, `code`, `period`, `18CSL239`, `18CSL240`, `18CSL241`, `18CSL242`, `18CSL243`, `18CSL244`, `18CSL245`, `18CSL246`, `18CSL247`, `18CSL248`, `18CSL249`, `18CSL250`, `18CSL252`, `18CSL253`, `18CSL254`, `18CSL256`, `18CSL257`, `18CSL258`, `18CSR001`, `18CSR002`, `18CSR003`, `18CSR004`, `18CSR005`, `18CSR006`, `18CSR007`, `18CSR008`, `18CSR009`, `18CSR010`, `18CSR011`, `18CSR012`, `18CSR013`, `18CSR014`, `18CSR015`, `18CSR016`, `18CSR017`, `18CSR018`, `18CSR019`, `18CSR020`, `18CSR021`, `18CSR022`, `18CSR023`, `18CSR024`, `18CSR025`, `18CSR026`, `18CSR027`, `18CSR028`, `18CSR029`, `18CSR030`, `18CSR031`, `18CSR032`, `18CSR033`, `18CSR034`, `18CSR035`, `18CSR036`, `18CSR037`, `18CSR038`, `18CSR039`, `18CSR040`, `18CSR041`, `18CSR042`, `18CSR043`, `18CSR044`, `18CSR045`, `18CSR046`, `18CSR047`, `18CSR048`, `18CSR049`, `18CSR050`, `18CSR051`, `18CSR052`, `18CSR053`, `18CSR054`, `18CSR055`, `18CSR056`, `18CSR057`, `18CSR058`, `18CSR059`, `18CSR060`, `18CSR061`, `18CSR062`, `18CSR063`, `18CSR064`, `18CSR065`, `18CSR066`, `18CSR067`, `18CSR068`, `18CSR069`, `18CSR070`, `18CSR071`, `18CSR072`, `18CSR073`, `18CSR074`, `18CSR076`, `18CSR077`, `18CSR078`, `18CSR079`, `18CSR080`, `18CSR081`, `18CSR082`, `18CSR083`, `18CSR084`, `18CSR085`, `18CSR086`, `18CSR087`, `18CSR088`, `18CSR089`, `18CSR090`, `18CSR091`, `18CSR092`, `18CSR093`, `18CSR094`, `18CSR095`, `18CSR096`, `18CSR097`, `18CSR098`, `18CSR099`, `18CSR100`, `18CSR101`, `18CSR103`, `18CSR104`, `18CSR105`, `18CSR106`, `18CSR107`, `18CSR108`, `18CSR109`, `18CSR110`, `18CSR111`, `18CSR112`, `18CSR113`, `18CSR114`, `18CSR115`, `18CSR116`, `18CSR117`, `18CSR118`, `18CSR119`, `18CSR120`, `18CSR121`, `18CSR122`, `18CSR123`, `18CSR124`, `18CSR125`, `18CSR127`, `18CSR128`, `18CSR129`, `18CSR130`, `18CSR133`, `18CSR134`, `18CSR136`, `18CSR137`, `18CSR139`, `18CSR140`, `18CSR141`, `18CSR142`, `18CSR143`, `18CSR144`, `18CSR146`, `18CSR147`, `18CSR148`, `18CSR149`, `18CSR150`, `18CSR151`, `18CSR152`, `18CSR153`, `18CSR154`, `18CSR155`, `18CSR156`, `18CSR158`, `18CSR159`, `18CSR160`, `18CSR161`, `18CSR162`, `18CSR163`, `18CSR164`, `18CSR165`, `18CSR166`, `18CSR167`, `18CSR168`, `18CSR169`, `18CSR170`, `18CSR171`, `18CSR172`, `18CSR173`, `18CSR174`, `18CSR175`, `18CSR176`, `18CSR177`, `18CSR178`, `18CSR179`, `18CSR180`, `18CSR181`, `18CSR182`, `18CSR183`, `18CSR184`, `18CSR185`, `18CSR186`, `18CSR187`, `18CSR188`, `18CSR189`, `18CSR190`, `18CSR191`, `18CSR192`, `18CSR193`, `18CSR194`, `18CSR195`, `18CSR196`, `18CSR197`, `18CSR198`, `18CSR199`, `18CSR200`, `18CSR201`, `18CSR203`, `18CSR204`, `18CSR205`, `18CSR206`, `18CSR207`, `18CSR208`, `18CSR209`, `18CSR210`, `18CSR211`, `18CSR212`, `18CSR213`, `18CSR214`, `18CSR215`, `18CSR216`, `18CSR217`, `18CSR218`, `18CSR219`, `18CSR220`, `18CSR221`, `18CSR222`, `18CSR223`, `18CSR225`, `18CSR226`, `18CSR227`, `18CSR228`, `18CSR229`, `18CSR230`, `18CSR231`, `18CSR232`, `18CSR233`, `18CSR234`, `18CSR235`, `18CSR236`, `18CSR237`, `18CSR238`) VALUES
+('2020-07-17', 'CSE023SF', 4, 'P', 'P', 'P', 'P', 'P', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A'),
+('2020-07-20', 'CSE023SF', 2, 'P', 'P', 'P', 'P', 'P', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A'),
+('2020-07-20', 'CSE038SF', 2, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'P', 'P', 'P', 'P', 'A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A'),
+('2020-07-22', 'CSE023SF', 3, 'P', 'P', 'P', 'P', 'P', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A'),
+('2020-07-22', 'CSE038SF', 3, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'P', 'P', 'P', 'P', 'P', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A');
 
 -- --------------------------------------------------------
 
@@ -1249,11 +1865,33 @@ CREATE TABLE `19-cse-a` (
 --
 
 INSERT INTO `19-cse-a` (`date`, `code`, `period`, `19CSR001`, `19CSR002`, `19CSR003`, `19CSR004`, `19CSR005`, `19CSR006`, `19CSR007`, `19CSR008`, `19CSR009`, `19CSR010`, `19CSR011`, `19CSR012`, `19CSR013`, `19CSR014`, `19CSR015`, `19CSR016`, `19CSR017`, `19CSR018`, `19CSR019`, `19CSR020`, `19CSR021`, `19CSR022`, `19CSR023`, `19CSR024`, `19CSR025`, `19CSR026`, `19CSR027`, `19CSR028`, `19CSR029`, `19CSR030`, `19CSR031`, `19CSR032`, `19CSR033`, `19CSR034`, `19CSR035`, `19CSR036`, `19CSR037`, `19CSR038`, `19CSR039`, `19CSR040`, `19CSR041`, `19CSR042`, `19CSR043`, `19CSR044`, `19CSR045`, `19CSR046`, `19CSR047`, `19CSR048`, `19CSR049`, `19CSR050`, `19CSR051`, `19CSR052`, `19CSR053`, `19CSR054`, `19CSR055`, `19CSR056`, `19CSR057`, `19CSR058`, `19CSR059`) VALUES
+('2020-07-08', '18CSL33', 2, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-08', '18CSL33', 3, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-08', '18CSL33', 4, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
 ('2020-07-09', '18CST32', 3, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-09', '18CST33', 2, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
 ('2020-07-10', '18CST32', 5, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P'),
 ('2020-07-13', '18CST32', 4, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-13', '18CST33', 5, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P'),
 ('2020-07-14', '18CST32', 1, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
-('2020-07-16', '18CST32', 3, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P');
+('2020-07-14', '18CST33', 3, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-15', '18CSL33', 2, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-15', '18CSL33', 3, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-15', '18CSL33', 4, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-16', '18CST32', 3, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-16', '18CST33', 1, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-16', '18CST33', 2, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-16', '18CST33', 5, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-17', '18CST32', 5, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-20', '18CST32', 4, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-20', '18CST33', 5, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-20', '18ITC31', 1, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-21', '18CST32', 1, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-21', '18CST33', 3, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-21', '18ITC31', 5, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-22', '18CSL33', 3, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-22', '18CSL33', 4, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-09-07', '18CST33', 5, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P');
 
 -- --------------------------------------------------------
 
@@ -1322,6 +1960,13 @@ CREATE TABLE `19-cse-b` (
   `19CSR115` varchar(2) DEFAULT NULL,
   `19CSR116` varchar(2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+
+--
+-- Dumping data for table `19-cse-b`
+--
+
+INSERT INTO `19-cse-b` (`date`, `code`, `period`, `19CSR061`, `19CSR062`, `19CSR063`, `19CSR064`, `19CSR065`, `19CSR066`, `19CSR067`, `19CSR068`, `19CSR069`, `19CSR070`, `19CSR071`, `19CSR072`, `19CSR073`, `19CSR074`, `19CSR075`, `19CSR076`, `19CSR077`, `19CSR078`, `19CSR079`, `19CSR080`, `19CSR081`, `19CSR082`, `19CSR083`, `19CSR084`, `19CSR085`, `19CSR086`, `19CSR087`, `19CSR088`, `19CSR089`, `19CSR090`, `19CSR091`, `19CSR092`, `19CSR093`, `19CSR094`, `19CSR095`, `19CSR096`, `19CSR097`, `19CSR098`, `19CSR099`, `19CSR100`, `19CSR101`, `19CSR102`, `19CSR103`, `19CSR104`, `19CSR105`, `19CSR106`, `19CSR107`, `19CSR108`, `19CSR109`, `19CSR110`, `19CSR111`, `19CSR112`, `19CSR113`, `19CSR114`, `19CSR115`, `19CSR116`) VALUES
+('2020-07-20', '18CST32', 4, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P');
 
 -- --------------------------------------------------------
 
@@ -1392,6 +2037,23 @@ CREATE TABLE `19-cse-c` (
   `19CSR174` varchar(2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
+--
+-- Dumping data for table `19-cse-c`
+--
+
+INSERT INTO `19-cse-c` (`date`, `code`, `period`, `19CSR117`, `19CSR118`, `19CSR119`, `19CSR120`, `19CSR121`, `19CSR122`, `19CSR123`, `19CSR124`, `19CSR125`, `19CSR126`, `19CSR127`, `19CSR128`, `19CSR129`, `19CSR130`, `19CSR131`, `19CSR132`, `19CSR133`, `19CSR134`, `19CSR135`, `19CSR136`, `19CSR137`, `19CSR138`, `19CSR140`, `19CSR141`, `19CSR142`, `19CSR143`, `19CSR144`, `19CSR145`, `19CSR146`, `19CSR147`, `19CSR148`, `19CSR149`, `19CSR150`, `19CSR151`, `19CSR152`, `19CSR153`, `19CSR154`, `19CSR155`, `19CSR156`, `19CSR157`, `19CSR158`, `19CSR159`, `19CSR160`, `19CSR161`, `19CSR162`, `19CSR163`, `19CSR164`, `19CSR165`, `19CSR166`, `19CSR167`, `19CSR168`, `19CSR169`, `19CSR170`, `19CSR171`, `19CSR172`, `19CSR173`, `19CSR174`) VALUES
+('2020-07-09', '18CST32', 3, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-10', '18CST32', 5, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-13', '18CST32', 4, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-14', '18CST32', 1, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-16', '18CST32', 3, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-16', '18CST33', 2, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-17', '18CST32', 5, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-20', '18CST32', 4, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-20', '18CST33', 5, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'A', 'P', 'A', 'P', 'P', 'A', 'P', 'P', 'A', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P'),
+('2020-07-21', '18CST32', 1, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-21', '18CST33', 3, 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P');
+
 -- --------------------------------------------------------
 
 --
@@ -1460,6 +2122,63 @@ CREATE TABLE `19-cse-d` (
   `19CSR232` varchar(2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
+--
+-- Dumping data for table `19-cse-d`
+--
+
+INSERT INTO `19-cse-d` (`date`, `code`, `period`, `19CSR175`, `19CSR176`, `19CSR177`, `19CSR178`, `19CSR179`, `19CSR180`, `19CSR182`, `19CSR183`, `19CSR184`, `19CSR185`, `19CSR186`, `19CSR187`, `19CSR188`, `19CSR189`, `19CSR190`, `19CSR191`, `19CSR192`, `19CSR193`, `19CSR194`, `19CSR195`, `19CSR196`, `19CSR197`, `19CSR198`, `19CSR199`, `19CSR200`, `19CSR201`, `19CSR202`, `19CSR203`, `19CSR204`, `19CSR205`, `19CSR206`, `19CSR207`, `19CSR208`, `19CSR210`, `19CSR211`, `19CSR212`, `19CSR213`, `19CSR214`, `19CSR215`, `19CSR216`, `19CSR217`, `19CSR218`, `19CSR219`, `19CSR220`, `19CSR221`, `19CSR222`, `19CSR223`, `19CSR224`, `19CSR225`, `19CSR226`, `19CSR227`, `19CSR228`, `19CSR229`, `19CSR230`, `19CSR231`, `19CSR232`) VALUES
+('2020-07-17', '18CST32', 5, 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'A', 'A'),
+('2020-07-21', '18CST33', 3, 'A', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'A', 'A');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `19-mcse-a`
+--
+
+CREATE TABLE `19-mcse-a` (
+  `date` varchar(10) NOT NULL,
+  `code` varchar(10) NOT NULL,
+  `period` int(11) NOT NULL,
+  `19MSR001` varchar(3) DEFAULT NULL,
+  `19MSR002` varchar(3) DEFAULT NULL,
+  `19MSR003` varchar(3) DEFAULT NULL,
+  `19MSR004` varchar(3) DEFAULT NULL,
+  `19MSR005` varchar(3) DEFAULT NULL,
+  `19MSR006` varchar(3) DEFAULT NULL,
+  `19MSR007` varchar(3) DEFAULT NULL,
+  `19MSR008` varchar(3) DEFAULT NULL,
+  `19MSR009` varchar(3) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+
+--
+-- Dumping data for table `19-mcse-a`
+--
+
+INSERT INTO `19-mcse-a` (`date`, `code`, `period`, `19MSR001`, `19MSR002`, `19MSR003`, `19MSR004`, `19MSR005`, `19MSR006`, `19MSR007`, `19MSR008`, `19MSR009`) VALUES
+('2020-07-16', '18VLE12', 1, 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-17', '18VLE12', 2, 'P', 'P', 'P', 'P', 'A', 'P', 'P', 'P', 'P'),
+('2020-07-20', '18MIT11', 2, 'P', 'P', 'P', 'P', 'A', 'P', 'A', 'P', 'P'),
+('2020-07-20', '18VLE12', 4, 'P', 'P', 'P', 'A', 'A', 'P', 'A', 'P', 'P'),
+('2020-07-21', '18MIT11', 3, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-21', '18MSE12', 2, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'),
+('2020-07-21', '18VLE12', 1, 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `alteration`
+--
+
+CREATE TABLE `alteration` (
+  `s1` varchar(12) NOT NULL,
+  `c1` varchar(10) NOT NULL,
+  `date` date NOT NULL,
+  `period` varchar(8) NOT NULL,
+  `s2` varchar(12) NOT NULL,
+  `c2` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+
 -- --------------------------------------------------------
 
 --
@@ -1491,22 +2210,28 @@ INSERT INTO `course_list` (`code`, `name`, `dept`, `batch`, `staffA`, `staffB`, 
 ('14CST72', 'Mobile Communication', 'CSE', 2017, 'CSE016SF', 'CSE041SF', 'CSE042SF', 'CSE028SF'),
 ('14GET71', 'Total Quality Management', 'CSE', 2017, 'CSE001SF', 'CSE029SF', 'CSE003SF', 'CSE015SF'),
 ('14ITO01', 'Internet of Things', 'CSE', 2017, 'CSE034SF', 'CSE036SF', 'CSE031SF', 'CSE016SF'),
+('18CSC51', 'Software Engineering ', 'CSE', 2018, 'CSE011SF', 'CSE021SF', 'CSE018SF', 'CSE008SF'),
 ('18CSL31', 'Data Structures Laboratory', 'CSE', 2019, 'CSE039SF', 'CSE003SF', 'CSE040SF', 'CSE043SF'),
 ('18CSL33', 'Object Oriented Programming Laboratory', 'CSE', 2019, 'CSE013SF', 'CSE009SF', 'CSE046SF', 'CSE034SF'),
+('18CSL51', 'Computer Network Laboratory', 'CSE', 2018, 'CSE014SF', 'CSE031SF', 'CSE010SF', 'CSE020SF'),
+('18CSL52', 'Web Technology Laboratory', 'CSE', 2018, 'CSE045SF', 'CSE019SF', 'CSE044SF', 'CSE026SF'),
 ('18CST31', 'Data Structures', 'CSE', 2019, 'CSE039SF', 'CSE003SF', 'CSE040SF', 'CSE043SF'),
 ('18CST32', 'Computer Organisation', 'CSE', 2019, 'CSE004SF', 'CSE025SF', 'CSE010SF', 'CSE030SF'),
 ('18CST33', 'Object Oriented Programming', 'CSE', 2019, 'CSE013SF', 'CSE009SF', 'CSE046SF', 'CSE034SF'),
-('18CST51', 'Theory of Computation', 'CSE', 2018, 'CSE013SF', 'CSE014SF', 'CSE026SF', 'CSE005SF'),
-('18CST52', 'Software Engineering ', 'CSE', 2018, 'CSE011SF', 'CSE021SF', 'CSE018SF', 'CSE008SF'),
-('18CST53', 'Distributed Systems', 'CSE', 2018, 'CSE008SF', 'CSE035SF', 'CSE011SF', 'CSE032SF'),
-('18ITC31', 'Digital Principles and Design', 'CSE', 2019, 'CSE024SF', 'CSE015SF', 'CSE033SF', 'CSE029SF'),
-('18ITL51', 'Computer Network Laboratory', 'CSE', 2018, 'CSE014SF', 'CSE031SF', 'CSE010SF', 'CSE020SF'),
-('18ITL52', 'Web Technology Laboratory', 'CSE', 2018, 'CSE045SF', 'CSE019SF', 'CSE044SF', 'CSE026SF'),
+('18CST51', 'Computer Networks', 'CSE', 2018, 'CSE014SF', 'CSE007SF', 'CSE010SF', 'CSE020SF'),
+('18CST52', 'Web Technology', 'CSE', 2018, 'CSE045SF', 'CSE019SF', 'CSE044SF', 'CSE026SF'),
+('18CST53', 'Theory of Computation', 'CSE', 2018, 'CSE013SF', 'CSE014SF', 'CSE026SF', 'CSE005SF'),
+('18CST54', 'Distributed Systems', 'CSE', 2018, 'CSE008SF', 'CSE035SF', 'CSE011SF', 'CSE032SF'),
+('18ITC31', 'Digital Principles and Design', 'CSE', 2019, 'CSE024SF', 'CSE015SF', 'CSE030SF', 'CSE029SF'),
 ('18ITO01', 'Python Programming', 'EEE', 2018, 'CSE004SF', NULL, NULL, NULL),
 ('18ITO02', 'Advanced Java Programming', 'CSE', 2018, 'CSE023SF', 'CSE020SF', 'CSE038SF', 'CSE022SF'),
-('18ITT51', 'Computer Networks', 'CSE', 2018, 'CSE014SF', 'CSE007SF', 'CSE010SF', 'CSE020SF'),
-('18ITT52', 'Web Technology', 'CSE', 2018, 'CSE045SF', 'CSE019SF', 'CSE044SF', 'CSE026SF'),
 ('18MAT31', 'Discrete Mathematics', 'CSE', 2019, NULL, NULL, NULL, NULL),
+('18MEO01', 'Renewable Energy Sources', 'CSE', 2018, NULL, NULL, NULL, NULL),
+('18MIT11', 'Modern Information Retrieval Techniques', 'MCSE', 2019, 'CSE017SF', NULL, NULL, NULL),
+('18MSE12', 'Deep Learning Techniques', 'MCSE', 2019, 'CSE002SF', NULL, NULL, NULL),
+('18MSE13', 'Deep Learning Techniques Laboratory', 'MCSE', 2019, 'CSE002SF', NULL, NULL, NULL),
+('18PRO12', 'Project Work Phase-I', 'MCSE', 2019, 'CSE023SF', NULL, NULL, NULL),
+('18VLE12', 'Nature Inspired Optimization Techniques', 'MCSE', 2019, 'CSE023SF', NULL, NULL, NULL),
 ('PST', 'Professional Skills Training', 'CSE', 2018, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
@@ -1663,6 +2388,7 @@ INSERT INTO `elective` (`regno`, `E1`, `S1`, `E2`, `S2`, `E3`, `S3`) VALUES
 ('17CSR117', '14CSE06', 'CSE027SF', '14ITO01', 'CSE036SF', '14CSO07', 'CSE021SF'),
 ('17CSR118', '14CSE06', 'CSE027SF', '14ITO01', 'CSE036SF', '14CSO07', 'CSE021SF'),
 ('17CSR119', '14CSE06', 'CSE027SF', '14ITO01', 'CSE036SF', '14CSO07', 'CSE021SF'),
+('17CSR120', '18MEO01', 'CSE022SF', NULL, NULL, NULL, NULL),
 ('17CSR121', '14CSE06', 'CSE019SF', '14ITO01', 'CSE031SF', '14CSO07', 'CSE012SF'),
 ('17CSR122', '14CSE06', 'CSE019SF', '14ITO01', 'CSE031SF', '14CSO07', 'CSE012SF'),
 ('17CSR123', '14CSE06', 'CSE019SF', '14ITO01', 'CSE031SF', '14CSO07', 'CSE012SF'),
@@ -1778,7 +2504,262 @@ INSERT INTO `elective` (`regno`, `E1`, `S1`, `E2`, `S2`, `E3`, `S3`) VALUES
 ('17CSR238', '14CSE06', 'CSE022SF', '14ITO01', 'CSE016SF', '14CSO07', 'CSE018SF'),
 ('17CST256', '14CSE06', 'CSE022SF', NULL, NULL, NULL, NULL),
 ('17CST257', '14CSE06', 'CSE022SF', NULL, NULL, '14CSO07', 'CSE018SF'),
-('17CST258', '14CSE06', 'CSE022SF', NULL, NULL, NULL, NULL);
+('17CST258', '14CSE06', 'CSE022SF', NULL, NULL, NULL, NULL),
+('18CSL239', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSL240', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSL241', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSL242', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSL243', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSL244', '18ITO02', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSL245', '18ITO02', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSL246', '18ITO02', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSL247', '18ITO02', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSL248', '18ITO02', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSL249', '18ITO02', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSL250', '18ITO02', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSL251', '18MEO01', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSL252', '18ITO02', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSL253', '18ITO02', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSL254', '18ITO02', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSL256', '18ITO02', 'CSE022SF', NULL, NULL, NULL, NULL),
+('18CSL257', '18ITO02', 'CSE022SF', NULL, NULL, NULL, NULL),
+('18CSL258', '18ITO02', 'CSE022SF', NULL, NULL, NULL, NULL),
+('18CSR001', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSR002', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSR003', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSR004', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSR005', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSR006', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSR007', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSR008', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSR009', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSR010', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSR011', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSR012', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSR013', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSR014', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSR015', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSR016', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSR017', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSR018', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSR019', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSR020', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSR021', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSR022', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSR023', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSR024', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSR025', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSR026', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSR027', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSR028', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSR029', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSR030', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSR031', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSR032', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSR033', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSR034', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSR035', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSR036', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSR037', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSR038', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSR039', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSR040', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSR041', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSR042', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSR043', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSR044', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSR045', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSR046', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSR047', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSR048', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSR049', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSR050', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSR051', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSR052', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSR053', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSR054', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSR055', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSR056', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSR057', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSR058', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSR059', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSR060', '18ITO02', 'CSE023SF', NULL, NULL, NULL, NULL),
+('18CSR061', '18ITO02', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSR062', '18ITO02', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSR063', '18ITO02', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSR064', '18ITO02', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSR065', '18ITO02', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSR066', '18ITO02', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSR067', '18ITO02', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSR068', '18ITO02', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSR069', '18ITO02', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSR070', '18ITO02', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSR071', '18ITO02', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSR072', '18ITO02', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSR073', '18ITO02', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSR074', '18ITO02', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSR076', '18ITO02', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSR077', '18ITO02', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSR078', '18ITO02', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSR079', '18ITO02', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSR080', '18ITO02', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSR081', '18ITO02', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSR082', '18ITO02', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSR083', '18ITO02', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSR084', '18ITO02', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSR085', '18ITO02', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSR086', '18ITO02', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSR087', '18ITO02', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSR088', '18ITO02', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSR089', '18ITO02', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSR090', '18ITO02', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSR091', '18ITO02', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSR092', '18ITO02', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSR093', '18ITO02', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSR094', '18ITO02', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSR095', '18ITO02', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSR096', '18ITO02', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSR097', '18ITO02', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSR098', '18ITO02', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSR099', '18ITO02', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSR100', '18ITO02', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSR101', '18ITO02', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSR102', '18MEO01', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSR103', '18ITO02', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSR104', '18ITO02', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSR105', '18ITO02', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSR106', '18ITO02', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSR107', '18ITO02', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSR108', '18ITO02', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSR109', '18ITO02', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSR110', '18ITO02', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSR111', '18ITO02', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSR112', '18ITO02', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSR113', '18ITO02', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSR114', '18ITO02', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSR115', '18ITO02', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSR116', '18ITO02', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSR117', '18ITO02', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSR118', '18ITO02', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSR119', '18ITO02', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSR120', '18ITO02', 'CSE020SF', NULL, NULL, NULL, NULL),
+('18CSR121', '18ITO02', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSR122', '18ITO02', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSR123', '18ITO02', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSR124', '18ITO02', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSR125', '18ITO02', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSR126', '18MEO01', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSR127', '18ITO02', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSR128', '18ITO02', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSR129', '18ITO02', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSR130', '18ITO02', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSR131', '18MEO01', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSR132', '18MEO01', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSR133', '18ITO02', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSR134', '18ITO02', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSR135', '18MEO01', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSR136', '18ITO02', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSR137', '18ITO02', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSR138', '18MEO01', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSR139', '18ITO02', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSR140', '18ITO02', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSR141', '18ITO02', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSR142', '18ITO02', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSR143', '18ITO02', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSR144', '18ITO02', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSR145', '18MEO01', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSR146', '18ITO02', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSR147', '18ITO02', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSR148', '18ITO02', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSR149', '18ITO02', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSR150', '18ITO02', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSR151', '18ITO02', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSR152', '18ITO02', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSR153', '18ITO02', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSR154', '18ITO02', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSR155', '18ITO02', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSR156', '18ITO02', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSR157', '18MEO01', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSR158', '18ITO02', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSR159', '18ITO02', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSR160', '18ITO02', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSR161', '18ITO02', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSR162', '18ITO02', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSR163', '18ITO02', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSR164', '18ITO02', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSR165', '18ITO02', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSR166', '18ITO02', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSR167', '18ITO02', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSR168', '18ITO02', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSR169', '18ITO02', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSR170', '18ITO02', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSR171', '18ITO02', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSR172', '18ITO02', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSR173', '18ITO02', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSR174', '18ITO02', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSR175', '18ITO02', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSR176', '18ITO02', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSR177', '18ITO02', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSR178', '18ITO02', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSR179', '18ITO02', 'CSE038SF', NULL, NULL, NULL, NULL),
+('18CSR180', '18ITO02', 'CSE022SF', NULL, NULL, NULL, NULL),
+('18CSR181', '18ITO02', 'CSE022SF', NULL, NULL, NULL, NULL),
+('18CSR182', '18ITO02', 'CSE022SF', NULL, NULL, NULL, NULL),
+('18CSR183', '18ITO02', 'CSE022SF', NULL, NULL, NULL, NULL),
+('18CSR184', '18ITO02', 'CSE022SF', NULL, NULL, NULL, NULL),
+('18CSR185', '18ITO02', 'CSE022SF', NULL, NULL, NULL, NULL),
+('18CSR186', '18ITO02', 'CSE022SF', NULL, NULL, NULL, NULL),
+('18CSR187', '18ITO02', 'CSE022SF', NULL, NULL, NULL, NULL),
+('18CSR188', '18ITO02', 'CSE022SF', NULL, NULL, NULL, NULL),
+('18CSR189', '18ITO02', 'CSE022SF', NULL, NULL, NULL, NULL),
+('18CSR190', '18ITO02', 'CSE022SF', NULL, NULL, NULL, NULL),
+('18CSR191', '18ITO02', 'CSE022SF', NULL, NULL, NULL, NULL),
+('18CSR192', '18ITO02', 'CSE022SF', NULL, NULL, NULL, NULL),
+('18CSR193', '18ITO02', 'CSE022SF', NULL, NULL, NULL, NULL),
+('18CSR194', '18ITO02', 'CSE022SF', NULL, NULL, NULL, NULL),
+('18CSR195', '18ITO02', 'CSE022SF', NULL, NULL, NULL, NULL),
+('18CSR196', '18ITO02', 'CSE022SF', NULL, NULL, NULL, NULL),
+('18CSR197', '18ITO02', 'CSE022SF', NULL, NULL, NULL, NULL),
+('18CSR198', '18ITO02', 'CSE022SF', NULL, NULL, NULL, NULL),
+('18CSR199', '18ITO02', 'CSE022SF', NULL, NULL, NULL, NULL),
+('18CSR200', '18ITO02', 'CSE022SF', NULL, NULL, NULL, NULL),
+('18CSR201', '18ITO02', 'CSE022SF', NULL, NULL, NULL, NULL),
+('18CSR203', '18ITO02', 'CSE022SF', NULL, NULL, NULL, NULL),
+('18CSR204', '18ITO02', 'CSE022SF', NULL, NULL, NULL, NULL),
+('18CSR205', '18ITO02', 'CSE022SF', NULL, NULL, NULL, NULL),
+('18CSR206', '18ITO02', 'CSE022SF', NULL, NULL, NULL, NULL),
+('18CSR207', '18ITO02', 'CSE022SF', NULL, NULL, NULL, NULL),
+('18CSR208', '18ITO02', 'CSE022SF', NULL, NULL, NULL, NULL),
+('18CSR209', '18ITO02', 'CSE022SF', NULL, NULL, NULL, NULL),
+('18CSR210', '18ITO02', 'CSE022SF', NULL, NULL, NULL, NULL),
+('18CSR211', '18ITO02', 'CSE022SF', NULL, NULL, NULL, NULL),
+('18CSR212', '18ITO02', 'CSE022SF', NULL, NULL, NULL, NULL),
+('18CSR213', '18ITO02', 'CSE022SF', NULL, NULL, NULL, NULL),
+('18CSR214', '18ITO02', 'CSE022SF', NULL, NULL, NULL, NULL),
+('18CSR215', '18ITO02', 'CSE022SF', NULL, NULL, NULL, NULL),
+('18CSR216', '18ITO02', 'CSE022SF', NULL, NULL, NULL, NULL),
+('18CSR217', '18ITO02', 'CSE022SF', NULL, NULL, NULL, NULL),
+('18CSR218', '18ITO02', 'CSE022SF', NULL, NULL, NULL, NULL),
+('18CSR219', '18ITO02', 'CSE022SF', NULL, NULL, NULL, NULL),
+('18CSR220', '18ITO02', 'CSE022SF', NULL, NULL, NULL, NULL),
+('18CSR221', '18ITO02', 'CSE022SF', NULL, NULL, NULL, NULL),
+('18CSR222', '18ITO02', 'CSE022SF', NULL, NULL, NULL, NULL),
+('18CSR223', '18ITO02', 'CSE022SF', NULL, NULL, NULL, NULL),
+('18CSR224', '18MEO01', 'CSE022SF', NULL, NULL, NULL, NULL),
+('18CSR225', '18ITO02', 'CSE022SF', NULL, NULL, NULL, NULL),
+('18CSR226', '18ITO02', 'CSE022SF', NULL, NULL, NULL, NULL),
+('18CSR227', '18ITO02', 'CSE022SF', NULL, NULL, NULL, NULL),
+('18CSR228', '18ITO02', 'CSE022SF', NULL, NULL, NULL, NULL),
+('18CSR229', '18ITO02', 'CSE022SF', NULL, NULL, NULL, NULL),
+('18CSR230', '18ITO02', 'CSE022SF', NULL, NULL, NULL, NULL),
+('18CSR231', '18ITO02', 'CSE022SF', NULL, NULL, NULL, NULL),
+('18CSR232', '18ITO02', 'CSE022SF', NULL, NULL, NULL, NULL),
+('18CSR233', '18ITO02', 'CSE022SF', NULL, NULL, NULL, NULL),
+('18CSR234', '18ITO02', 'CSE022SF', NULL, NULL, NULL, NULL),
+('18CSR235', '18ITO02', 'CSE022SF', NULL, NULL, NULL, NULL),
+('18CSR236', '18ITO02', 'CSE022SF', NULL, NULL, NULL, NULL),
+('18CSR237', '18ITO02', 'CSE022SF', NULL, NULL, NULL, NULL),
+('18CSR238', '18ITO02', 'CSE022SF', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -2584,7 +3565,16 @@ INSERT INTO `registration` (`regno`, `name`, `batch`, `sec`, `dept`) VALUES
 ('19CSR229', 'Yogapriya S', 2019, 'D', 'CSE'),
 ('19CSR230', 'Yogeshwaran R', 2019, 'D', 'CSE'),
 ('19CSR231', 'Amritpreet Singh', 2019, 'D', 'CSE'),
-('19CSR232', 'Inder Pal Singh', 2019, 'D', 'CSE');
+('19CSR232', 'Inder Pal Singh', 2019, 'D', 'CSE'),
+('19MSR001', 'Deepthika K', 2019, 'A', 'MCSE'),
+('19MSR002', 'Devi K V', 2019, 'A', 'MCSE'),
+('19MSR003', 'Keerthika S', 2019, 'A', 'MCSE'),
+('19MSR004', 'LogaParameswari V R', 2019, 'A', 'MCSE'),
+('19MSR005', 'Pavithra K', 2019, 'A', 'MCSE'),
+('19MSR006', 'Saranya T', 2019, 'A', 'MCSE'),
+('19MSR007', 'Sowmya R', 2019, 'A', 'MCSE'),
+('19MSR008', 'Sudharsana P P', 2019, 'A', 'MCSE'),
+('19MSR009', 'Vanaja T', 2019, 'A', 'MCSE');
 
 -- --------------------------------------------------------
 
@@ -2680,69 +3670,74 @@ CREATE TABLE `tt` (
 --
 
 INSERT INTO `tt` (`class`, `day`, `1`, `2`, `3`, `4`, `5`, `6`) VALUES
-('17-cse-a', 'Friday', NULL, NULL, '14ITO01 14ITO04 14EEO04', '14CST71', '14GET71', '14CSE06 14CSE11'),
+('17-cse-a', 'Friday', NULL, NULL, '14ITO01 14ITO04 14EEO04', '14CST71', '14CSE06 14CSE11', '14GET71'),
 ('17-cse-a', 'Monday', NULL, NULL, '14CST72', '14CSO07 14ITO06 14MEO07 14ECO07', '14CSE06 14CSE11', '14GET71'),
 ('17-cse-a', 'Thursday', NULL, NULL, '14CST71', '14ITO01 14ITO04 14EEO04', '14CST72', '14CSO07 14ITO06 14MEO07 14ECO07'),
 ('17-cse-a', 'Tuesday', NULL, NULL, '14CSO07 14ITO06 14MEO07 14ECO07', '14CSE06 14CSE11', '14ITO01 14ITO04 14EEO04', '14CST71'),
 ('17-cse-a', 'Wednesday', NULL, NULL, '14CST72', '14GET71', '14CSL71 14CSL72', '14CSL71 14CSL72'),
-('17-cse-b', 'Friday', NULL, NULL, '14ITO01 14ITO04 14EEO04', '14CST71', '14GET71', '14CSE06 14CSE11'),
+('17-cse-b', 'Friday', NULL, NULL, '14ITO01 14ITO04 14EEO04', '14CST71', '14CSE06 14CSE11', '14GET71'),
 ('17-cse-b', 'Monday', NULL, NULL, '14CST72', '14CSO07 14ITO06 14MEO07 14ECO07', '14CSE06 14CSE11', '14GET71'),
 ('17-cse-b', 'Thursday', NULL, NULL, '14CST71', '14ITO01 14ITO04 14EEO04', '14CST72', '14CSO07 14ITO06 14MEO07 14ECO07'),
 ('17-cse-b', 'Tuesday', NULL, NULL, '14CSO07 14ITO06 14MEO07 14ECO07', '14CSE06 14CSE11', '14ITO01 14ITO04 14EEO04', '14CST71'),
 ('17-cse-b', 'Wednesday', NULL, NULL, '14CST72', '14GET71', '14CSL71 14CSL72', '14CSL71 14CSL72'),
-('17-cse-c', 'Friday', NULL, NULL, '14ITO01 14ITO04 14EEO04', '14CST71', '14GET71', '14CSE06 14CSE11'),
+('17-cse-c', 'Friday', NULL, NULL, '14ITO01 14ITO04 14EEO04', '14CST71', '14CSE06 14CSE11', '14GET71'),
 ('17-cse-c', 'Monday', NULL, NULL, '14CST72', '14CSO07 14ITO06 14MEO07 14ECO07', '14CSE06 14CSE11', '14GET71'),
 ('17-cse-c', 'Thursday', NULL, NULL, '14CST71', '14ITO01 14ITO04 14EEO04', '14CST72', '14CSO07 14ITO06 14MEO07 14ECO07'),
 ('17-cse-c', 'Tuesday', NULL, NULL, '14CSO07 14ITO06 14MEO07 14ECO07', '14CSE06 14CSE11', '14ITO01 14ITO04 14EEO04', '14CST71'),
 ('17-cse-c', 'Wednesday', NULL, NULL, '14CST72', '14GET71', '14CSL71 14CSL72', '14CSL71 14CSL72'),
-('17-cse-d', 'Friday', NULL, NULL, '14ITO01 14ITO04 14EEO04', '14CST71', '14GET71', '14CSE06 14CSE11'),
+('17-cse-d', 'Friday', NULL, NULL, '14ITO01 14ITO04 14EEO04', '14CST71', '14CSE06 14CSE11', '14GET71'),
 ('17-cse-d', 'Monday', NULL, NULL, '14CST72', '14CSO07 14ITO06 14MEO07 14ECO07', '14CSE06 14CSE11', '14GET71'),
 ('17-cse-d', 'Thursday', NULL, NULL, '14CST71', '14ITO01 14ITO04 14EEO04', '14CST72', '14CSO07 14ITO06 14MEO07 14ECO07'),
 ('17-cse-d', 'Tuesday', NULL, NULL, '14CSO07 14ITO06 14MEO07 14ECO07', '14CSE06 14CSE11', '14ITO01 14ITO04 14EEO04', '14CST71'),
 ('17-cse-d', 'Wednesday', NULL, NULL, '14CST72', '14GET71', '14CSL71 14CSL72', '14CSL71 14CSL72'),
-('18-cse-a', 'Friday', '18ITL51', '18ITL51', '18ITT52', '18ITO02', '18CST51', NULL),
-('18-cse-a', 'Monday', '18ITT52', '18ITO02', '18CST51', '18CST53', '18ITT51', NULL),
-('18-cse-a', 'Thursday', '18CST52', '18ITL52', '18ITL52', '18CST53', '18ITT51', NULL),
-('18-cse-a', 'Tuesday', '18CST51', '18ITT52', '18ITT51', '18CST53', '18CST52', NULL),
-('18-cse-a', 'Wednesday', 'PST', 'PST', '18ITO02', '18CST52', '18CST51', NULL),
-('18-cse-b', 'Friday', '18ITL51', '18ITL51', '18ITT52', '18ITO02', '18CST51', NULL),
-('18-cse-b', 'Monday', '18ITT52', '18ITO02', '18CST51', '18CST53', '18ITT51', NULL),
-('18-cse-b', 'Thursday', '18CST52', '18ITL52', '18ITL52', '18CST53', '18ITT51', NULL),
-('18-cse-b', 'Tuesday', '18CST51', '18ITT52', '18ITT51', '18CST53', '18CST52', NULL),
-('18-cse-b', 'Wednesday', 'PST', 'PST', '18ITO02', '18CST52', '18CST51', NULL),
-('18-cse-c', 'Friday', '18ITL51', '18ITL51', '18ITL52', '18ITO02', '18CST51', NULL),
-('18-cse-c', 'Monday', '18ITT52', '18ITO02', '18CST51', '18CST53', '18ITT51', NULL),
-('18-cse-c', 'Thursday', '18CST52', '18ITL52', '18ITL52', '18CST53', '18ITT51', NULL),
-('18-cse-c', 'Tuesday', '18CST51', '18ITT52', '18ITT51', '18CST53', '18CST52', NULL),
-('18-cse-c', 'Wednesday', 'PST', 'PST', '18ITO02', '18CST52', '18CST51', NULL),
-('18-cse-d', 'Friday', '18ITL51', '18ITL51', '18ITT52', '18ITO02', '18CST51', NULL),
-('18-cse-d', 'Monday', '18ITT52', '18ITO02', '18CST51', '18CST53', '18ITT51', NULL),
-('18-cse-d', 'Thursday', '18CST52', '18ITL52', '18ITL52', '18CST53', '18ITT51', NULL),
-('18-cse-d', 'Tuesday', '18CST51', '18ITT52', '18ITT51', '18CST53', '18CST52', NULL),
-('18-cse-d', 'Wednesday', 'PST', 'PST', '18ITO02', '18CST52', '18CST51', NULL),
+('18-cse-a', 'Friday', '18CSL51', '18CSL51', '18CST52', '18ITO02', '18CST53', NULL),
+('18-cse-a', 'Monday', '18CST52', '18ITO02', '18CST53', '18CST54', '18CST51', NULL),
+('18-cse-a', 'Thursday', '18CSC51', '18CSL52', '18CSL52', '18CST54', '18CST51', NULL),
+('18-cse-a', 'Tuesday', '18CST53', '18CST52', '18CST51', '18CST54', '18CSC51', NULL),
+('18-cse-a', 'Wednesday', 'PST', 'PST', '18ITO02', '18CSC51', '18CST53', NULL),
+('18-cse-b', 'Friday', '18CSL51', '18CSL51', '18CST52', '18ITO02', '18CST53', NULL),
+('18-cse-b', 'Monday', '18CST52', '18ITO02', '18CST53', '18CST54', '18CST51', NULL),
+('18-cse-b', 'Thursday', '18CSC51', '18CSL52', '18CSL52', '18CST54', '18CST51', NULL),
+('18-cse-b', 'Tuesday', '18CST53', '18CST52', '18CST51', '18CST54', '18CSC51', NULL),
+('18-cse-b', 'Wednesday', 'PST', 'PST', '18ITO02', '18CSC51', '18CST53', NULL),
+('18-cse-c', 'Friday', '18CSL51', '18CSL51', '18CST52', '18ITO02', '18CST53', NULL),
+('18-cse-c', 'Monday', '18CST52', '18ITO02', '18CST53', '18CST54', '18CST51', NULL),
+('18-cse-c', 'Thursday', '18CSC51', '18CSL52', '18CSL52', '18CST54', '18CST51', NULL),
+('18-cse-c', 'Tuesday', '18CST53', '18CST52', '18CST51', '18CST54', '18CSC51', NULL),
+('18-cse-c', 'Wednesday', 'PST', 'PST', '18ITO02', '18CSC51', '18CST53', NULL),
+('18-cse-d', 'Friday', '18CSL51', '18CSL51', '18CST52', '18ITO02', '18CST53', NULL),
+('18-cse-d', 'Monday', '18CST52', '18ITO02', '18CST53', '18CST54', '18CST51', NULL),
+('18-cse-d', 'Thursday', '18CSC51', '18CSL52', '18CSL52', '18CST54', '18CST51', NULL),
+('18-cse-d', 'Tuesday', '18CST53', '18CST52', '18CST51', '18CST54', '18CSC51', NULL),
+('18-cse-d', 'Wednesday', 'PST', 'PST', '18ITO02', '18CSC51', '18CST53', NULL),
 ('18-eee-a', 'Friday', NULL, NULL, NULL, '18ITO01', NULL, NULL),
 ('18-eee-a', 'Monday', NULL, '18ITO01', NULL, NULL, NULL, NULL),
 ('18-eee-a', 'Wednesday', NULL, NULL, '18ITO01', NULL, NULL, NULL),
 ('19-cse-a', 'Friday', '18MAT31', '18ITC31', '18CSL31', '18CSL31', '18CST32', NULL),
 ('19-cse-a', 'Monday', '18ITC31', '18CST31', '18MAT31', '18CST32', '18CST33', NULL),
-('19-cse-a', 'Thursday', '18CST33', '18CST31', '18CST32', '18CST31', '18CST33', NULL),
+('19-cse-a', 'Thursday', '18ITC31', '18CST33', '18CST32', '18CST31', '18CST33', NULL),
 ('19-cse-a', 'Tuesday', '18CST32', '18MAT31', '18CST33', '18CST31', '18ITC31', NULL),
-('19-cse-a', 'Wednesday', '18MAT31', '18CSL33', '18CSL33', '18CSL33', '18ITC31', NULL),
+('19-cse-a', 'Wednesday', '18MAT31', '18CST31', '18CSL33', '18CSL33', '18ITC31', NULL),
 ('19-cse-b', 'Friday', '18MAT31', '18ITC31', '18CSL31', '18CSL31', '18CST32', NULL),
 ('19-cse-b', 'Monday', '18ITC31', '18CST31', '18MAT31', '18CST32', '18CST33', NULL),
-('19-cse-b', 'Thursday', '18CST33', '18CST31', '18CST32', '18CST31', '18CST33', NULL),
+('19-cse-b', 'Thursday', '18ITC31', '18CST33', '18CST32', '18CST31', '18CST33', NULL),
 ('19-cse-b', 'Tuesday', '18CST32', '18MAT31', '18CST33', '18CST31', '18ITC31', NULL),
-('19-cse-b', 'Wednesday', '18MAT31', '18CSL33', '18CSL33', '18CSL33', '18ITC31', NULL),
+('19-cse-b', 'Wednesday', '18MAT31', '18CST31', '18CSL33', '18CSL33', '18ITC31', NULL),
 ('19-cse-c', 'Friday', '18MAT31', '18ITC31', '18CSL31', '18CSL31', '18CST32', NULL),
 ('19-cse-c', 'Monday', '18ITC31', '18CST31', '18MAT31', '18CST32', '18CST33', NULL),
-('19-cse-c', 'Thursday', '18CST33', '18CST31', '18CST32', '18CST31', '18CST33', NULL),
+('19-cse-c', 'Thursday', '18ITC31', '18CST33', '18CST32', '18CST31', '18CST33', NULL),
 ('19-cse-c', 'Tuesday', '18CST32', '18MAT31', '18CST33', '18CST31', '18ITC31', NULL),
-('19-cse-c', 'Wednesday', '18MAT31', '18CSL33', '18CSL33', '18CSL33', '18ITC31', NULL),
+('19-cse-c', 'Wednesday', '18MAT31', '18CST31', '18CSL33', '18CSL33', '18ITC31', NULL),
 ('19-cse-d', 'Friday', '18MAT31', '18ITC31', '18CSL31', '18CSL31', '18CST32', NULL),
 ('19-cse-d', 'Monday', '18ITC31', '18CST31', '18MAT31', '18CST32', '18CST33', NULL),
-('19-cse-d', 'Thursday', '18CST33', '18CST31', '18CST32', '18CST31', '18CST33', NULL),
+('19-cse-d', 'Thursday', '18ITC31', '18CST33', '18CST32', '18CST31', '18CST33', NULL),
 ('19-cse-d', 'Tuesday', '18CST32', '18MAT31', '18CST33', '18CST31', '18ITC31', NULL),
-('19-cse-d', 'Wednesday', '18MAT31', '18CSL33', '18CSL33', '18CSL33', '18ITC31', NULL);
+('19-cse-d', 'Wednesday', '18MAT31', '18CST31', '18CSL33', '18CSL33', '18ITC31', NULL),
+('19-mcse-a', 'Friday', '18MIT11', '18VLE12', '18MSE12', NULL, NULL, NULL),
+('19-mcse-a', 'Monday', '18MSE12', '18MIT11', NULL, '18VLE12', NULL, NULL),
+('19-mcse-a', 'Thursday', '18VLE12', '18MSE12', NULL, NULL, '18MIT11', NULL),
+('19-mcse-a', 'Tuesday', '18VLE12', '18MSE12', '18MIT11', NULL, '18PRO12', NULL),
+('19-mcse-a', 'Wednesday', '18MSE13', '18MSE13', '18MSE13', NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -2752,49 +3747,57 @@ INSERT INTO `tt` (`class`, `day`, `1`, `2`, `3`, `4`, `5`, `6`) VALUES
 -- Indexes for table `14CSE06`
 --
 ALTER TABLE `14CSE06`
-  ADD PRIMARY KEY (`date`,`code`,`period`);
+  ADD PRIMARY KEY (`date`,`code`,`period`),
+  ADD KEY `staff12` (`code`);
 
 --
 -- Indexes for table `14CSE11`
 --
 ALTER TABLE `14CSE11`
-  ADD PRIMARY KEY (`date`,`code`,`period`);
+  ADD PRIMARY KEY (`date`,`code`,`period`),
+  ADD KEY `staff13` (`code`);
 
 --
 -- Indexes for table `14CSO07`
 --
 ALTER TABLE `14CSO07`
-  ADD PRIMARY KEY (`date`,`code`,`period`);
+  ADD PRIMARY KEY (`date`,`code`,`period`),
+  ADD KEY `staff57` (`code`);
 
 --
 -- Indexes for table `14ITO01`
 --
 ALTER TABLE `14ITO01`
-  ADD PRIMARY KEY (`date`,`code`,`period`);
+  ADD PRIMARY KEY (`date`,`code`,`period`),
+  ADD KEY `staff14` (`code`);
 
 --
 -- Indexes for table `17-cse-a`
 --
 ALTER TABLE `17-cse-a`
-  ADD PRIMARY KEY (`date`,`code`);
+  ADD PRIMARY KEY (`date`,`code`,`period`),
+  ADD KEY `17cseacode` (`code`);
 
 --
 -- Indexes for table `17-cse-b`
 --
 ALTER TABLE `17-cse-b`
-  ADD PRIMARY KEY (`date`,`code`);
+  ADD PRIMARY KEY (`date`,`code`,`period`),
+  ADD KEY `dkan` (`code`);
 
 --
 -- Indexes for table `17-cse-c`
 --
 ALTER TABLE `17-cse-c`
-  ADD PRIMARY KEY (`date`,`code`);
+  ADD PRIMARY KEY (`date`,`code`,`period`),
+  ADD KEY `code4567` (`code`);
 
 --
 -- Indexes for table `17-cse-d`
 --
 ALTER TABLE `17-cse-d`
-  ADD PRIMARY KEY (`date`,`code`);
+  ADD PRIMARY KEY (`date`,`code`,`period`),
+  ADD KEY `code3421` (`code`);
 
 --
 -- Indexes for table `18-cse-a`
@@ -2828,7 +3831,14 @@ ALTER TABLE `18-cse-d`
 -- Indexes for table `18-eee-a`
 --
 ALTER TABLE `18-eee-a`
-  ADD PRIMARY KEY (`date`,`code`);
+  ADD PRIMARY KEY (`date`,`code`,`period`);
+
+--
+-- Indexes for table `18ITO02`
+--
+ALTER TABLE `18ITO02`
+  ADD PRIMARY KEY (`date`,`code`,`period`),
+  ADD KEY `st32` (`code`);
 
 --
 -- Indexes for table `19-cse-a`
@@ -2857,6 +3867,22 @@ ALTER TABLE `19-cse-c`
 ALTER TABLE `19-cse-d`
   ADD PRIMARY KEY (`date`,`code`,`period`),
   ADD KEY `code` (`code`);
+
+--
+-- Indexes for table `19-mcse-a`
+--
+ALTER TABLE `19-mcse-a`
+  ADD PRIMARY KEY (`date`,`code`,`period`),
+  ADD KEY `Cnd` (`code`);
+
+--
+-- Indexes for table `alteration`
+--
+ALTER TABLE `alteration`
+  ADD PRIMARY KEY (`s1`,`date`,`period`),
+  ADD KEY `c1` (`c1`),
+  ADD KEY `c2` (`c2`),
+  ADD KEY `alts2` (`s2`);
 
 --
 -- Indexes for table `course_list`
@@ -2911,52 +3937,121 @@ ALTER TABLE `tt`
 --
 
 --
+-- Constraints for table `14CSE06`
+--
+ALTER TABLE `14CSE06`
+  ADD CONSTRAINT `staff12` FOREIGN KEY (`code`) REFERENCES `staff` (`staffid`) ON DELETE NO ACTION ON UPDATE CASCADE;
+
+--
+-- Constraints for table `14CSE11`
+--
+ALTER TABLE `14CSE11`
+  ADD CONSTRAINT `staff13` FOREIGN KEY (`code`) REFERENCES `staff` (`staffid`) ON DELETE NO ACTION ON UPDATE CASCADE;
+
+--
+-- Constraints for table `14CSO07`
+--
+ALTER TABLE `14CSO07`
+  ADD CONSTRAINT `staff57` FOREIGN KEY (`code`) REFERENCES `staff` (`staffid`) ON DELETE NO ACTION ON UPDATE CASCADE;
+
+--
+-- Constraints for table `14ITO01`
+--
+ALTER TABLE `14ITO01`
+  ADD CONSTRAINT `staff14` FOREIGN KEY (`code`) REFERENCES `staff` (`staffid`) ON DELETE NO ACTION ON UPDATE CASCADE;
+
+--
+-- Constraints for table `17-cse-a`
+--
+ALTER TABLE `17-cse-a`
+  ADD CONSTRAINT `17cseacode` FOREIGN KEY (`code`) REFERENCES `course_list` (`code`) ON DELETE NO ACTION ON UPDATE CASCADE;
+
+--
+-- Constraints for table `17-cse-b`
+--
+ALTER TABLE `17-cse-b`
+  ADD CONSTRAINT `dkan` FOREIGN KEY (`code`) REFERENCES `course_list` (`code`) ON DELETE NO ACTION ON UPDATE CASCADE;
+
+--
+-- Constraints for table `17-cse-c`
+--
+ALTER TABLE `17-cse-c`
+  ADD CONSTRAINT `code4567` FOREIGN KEY (`code`) REFERENCES `course_list` (`code`) ON DELETE NO ACTION ON UPDATE CASCADE;
+
+--
+-- Constraints for table `17-cse-d`
+--
+ALTER TABLE `17-cse-d`
+  ADD CONSTRAINT `code3421` FOREIGN KEY (`code`) REFERENCES `course_list` (`code`) ON DELETE NO ACTION ON UPDATE CASCADE;
+
+--
 -- Constraints for table `18-cse-a`
 --
 ALTER TABLE `18-cse-a`
-  ADD CONSTRAINT `18-cse-a_ibfk_1` FOREIGN KEY (`code`) REFERENCES `course_list` (`code`);
+  ADD CONSTRAINT `18-cse-a_ibfk_1` FOREIGN KEY (`code`) REFERENCES `course_list` (`code`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
 -- Constraints for table `18-cse-b`
 --
 ALTER TABLE `18-cse-b`
-  ADD CONSTRAINT `18-cse-b_ibfk_1` FOREIGN KEY (`code`) REFERENCES `course_list` (`code`);
+  ADD CONSTRAINT `18-cse-b_ibfk_1` FOREIGN KEY (`code`) REFERENCES `course_list` (`code`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
 -- Constraints for table `18-cse-c`
 --
 ALTER TABLE `18-cse-c`
-  ADD CONSTRAINT `18-cse-c_ibfk_1` FOREIGN KEY (`code`) REFERENCES `course_list` (`code`);
+  ADD CONSTRAINT `18-cse-c_ibfk_1` FOREIGN KEY (`code`) REFERENCES `course_list` (`code`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
 -- Constraints for table `18-cse-d`
 --
 ALTER TABLE `18-cse-d`
-  ADD CONSTRAINT `18-cse-d_ibfk_1` FOREIGN KEY (`code`) REFERENCES `course_list` (`code`);
+  ADD CONSTRAINT `18-cse-d_ibfk_1` FOREIGN KEY (`code`) REFERENCES `course_list` (`code`) ON DELETE NO ACTION ON UPDATE CASCADE;
+
+--
+-- Constraints for table `18ITO02`
+--
+ALTER TABLE `18ITO02`
+  ADD CONSTRAINT `st32` FOREIGN KEY (`code`) REFERENCES `staff` (`staffid`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
 -- Constraints for table `19-cse-a`
 --
 ALTER TABLE `19-cse-a`
-  ADD CONSTRAINT `19-cse-a_ibfk_1` FOREIGN KEY (`code`) REFERENCES `course_list` (`code`);
+  ADD CONSTRAINT `19-cse-a_ibfk_1` FOREIGN KEY (`code`) REFERENCES `course_list` (`code`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
 -- Constraints for table `19-cse-b`
 --
 ALTER TABLE `19-cse-b`
-  ADD CONSTRAINT `19-cse-b_ibfk_1` FOREIGN KEY (`code`) REFERENCES `course_list` (`code`);
+  ADD CONSTRAINT `19-cse-b_ibfk_1` FOREIGN KEY (`code`) REFERENCES `course_list` (`code`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
 -- Constraints for table `19-cse-c`
 --
 ALTER TABLE `19-cse-c`
-  ADD CONSTRAINT `19-cse-c_ibfk_1` FOREIGN KEY (`code`) REFERENCES `course_list` (`code`);
+  ADD CONSTRAINT `19-cse-c_ibfk_1` FOREIGN KEY (`code`) REFERENCES `course_list` (`code`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
 -- Constraints for table `19-cse-d`
 --
 ALTER TABLE `19-cse-d`
-  ADD CONSTRAINT `19-cse-d_ibfk_1` FOREIGN KEY (`code`) REFERENCES `course_list` (`code`);
+  ADD CONSTRAINT `19-cse-d_ibfk_1` FOREIGN KEY (`code`) REFERENCES `course_list` (`code`) ON DELETE NO ACTION ON UPDATE CASCADE;
+
+--
+-- Constraints for table `19-mcse-a`
+--
+ALTER TABLE `19-mcse-a`
+  ADD CONSTRAINT `Cnd` FOREIGN KEY (`code`) REFERENCES `course_list` (`code`) ON DELETE NO ACTION ON UPDATE CASCADE;
+
+--
+-- Constraints for table `alteration`
+--
+ALTER TABLE `alteration`
+  ADD CONSTRAINT `alts1` FOREIGN KEY (`s1`) REFERENCES `staff` (`staffid`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `alts2` FOREIGN KEY (`s2`) REFERENCES `staff` (`staffid`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `c1` FOREIGN KEY (`c1`) REFERENCES `course_list` (`code`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `c2` FOREIGN KEY (`c2`) REFERENCES `course_list` (`code`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
 -- Constraints for table `course_list`
