@@ -73,6 +73,7 @@
 
 <body>
     <?php include_once('./db.php'); ?>
+  
     <div class="preloader">
         <div class="ui active dimmer" style="position: fixed;">
             <div class="ui massive active green elastic loader"></div>
@@ -82,7 +83,8 @@
         <div class="ui borderless fluid huge inverted menu">
             <a class="active green item" href="#root">KEC Student+</a>
             <a class="item" id="home" href="home.php">Home</a>
-            <a class="item" id="alter" href="alter.php">Alter </a>
+            <a class="item" id="alter" href="alter.php">Alter Period</a>
+            <a class="item" id="ann">Announcement </a>
             <a class="right item"
                 style="margin-right:1%;font-weight:bold;color:cyan"><em><?php echo $_SESSION["name"]?><em></a>
             <a class="right item" id="logout" href="./Logout.php"><i class="share square outline icon"></i>Logout</a>
@@ -100,7 +102,8 @@
             </div>
             <div class="ui vertical borderless fluid inverted menu">
                 <a class="item" id="index" href="home.php">Home</a>
-                <a class="item" id="alter" href="alter.php">Alter</a>
+                <a class="item" id="alter" href="alter.php">Alter Period</a>
+                <a class="item" id="ann">Announcement </a>
                 <a class="right item"
                     style="margin-right:1%;font-weight:bold;color:cyan"><em><?php echo $_SESSION["name"]?><em></a>
                 <a class="right item" id="logout" href="./Logout.php"><i
@@ -110,7 +113,7 @@
     </div>
 
 
-
+    <?php include_once('announcement.php');?>
 
     <script>
     $(document).ready(function() {
