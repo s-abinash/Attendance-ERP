@@ -204,7 +204,7 @@
                             <div class="ui calendar" id="cal">
                                 <div class="ui  focus input  left icon">
                                     <i class="calendar icon"></i>
-                                    <input type="text" name="dates" placeholder="Date/Time" id="dat" required>
+                                    <input type="text" name="dates" placeholder="Date/Time" id="dat" required readonly>
                                 </div>
                             </div>
                         </div>
