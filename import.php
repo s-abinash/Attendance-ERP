@@ -305,7 +305,7 @@ if(isset($_POST['finalize']))
                     Attendance Entry
                 </h1>
             </center>
-            <form class="ui form" name="upload" action="<?php echo $_SERVER['PHP_SELF'];?>" method="post"
+            <form autocomplete="off" class="ui form" name="upload" action="<?php echo $_SERVER['PHP_SELF'];?>" method="post"
                 enctype="multipart/form-data">
                 <div class="field">
                     <label>Course</label>
@@ -374,7 +374,7 @@ if(isset($_POST['finalize']))
                     Color Difference refers changes that are done now
                 </div>
             </center>
-            <form class="ui form" name="edit" action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
+            <form  autocomplete="off" class="ui form" name="edit" action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
                 <div class="content">
                     <table class="ui compact table">
                         <thead>

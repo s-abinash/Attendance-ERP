@@ -194,7 +194,7 @@
         <div class="content">
 
 
-            <form class="ui form" id="frm2" method="POST" action="./import.php">
+            <form autocomplete="off" class="ui form" id="frm2" method="POST" action="./import.php">
                 <br></br>
                 <center>
                     <div class="two fields">

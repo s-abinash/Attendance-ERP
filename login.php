@@ -115,7 +115,7 @@ include_once('./assets/notiflix.php');
     <?php include_once('./assets/notiflix.php'); ?>
     <div class="box">
         <h2 class="animate__animated animate__bounce "> Staff Login</h2>
-        <form id="login" action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
+        <form id="login" autocomplete="off" action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
             <div class="inputBox">
                 <input type="text" name="userid" id="userid" required>
                 <label>User Id</label>
@@ -129,9 +129,10 @@ include_once('./assets/notiflix.php');
                         class="envelope outline icon"></i></a>
             </div>
             <div style="float:right;color:pink;">
-                <a href="http://t.me/kecattd" target="_blank">Telegram Help <i class="hands helping icon"></i></a>
+                <a href="http://t.me/kecattd" target="_blank">Telegram Help <i class="hands helping icon"></i>
+                <br>(Recommended)</a>
             </div>
-            <br /><br />
+            <br /><br /><br/>
             <center>
                 <button type="submit" id="sub" name="usr" val="verified" class="ui large positive button">Sign
                     in</button>
