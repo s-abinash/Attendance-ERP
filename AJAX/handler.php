@@ -197,7 +197,7 @@
                     $na=0;
               }
               $cnt-=$na;
-              echo '<div class="ui raised  segment" style="width:70%;margin:auto;margin-top:3%;">
+              echo '<div class="ui raised  segment" style="width:80%;margin:auto;margin-top:3%;">
                      
                <div class="ui black info right circular icon message">
              
@@ -239,8 +239,29 @@
                                              Edit
                                         </div>
                                    </div>
+                                   <div class="statistic">
+                                        <div class="value">
+                                              <button class="ui right floated tertiary icon button" id="'.$d.$h.'modal" data-tooltip="Click to Enter Meeting URL" data-position="top left"><i class="linkify icon" style="color:red"></i></button>
+                                        </div>
+                                        <div class="label">
+                                             URL
+                                        </div>
+                                   </div>
+                                   
                          </div></div>
                     </div></div><div class="ui popup" id="pop'.$d.$h.'" style="width:100%">'.$abs.'</div>
+                    
+                    <div class="ui modal" id="modal'.$d.$h.'1'.'">
+                    <div class="header">Header</div>
+                    <div class="content">
+                    <div class="ui form">
+                         <div class="field">
+                              <input type="text" name="url" />
+                              <label>Meeting URL: </label>
+                         </div>
+                    </div>
+                    </div>
+                    </div>
                     <script>
                     $(document).ready(function(){
                          $("#'.$d.$h.'")
@@ -248,6 +269,10 @@
                          popup: "#pop'.$d.$h.'",
                          inline     : true,
                          hoverable  : true,
+                         });
+                         $("#'.$d.$h.'modal").on("click",function(){
+                         $("#modal'.$d.$h.'1'.'")
+                         .modal("show");
                          });
                     });
                     </script>'; 
