@@ -57,6 +57,15 @@
         right: auto;
 
     }
+    .notify {
+    animation: blinker 1s linear infinite;
+    }
+
+    @keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+    }
     </style>
     <link rel="icon" type="image/png" href="./images/KEC.png">
     <link rel="stylesheet" href="./assets/Fomantic/dist/semantic.min.css" type="text/css" />
@@ -84,7 +93,7 @@
             <a class="active green item" href="#root">KEC Student+</a>
             <a class="item" id="home" href="home.php">Home</a>
             <a class="item" id="alter" href="alter.php">Alter Period</a>
-            <a class="item" id="ann">Announcement </a>
+            <a class="item" id="ann">Announcement  <em data-emoji=":bell:" class="notify"></em></a>
             <a class="right item"
                 style="margin-right:1%;font-weight:bold;color:cyan"><em><?php echo $_SESSION["name"]?><em></a>
             <a class="right item" id="logout" href="./Logout.php"><i class="share square outline icon"></i>Logout</a>

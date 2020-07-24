@@ -14,10 +14,36 @@ include_once('./assets/notiflix.php');
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
-    <title>Login</title>
+    <!-- PWA Part -->
+    <link rel="manifest" href="./manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="KEC">
+    <meta name="apple-mobile-web-app-title" content="KEC">
+    <meta name="theme-color" content="#21f330">
+    <meta name="msapplication-navbutton-color" content="#21f330">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="msapplication-starturl" content="/login.php">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="icon" type="image/png" sizes="192*149" href="./images/KEC.png">
+    <link rel="apple-touch-icon" type="image/png" sizes="192*149" href="./images/KEC.png">
+   
+    <script type="module">
+
+            import 'https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate@0.2.0/dist/pwa-update.min.js';
+
+            const el = document.createElement('pwa-update');
+            document.body.appendChild(el);
+    </script>
+
+
+    <!--  -->
+    <title>KEC Student+</title>
     <link rel="icon" type="image/png" href="./images/KEC.png">
     <link rel="stylesheet" href="./assets/Fomantic/dist/semantic.min.css" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
+    
     <script> 
         if (navigator.onLine==false)  
             window.location.href="./errorfile/nointernet.html";
@@ -115,13 +141,13 @@ include_once('./assets/notiflix.php');
     <?php include_once('./assets/notiflix.php'); ?>
     <div class="box">
         <h2 class="animate__animated animate__bounce "> Staff Login</h2>
-        <form id="login" autocomplete="off" action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
+        <form id="login" autocomplete="off"  action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
             <div class="inputBox">
                 <input type="text" name="userid" id="userid" required>
                 <label>User Id</label>
             </div>
             <div class="inputBox">
-                <input type="password" name="pass" required>
+                <input type="password" name="pass" minlength="4" maxlength="4" id="pass" required>
                 <label>Password</label>
             </div>
             <div style="float:left;color:pink;">
@@ -134,7 +160,7 @@ include_once('./assets/notiflix.php');
             </div>
             <br /><br /><br/>
             <center>
-                <button type="submit" id="sub" name="usr" val="verified" class="ui large positive button">Sign
+                <button type="submit" id="sub" name="usr" val="verified" class="ui large positive disabled button">Sign
                     in</button>
             </center>
         </form>
@@ -160,7 +186,19 @@ include_once('./assets/notiflix.php');
         $("#ajay").on("click", function() {
             window.open("mailto:ajayofficial@zohomail.in?subject=Attendance Reg.,", "_blank");
         });
+        $("#pass,#userid").on("keyup",function(){
+            if(($("#userid").val()!='')&&(($("#pass").val().length)===4))
+            {
+                $("#sub").removeClass("disabled");
+            }
+            if(($("#userid").val()=='')||(($("#pass").val().length)!==4))
+            {
+                $("#sub").addClass("disabled");
+            }
+        });
+        
     });
+
     </script>
 
 </body>

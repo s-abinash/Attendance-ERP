@@ -1,0 +1,17 @@
+{
+  "name": "KEC Student+",
+  "short_name": "KEC",
+  "theme_color": "#21f330",
+  "background_color": "#28292a",
+  "display": "standalone",
+  "Scope": "/",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "./images/KEC.png",
+      "sizes": "192x160",
+      "purpose": "any",
+      "type": "image/png"
+    }
+  ]
+}
