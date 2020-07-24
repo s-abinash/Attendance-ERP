@@ -9,7 +9,7 @@
   "icons": [
     {
       "src": "./images/KEC.png",
-      "sizes": "192x160",
+      "sizes": "144x144",
       "purpose": "any",
       "type": "image/png"
     }
