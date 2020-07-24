@@ -1,7 +1,7 @@
 {
   "name": "KEC Student+",
   "short_name": "KEC",
-  "theme_color": "#21f330",
+  "theme_color": "#010203",
   "background_color": "#28292a",
   "display": "standalone",
   "Scope": "/",
