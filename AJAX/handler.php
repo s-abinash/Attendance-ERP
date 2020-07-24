@@ -263,14 +263,14 @@
                                              Edit
                                         </div>
                                    </div>
-                                   <div class="statistic">
+                                   <!--<div class="statistic">
                                         <div class="value">
                                               <button class="ui right floated tertiary icon button" id="'.$d.$h.'modal" data-tooltip="Click to Enter Meeting URL" data-position="top left"><i class="linkify icon" style="color:red"></i></button>
                                         </div>
                                         <div class="label">
                                              URL
                                         </div>
-                                   </div>
+                                   </div>-->
                                    
                          </div></div>
                     </div></div><div class="ui popup" id="pop'.$d.$h.'" style="width:100%">'.$abs.'</div>
