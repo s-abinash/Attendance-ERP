@@ -218,7 +218,7 @@
               }
               $cnt-=$na;
 
-              $stf=($con->query("SELECT * FROM STAFF WHERE `staffid` like '$sid'"))->fetch_assoc();
+              $stf=($con->query("SELECT * FROM `staff` WHERE `staffid` like '$sid'"))->fetch_assoc();
 
 
               echo '<div class="ui raised  segment" style="width:80%;margin:auto;margin-top:3%;">
