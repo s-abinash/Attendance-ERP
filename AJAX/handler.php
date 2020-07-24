@@ -251,13 +251,24 @@
                          </div></div>
                     </div></div><div class="ui popup" id="pop'.$d.$h.'" style="width:100%">'.$abs.'</div>
                     
-                    <div class="ui modal" id="modal'.$d.$h.'1'.'">
+                    <div class="ui modal" id="modal'.$d.$h.'">
                     <div class="header">Header</div>
                     <div class="content">
                     <div class="ui form">
                          <div class="field">
-                              <input type="text" name="url" />
-                              <label>Meeting URL: </label>
+                         <label>Meeting URL: </label>
+                         <input type="text" name="url"  />
+                         <input type="hidden" name="cls" />
+                         <input type="hidden" name="sec" />
+                         <input type="hidden" name="date" />
+                         <input type="hidden" name="period" />
+                         <input type="hidden" name="present" />
+                         <input type="hidden" name="absent" />
+                         <input type="hidden" name="total" />
+                         <input type="hidden" name="abs_lst" />
+                        
+                              
+                              
                          </div>
                     </div>
                     </div>
@@ -271,8 +282,7 @@
                          hoverable  : true,
                          });
                          $("#'.$d.$h.'modal").on("click",function(){
-                         $("#modal'.$d.$h.'1'.'")
-                         .modal("show");
+                              $("#modal'.$d.$h.'").modal("show");
                          });
                     });
                     </script>'; 
