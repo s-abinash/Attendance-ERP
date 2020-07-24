@@ -144,8 +144,29 @@
 
 
          $code=$_POST["code"];
-         $sql="SELECT name FROM `course_list` WHERE code LIKE '$code'";
-         $name=($con->query($sql))->fetch_assoc()["name"]; 
+         $sql="SELECT * FROM `course_list` WHERE code LIKE '$code'";
+         $res=($con->query($sql))->fetch_assoc();
+         $name=$res["name"]; 
+         $sdept=$res["dept"]; 
+         $sem=($res["batch"]=='2017'?'7':$res["batch"]=='2018'?'5':'3');
+         $sec="";
+         if($res["staffA"]==$sid)
+         {
+             $sec="A ";
+         }
+         else if($res["staffB"]==$sid)
+         {
+             $sec.="B";
+         }
+         else if($res["staffC"]==$sid)
+         {
+             $sec.="C";
+         }
+         else 
+         {
+             $sec.="D";
+         }
+
          if(in_array($code,$ele))
          {
           $sql="SELECT * FROM `$code` WHERE code LIKE '$sid' ORDER BY `date` DESC,`period` ASC"; 
@@ -163,10 +184,12 @@
               $d=date("d-m-Y",strtotime($row["date"]));
               $h=$row["period"];
               $abs='<b><em>Course &nbsp: &nbsp'.$name.'<br><br>Date &nbsp: &nbsp '.$d.'<br><br>Absentees:<br> <ol class="ui  list">';
+              $ABS_ROLL=array();
               foreach($row as $ind=>$val)
               {
                    if($val=="A")
                    {
+                        array_push($ABS_ROLL,$ind);
                         $abs.='<li>'.$ind.'&nbsp; - &nbsp;'.($con->query("SELECT name from registration where regno like '$ind'"))->fetch_assoc()["name"].'</li>';
                    }
               }
@@ -197,6 +220,10 @@
                     $na=0;
               }
               $cnt-=$na;
+
+              $stf=($con->query("SELECT * FROM STAFF WHERE `staffid` like '$sid'"))->fetch_assoc();
+
+
               echo '<div class="ui raised  segment" style="width:80%;margin:auto;margin-top:3%;">
                      
                <div class="ui black info right circular icon message">
@@ -251,29 +278,7 @@
                          </div></div>
                     </div></div><div class="ui popup" id="pop'.$d.$h.'" style="width:100%">'.$abs.'</div>
                     
-                    <div class="ui modal" id="modal'.$d.$h.'">
-                    <div class="header">Meeting Link Submission</div>
-                    <i class="close icon"></i>
-                    <div class="content">
-                    <div class="ui form">
-                         <div class="field">
-                         <label>Meeting URL: </label>
-                         <input type="url" name="url" pattern="https?://drive.google.com.+" required />
-                         <input type="hidden" name="cls" />
-                         <input type="hidden" name="sec" />
-                         <input type="hidden" name="date" />
-                         <input type="hidden" name="period" />
-                         <input type="hidden" name="present" />
-                         <input type="hidden" name="absent" />
-                         <input type="hidden" name="total" />
-                         <input type="hidden" name="abs_lst" />
-                         </div><br/>
-                         <div class="ui violet button" type="submit" style="float:right;">Submit</div>
-                         <br/>
-                         <br/>
-                    </div>
-                    </div>
-                    </div>
+                    
                     <script>
                     $(document).ready(function(){
                          $("#'.$d.$h.'")
@@ -282,11 +287,51 @@
                          inline     : true,
                          hoverable  : true,
                          });
+                        
+                    });
+                    </script>'.
+                    '<div class="ui modal" id="modal'.$d.$h.'">
+                    <div class="header">Meeting Link Submission</div>
+                    <i class="close icon"></i>
+                    <div class="content">
+                    <form class="ui form" id="gfrm" onsubmit="googleForm()" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdAsc0zaLRv11O-p0HEsQqld3d03_LX-rDnY7LyErzpTzNshg/formResponse" method="post" target="_blank">
+                         <div class="field">
+                              <input type="text" name="entry.1793626567" value="'.$stf['name'].'" hidden>
+                              <input type="text" name="entry.392332705"  value="'.$stf["dept"].'" hidden>
+                              <input type="text" name="entry.1531750144" value="'.($sdept!='MCSE'?'BE':'ME').'" hidden>
+                              <input type="text" name="entry.1145291381" value="'.$sdept.'" hidden>
+                              <input type="text" name="entry.2078851275" value="'.$sem.'" hidden>
+                              <input type="text" name="entry.979770386" value="'.$sec.'" hidden>
+                              <input type="text" name="entry.1589442083" value="'.$code.'"  hidden>
+                              <input type="text" name="entry.1343331822" value="'.$name.'" hidden>
+                              <input type="text" name="entry.454501088" value="'.(strpos($name,'Laboratory') !== false?'Laboratory':'Theory').'" hidden>
+                              <input type="text" name="entry.58122209" value="'.$d.'" hidden>
+                              <input type="text" name="entry.1781180711" value="'.$h.'" hidden>
+                              <input type="text" name="entry.429113532" value="'.$cnt.'" hidden>
+                              <input type="text" name="entry.524302518" value="'.$P.'" hidden>
+                              <input type="text" name="entry.540017284" value="'.$A.'" hidden>
+                              <input type="text" name="entry.359089973" value="'.implode(' , ',$ABS_ROLL).'" hidden>
+                              <input type="text" name="entry.2014037044" value="'.intval(($P/$cnt)*100).'%" hidden>
+                              <label>Meeting URL: </label>
+                              <input type="url" id="url" name="entry.454419795" pattern="https?://drive.google.com.+" required />
+                         </div><br/>
+                         <button class="ui violet button" type="submit" style="float:right;">Submit</button>
+                         <br/>
+                         <br/>
+                    </form>
+                    </div>
+                    </div>
+
+                    
+                    <script>
+                    $(document).ready(function(){
                          $("#'.$d.$h.'modal").on("click",function(){
+                              $("#url").val("");
                               $("#modal'.$d.$h.'").modal("show");
                          });
                     });
-                    </script>'; 
+                    </script>';  
+                      
          }
         exit();
     }
@@ -344,3 +389,6 @@
           exit();
     }
 ?>
+
+
+

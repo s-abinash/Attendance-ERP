@@ -461,8 +461,15 @@
         $('#cal').calendar({
             type: 'date'
         });
-    });
 
+     
+
+
+    });
+    function googleForm()
+    {
+        $(".ui.modal").modal("hide");
+    }
     function clss() {
         $("#tabl").show();
         $("#seg").hide();
@@ -493,6 +500,8 @@
             }
         });
     }
+
+    
     </script>
     
 </body>
