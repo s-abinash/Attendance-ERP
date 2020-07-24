@@ -8,7 +8,7 @@
   "start_url": "/",
   "icons": [
     {
-      "src": "./images/KEC.png",
+      "src": "./images/images/KEC.png",
       "sizes": "144x144",
       "purpose": "any",
       "type": "image/png"

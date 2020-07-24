@@ -36,7 +36,7 @@ include_once('./assets/notiflix.php');
             const el = document.createElement('pwa-update');
             document.body.appendChild(el);
     </script>
-
+    <script src="manup.js"></script>
 
     <!--  -->
     <title>KEC Student+</title>
