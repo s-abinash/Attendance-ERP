@@ -252,12 +252,13 @@
                     </div></div><div class="ui popup" id="pop'.$d.$h.'" style="width:100%">'.$abs.'</div>
                     
                     <div class="ui modal" id="modal'.$d.$h.'">
-                    <div class="header">Header</div>
+                    <div class="header">Meeting Link Submission</div>
+                    <i class="close icon"></i>
                     <div class="content">
                     <div class="ui form">
                          <div class="field">
                          <label>Meeting URL: </label>
-                         <input type="text" name="url"  />
+                         <input type="url" name="url" pattern="https?://drive.google.com.+" required />
                          <input type="hidden" name="cls" />
                          <input type="hidden" name="sec" />
                          <input type="hidden" name="date" />
@@ -266,10 +267,10 @@
                          <input type="hidden" name="absent" />
                          <input type="hidden" name="total" />
                          <input type="hidden" name="abs_lst" />
-                        
-                              
-                              
-                         </div>
+                         </div><br/>
+                         <div class="ui violet button" type="submit" style="float:right;">Submit</div>
+                         <br/>
+                         <br/>
                     </div>
                     </div>
                     </div>
