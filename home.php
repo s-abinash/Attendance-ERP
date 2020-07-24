@@ -255,6 +255,7 @@
     return weekdays[day];
     }
     function attend(id) {
+        $('.preloader').show();
         var btn = id.split("/");
         d = "tab=" + btn[0] + "&code=" + btn[1];
         $.ajax({
@@ -401,9 +402,11 @@
                 }).modal("show");
             }
         });
+        $('.preloader').hide();
     }
 
     function history(id) {
+        $('.preloader').show();
         var btn1 = id.split("/");
         d1 = "cls=" + btn1[0] + "&code=" + btn1[1];
         $.ajax({
@@ -421,6 +424,7 @@
                     r);
                 $("#tabl").hide();
                 $("#seg").show();
+                $('.preloader').hide();
                 Notiflix.Notify.Info("Hover on Absentees count to the view Absentees List");
             }
         })
