@@ -9,7 +9,6 @@
          $tab=strtolower($_POST["tab"]);
          $code=$_POST["code"];
          $sql="SELECT * FROM `tt` WHERE `class` LIKE '$tab'";
-     
          $res=$con->query($sql);
          $day=array();
          $day_per=array();
@@ -34,8 +33,6 @@
          $date=date("2020-07-08");
          $diff=intval(date_diff($tdy,date_create($date))->format("%a"))+1;
          $dates=array();
-
-        
          for($i=1;$i<=$diff;$i++)
          {    
               $s=date("l", strtotime($date));

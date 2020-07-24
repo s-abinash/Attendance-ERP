@@ -14,11 +14,10 @@ $(document).ready(function(){
     <img class="image" src="./images/announcement.jpg">
     <div class="description">
     <div class="ui bulleted list">
-        <div class="item">Adding Meeting URL is Under Work</div>
-        <div class="item">You can now export the attendance Data to Various Formats.</div>
-        <div class="item">Staff can alter their period to another staff. Check it out in the NavBar</div>
-        <div class="item">Staff altered by someone can see a Red Stripe in Calendar and mark attendance.</div>
-        
+        <h3 class="item">Adding Meeting URL is Under Work</h3>
+        <h3 class="item">You can now export the attendance Data to Various Formats.</h3>
+        <h3 class="item">Staff can alter their period to another staff. Check it out in the NavBar</h3>
+        <h3 class="item">Staff altered by someone can see a Red Stripe in Calendar and mark attendance.</h3>
     </div>
   </div>
 </div>
