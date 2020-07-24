@@ -390,5 +390,34 @@
     }
 ?>
 
+<!-- 
 
+<form class="ui form" id="gfrm" onsubmit="googleForm()" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdsVdDBKvncmxe0wdcDteNqEAMJz-IvdWByge3E9x41QpHB0Q/formResponse" method="post" target="_blank">
+<div class="field">
+     <input type="text" name="entry.1760172262" value="'.$stf['name'].'" hidden>
+     <input type="text" name="entry.1519840088"  value="'.$stf["dept"].'" hidden>
+     <input type="text" name="entry.1907877152" value="'.($sdept!='MCSE'?'BE':'ME').'" hidden>
+     <input type="text" name="entry.309081512" value="'.$sdept.'" hidden>
+     
+     <input type="text" name="entry.383571963" value="'.$sem.'" hidden>
+     <input type="text" name="entry.1504310176" value="'.$sec.'" hidden>
+     <input type="text" name="entry.15204943" value="'.$code.'"  hidden>
+     <input type="text" name="entry.668277301" value="'.$name.'" hidden>
+     <input type="text" name="entry.1289128628" value="'.(strpos($name,'Laboratory') !== false?'Laboratory':'Theory').'" hidden>
+     <input type="text" name="entry.1170232087" value="'.$d.'" hidden>
+     <input type="text" name="entry.1628375111" value="'.$h.'" hidden>
+     <input type="text" name="entry.1683190265" value="'.$cnt.'" hidden>
+     <input type="text" name="entry.1675431824" value="'.$P.'" hidden>
+     <input type="text" name="entry.1186250163" value="'.$A.'" hidden>
+     <input type="text" name="entry.1654159561" value="'.implode(' , ',$ABS_ROLL).'" hidden>
+     <input type="text" name="entry.1877284434" value="'.intval(($P/$cnt)*100).'%" hidden>
+     <label>Meeting URL: </label>
+     <input type="url" id="url" name="entry.588869143" pattern="https?://drive.google.com.+" required />
+</div><br/>
+<button class="ui violet button" type="submit" style="float:right;">Submit</button>
+<br/>
+<br/>
+</form>
+
+-->
 
