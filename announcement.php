@@ -32,7 +32,7 @@ $(document).ready(function(){
         <h3 class="item">Google Form auto fill will be enabled by Sunday (26/07/2020) <div class="ui olive horizontal label">Upcoming</div></h3> 
         <h3 class="item">Staff can alter their period to another staff. Check it out in the NavBar. <div class="ui yellow horizontal label">New</div></h3>
         <h3 class="item">You can now export the attendance Data to Various Formats.</h3>
-        <h3 class="item">Altered period assined to you will be visible as Red Stripe in Calendar in Mark Attendance.</h3>
+        <h3 class="item">Altered period assigned to you will be visible as Red Stripe in Calendar in Mark Attendance.</h3>
         <h3 class="item">You can re-alter the period altered to you by someone by using the same Alter Period Page</h3>
     </div>
   </div>
