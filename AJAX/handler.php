@@ -264,6 +264,14 @@
                                              Edit
                                         </div>
                                    </div>
+                                   <div class="statistic">
+                                   <div class="value">
+                                <button class="ui right floated tertiary icon button" id="'.$d.$h.'modal" data-tooltip="Click to Enter Meeting URL" data-position="top left"><i class="linkify icon" style="color:red"></i></button>
+                                   </div>
+                                   <div class="label">
+                                        URL
+                                   </div>
+                              </div>
                                   
                                    
                          </div></div>
@@ -386,14 +394,7 @@
 <!-- 
 
 
- <div class="statistic">
-                                        <div class="value">
-                                     <button class="ui right floated tertiary icon button" id="'.$d.$h.'modal" data-tooltip="Click to Enter Meeting URL" data-position="top left"><i class="linkify icon" style="color:red"></i></button>
-                                        </div>
-                                        <div class="label">
-                                             URL
-                                        </div>
-                                   </div>
+
 
 
                     <form class="ui form" id="gfrm" onsubmit="googleForm()" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdAsc0zaLRv11O-p0HEsQqld3d03_LX-rDnY7LyErzpTzNshg/formResponse" method="post" target="_blank">
