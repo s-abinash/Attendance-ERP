@@ -42,8 +42,8 @@ $(document).ready(function(){
     <div class="ui bulleted list">
         <h3 class="item">Now as a <span class="ui red text">Progressive Web App </span><div class="ui yellow horizontal label">New</div></h3>
         
-        <h4><i class="laptop icon"></i><span id="img1" style="color:#1E70BF;cursor: pointer;">:&nbsp; See how to enable&nbsp;</span>|&nbsp;
-        <i class="mobile alternate icon"></i><span id="img2" style="color:#1E70BF;cursor: pointer;">:&nbsp; See how to enable</span></h4>
+        <h4><i class="laptop icon"></i>:&nbsp;<span id="img1" style="color:#1E70BF;cursor: pointer;"> See how to enable</span>&nbsp;|&nbsp;
+        <i class="mobile alternate icon"></i>:&nbsp;<span id="img2" style="color:#1E70BF;cursor: pointer;"> See how to enable</span></h4>
         <h3 class="item">Google Form auto fill will be enabled by Sunday (26/07/2020) <div class="ui olive horizontal label">Upcoming</div></h3> 
         <h4><i class="video icon"></i>:&nbsp;<span id="img3" style="color:#1E70BF;cursor: pointer;"> See Demo</span></h4>
         <h3 class="item">Staff can alter their period to another staff. Check it out in the NavBar. <div class="ui yellow horizontal label">New</div></h3>

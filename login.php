@@ -233,12 +233,40 @@ if (isset($_POST["usr"]))
       $_SESSION['batch']=$row['batch'];
       $_SESSION['design']=$row['designation'];
       $_SESSION['sec']=$row['sec'];
-      echo '<body><script>Notiflix.Notify.Success("Logged in Successfully");</script></body>';
+      echo "<script>
+      $(document).ready(function(){
+      $('body')
+            .toast({
+                position: 'bottom right',
+                title: 'Login Successful',
+                class: 'success',
+                displayTime: 3000,
+                closeIcon: true,
+                showIcon: true,
+                message: 'You will be redirected',
+                showProgress: 'top'
+            });
+        });
+      </script>";
       echo '<script>location.href="./home.php";</script>';
    }
    else
    {
-    echo '<body><script>Notiflix.Notify.Failure("Credential Mismatch");</script></body>';
+    echo "<script>
+      $(document).ready(function(){
+      $('body')
+            .toast({
+                position: 'bottom right',
+                title: 'Account Not Found',
+                displayTime: 5000,
+                class: 'error',
+                closeIcon: true,
+                showIcon: true,
+                message: 'Please enter the correct password',
+                showProgress: 'top'
+            });
+        });
+      </script>";
    }
 }
 ?>

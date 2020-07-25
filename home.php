@@ -297,7 +297,18 @@
                 var alted=response[3];
                 
                 if (!(Array.isArray(dates) && dates.length) && alted=="Empty") {
-                    Notiflix.Notify.Info("You have no pending Attendance reports to be uploaded");
+                    // Notiflix.Notify.Info("You have no pending Attendance reports to be uploaded");
+                    $('body')
+                        .toast({
+                            position: 'bottom right',
+                            title: 'All Done!',
+                            displayTime: 5000,
+                            class: 'info',
+                            closeIcon: true,
+                            showIcon: true,
+                            message: 'You have no pending attendance to be uploaded',
+                            showProgress: 'top'
+                        });
                     return false;
                 }
                 for (i of dates) 
@@ -439,7 +450,18 @@
             type: "POST",
             success: function(r) {
                 if (r === '') {
-                    Notiflix.Notify.Info("You haven't uploaded any Attendance reports yet");
+                    // Notiflix.Notify.Info("You haven't uploaded any Attendance reports yet");
+                    $('body')
+                        .toast({
+                            position: 'bottom right',
+                            title: 'No History !',
+                            displayTime: 3000,
+                            class: 'warning',
+                            closeIcon: true,
+                            showIcon: true,
+                            message: 'You have not uploaded any Attendance reports yet',
+                            showProgress: 'top'
+                        });
                     return false;
                 }
                 $("#seg").html("");
@@ -449,7 +471,16 @@
                 $("#tabl").hide();
                 $("#seg").show();
                
-                Notiflix.Notify.Info("Hover on Absentees count to the view Absentees List");
+                // Notiflix.Notify.Info("Hover on Absentees count to the view Absentees List");
+                $('body').toast({
+                    position: 'bottom right',
+                    title: 'Tip !',
+                    displayTime: 5000,
+                    closeIcon: true,
+                    showIcon: true,
+                    message: 'Hover on Absentees count to view Absentee List',
+                    showProgress: 'top'
+                });
             }
         })
         $('.preloader').hide();
@@ -464,14 +495,34 @@
             success: function(r) {
                 if (r == 'empty') {
 
-                    Notiflix.Notify.Info("You haven't uploaded any Attendance reports yet to consolidate");
+                    // Notiflix.Notify.Info("You haven't uploaded any Attendance reports yet to consolidate");
+                    $('body').toast({
+                    position: 'bottom right',
+                    title: 'Error!',
+                    displayTime: 3000,
+                    closeIcon: true,
+                    class: 'error',
+                    showIcon: true,
+                    message: 'You have not uploaded any attendance yet to get Report.',
+                    showProgress: 'top'
+                });
                     return false;
                 } else if (r == "export_ready") {
                     window.location.href = "export.php";
                 }else if (r == "export_ready_for_Elec") {
                     window.location.href = "exportElec.php";
                 } else {
-                    Notiflix.Notify.Warning("Error in retrieving data.Please try again Else Contact Admin");
+                    // Notiflix.Notify.Warning("Error in retrieving data.Please try again Else Contact Admin");
+                    $('body').toast({
+                    position: 'bottom right',
+                    title: 'Error!',
+                    displayTime: 3000,
+                    closeIcon: true,
+                    class: 'error',
+                    showIcon: true,
+                    message: 'Error in retrieving data. Please try again Else Contact Admin.',
+                    showProgress: 'top'
+                });
                 }
 
             }
