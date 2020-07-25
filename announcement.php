@@ -1,11 +1,12 @@
 
 <script type="text/javascript">
 $(document).ready(function(){
-  $("#ann").on("click", function() {
+  $("#ann").click(function() {
   $('.ui.longer.modal').modal({
     centered: false,
     transition: 'horizontal flip'
   }).modal('show');
+  return false;
   });
 });
 
