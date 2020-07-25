@@ -140,7 +140,9 @@ include_once('./assets/notiflix.php');
 <body>
     <?php include_once('./assets/notiflix.php'); ?>
     <div class="box">
-        <h2 class="animate__animated animate__bounce "><img src="./images/KEC.png" height="30px" width="30px" style="border-radius: 5px;position:relative;top:8px;"/> Staff Login</h2>
+        <h2 class="animate__animated animate__bounce ">
+        <!-- <img src="./images/KEC.png" height="30px" width="30px" style="border-radius: 5px;position:relative;top:8px;"/>  -->
+        Staff Login</h2>
         <form id="login" autocomplete="off"  action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
             <div class="inputBox">
                 <input type="text" name="userid" id="userid" required>

@@ -53,6 +53,11 @@ if(isset($_POST['period']))
     body {
         background: url("./images/bgpic.jpg");
     }
+    /* @media(max-width: 500px{
+        #card{
+
+        }
+    }) */
 
     </style>
 <div class="card-1">
