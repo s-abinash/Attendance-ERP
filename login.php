@@ -26,8 +26,8 @@ include_once('./assets/notiflix.php');
     <meta name="msapplication-starturl" content="/login.php">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="icon" type="image/png" sizes="192*149" href="./images/KEC.png">
-    <link rel="apple-touch-icon" type="image/png" sizes="192*149" href="./images/KEC.png">
+    <link rel="icon" type="image/png" sizes="144x144" href="./images/images/KEC.png">
+    <link rel="apple-touch-icon" type="image/png" sizes="144x144" href="./images/images/KEC.png">
    
     <script type="module">
 
