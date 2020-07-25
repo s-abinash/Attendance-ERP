@@ -448,10 +448,11 @@
                     r);
                 $("#tabl").hide();
                 $("#seg").show();
-                $('.preloader').hide();
+               
                 Notiflix.Notify.Info("Hover on Absentees count to the view Absentees List");
             }
         })
+        $('.preloader').hide();
     }
     function consolidate(id) {
         var btn2 = id.split("/");
@@ -490,10 +491,13 @@
             type: 'date'
         });
 
+        
+
      
 
 
     });
+
     function googleForm()
     {
         $(".ui.modal").modal("hide");

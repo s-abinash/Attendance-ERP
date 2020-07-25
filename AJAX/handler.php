@@ -178,7 +178,8 @@
          while($row=$res->fetch_assoc())
          {
                $cnt=mysqli_num_fields($res)-3;
-              $d=date("d-m-Y",strtotime($row["date"]));
+               $d1=$row["date"];
+              $d=date("d-m-Y",strtotime($d1));
               $h=$row["period"];
               $abs='<b><em>Course &nbsp: &nbsp'.$name.'<br><br>Date &nbsp: &nbsp '.$d.'<br><br>Absentees:<br> <ol class="ui  list">';
               $ABS_ROLL=array();
@@ -220,7 +221,7 @@
 
               $stf=($con->query("SELECT * FROM `staff` WHERE `staffid` like '$sid'"))->fetch_assoc();
 
-
+              
               echo '<div class="ui raised  segment" style="width:80%;margin:auto;margin-top:3%;">
                      
                <div class="ui black info right circular icon message">
@@ -290,25 +291,21 @@
                     '<div class="ui modal" id="modal'.$d.$h.'">
                     <div class="header">Meeting Link Submission</div>
                     <i class="close icon"></i>
-                    <div class="content">
+                    <div class="content">      
                       
-                      
-                    
-                      
-                      
-                        <form class="ui form" id="gfrm" onsubmit="googleForm()" action="https://docs.google.com/forms/d/e/1FAIpQLSdsVdDBKvncmxe0wdcDteNqEAMJz-IvdWByge3E9x41QpHB0Q/viewform?usp=pp_url" method="post" target="_blank">
+                        <form class="ui form" onsubmit="googleForm()"  action="https://docs.google.com/forms/d/e/1FAIpQLSdsVdDBKvncmxe0wdcDteNqEAMJz-IvdWByge3E9x41QpHB0Q/viewform" target="_blank">
                         <div class="field">
+                             <input type="text" name="usp" value="pp_url" hidden>
                              <input type="text" name="entry.1760172262" value="'.$stf['name'].'" hidden>
                              <input type="text" name="entry.1519840088"  value="'.$stf["dept"].'" hidden>
                              <input type="text" name="entry.1907877152" value="'.($sdept!='MCSE'?'BE':'ME').'" hidden>
                              <input type="text" name="entry.309081512" value="'.$sdept.'" hidden>
-
                              <input type="text" name="entry.383571963" value="'.$sem.'" hidden>
                              <input type="text" name="entry.1504310176" value="'.$sec.'" hidden>
                              <input type="text" name="entry.15204943" value="'.$code.'"  hidden>
                              <input type="text" name="entry.668277301" value="'.$name.'" hidden>
                              <input type="text" name="entry.1289128628" value="'.(strpos($name,'Laboratory') !== false?'Laboratory':'Theory').'" hidden>
-                             <input type="text" name="entry.1170232087" value="'.$d.'" hidden>
+                             <input type="text" name="entry.1170232087" value="'.$d1.'" hidden>
                              <input type="text" name="entry.1628375111" value="'.$h.'" hidden>
                              <input type="text" name="entry.1683190265" value="'.$cnt.'" hidden>
                              <input type="text" name="entry.1675431824" value="'.$P.'" hidden>
