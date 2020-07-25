@@ -266,7 +266,7 @@
                                    </div>
                                    <div class="statistic">
                                    <div class="value">
-                                <button class="ui right floated tertiary icon button" id="'.$d.$h.'modal" data-tooltip="Click to Enter Meeting URL" data-position="top left"><i class="linkify icon" style="color:red"></i></button>
+                                <button class="ui right floated tertiary icon button" id="'.$d.$h.'modal" data-tooltip="Click to Enter Meeting URL" data-position="top left"><i class="linkify large icon" style="color:red"></i></button>
                                    </div>
                                    <div class="label">
                                         URL
