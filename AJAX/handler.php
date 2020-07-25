@@ -291,7 +291,8 @@
                     <div class="header">Meeting Link Submission</div>
                     <i class="close icon"></i>
                     <div class="content">
-                        <form class="ui form" id="gfrm" onsubmit="googleForm()" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdsVdDBKvncmxe0wdcDteNqEAMJz-IvdWByge3E9x41QpHB0Q/formResponse" method="post" target="_blank">
+                      
+                        <form class="ui form" id="gfrm" onsubmit="googleForm()" action="https://docs.google.com/forms/d/e/1FAIpQLSdsVdDBKvncmxe0wdcDteNqEAMJz-IvdWByge3E9x41QpHB0Q/viewform" method="post" target="_blank">
                         <div class="field">
                              <input type="text" name="entry.1760172262" value="'.$stf['name'].'" hidden>
                              <input type="text" name="entry.1519840088"  value="'.$stf["dept"].'" hidden>
@@ -391,7 +392,7 @@
 <!-- 
 
 
-
+<form class="ui form" id="gfrm" onsubmit="googleForm()" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdsVdDBKvncmxe0wdcDteNqEAMJz-IvdWByge3E9x41QpHB0Q/formResponse" method="post" target="_blank">
 
 
                     <form class="ui form" id="gfrm" onsubmit="googleForm()" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdAsc0zaLRv11O-p0HEsQqld3d03_LX-rDnY7LyErzpTzNshg/formResponse" method="post" target="_blank">
