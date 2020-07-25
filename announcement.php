@@ -87,7 +87,28 @@ $(document).ready(function(){
   </div>
 </div>
 
+
 <!-- Image 2 -->
+<div class="ui basic modal" id="modal2">
+  <i class="close icon"></i>
+  <div class="ui icon header">
+  <i class="mobile alternate icon"></i>
+  <center>
+    Install in Mobile
+    </center>
+  </div>
+  <div class="content">
+   <center> <img src="./images/announcements/pwa_mob.jpg" height="700px" width="300px"/></center>
+  </div>
+  <div class="actions">
+    <div class="ui green ok inverted button">
+      <i class="checkmark icon"></i>
+      Okay
+    </div>
+  </div>
+</div>
+
+<!-- Video -->
 <div class="ui basic modal" id="modal3">
   <i class="close icon"></i>
   <div class="ui icon header">
@@ -112,4 +133,4 @@ $(document).ready(function(){
   </div>
 </div>
 
-<!-- Video -->
+
