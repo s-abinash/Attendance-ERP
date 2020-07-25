@@ -5,7 +5,6 @@ if(isset($_SESSION['id']))
     header('Location: ./home.php');
 }
 include_once("./db.php");
-include_once('./assets/notiflix.php');
 
 ?>
 <html lang="en">
@@ -138,7 +137,6 @@ include_once('./assets/notiflix.php');
 </head>
 
 <body>
-    <?php include_once('./assets/notiflix.php'); ?>
     <div class="box">
         <h2 class="animate__animated animate__bounce ">
         <!-- <img src="./images/KEC.png" height="30px" width="30px" style="border-radius: 5px;position:relative;top:8px;"/>  -->
