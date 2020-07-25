@@ -50,7 +50,7 @@ $(document).ready(function(){
         <h4><i class="video icon"></i>:&nbsp;<span id="img3" style="color:#1E70BF;cursor: pointer;"> See Demo</span></h4>
         <h3 class="item">Staff can alter their period to another staff. Check it out in the NavBar. <div class="ui yellow horizontal label">New</div></h3>
         <h3 class="item">You can now export the attendance Data to Various Formats.</h3>
-        <h3 class="item">Altered period assined to you will be visible as Red Stripe in Calendar in Mark Attendance.</h3>
+        <h3 class="item">Altered period assigned to you will be visible as Red Stripe in Calendar in Mark Attendance.</h3>
         <h3 class="item">You can re-alter the period altered to you by someone by using the same Alter Period Page</h3>
     </div>
   </div>
