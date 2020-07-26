@@ -164,7 +164,7 @@ include_once("./db.php");
                     in</button>
             </center>
         </form>
-        <center><span style="color:#ffffb3; margin-top:10%;padding: 20px;font-size:12px">v3.0</span></center>
+        <center><span style="color:#ffffb3; margin-top:10%;padding: 20px;font-size:12px">v3.1</span></center>
         <center><span style="color:bisque;font-size:11px">&copy; Kongu Engineering
                 College</span></center>
     </div>
@@ -201,9 +201,9 @@ include_once("./db.php");
 
 
 
-
+    <!-- Global site tag (gtag.js) - Google Analytics -->
     </script>
-        <!-- Global site tag (gtag.js) - Google Analytics -->
+
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-151639011-3"></script>
 <script>
   window.dataLayer = window.dataLayer || [];

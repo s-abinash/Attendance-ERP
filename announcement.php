@@ -28,7 +28,7 @@ $(document).ready(function(){
 
 </script>
 <div class="ui longer modal">
-<div class="ui orange ribbon label" style="margin-left: 15px;margin-top: 8px">New in Version 3.0</div>
+<div class="ui orange ribbon label" style="margin-left: 15px;margin-top: 8px">New in Version 3.1</div>
   <div class="header">New Updates</div>
   
   <i class="close icon"></i>
