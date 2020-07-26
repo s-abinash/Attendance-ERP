@@ -128,7 +128,7 @@ if (isset($_POST['period'])) {
 <script>
     var d = "";
     var x, y, response, dt, altto;
-    var elec = ["14CSE06", "14CSE11", "14CSO07", "14ITO01", "18ITO02", "18MEO01"];
+    var elec = ["14CSE06", "14CSE11", "14CSO07", "14ITO01", "18ITO02", "18MEO01","18CSO01"];
 
     function getWeekDay(date) {
         var weekdays = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");

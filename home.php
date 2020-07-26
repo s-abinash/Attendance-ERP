@@ -42,7 +42,7 @@
                     $word="Laboratory";
                     $lab="";
 
-                    $ele=array("14CSE06","14CSE11","14CSO07","14ITO01","18ITO02","18MEO01");
+                    $ele=array("14CSE06","14CSE11","14CSO07","14ITO01","18ITO02","18MEO01","18CSO01");
                     $ele_course=array();
                     
                     $t=1;
@@ -245,7 +245,7 @@
     var x,y;
     var response;
     var dt;
-    var elec=["14CSE06","14CSE11","14CSO07","14ITO01","18ITO02","18MEO01"];
+    var elec=["14CSE06","14CSE11","14CSO07","14ITO01","18ITO02","18MEO01","18CSO01"];
     function getWeekDay(date)
     {
     var weekdays = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
