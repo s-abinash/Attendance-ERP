@@ -5,7 +5,6 @@ if(isset($_SESSION['id']))
     header('Location: ./home.php');
 }
 include_once("./db.php");
-include_once('./assets/notiflix.php');
 
 ?>
 <html lang="en">
@@ -14,10 +13,36 @@ include_once('./assets/notiflix.php');
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
-    <title>Login</title>
+    <!-- PWA Part -->
+    <link rel="manifest" href="./manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="KEC">
+    <meta name="apple-mobile-web-app-title" content="KEC">
+    <meta name="theme-color" content="#21f330">
+    <meta name="msapplication-navbutton-color" content="#21f330">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="msapplication-starturl" content="/login.php">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="icon" type="image/png" sizes="144x144" href="./images/images/KEC.png">
+    <link rel="apple-touch-icon" type="image/png" sizes="144x144" href="./images/images/KEC.png">
+   
+    <script type="module">
+
+            import 'https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate@0.2.0/dist/pwa-update.min.js';
+
+            const el = document.createElement('pwa-update');
+            document.body.appendChild(el);
+    </script>
+    <script src="manup.js"></script>
+
+    <!--  -->
+    <title>KEC Student+</title>
     <link rel="icon" type="image/png" href="./images/KEC.png">
     <link rel="stylesheet" href="./assets/Fomantic/dist/semantic.min.css" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
+    
     <script> 
         if (navigator.onLine==false)  
             window.location.href="./errorfile/nointernet.html";
@@ -112,16 +137,17 @@ include_once('./assets/notiflix.php');
 </head>
 
 <body>
-    <?php include_once('./assets/notiflix.php'); ?>
     <div class="box">
-        <h2 class="animate__animated animate__bounce "> Staff Login</h2>
-        <form id="login" action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
+        <h2 class="animate__animated animate__bounce ">
+        <!-- <img src="./images/KEC.png" height="30px" width="30px" style="border-radius: 5px;position:relative;top:8px;"/>  -->
+        Staff Login</h2>
+        <form id="login" autocomplete="off"  action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
             <div class="inputBox">
                 <input type="text" name="userid" id="userid" required>
                 <label>User Id</label>
             </div>
             <div class="inputBox">
-                <input type="password" name="pass" required>
+                <input type="password" name="pass" minlength="4" maxlength="4" id="pass" required>
                 <label>Password</label>
             </div>
             <div style="float:left;color:pink;">
@@ -129,15 +155,16 @@ include_once('./assets/notiflix.php');
                         class="envelope outline icon"></i></a>
             </div>
             <div style="float:right;color:pink;">
-                <a href="http://t.me/kecattd" target="_blank">Telegram Help <i class="hands helping icon"></i></a>
+                <a href="http://t.me/kecattd" target="_blank">Telegram Help <i class="hands helping icon"></i>
+                <br>(Recommended)</a>
             </div>
-            <br /><br />
+            <br /><br /><br/>
             <center>
-                <button type="submit" id="sub" name="usr" val="verified" class="ui large positive button">Sign
+                <button type="submit" id="sub" name="usr" val="verified" class="ui large positive disabled button">Sign
                     in</button>
             </center>
         </form>
-        <center><span style="color:#ffffb3; margin-top:10%;padding: 20px;font-size:12px">v2.0</span></center>
+        <center><span style="color:#ffffb3; margin-top:10%;padding: 20px;font-size:12px">v3.0</span></center>
         <center><span style="color:bisque;font-size:11px">&copy; Kongu Engineering
                 College</span></center>
     </div>
@@ -159,8 +186,32 @@ include_once('./assets/notiflix.php');
         $("#ajay").on("click", function() {
             window.open("mailto:ajayofficial@zohomail.in?subject=Attendance Reg.,", "_blank");
         });
+        $("#pass,#userid").on("keyup",function(){
+            if(($("#userid").val()!='')&&(($("#pass").val().length)===4))
+            {
+                $("#sub").removeClass("disabled");
+            }
+            if(($("#userid").val()=='')||(($("#pass").val().length)!==4))
+            {
+                $("#sub").addClass("disabled");
+            }
+        });
+        
     });
+
+
+
+
     </script>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-151639011-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-151639011-3');
+</script>
 
 </body>
 <?php
@@ -180,12 +231,40 @@ if (isset($_POST["usr"]))
       $_SESSION['batch']=$row['batch'];
       $_SESSION['design']=$row['designation'];
       $_SESSION['sec']=$row['sec'];
-      echo '<body><script>Notiflix.Notify.Success("Logged in Successfully");</script></body>';
+      echo "<script>
+      $(document).ready(function(){
+      $('body')
+            .toast({
+                position: 'bottom right',
+                title: 'Login Successful',
+                class: 'success',
+                displayTime: 3000,
+                closeIcon: true,
+                showIcon: true,
+                message: 'You will be redirected',
+                showProgress: 'top'
+            });
+        });
+      </script>";
       echo '<script>location.href="./home.php";</script>';
    }
    else
    {
-    echo '<body><script>Notiflix.Notify.Failure("Credential Mismatch");</script></body>';
+    echo "<script>
+      $(document).ready(function(){
+      $('body')
+            .toast({
+                position: 'bottom right',
+                title: 'Account Not Found',
+                displayTime: 5000,
+                class: 'error',
+                closeIcon: true,
+                showIcon: true,
+                message: 'Please enter the correct password',
+                showProgress: 'top'
+            });
+        });
+      </script>";
    }
 }
 ?>

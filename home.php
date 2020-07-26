@@ -13,7 +13,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+     <!-- PWA Part -->
+     <link rel="manifest" href="./manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="KEC">
+    <meta name="apple-mobile-web-app-title" content="KEC">
+    <meta name="theme-color" content="#21f330">
+    <meta name="msapplication-navbutton-color" content="#21f330">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="msapplication-starturl" content="/login.php">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <link rel="icon" type="image/png" sizes="192*149" href="./images/KEC.png">
+    <link rel="apple-touch-icon" type="image/png" sizes="192*149" href="./images/KEC.png">
+   
+    <script type="module">
+
+            import 'https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate@0.2.0/dist/pwa-update.min.js';
+
+            const el = document.createElement('pwa-update');
+            document.body.appendChild(el);
+    </script>
+    <script src="manup.js"></script>
+
+    <!--  -->
 </head>
 
 <body>
@@ -91,7 +115,7 @@
                     <td>'.($row["dept"]!=="MCSE"?$sec:" - ").'</td>
                     <td>'.$code.'</td>
                     <td>'.$name.'</td>
-                    <td class="right aligned"><button class="ui primary right icon button" id="'.$btn.'" onclick="attend(this.id)"> Mark Attendance &nbsp&nbsp<i class="check icon"></i></button><button class="ui black right icon button" id="'.$btn.'" onclick="history(this.id)"> View History &nbsp&nbsp<i class="history icon"></i></button><button class="ui brown right icon button" id="'.$btn.'" onclick="consolidate(this.id)"> Consolidation &nbsp&nbsp<i class="file export icon"></i></button></td>
+                    <td class="right aligned"><button class="ui primary right icon button" id="'.$btn.'" onclick="attend(this.id)"> Mark Attendance &nbsp&nbsp<i class="check icon"></i></button><button class="ui black right icon button" id="'.$btn.'" onclick="history(this.id)"> View History &nbsp&nbsp<i class="history icon"></i></button><button class="ui brown right icon button" id="'.$btn.'" onclick="consolidate(this.id)"> Report &nbsp&nbsp<i class="file export icon"></i></button></td>
                     </tr>';
                     }
                     if(!empty($ele_course))
@@ -130,7 +154,7 @@
                             <td class="right aligned">
                                 <button class="ui primary right icon button" id="'.$btn.'" onclick="attend(this.id)"> Mark Attendance &nbsp; &nbsp;<i class="check icon"></i></button>
                                 <button class="ui black right icon button" id="'.$btn.'" onclick="history(this.id)"> View History &nbsp; &nbsp;<i class="history icon"></i></button>
-                                <button class="ui brown right icon button" id="'.$btn.'" onclick="consolidate(this.id)"> Consolidation &nbsp; &nbsp;<i class="file export icon"></i></button>
+                                <button class="ui brown right icon button" id="'.$btn.'" onclick="consolidate(this.id)"> Report &nbsp; &nbsp;<i class="file export icon"></i></button>
                             </td>
                             </tr>';
                         }
@@ -167,7 +191,7 @@
                     <td>'.($code!=="18MSE13"?$code:"18MSE12").'</td>
                 
                     <td>'.$name.'</td>
-                    <td class="right aligned"><button class="ui primary right icon button " id="'.$btn.'"  onclick="attend(this.id)"> Mark Attendance &nbsp;&nbsp;<i class="check icon"></i></button><button class="ui black right icon button" id="'.$btn.'" onclick="history(this.id)"> View History &nbsp;&nbsp;<i class="history icon"></i></button><button class="ui brown right icon button" id="'.$btn.'" onclick="consolidate(this.id)"> Consolidation &nbsp; &nbsp;<i class="file export icon"></i></button></td>
+                    <td class="right aligned"><button class="ui primary right icon button " id="'.$btn.'"  onclick="attend(this.id)"> Mark Attendance &nbsp;&nbsp;<i class="check icon"></i></button><button class="ui black right icon button" id="'.$btn.'" onclick="history(this.id)"> View History &nbsp;&nbsp;<i class="history icon"></i></button><button class="ui brown right icon button" id="'.$btn.'" onclick="consolidate(this.id)"> Report &nbsp; &nbsp;<i class="file export icon"></i></button></td>
                     
                 </tr>';
                 }
@@ -194,7 +218,7 @@
         <div class="content">
 
 
-            <form class="ui form" id="frm2" method="POST" action="./import.php">
+            <form autocomplete="off" class="ui form" id="frm2" method="POST" action="./import.php">
                 <br></br>
                 <center>
                     <div class="two fields">
@@ -204,7 +228,7 @@
                             <div class="ui calendar" id="cal">
                                 <div class="ui  focus input  left icon">
                                     <i class="calendar icon"></i>
-                                    <input type="text" name="dates" placeholder="Date/Time" id="dat" required>
+                                    <input type="text" name="dates" placeholder="Date/Time" id="dat" required readonly>
                                 </div>
                             </div>
                         </div>
@@ -243,10 +267,19 @@
     </div>
     <script>
     var d = "";
+    var x,y;
     var response;
     var dt;
     var elec=["14CSE06","14CSE11","14CSO07","14ITO01","18ITO02","18MEO01"];
+    function getWeekDay(date)
+    {
+    var weekdays = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
+    var day = date.getDay();
+    
+    return weekdays[day];
+    }
     function attend(id) {
+        $('.preloader').show();
         var btn = id.split("/");
         d = "tab=" + btn[0] + "&code=" + btn[1];
         $.ajax({
@@ -254,22 +287,85 @@
             data: d,
             type: "POST",
             success: function(res) {
-                
-                 response=JSON.parse(res);
+                // alert(res);
+                // return false;
+                response=JSON.parse(res);
                 var arr = [];
                 var i;
                 var dates =response[0];
-                if (!(Array.isArray(dates) && dates.length)) {
-                    Notiflix.Notify.Info("You have no pending Attendance reports to be uploaded");
+                var alt=response[2];
+                var alted=response[3];
+                
+                if (!(Array.isArray(dates) && dates.length) && alted=="Empty") {
+                    // Notiflix.Notify.Info("You have no pending Attendance reports to be uploaded");
+                    $('body')
+                        .toast({
+                            position: 'bottom right',
+                            title: 'All Done!',
+                            displayTime: 5000,
+                            class: 'info',
+                            closeIcon: true,
+                            showIcon: true,
+                            message: 'You have no pending attendance to be uploaded',
+                            showProgress: 'top'
+                        });
                     return false;
                 }
-                for (i of dates) {
+                for (i of dates) 
+                {
                     var r = i.split("-");
                     arr.push(new Date(r[0], r[1] - 1, r[2]));
                 }
+                var deldate=[];
+                var delday=[];
+                if(alt!="Empty")
+                {
+                    for (const altdat in alt) {
+                        var r = altdat.split("-");
+                        var alt_date=new Date(r[0], r[1] - 1, r[2]);
+                        var alt_day=response[1][getWeekDay(alt_date)];  
+                        if(alt_day.length==alt[altdat].length)
+                        {
+                            deldate.push(alt_date);
+                        }
+                        else
+                        {
+                            delday.push(altdat);
+                        }
+
+                    }
+            
+                }
+                var al=[];
+                var foc=[];
+                if(alted!="Empty")
+                {
+                    for (const alteddat in alted) {
+                        var r = alteddat.split("-");
+                        var p=new Date(r[0], r[1] - 1, r[2]);
+                        arr.push(p);
+                        foc.push(p);
+                        al.push(alteddat);
+                    }
+                }
+                
+          
                 $('#cal').calendar({
                     type: 'date',
                     enabledDates: arr,
+                    disabledDates: [
+                        {
+                            date: deldate,
+                            message: 'Altered'
+                        }
+                    ],
+                    eventClass: 'inverted red',
+                    eventDates: [    
+                        {
+                            date: foc,
+                            message: 'Altered Period'
+                        }
+                    ],
                     formatter: {
                         date: function(date, settings) {
                             if (!date) return '';
@@ -282,17 +378,47 @@
                     onChange   : function(date, settings) {
                         $('#hr').dropdown('clear');
                         $("#hr").html("<option value=''>Select Period</option>");
-                            var ar=response[1][getWeekDay(date)];    
-                            for (i of ar)
+                        if (!date) return '';
+                            
+                            x=(date.getMonth() + 1);
+                            y=date.getDate()
+                            if(x<=9)
                             {
-                                $("#hr").append("<option value='"+i+"'>"+i+"</option>");
+                                x="0"+x;
                             }
-                            if(ar.length==1)
+                            if(y<=9)
                             {
-                               
-                                $('#frm2').form('set value', 'hrs', ar[0]);    
+                                y="0"+y;
                             }
-
+                            var day = date.getFullYear() + '-' +x+ '-' +y ;
+                            if(dates.includes(day))
+                            {
+                                var ar=response[1][getWeekDay(date)];    
+                                for (i of ar)
+                                {
+                                    $("#hr").append("<option value='"+i+"'>"+i+"</option>");
+                                }
+                            }                            
+                            if(al.includes(day))
+                            {
+                                for(i of alted[day])
+                                {
+                                    $("#hr").append("<option value='"+i+"'>"+i+"</option>");
+                                }
+                                
+                            }
+                            if(delday.includes(day))
+                            {
+                                for(i of alt[day])
+                                {
+                                    $("#hr option[value='"+i+"']").remove();
+                                }
+                                
+                            }
+                            // if($('#hr > option').length==1)
+                            // {   
+                            //     $('#frm2').form('set value', 'hrs', ar[0]);    
+                            // }
                     }
                 });
                 $('#hr').dropdown({
@@ -311,9 +437,11 @@
                 }).modal("show");
             }
         });
+        $('.preloader').hide();
     }
 
     function history(id) {
+        $('.preloader').show();
         var btn1 = id.split("/");
         d1 = "cls=" + btn1[0] + "&code=" + btn1[1];
         $.ajax({
@@ -322,7 +450,18 @@
             type: "POST",
             success: function(r) {
                 if (r === '') {
-                    Notiflix.Notify.Info("You haven't uploaded any Attendance reports yet");
+                    // Notiflix.Notify.Info("You haven't uploaded any Attendance reports yet");
+                    $('body')
+                        .toast({
+                            position: 'bottom right',
+                            title: 'No History !',
+                            displayTime: 3000,
+                            class: 'warning',
+                            closeIcon: true,
+                            showIcon: true,
+                            message: 'You have not uploaded any Attendance reports yet',
+                            showProgress: 'top'
+                        });
                     return false;
                 }
                 $("#seg").html("");
@@ -331,12 +470,21 @@
                     r);
                 $("#tabl").hide();
                 $("#seg").show();
-                Notiflix.Notify.Info("Hover on Absentees count to the view Absentees List");
+               
+                // Notiflix.Notify.Info("Hover on Absentees count to the view Absentees List");
+                $('body').toast({
+                    position: 'bottom right',
+                    title: 'Tip !',
+                    displayTime: 5000,
+                    closeIcon: true,
+                    showIcon: true,
+                    message: 'Hover on Absentees count to view Absentee List',
+                    showProgress: 'top'
+                });
             }
         })
+        $('.preloader').hide();
     }
-
-
     function consolidate(id) {
         var btn2 = id.split("/");
         d2 = "tname=" + btn2[0] + "&ccode=" + btn2[1] + "&consolidate=true";
@@ -347,26 +495,40 @@
             success: function(r) {
                 if (r == 'empty') {
 
-                    Notiflix.Notify.Info("You haven't uploaded any Attendance reports yet to consolidate");
+                    // Notiflix.Notify.Info("You haven't uploaded any Attendance reports yet to consolidate");
+                    $('body').toast({
+                    position: 'bottom right',
+                    title: 'Error!',
+                    displayTime: 3000,
+                    closeIcon: true,
+                    class: 'error',
+                    showIcon: true,
+                    message: 'You have not uploaded any attendance yet to get Report.',
+                    showProgress: 'top'
+                });
                     return false;
                 } else if (r == "export_ready") {
                     window.location.href = "export.php";
                 }else if (r == "export_ready_for_Elec") {
                     window.location.href = "exportElec.php";
                 } else {
-                    Notiflix.Notify.Warning("Error in retrieving data.Please try again Else Contact Admin");
+                    // Notiflix.Notify.Warning("Error in retrieving data.Please try again Else Contact Admin");
+                    $('body').toast({
+                    position: 'bottom right',
+                    title: 'Error!',
+                    displayTime: 3000,
+                    closeIcon: true,
+                    class: 'error',
+                    showIcon: true,
+                    message: 'Error in retrieving data. Please try again Else Contact Admin.',
+                    showProgress: 'top'
+                });
                 }
 
             }
         })
     }
-    function getWeekDay(date)
-    {
-    var weekdays = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
-    var day = date.getDay();
-    
-    return weekdays[day];
-    }
+
     $(document).ready(function() {
 
         $("#datepickermod").modal();
@@ -379,8 +541,18 @@
         $('#cal').calendar({
             type: 'date'
         });
+
+        
+
+     
+
+
     });
 
+    function googleForm()
+    {
+        $(".ui.modal").modal("hide");
+    }
     function clss() {
         $("#tabl").show();
         $("#seg").hide();
@@ -411,8 +583,10 @@
             }
         });
     }
-    </script>
 
+    
+    </script>
+    
 </body>
 
 </html>
