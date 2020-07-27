@@ -288,8 +288,10 @@
                          });
                         
                     });
-                    </script>'.
-                  '<div class="ui modal" id="modal'.$d.$h.'">
+                    </script>';
+             if(in_array($code,array('18CSO01','18ITO01')))
+             {
+               echo   '<div class="ui modal" id="modal'.$d.$h.'">
                     <div class="header">Meeting Link Submission</div>
                     <i class="close icon"></i>
                     <div class="content">      
@@ -321,10 +323,10 @@
                         <br/>
                         </form>
                     </div>
-                    </div>
-
+                    </div>';
+                   }
                     
-                    <script>
+                    echo '<script>
                     $(document).ready(function(){
                          $("#'.$d.$h.'modal").on("click",function(){
                               $("#url").val("");
