@@ -222,7 +222,7 @@
               $stf=($con->query("SELECT * FROM `staff` WHERE `staffid` like '$sid'"))->fetch_assoc();
 
               
-              echo '<div class="ui raised  segment" style="width:80%;margin:auto;margin-top:3%;">
+              $his= '<div class="ui raised  segment" style="width:80%;margin:auto;margin-top:3%;">
                      
                <div class="ui black info right circular icon message">
              
@@ -288,8 +288,10 @@
                          });
                         
                     });
-                    </script>'.
-                    '<div class="ui modal" id="modal'.$d.$h.'">
+                    </script>';
+             if($sdept!=CSE)
+             {
+                    $his.='<div class="ui modal" id="modal'.$d.$h.'">
                     <div class="header">Meeting Link Submission</div>
                     <i class="close icon"></i>
                     <div class="content">      
@@ -332,6 +334,8 @@
                          });
                     });
                     </script>';  
+             }
+                 echo $his;
                       
          }
         exit();
