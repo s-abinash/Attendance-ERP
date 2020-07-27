@@ -145,7 +145,7 @@
          $res=($con->query($sql))->fetch_assoc();
          $name=$res["name"]; 
          $sdept=$res["dept"]; 
-         $sem=($res["batch"]=='2017'?'7':$res["batch"]=='2018'?'5':'3');
+         $sem=($res["batch"]=='2017'?'IV':$res["batch"]=='2018'?'III':'II');
          $sec="";
          if($res["staffA"]==$sid)
          {
