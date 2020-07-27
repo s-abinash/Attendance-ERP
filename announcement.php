@@ -40,15 +40,16 @@ $(document).ready(function(){
     <div class="scrolling content" style="height: 350px;overflow: auto;">
     
     <div class="ui bulleted list">
-        <h3 class="item">Now as a <span class="ui red text">Progressive Web App </span><div class="ui yellow horizontal label">New</div></h3
+        <h3 class="item">Now as a <span class="ui red text">Progressive Web App </span><div class="ui yellow horizontal label">New</div></h3>
         <h4><i class="laptop icon"></i>:&nbsp;<span id="img1" style="color:#1E70BF;cursor: pointer;font-size: 15px;"> See how to enable</span>&nbsp;|&nbsp;
         <i class="mobile alternate icon"></i>:&nbsp;<span id="img2" style="color:#1E70BF;cursor: pointer;font-size: 15px;"> See how to enable</span></h4>
         <h3 class="item"><span class="ui red text">Google Form Auto Fill </span>has been enabled now. Check demo. <div class="ui yellow horizontal label">New</div></h3>
         <h4><i class="video icon"></i>:&nbsp;<span id="img3" style="color:#1E70BF;cursor: pointer;"> See Demo Video</span></h4>
         <h3 class="item">Staff can alter their period to another staff. Check it out in the NavBar. <div class="ui yellow horizontal label">New</div></h3>
+        <h3 class="item">Advisor Report is under construction. <div class="ui olive horizontal label">Upcoming</div></h3>
         <h3 class="item">You can now export the attendance Data to Various Formats.</h3>
         <h3 class="item">Altered period assigned to you will be visible as Red Stripe in Calendar in Mark Attendance.</h3>
-        <h3 class="item">You can re-alter the period altered to you by someone by using the same Alter Period Page</h3>
+        <h3 class="item">You can re-alter the period altered to you by someone by using the same Alter Period Page.</h3>
     </div>
   </div>
 </div>
