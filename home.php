@@ -278,7 +278,7 @@
                             position: 'bottom right',
                             title: 'All Done!',
                             displayTime: 5000,
-                            class: 'info',
+                            class: 'success',
                             closeIcon: true,
                             showIcon: true,
                             message: 'You have no pending attendance to be uploaded',
@@ -516,12 +516,6 @@
         $('#cal').calendar({
             type: 'date'
         });
-
-        
-
-     
-
-
     });
 
     function googleForm()
