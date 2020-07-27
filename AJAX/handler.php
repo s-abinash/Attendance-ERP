@@ -289,7 +289,7 @@
                         
                     });
                     </script>';
-             if($sdept!=CSE)
+             if($sdept!='CSE')
              {
                     $his.='<div class="ui modal" id="modal'.$d.$h.'">
                     <div class="header">Meeting Link Submission</div>
