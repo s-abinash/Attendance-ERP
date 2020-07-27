@@ -264,7 +264,7 @@
                                              Edit
                                         </div>
                                    </div>';
-              if(in_array($code,array('18CSO01','18ITO01')))
+              if(!in_array($code,array('18CSO01','18ITO01')))
              {
                                    echo '<div class="statistic">
                                    <div class="value">
@@ -292,7 +292,7 @@
                         
                     });
                     </script>';
-             if(in_array($code,array('18CSO01','18ITO01')))
+             if(!in_array($code,array('18CSO01','18ITO01')))
              {
                echo   '<div class="ui modal" id="modal'.$d.$h.'">
                     <div class="header">Meeting Link Submission</div>
