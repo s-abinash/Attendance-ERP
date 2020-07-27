@@ -90,7 +90,7 @@
                     <td>'.($row["dept"]!=="MCSE"?$sec:" - ").'</td>
                     <td>'.$code.'</td>
                     <td>'.$name.'</td>
-                    <td class="right aligned"><button class="ui primary right icon button" id="'.$btn.'" onclick="attend(this.id)"> Mark Attendance &nbsp&nbsp<i class="check icon"></i></button><button class="ui black right icon button" id="'.$btn.'" onclick="history(this.id)"> View History &nbsp&nbsp<i class="history icon"></i></button><button class="ui brown right icon button" id="'.$btn.'" onclick="consolidate(this.id)"> Report &nbsp&nbsp<i class="file export icon"></i></button></td>
+                    <td class="right aligned"><button class="ui primary right icon button" id="'.$btn.'" onclick="attend(this.id)"> Mark Attendance &nbsp&nbsp<i class="check icon"></i></button><button class="ui black right icon button" id="'.$btn.'" onclick="history(this.id)"> View History &nbsp&nbsp<i class="history icon"></i></button><button class="ui purple right icon button" id="'.$btn.'" onclick="consolidate(this.id)"> Report &nbsp&nbsp<i class="file export icon"></i></button></td>
                     </tr>';
                     }
                     if(!empty($ele_course))
@@ -129,7 +129,7 @@
                             <td class="right aligned">
                                 <button class="ui primary right icon button" id="'.$btn.'" onclick="attend(this.id)"> Mark Attendance &nbsp; &nbsp;<i class="check icon"></i></button>
                                 <button class="ui black right icon button" id="'.$btn.'" onclick="history(this.id)"> View History &nbsp; &nbsp;<i class="history icon"></i></button>
-                                <button class="ui brown right icon button" id="'.$btn.'" onclick="consolidate(this.id)"> Report &nbsp; &nbsp;<i class="file export icon"></i></button>
+                                <button class="ui purple right icon button" id="'.$btn.'" onclick="consolidate(this.id)"> Report &nbsp; &nbsp;<i class="file export icon"></i></button>
                             </td>
                             </tr>';
                         }
@@ -166,7 +166,7 @@
                     <td>'.($code!=="18MSE13"?$code:"18MSE12").'</td>
                 
                     <td>'.$name.'</td>
-                    <td class="right aligned"><button class="ui primary right icon button " id="'.$btn.'"  onclick="attend(this.id)"> Mark Attendance &nbsp;&nbsp;<i class="check icon"></i></button><button class="ui black right icon button" id="'.$btn.'" onclick="history(this.id)"> View History &nbsp;&nbsp;<i class="history icon"></i></button><button class="ui brown right icon button" id="'.$btn.'" onclick="consolidate(this.id)"> Report &nbsp; &nbsp;<i class="file export icon"></i></button></td>
+                    <td class="right aligned"><button class="ui primary right icon button " id="'.$btn.'"  onclick="attend(this.id)"> Mark Attendance &nbsp;&nbsp;<i class="check icon"></i></button><button class="ui black right icon button" id="'.$btn.'" onclick="history(this.id)"> View History &nbsp;&nbsp;<i class="history icon"></i></button><button class="ui purple right icon button" id="'.$btn.'" onclick="consolidate(this.id)"> Report &nbsp; &nbsp;<i class="file export icon"></i></button></td>
                     
                 </tr>';
                 }

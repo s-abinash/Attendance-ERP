@@ -186,16 +186,16 @@ include_once("./db.php");
         $("#ajay").on("click", function() {
             window.open("mailto:ajayofficial@zohomail.in?subject=Attendance Reg.,", "_blank");
         });
-        $("#pass,#userid").on("keyup",function(){
-            if(($("#userid").val()!='')&&(($("#pass").val().length)===4))
-            {
-                $("#sub").removeClass("disabled");
-            }
-            if(($("#userid").val()=='')||(($("#pass").val().length)!==4))
-            {
-                $("#sub").addClass("disabled");
-            }
-        });
+        // $("#pass,#userid").on("keyup",function(){
+        //     if(($("#userid").val()!='')&&(($("#pass").val().length)===4))
+        //     {
+        //         $("#sub").removeClass("disabled");
+        //     }
+        //     if(($("#userid").val()=='')||(($("#pass").val().length)!==4))
+        //     {
+        //         $("#sub").addClass("disabled");
+        //     }
+        // });
         
     });
 
