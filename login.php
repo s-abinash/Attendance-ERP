@@ -160,7 +160,7 @@ include_once("./db.php");
             </div>
             <br /><br /><br/>
             <center>
-                <button type="submit" id="sub" name="usr" val="verified" class="ui large positive disabled button">Sign
+                <button type="submit" id="sub" name="usr" val="verified" class="ui large positive button">Sign
                     in</button>
             </center>
         </form>
