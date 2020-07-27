@@ -29,7 +29,7 @@ $(document).ready(function(){
 </script>
 <div class="ui longer modal">
 <div class="ui orange ribbon label" style="margin-left: 15px;margin-top: 8px">New in Version 3.1</div>
-  <div class="header">New Updates</div>
+  <div class="header">Announcement <i class="bullhorn icon"></i></div>
   
   <i class="close icon"></i>
   
