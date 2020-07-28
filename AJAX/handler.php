@@ -316,7 +316,7 @@
                              <input type="text" name="entry.1683190265" value="'.$cnt.'" hidden>
                              <input type="text" name="entry.1675431824" value="'.$P.'" hidden>
                              <input type="text" name="entry.1186250163" value="'.$A.'" hidden>
-                             <input type="text" name="entry.1654159561" value="'.implode(' , ',$ABS_ROLL).'" hidden>
+                             <input type="text" name="entry.1654159561" value="'.(empty(implode(' , ',$ABS_ROLL))?'-':implode(' , ',$ABS_ROLL)).'" hidden>
                              <input type="text" name="entry.1877284434" value="'.intval(($P/$cnt)*100).'%" hidden>
                              <label>Meeting URL: </label>
                              <input type="url" id="url" name="entry.588869143" pattern="https?://drive.google.com.+" required />
