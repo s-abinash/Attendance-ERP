@@ -81,7 +81,7 @@ if (isset($_POST['period'])) {
                     <div class="ui calendar" id="cal">
                         <div class="ui input left icon">
                             <i class="calendar icon"></i>
-                            <input type="text" name="date" placeholder="Date" required>
+                            <input type="text" name="date" placeholder="Date" readonly required>
                         </div>
                     </div>
                 </div>
