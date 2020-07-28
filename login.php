@@ -155,7 +155,7 @@ include_once("./db.php");
                         class="envelope outline icon"></i></a>
             </div>
             <div style="float:right;color:pink;">
-                <a href="http://t.me/kecattd" target="_blank">Telegram Help <i class="hands helping icon"></i>
+                <a id="tele" style="cursor:pointer;" target="_blank">Telegram Help <i class="hands helping icon"></i>
                 </a>
             </div>
             <br /><br /><br/>
@@ -175,11 +175,32 @@ include_once("./db.php");
 
         </p>
     </div>
-
+<!-- Telegram Modal -->
+        <div class="ui basic modal">
+        <i class="close icon"></i>
+        <div class="ui icon header">
+           <i class="telegram plane icon"></i>
+           Telegram Support
+        </div>
+        <div class="content">
+            <p>Search in Telegram: @kecattd</p>
+            <img src="./images/tele.jpg"/>
+        </div>
+        <div class="actions">
+            <div class="ui red basic cancel inverted button">
+            <i class="close icon"></i>
+            Okay
+            </div>
+        </div>
+        </div>
+        <!--  -->
     <script src="./assets/jquery.min.js"></script>
     <script src="./assets/Fomantic/dist/semantic.min.js"></script>
     <script>
     $(document).ready(function() {
+        $("#tele").on("click",function(){
+            $('.ui.basic.modal').modal('show');
+        });
         $("#abinash").on("click", function() {
             window.open("mailto:s.abinash@outlook.com?subject=Attendance Reg.,", "_blank");
         });
