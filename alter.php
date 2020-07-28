@@ -116,13 +116,13 @@ if (isset($_POST['period'])) {
             <button style="float: right;" class="ui positive button" type="submit">Confirm Alter</button>
             <br/><br/>
         </form>
-        <div class="ui warning message">
+        <!-- <div class="ui warning message">
             <i class="close icon"></i>
             <div class="header">
                 Period Once altered cannot be reverted again. <br/>
                 In that regard, contact Admin.
             </div>
-        </div>
+        </div> -->
     </div>
 </div>
 <script>
@@ -137,6 +137,17 @@ if (isset($_POST['period'])) {
     }
 
     $(document).ready(function () {
+        $('body')
+            .toast({
+                position: 'bottom right',
+                title: 'Info',
+                class: 'warning',
+                displayTime: 'auto',
+                closeIcon: true,
+                showIcon: true,
+                message: 'Period Once altered cannot be reverted again. In that regard, contact Admin.',
+                showProgress: 'top'
+            });
         $('#hr,#altc2').dropdown({
             clearable: true
         });
