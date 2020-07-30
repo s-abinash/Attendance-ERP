@@ -14,31 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
 
-    <!-- Firebase -->
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-        <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
 
-        <!-- TODO: Add SDKs for Firebase products that you want to use
-            https://firebase.google.com/docs/web/setup#available-libraries -->
-        <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-analytics.js"></script>
-
-        <script>
-        // Your web app's Firebase configuration
-        var firebaseConfig = {
-            apiKey: "AIzaSyDF7km3mvKXpyI54-Rwv2O3vdIn_R5WV1I",
-            authDomain: "kec-attendance.firebaseapp.com",
-            databaseURL: "https://kec-attendance.firebaseio.com",
-            projectId: "kec-attendance",
-            storageBucket: "kec-attendance.appspot.com",
-            messagingSenderId: "1023068574898",
-            appId: "1:1023068574898:web:adf26a428a570d625c25ab",
-            measurementId: "G-CN4PZ5ZTV6"
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        firebase.analytics();
-        </script>
-    <!--  -->
 </head>
 
 <body>
@@ -47,10 +23,22 @@
         background-image: url("./images/bgpic.jpg");
     }
     </style>
+    
     <div id="tabl">
         <div class="ui header" style="text-align:center;font-size:30px;margin-top:2%;color:#ADEFD1FF">Your Class
             Associations</div>
-        <table class="ui selectable striped  table" style="margin:auto;width:80%;margin-top:5%">
+        <div class="ui icon warning message" style="margin:auto;width:80%;">
+        <i class="close icon"></i>
+        <i class="exclamation circle icon"></i>
+        <div class="content">
+            <div class="header">
+            Important Announcement
+            </div>
+            <p>From Monday, new TimeTable will be followed. All are asked to fill attendance for the past within Saturday.
+            You will not be able to mark attendance for the old timetable from Monday.</p>
+            </div>
+        </div>
+        <table class="ui selectable striped  table" style="margin:auto;width:80%;margin-top:2%">
             <thead>
                 <tr style="color:black;font-size:20px" class="center aligned">
                     <th>Year</th>
@@ -217,8 +205,6 @@
             </button>
         </div>
         <div class="content">
-
-
             <form autocomplete="off" class="ui form" id="frm2" method="POST" action="./import.php">
                 <br></br>
                 <center>
@@ -531,7 +517,8 @@
     }
 
     $(document).ready(function() {
-
+        $('.message .close').on('click', function() {
+        $(this).closest('.message').transition('fade');});
         $("#datepickermod").modal();
         $("#closebtn1").click(function() {
             

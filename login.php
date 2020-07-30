@@ -289,5 +289,30 @@ if (isset($_POST["usr"]))
    }
 }
 ?>
+    <!-- Firebase -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
 
+<!-- TODO: Add SDKs for Firebase products that you want to use
+    https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-analytics.js"></script>
+
+
+  <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyDF7km3mvKXpyI54-Rwv2O3vdIn_R5WV1I",
+            authDomain: "kec-attendance.firebaseapp.com",
+            databaseURL: "https://kec-attendance.firebaseio.com",
+            projectId: "kec-attendance",
+            storageBucket: "kec-attendance.appspot.com",
+            messagingSenderId: "1023068574898",
+            appId: "1:1023068574898:web:adf26a428a570d625c25ab",
+            measurementId: "G-CN4PZ5ZTV6"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+        </script>
+    <!--  -->
 </html>
