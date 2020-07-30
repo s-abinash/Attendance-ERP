@@ -202,10 +202,10 @@ include_once("./db.php");
             $('.ui.basic.modal').modal('show');
         });
         $("#abinash").on("click", function() {
-            window.open("mailto:s.abinash@outlook.com?subject=Attendance Reg.,", "_blank");
+            window.open("mailto:s.abinash@kongu.ac.in?subject=Attendance Reg.,", "_blank");
         });
         $("#ajay").on("click", function() {
-            window.open("mailto:ajayofficial@zohomail.in?subject=Attendance Reg.,", "_blank");
+            window.open("mailto:r.ajay@kongu.ac.in?subject=Attendance Reg.,", "_blank");
         });
         // $("#pass,#userid").on("keyup",function(){
         //     if(($("#userid").val()!='')&&(($("#pass").val().length)===4))
