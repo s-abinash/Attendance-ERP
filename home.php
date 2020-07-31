@@ -339,7 +339,7 @@
           
                 $('#cal').calendar({
                     type: 'date',
-                    
+                     enabledDates: arr,
                     disabledDates: [
                         {
                             date: deldate,
@@ -353,7 +353,7 @@
                             message: 'Altered Period'
                         }
                     ],
-                    enabledDates: arr,
+                   
                     formatter: {
                         date: function(date, settings) {
                             if (!date) return '';
