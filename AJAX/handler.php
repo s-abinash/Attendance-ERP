@@ -295,7 +295,7 @@
              if(!in_array($code,array('18CSO01','18ITO01')))
              {
                echo   '<div class="ui modal" id="modal'.$d.$h.'">
-                    <div class="header">Meeting Link Submission</div>
+                    <div class="header">Meeting Recording Link Submission</div>
                     <i class="close icon"></i>
                     <div class="content">      
                       

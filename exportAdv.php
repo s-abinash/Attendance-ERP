@@ -1,14 +1,25 @@
 <?php
 session_start();
+
 if(!isset($_SESSION['id']))
 {
     header('Location: index.html');
 }
-
 include_once("./db.php");
-$table=strtolower($_SESSION["tname"]);
-$code=$_SESSION["ccode"];
-$course=$_SESSION["cname"];
+$sid=$_SESSION["id"];
+$res=$con->query("SELECT * FROM staff where `staffid` LIKE '$sid'")->fetch_assoc();
+if($res["designation"]!=="Advisor")
+{
+    header('Location: home.php');
+}
+else
+{
+    $b=$res["batch"];
+    $s=$res["sec"];
+    $batch=intval($b)%2000;
+    $Class=($batch=="17"?"IV":($batch=="18"?"III":"II")).' - '.$res['sec'];
+    $table=strval($batch).'-'.strtolower($res['dept']).'-'.strtolower($res['sec']);
+}
 ?>
 
 <html lang="en">
@@ -28,6 +39,8 @@ $course=$_SESSION["cname"];
         top: 0;
         z-index: 2;
     }
+ 
+    
     </style>
 
 </head>
@@ -45,9 +58,8 @@ include_once('./navbar.php');
     </div>
     <div class="ui message" style="text-align:center;width:80%;margin: 0 auto;">
         <div class="ui header">
-            <?php echo ($code!=="18MSE13"?$code:"18MSE12"); 
-                 echo "  -  ";   
-                 echo $course;
+            <?php 
+                echo "Class : ".$Class;
             ?>
         </div>
     </div><br />
@@ -58,18 +70,17 @@ include_once('./navbar.php');
                 <tr id="Dates" style="text-align:center">
                     <th>Register Number</th>
                     <th>Name</th>
-</tr>
-
+                </tr>
+               
             </thead>
             <tbody style="text-align:center">
-            <tr id="Periods" style="text-align:center">
+                 <tr id="Periods" style="text-align:center">
                     <td></td>
                     <td></td>
                 </tr>
                 <?php
                 $sql="SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N'$table'";
                 $res=$con->query($sql);
-                
                 while($row=$res->fetch_assoc())
                 {
                     if($row["COLUMN_NAME"]!='code' && $row["COLUMN_NAME"]!='date' && $row["COLUMN_NAME"]!='period')
@@ -84,51 +95,180 @@ include_once('./navbar.php');
             </tbody>
         </table>
     </div>
-    <?php         
-    $sql="SELECT * FROM `$table` where code LIKE '$code' ORDER BY  date ASC,period ASC";
+    <?php     
+    $st=1;
+    $e=5;
+          if($b=="2018")
+          {
+              $elec=array("18ITO02");
+          }
+          if($b=="2019")
+          {
+              $elec=array();
+          }
+          else if($b=="2017")
+          {
+              $elec=array("14CSO07","14ITO01","14CSE06");
+              $st=3;
+              $e=6;
+          }  
+    
+
+    $x=date("Y-m-d");
+    $tdy=date_create($x);
+    $date=date("2020-07-08");
+    $diff=intval(date_diff($tdy,date_create($date))->format("%a"))+1;
  
-    $res=$con->query($sql);
-    while($row=$res->fetch_assoc())
-    {   
-        foreach($row as $ind=>$val)
+    for($i=1;$i<=$diff;$i++)
+    { 
+     
+        
+        $day=date("l", strtotime($date));
+        if (!in_array($day,array("Saturday","Sunday")))
         {
-            if(($ind=="date") || ($ind=="code") || ($ind=="period"))
+
+        for($p=$st;$p<=$e;$p++)   
+        {
+            echo "<script>$('#Dates').append('<th>".date("d/m",strtotime($date))."</th>')</script>";
+            $bool=0;
+            $sql="SELECT * FROM `$table` WHERE date LIKE '$date' AND period LIKE '$p'";
+            $res=$con->query($sql);
+            if($res->num_rows==1)
             {
-                if($ind=="date")
+                $row=$res->fetch_assoc();
+                foreach($row as $ind=>$val)
                 {
-                    echo "<script>$('#Dates').append('<th>".date("d/m",strtotime($val))."</th>')</script>";
+                    if(($ind=="date") || ($ind=="code") || ($ind=="period"))
+                    {
+        
+                        if($ind=="period")
+                        {
+                            echo "<script>$('#Periods').append('<th>".$val."</th>')</script>";
+                        }
+                        continue;
+                    }
+                    else
+                    {
+                        echo "<script>$('#".$ind."').append('<td>".$val."</td>')</script>";
+                    }  
                 }
-                if($ind=="period")
+            }
+            else if(!empty($elec))
+            {
+                foreach( $elec as $tab)
                 {
-                    echo "<script>$('#Periods').append('<th>".$val."</th>')</script>";
+                    $stf="staff".$s;
+                    $sl="SELECT `$stf` FROM `course_list` WHERE code LIKE '$tab'";
+               
+                    $code=($con->query($sl)->fetch_assoc()["$stf"]);
+                   
+                    $sql="SELECT * FROM `$tab` where code LIKE '$code' AND date LIKE '$date' AND period LIKE '$p'";
+                    $res=$con->query($sql);
+                   if($tab=="14CSE06")
+                   {
+                    $sql="SELECT * FROM `14CSE11` where code LIKE '$code' AND date LIKE '$date' AND period LIKE '$p'";
+                    $res1=$con->query($sql);
+                   }
+                    if($res->num_rows==1)
+                    {
+                        $row=$res->fetch_assoc();
+                        
+                        foreach($row as $ind=>$val)
+                        {
+                            if(($ind=="date") || ($ind=="code") || ($ind=="period"))
+                            {
+                                
+                               if($ind=="period")
+                                {
+                                    echo "<script>$('#Periods').append('<th>".$val."</th>')</script>";
+                                }
+                                continue;
+                            }
+                            else
+                            {
+                                echo "<script>$('#".$ind."').append('<td>".$val."</td>')</script>";
+                            }
+                            
+                        }
+                        if($tab=="14CSE06")
+                        {
+                            $row1=$res1->fetch_assoc();
+                            foreach($row1 as $ind=>$val)
+                            {
+                                if(($ind=="date") || ($ind=="code") || ($ind=="period"))
+                                {
+                                    
+                                   if($ind=="period")
+                                    {
+                                        echo "<script>$('#Periods').append('<th>".$val."</th>')</script>";
+                                    }
+                                    continue;
+                                }
+                                else
+                                {
+                                    echo "<script>$('#".$ind."').append('<td>".$val."</td>')</script>";
+                                }
+                                
+                            }
+                        }
+                        $bool=1;
+                        break;
+                    }
                 }
-                continue;
+                if($bool==0)
+                {
+                    
+                    echo '<script>
+                    
+                    $("table > tbody  > tr").each(function(index, tr) {
+                        if(index==0)
+                        { 
+                            $("#" + this.id).append("<td>" + '.$p.' + "</td>");
+                            return;
+                        }
+                        $("#" + this.id).append("<td>" + "NE" + "</td>");
+                    });
+                    </script>';
+                }
             }
             else
             {
-                echo "<script>$('#".$ind."').append('<td>".$val."</td>')</script>";
+                
+                echo '<script>
+                $("table > tbody  > tr").each(function(index, tr) {
+                    if(index==0)
+                    {
+                        $("#" + this.id).append("<td>" + '.$p.' + "</td>");
+                        return;
+                    }
+                    $("#" + this.id).append("<td>" + "NE" + "</td>");
+                });
+                </script>';
             }
-            
         }
     }
-  
-    
+    $date=date_format(date_add(date_create($date),date_interval_create_from_date_string("1 days")),"Y-m-d");
+}
+
 
 ?>
     <script>
     $("#Dates").append(
-        "<th>No.of.Days<br></br>Present</th><th>No.of.Days<br></br>Absent</th><th>Total Working Days</th><th>Attendance <br></br>Percentage</th>"
+        "<th>No.of.Hrs<br></br>Present</th><th>No.of.Hrs<br></br>Absent</th><th>Total Working Hrs</th><th>Not Updated</th><th>Attendance <br></br>Percentage</th>"
     );
-    var P, A, T, per;
+    var P, A, T,N, per;
+
     $("table > tbody  > tr").each(function(index, tr) {
         if(index==0)
         {
-            $("#" + this.id).append("<td>" + 'N/A' + "</td><td>" + 'N/A' + "</td><td>" + 'N/A' + "</td><td>" + 'N/A' + "</td>");
+            $("#" + this.id).append("<td>" + 'N/A' + "</td><td>" + 'N/A' + "</td><td>" + 'N/A' + "</td><td>" + 'N/A' + "</td><td>" + 'N/A' + "</td>");
             return;
         }
+
         P = $('#' + this.id + ' td:contains("P")').length;
         A = $('#' + this.id + ' td:contains("A")').length;
-        T = $('#' + this.id + ' td').length - 2;
+        N = $('#' + this.id + ' td:contains("NE")').length;
+        T = $('#' + this.id + ' td').length - 2-N;
         if (($('#' + this.id + ' td:nth-child(2):contains("P")').length) && P) {
             P -= 1;
         }
@@ -139,7 +279,7 @@ include_once('./navbar.php');
         if (per < 80) {
             $("#" + this.id).addClass("error");
         }
-        $("#" + this.id).append("<td>" + P + "</td><td>" + A + "</td><td>" + T + "</td><td>" + per + "%</td>");
+        $("#" + this.id).append("<td>" + P + "</td><td>" + A + "</td><td>" + T + "</td><td>" + N + "</td><td>" + per + "%</td>");
     });
     </script>
     <!-- basic Datatables -->
