@@ -183,7 +183,7 @@ if(isset($_POST["upload"]))
                     foreach ($xlsx->rows(0) as $r) {
                         $s = implode($r);
                         $str = substr(trim($s), -8);
-                        if((intval(substr($str,0,2))!=0)&&(intval(substr($str,-2))!=0))
+                        if((intval(substr($str,0,2))!=0)&&(intval(substr($str,-3))!=0))
                         {
                             array_push($arr1,$str);
                            // echo $str.'</>';
@@ -193,7 +193,7 @@ if(isset($_POST["upload"]))
                     foreach ($xlsx->rows(1) as $r) {
                         $s = implode($r);
                         $str = substr(trim($s), -8);
-                        if((intval(substr($str,0,2))!=0)&&(intval(substr($str,-2))!=0))
+                        if((intval(substr($str,0,2))!=0)&&(intval(substr($str,-3))!=0))
                         {          
                             array_push($arr2,$str);
                            // echo $str.'</br>';
@@ -203,7 +203,7 @@ if(isset($_POST["upload"]))
                     foreach ($xlsx->rows(2) as $r) {
                         $s = implode($r);
                         $str = substr(trim($s), -8);
-                        if((intval(substr($str,0,2))!=0)&&(intval(substr($str,-2))!=0))
+                        if((intval(substr($str,0,2))!=0)&&(intval(substr($str,-3))!=0))
                         {
                             array_push($arr3,$str);
                            // echo $str.'</br>';
@@ -370,7 +370,7 @@ if(isset($_POST['finalize']))
 
     <!-- Attendance Confirm Card -->
     <div class="card-2" style="display:none;">
-        <div class="ui raised padded container segment" id="card" style="height:80%;overflow:auto;width:80%;">
+        <div class="ui raised padded container segment" id="card" style="height:90%;overflow:auto;width:80%;">
             <center>
                 <h1 class="header">
                     Attendance Entry

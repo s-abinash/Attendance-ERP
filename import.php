@@ -365,7 +365,7 @@ if(isset($_POST['finalize']))
 
     <!-- Attendance Confirm Card -->
     <div class="card-2" style="display:none;">
-        <div class="ui raised padded container segment" id="card" style="height:80%;overflow:auto;width:80%;">
+        <div class="ui raised padded container segment" id="card" style="height:90%;overflow:auto;width:80%;">
             <center>
                 <h1 class="header">
                     Attendance Entry
