@@ -86,7 +86,7 @@
      
          $x=date("Y-m-d");
          $tdy=date_create($x);
-         $date=date("2020-07-08");
+         $date=date("2020-08-03");
          $diff=intval(date_diff($tdy,date_create($date))->format("%a"))+1;
          $diff+=30;
          $dates=array();
