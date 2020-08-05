@@ -27,7 +27,7 @@
     <div id="tabl">
         <div class="ui header" style="text-align:center;font-size:30px;margin-top:2%;color:#ADEFD1FF">Your Class
             Associations</div>
-        <div class="ui icon warning message" style="margin:auto;width:80%;">
+        <!-- <div class="ui icon warning message" style="margin:auto;width:80%;">
         <i class="close icon"></i>
         <i class="exclamation circle icon"></i>
         <div class="content">
@@ -37,7 +37,7 @@
             <p>From Monday, new TimeTable will be followed. All are asked to fill attendance for the past within Saturday.
             You will not be able to mark attendance for the old timetable from Monday.</p>
             </div>
-        </div>
+        </div> -->
         <table class="ui selectable striped  table" style="margin:auto;width:80%;margin-top:2%">
             <thead>
                 <tr style="color:black;font-size:20px" class="center aligned">
@@ -530,8 +530,8 @@
     }
 
     $(document).ready(function() {
-        $('.message .close').on('click', function() {
-        $(this).closest('.message').transition('fade');});
+        //$('.message .close').on('click', function() {
+        //$(this).closest('.message').transition('fade');});
         $("#datepickermod").modal();
         $("#closebtn1").click(function() {
             
