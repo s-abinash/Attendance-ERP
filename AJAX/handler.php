@@ -310,15 +310,23 @@
                              <input type="text" name="entry.1504310176" value="'.$sec.'" hidden>
                              <input type="text" name="entry.15204943" value="'.$code.'"  hidden>
                              <input type="text" name="entry.668277301" value="'.$name.'" hidden>
-                             <input type="text" name="entry.1289128628" value="'.(strpos($name,'Laboratory') !== false?'Laboratory':'Theory').'" hidden>
+                             
                              <input type="text" name="entry.1170232087" value="'.$d1.'" hidden>
                              <input type="text" name="entry.1628375111" value="'.$h.'" hidden>
                              <input type="text" name="entry.1683190265" value="'.$cnt.'" hidden>
                              <input type="text" name="entry.1675431824" value="'.$P.'" hidden>
                              <input type="text" name="entry.1186250163" value="'.$A.'" hidden>
                              <input type="text" name="entry.1654159561" value="'.(empty(implode(' , ',$ABS_ROLL))?'-':implode(' , ',$ABS_ROLL)).'" hidden>
-                             <input type="text" name="entry.1877284434" value="'.intval(($P/$cnt)*100).'%" hidden>
-                             <label>Meeting URL: </label>
+                             <input type="text" name="entry.1877284434" value="'.intval(($P/$cnt)*100).'%" hidden>'.
+                            (strpos($name,'Laboratory') !== false?'<input type="text" name="entry.1289128628" value="Laboratory" hidden>':'<div class="ui radio checkbox">
+                              <input type="radio" name="entry.1289128628" checked="checked">
+                              <label>Theory</label>
+                              <input type="radio" name="entry.1289128628" >
+                              <label>Tutorial</label>
+                            </div>').
+                             
+                             
+                             '<label>Meeting URL: </label>
                              <input type="url" id="url" name="entry.588869143" pattern="https?://drive.google.com.+" required />
                         </div><br/>
                         <button class="ui violet button" type="submit" style="float:right;">Submit</button>
@@ -401,7 +409,7 @@
 
 
 
-
+<input type="text" name="entry.1289128628" value="'.(strpos($name,'Laboratory') !== false?'Laboratory':'Theory').'" hidden>
 
                     <form class="ui form" id="gfrm" onsubmit="googleForm()" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdAsc0zaLRv11O-p0HEsQqld3d03_LX-rDnY7LyErzpTzNshg/formResponse" method="post" target="_blank">
                          <div class="field">
