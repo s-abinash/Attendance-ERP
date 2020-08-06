@@ -319,7 +319,7 @@
                              <input type="text" name="entry.1654159561" value="'.(empty(implode(' , ',$ABS_ROLL))?'-':implode(' , ',$ABS_ROLL)).'" hidden>
                              <input type="text" name="entry.1877284434" value="'.intval(($P/$cnt)*100).'%" hidden>'.
                             (strpos($name,'Laboratory') !== false?'<input type="text" name="entry.1289128628" value="Laboratory" hidden>':'<div class="inline fields">
-    <label>Class Type</label>
+    <label>Class Type : </label>
     <div class="field">
       <div class="ui radio checkbox">
         <input type="radio" name="entry.1289128628" value="Theory" checked="checked">
