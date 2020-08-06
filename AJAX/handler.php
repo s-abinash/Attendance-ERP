@@ -318,13 +318,22 @@
                              <input type="text" name="entry.1186250163" value="'.$A.'" hidden>
                              <input type="text" name="entry.1654159561" value="'.(empty(implode(' , ',$ABS_ROLL))?'-':implode(' , ',$ABS_ROLL)).'" hidden>
                              <input type="text" name="entry.1877284434" value="'.intval(($P/$cnt)*100).'%" hidden>'.
-                            (strpos($name,'Laboratory') !== false?'<input type="text" name="entry.1289128628" value="Laboratory" hidden>':'<div class="ui radio checkbox">
-                              <input type="radio" name="entry.1289128628" checked="checked">
-                              <label>Theory</label>
-                              <input type="radio" name="entry.1289128628" >
-                              <label>Tutorial</label>
-                            </div>').
-                             
+                            (strpos($name,'Laboratory') !== false?'<input type="text" name="entry.1289128628" value="Laboratory" hidden>':'<<div class="inline fields">
+    <label>Class Type</label>
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input type="radio" name="entry.1289128628" checked="checked">
+        <label>Theory</label>
+      </div>
+    </div>
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input type="radio" name="entry.1289128628">
+        <label>Tutorial</label>
+      </div>
+    </div>
+     </div>').
+                              
                              
                              '<label>Meeting URL: </label>
                              <input type="url" id="url" name="entry.588869143" pattern="https?://drive.google.com.+" required />
