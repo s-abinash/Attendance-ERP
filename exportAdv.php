@@ -362,6 +362,17 @@ include_once('./navbar.php');
             ]
         });
         table.buttons().container().appendTo($('div.eight.column:eq(0)', table.table().container()));
+        $('body')
+            .toast({
+                position: 'bottom right',
+                title: 'Info',
+                class: 'warning',
+                displayTime: 'auto',
+                closeIcon: true,
+                showIcon: true,
+                message: 'This page may not work properly, since there was a change in attendance.',
+                showProgress: 'top'
+            });
     });
     </script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/dataTables.semanticui.min.css">
