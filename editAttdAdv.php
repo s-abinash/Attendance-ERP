@@ -124,7 +124,7 @@ if(isset($_SESSION["EditAttnd"]))
     ?>
 
     <div class="card-2">
-        <div class="ui raised padded container segment" id="card" style="height:80%;overflow:auto;width:60%;">
+        <div class="ui raised padded container segment" id="card" style="height:90%;overflow:auto;width:80%;">
             <center>
                 <h1 class="header">
                     Edit Attendance
