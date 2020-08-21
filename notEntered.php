@@ -20,7 +20,7 @@ $(function(){
 </script>
 <div class="ui overlay fullscreen modal">
   <div class="header">Missing Attendace List</div>
-    <i class="close icon"></i>
+    <a href="exportAdv.php"><i class="close icon"></i></a>
     <div class="scrolling content" style="overflow: auto;">
     <div class="ui raised segment">
     <table class="ui celled table">
@@ -135,7 +135,7 @@ $(function(){
  </div>
   </div>
     <div class="actions">
-        <div class="ui cancel button">Close</div>
+        <a href="exportAdv.php"><div class="ui cancel button">Close</div></a>
     </div>
 </div>
 
