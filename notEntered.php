@@ -23,7 +23,15 @@ $(function(){
     <i class="close icon"></i>
     <div class="scrolling content" style="overflow: auto;">
     <div class="ui raised segment">
-    <div class="ui list">
+    <table class="ui celled table">
+        <thead>
+            <tr><th>Subject</th>
+            <th>Staff</th>
+            <th>Dates</th>
+            <th>Inform</th>
+        </tr>
+        </thead>
+        <tbody>
         <?php 
             $sql="SELECT `dept`,`batch`,`sec` from `staff` where `staffid` like '$staffid'";
             $temp=($con->query($sql))->fetch_assoc();
@@ -35,6 +43,7 @@ $(function(){
             $tab=strtolower($class);
             while($row=mysqli_fetch_array($data))
             {
+                echo '<tr>';
                 $temp='staff'.$sec;
                 $sid=$row[$temp];
                 $sql="SELECT * from `staff` WHERE `staffid` like '$sid'";
@@ -42,7 +51,8 @@ $(function(){
                 $sname=$temp['name'];
                 $smail=$temp['mail'];
                 $ssub=$row['name'];
-                echo '<h2 class="item"><span style="color:red">'.$row['name'].'</span> - <span style="color:blue;">'.$sname.'</span></h2>';
+                echo '<td><span style="color:red">'.$row['name'].'</span></td>';
+                echo '<td><span style="color:blue;">'.$sname.'</span></td>';
                
                 $code=$row["code"];
                 $sql="SELECT * FROM `tt` WHERE `class` LIKE '$tab'";
@@ -92,22 +102,37 @@ $(function(){
                 }
                 echo '<div class="bulleted list">';
                 $mailcontent="Dear ".$sname." Attendace entry is pending for '".$ssub. "' on the following dates:".'%0A%0A';
+                $datecell='';
                 foreach($dates as $i)
                 {    
                     $mailcontent.=date_format(date_create($i),"d-m-Y").'%0A';
-                    echo '<div class="item">'.date_format(date_create($i),"d-m-Y").'</div>';
+                    $datecell.=date_format(date_create($i),"d-m-Y").'<br>';
                 }
+              
                 $mailcontent.="%0AKindly mark the attendance ASAP %0A %20 -"."Advisor";
                 $mailcontent="mailto:".$smail."?subject=Attendace%20Pending%20report&body=".$mailcontent;
                 if(count($dates)!=0)
-                    echo '</div><a href="'.$mailcontent.'" target="_blank">
+                {
+                    echo '<td>'.$datecell.'</td>';    
+                    echo '<td><a href="'.$mailcontent.'" target="_blank">
                           <button class="ui red button">
                           <i class="mail icon"></i> Send Mail
-                          </button></a>';
+                          </button></a></td>';
+                }
+                else
+                {
+                    echo '<td>NIL</td>';    
+                    echo '<td><a href="#" target="_blank">
+                          <button class="ui red button" disabled>
+                          <i class="mail icon"></i> Send Mail
+                          </button></a></td>';
+                }
+                echo '</tr>';
+                    
             }
+            echo '</tbody></table>';
         ?>
-    </div>
-  </div>
+ </div>
   </div>
     <div class="actions">
         <div class="ui cancel button">Close</div>
