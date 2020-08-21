@@ -5,7 +5,6 @@ if(isset($_SESSION['id']))
     header('Location: ./home.php');
 }
 include_once("./db.php");
-include_once('./assets/notiflix.php');
 
 ?>
 <html lang="en">
@@ -26,8 +25,8 @@ include_once('./assets/notiflix.php');
     <meta name="msapplication-starturl" content="/login.php">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="icon" type="image/png" sizes="192*149" href="./images/KEC.png">
-    <link rel="apple-touch-icon" type="image/png" sizes="192*149" href="./images/KEC.png">
+    <link rel="icon" type="image/png" sizes="144x144" href="./images/images/KEC.png">
+    <link rel="apple-touch-icon" type="image/png" sizes="144x144" href="./images/images/KEC.png">
    
     <script type="module">
 
@@ -36,7 +35,7 @@ include_once('./assets/notiflix.php');
             const el = document.createElement('pwa-update');
             document.body.appendChild(el);
     </script>
-
+    <script src="manup.js"></script>
 
     <!--  -->
     <title>KEC Student+</title>
@@ -138,9 +137,10 @@ include_once('./assets/notiflix.php');
 </head>
 
 <body>
-    <?php include_once('./assets/notiflix.php'); ?>
     <div class="box">
-        <h2 class="animate__animated animate__bounce "> Staff Login</h2>
+        <h2 class="animate__animated animate__bounce ">
+        <!-- <img src="./images/KEC.png" height="30px" width="30px" style="border-radius: 5px;position:relative;top:8px;"/>  -->
+        Staff Login</h2>
         <form id="login" autocomplete="off"  action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
             <div class="inputBox">
                 <input type="text" name="userid" id="userid" required>
@@ -155,8 +155,8 @@ include_once('./assets/notiflix.php');
                         class="envelope outline icon"></i></a>
             </div>
             <div style="float:right;color:pink;">
-                <a href="http://t.me/kecattd" target="_blank">Telegram Help <i class="hands helping icon"></i>
-                <br>(Recommended)</a>
+                <a id="tele" style="cursor:pointer;" target="_blank">Telegram Help <i class="hands helping icon"></i>
+                </a>
             </div>
             <br /><br /><br/>
             <center>
@@ -164,42 +164,75 @@ include_once('./assets/notiflix.php');
                     in</button>
             </center>
         </form>
-        <center><span style="color:#ffffb3; margin-top:10%;padding: 20px;font-size:12px">v2.0</span></center>
+        <center><span style="color:#ffffb3; margin-top:10%;padding: 20px;font-size:12px">v3.1</span></center>
         <center><span style="color:bisque;font-size:11px">&copy; Kongu Engineering
                 College</span></center>
     </div>
     <div class="footer">
         <p style="vertical-align: middle;  font-family: sans-serif; padding: 15px;"> Website developed by
-            <span style="color:violet;" id="abinash">Abinash S</span> and <span style="color:violet;" id="ajay">Ajay R
+            <span style="color:violet;cursor: pointer;" id="abinash">Abinash S</span> and <span style="color:violet;cursor: pointer;" id="ajay">Ajay R
             </span>of III CSE - A
 
         </p>
     </div>
-
+<!-- Telegram Modal -->
+        <div class="ui basic modal">
+        <i class="close icon"></i>
+        <div class="ui icon header">
+           <i class="telegram plane icon"></i>
+           Telegram Support
+        </div>
+        <div class="content">
+            <p>Search in Telegram: @kecattd</p>
+            <img src="./images/tele.jpg"/>
+        </div>
+        <div class="actions">
+            <div class="ui red basic cancel inverted button">
+            <i class="close icon"></i>
+            Okay
+            </div>
+        </div>
+        </div>
+        <!--  -->
     <script src="./assets/jquery.min.js"></script>
     <script src="./assets/Fomantic/dist/semantic.min.js"></script>
     <script>
     $(document).ready(function() {
+        $("#tele").on("click",function(){
+            $('.ui.basic.modal').modal('show');
+        });
         $("#abinash").on("click", function() {
-            window.open("mailto:s.abinash@outlook.com?subject=Attendance Reg.,", "_blank");
+            window.open("mailto:s.abinash@kongu.ac.in?subject=Attendance Reg.,", "_blank");
         });
         $("#ajay").on("click", function() {
-            window.open("mailto:ajayofficial@zohomail.in?subject=Attendance Reg.,", "_blank");
+            window.open("mailto:r.ajay@kongu.ac.in?subject=Attendance Reg.,", "_blank");
         });
-        $("#pass,#userid").on("keyup",function(){
-            if(($("#userid").val()!='')&&(($("#pass").val().length)===4))
-            {
-                $("#sub").removeClass("disabled");
-            }
-            if(($("#userid").val()=='')||(($("#pass").val().length)!==4))
-            {
-                $("#sub").addClass("disabled");
-            }
-        });
+        // $("#pass,#userid").on("keyup",function(){
+        //     if(($("#userid").val()!='')&&(($("#pass").val().length)===4))
+        //     {
+        //         $("#sub").removeClass("disabled");
+        //     }
+        //     if(($("#userid").val()=='')||(($("#pass").val().length)!==4))
+        //     {
+        //         $("#sub").addClass("disabled");
+        //     }
+        // });
         
     });
 
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
     </script>
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-151639011-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-151639011-3');
+</script>
 
 </body>
 <?php
@@ -219,14 +252,67 @@ if (isset($_POST["usr"]))
       $_SESSION['batch']=$row['batch'];
       $_SESSION['design']=$row['designation'];
       $_SESSION['sec']=$row['sec'];
-      echo '<body><script>Notiflix.Notify.Success("Logged in Successfully");</script></body>';
+      echo "<script>
+      $(document).ready(function(){
+      $('body')
+            .toast({
+                position: 'bottom right',
+                title: 'Login Successful',
+                class: 'success',
+                displayTime: 3000,
+                closeIcon: true,
+                showIcon: true,
+                message: 'You will be redirected',
+                showProgress: 'top'
+            });
+        });
+      </script>";
       echo '<script>location.href="./home.php";</script>';
    }
    else
    {
-    echo '<body><script>Notiflix.Notify.Failure("Credential Mismatch");</script></body>';
+    echo "<script>
+      $(document).ready(function(){
+      $('body')
+            .toast({
+                position: 'bottom right',
+                title: 'Account Not Found',
+                displayTime: 5000,
+                class: 'error',
+                closeIcon: true,
+                showIcon: true,
+                message: 'Please enter the correct password',
+                showProgress: 'top'
+            });
+        });
+      </script>";
    }
 }
 ?>
+    <!-- Firebase -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
 
+<!-- TODO: Add SDKs for Firebase products that you want to use
+    https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-analytics.js"></script>
+
+
+  <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyDF7km3mvKXpyI54-Rwv2O3vdIn_R5WV1I",
+            authDomain: "kec-attendance.firebaseapp.com",
+            databaseURL: "https://kec-attendance.firebaseio.com",
+            projectId: "kec-attendance",
+            storageBucket: "kec-attendance.appspot.com",
+            messagingSenderId: "1023068574898",
+            appId: "1:1023068574898:web:adf26a428a570d625c25ab",
+            measurementId: "G-CN4PZ5ZTV6"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+        </script>
+    <!--  -->
 </html>

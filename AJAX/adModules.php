@@ -2,7 +2,7 @@
     include_once("../db.php");
     session_start();
     $sid=$_SESSION["id"];
-    $ele=array("14CSE06","14CSE11","14CSO07","14ITO01","18ITO02","18MEO01");
+    $ele=array("14CSE06","14CSE11","14CSO07","14ITO01","18ITO02","18MEO01","18CSO01");
       
     if(isset($_POST["s1drop"]))
     {
@@ -86,7 +86,7 @@
      
          $x=date("Y-m-d");
          $tdy=date_create($x);
-         $date=date("2020-07-08");
+         $date=date("2020-08-03");
          $diff=intval(date_diff($tdy,date_create($date))->format("%a"))+1;
          $diff+=30;
          $dates=array();

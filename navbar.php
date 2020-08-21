@@ -75,6 +75,7 @@
     <noscript>
         <meta http-equiv="refresh" content="0; URL='./errorfile/noscript.html'" /></noscript>
     <!--  -->
+  
     <?php include_once('./assets/notiflix.php'); ?>
     <script src="./assets/jquery.min.js"></script>
     <script src="./assets/Fomantic/dist/semantic.min.js"></script>
@@ -93,6 +94,7 @@
             <a class="active green item" href="#root">KEC Student+</a>
             <a class="item" id="home" href="home.php">Home</a>
             <a class="item" id="alter" href="alter.php">Alter Period</a>
+            <a class="item" id="alter" href="exportAdv.php">Advisor Export <span style="font-size: 10px; color: grey; margin-top: 5px">&nbsp;<i class="tag icon"></i>Alpha</span></a>
             <a class="item" id="ann">Announcement  <em data-emoji=":bell:" class="notify"></em></a>
             <a class="right item"
                 style="margin-right:1%;font-weight:bold;color:cyan"><em><?php echo $_SESSION["name"]?><em></a>

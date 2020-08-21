@@ -2,7 +2,7 @@
     include_once("../db.php");
     session_start();
     $sid=$_SESSION["id"];
-    $ele=array("14CSE06","14CSE11","14CSO07","14ITO01","18ITO02","18MEO01");
+    $ele=array("14CSE06","14CSE11","14CSO07","14ITO01","18ITO02","18MEO01","18CSO01");
     
     if(isset($_POST["tab"]))
     {
@@ -30,7 +30,7 @@
      
          $x=date("Y-m-d");
          $tdy=date_create($x);
-         $date=date("2020-07-08");
+         $date=date("2020-08-03");
          $diff=intval(date_diff($tdy,date_create($date))->format("%a"))+1;
          $dates=array();
          for($i=1;$i<=$diff;$i++)
@@ -81,7 +81,7 @@
                     
                }
           }
-          $altsql="SELECT date,period FROM `alteration` WHERE `s1` LIKE '$sid' AND `c1` LIKE '$code' AND date<=CURRENT_DATE";
+          $altsql="SELECT date,period FROM `alteration` WHERE `s1` LIKE '$sid' AND `c1` LIKE '$code' AND date<=CURRENT_DATE  AND date>='2020-08-03'";
           $res=$con->query($altsql);
           $alt=array();
           while($row=$res->fetch_assoc())
@@ -93,7 +93,7 @@
           {
                $alt="Empty";
           }  
-          $alted="SELECT date,period FROM `alteration` WHERE `s2` LIKE '$sid' AND `c2` LIKE '$code' AND date<=CURRENT_DATE";
+          $alted="SELECT date,period FROM `alteration` WHERE `s2` LIKE '$sid' AND `c2` LIKE '$code' AND date<=CURRENT_DATE AND date>='2020-08-03'";
           $res=$con->query($alted);
           $alted=array();
          
@@ -145,7 +145,7 @@
          $res=($con->query($sql))->fetch_assoc();
          $name=$res["name"]; 
          $sdept=$res["dept"]; 
-         $sem=($res["batch"]=='2017'?'7':$res["batch"]=='2018'?'5':'3');
+         $sem=(($res["batch"]=='2017')?'VII':($res["batch"]=='2018'?'V':'III'));
          $sec="";
          if($res["staffA"]==$sid)
          {
@@ -178,7 +178,8 @@
          while($row=$res->fetch_assoc())
          {
                $cnt=mysqli_num_fields($res)-3;
-              $d=date("d-m-Y",strtotime($row["date"]));
+               $d1=$row["date"];
+              $d=date("d-m-Y",strtotime($d1));
               $h=$row["period"];
               $abs='<b><em>Course &nbsp: &nbsp'.$name.'<br><br>Date &nbsp: &nbsp '.$d.'<br><br>Absentees:<br> <ol class="ui  list">';
               $ABS_ROLL=array();
@@ -218,9 +219,9 @@
               }
               $cnt-=$na;
 
-              $stf=($con->query("SELECT * FROM STAFF WHERE `staffid` like '$sid'"))->fetch_assoc();
+              $stf=($con->query("SELECT * FROM `staff` WHERE `staffid` like '$sid'"))->fetch_assoc();
 
-
+              
               echo '<div class="ui raised  segment" style="width:80%;margin:auto;margin-top:3%;">
                      
                <div class="ui black info right circular icon message">
@@ -262,17 +263,21 @@
                                         <div class="label">
                                              Edit
                                         </div>
+                                   </div>';
+              if(!in_array($code,array('18CSO01','18ITO01')))
+             {
+                                   echo '<div class="statistic">
+                                   <div class="value">
+                                         <button class="ui right floated tertiary icon button" id="'.$d.$h.'modal" data-tooltip="Click to Enter Meeting URL" data-position="top left"><i class="linkify large icon" style="color:red"></i></button>
                                    </div>
-                                   <!--<div class="statistic">
-                                        <div class="value">
-                                              <button class="ui right floated tertiary icon button" id="'.$d.$h.'modal" data-tooltip="Click to Enter Meeting URL" data-position="top left"><i class="linkify icon" style="color:red"></i></button>
-                                        </div>
-                                        <div class="label">
-                                             URL
-                                        </div>
-                                   </div>-->
+                                   <div class="label">
+                                        URL
+                                   </div>
+                              </div>';
+              }
+                                  
                                    
-                         </div></div>
+                         echo '</div></div>
                     </div></div><div class="ui popup" id="pop'.$d.$h.'" style="width:100%">'.$abs.'</div>
                     
                     
@@ -286,41 +291,62 @@
                          });
                         
                     });
-                    </script>'.
-                    '<div class="ui modal" id="modal'.$d.$h.'">
-                    <div class="header">Meeting Link Submission</div>
+                    </script>';
+             if(!in_array($code,array('18CSO01','18ITO01')))
+             {
+               echo   '<div class="ui modal" id="modal'.$d.$h.'">
+                    <div class="header">Meeting Recording Link Submission</div>
                     <i class="close icon"></i>
-                    <div class="content">
-                    <form class="ui form" id="gfrm" onsubmit="googleForm()" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdAsc0zaLRv11O-p0HEsQqld3d03_LX-rDnY7LyErzpTzNshg/formResponse" method="post" target="_blank">
-                         <div class="field">
-                              <input type="text" name="entry.1793626567" value="'.$stf['name'].'" hidden>
-                              <input type="text" name="entry.392332705"  value="'.$stf["dept"].'" hidden>
-                              <input type="text" name="entry.1531750144" value="'.($sdept!='MCSE'?'BE':'ME').'" hidden>
-                              <input type="text" name="entry.1145291381" value="'.$sdept.'" hidden>
-                              <input type="text" name="entry.2078851275" value="'.$sem.'" hidden>
-                              <input type="text" name="entry.979770386" value="'.$sec.'" hidden>
-                              <input type="text" name="entry.1589442083" value="'.$code.'"  hidden>
-                              <input type="text" name="entry.1343331822" value="'.$name.'" hidden>
-                              <input type="text" name="entry.454501088" value="'.(strpos($name,'Laboratory') !== false?'Laboratory':'Theory').'" hidden>
-                              <input type="text" name="entry.58122209" value="'.$d.'" hidden>
-                              <input type="text" name="entry.1781180711" value="'.$h.'" hidden>
-                              <input type="text" name="entry.429113532" value="'.$cnt.'" hidden>
-                              <input type="text" name="entry.524302518" value="'.$P.'" hidden>
-                              <input type="text" name="entry.540017284" value="'.$A.'" hidden>
-                              <input type="text" name="entry.359089973" value="'.implode(' , ',$ABS_ROLL).'" hidden>
-                              <input type="text" name="entry.2014037044" value="'.intval(($P/$cnt)*100).'%" hidden>
-                              <label>Meeting URL: </label>
-                              <input type="url" id="url" name="entry.454419795" pattern="https?://drive.google.com.+" required />
-                         </div><br/>
-                         <button class="ui violet button" type="submit" style="float:right;">Submit</button>
-                         <br/>
-                         <br/>
-                    </form>
+                    <div class="content">      
+                      
+                        <form class="ui form" onsubmit="googleForm()"  action="https://docs.google.com/forms/d/e/1FAIpQLSdsVdDBKvncmxe0wdcDteNqEAMJz-IvdWByge3E9x41QpHB0Q/viewform" target="_blank">
+                        <div class="field">
+                             <input type="text" name="usp" value="pp_url" hidden>
+                             <input type="text" name="entry.1760172262" value="'.$stf['name'].'" hidden>
+                             <input type="text" name="entry.1519840088"  value="'.$stf["dept"].'" hidden>
+                             <input type="text" name="entry.1907877152" value="'.($sdept!='MCSE'?'BE':'ME').'" hidden>
+                             <input type="text" name="entry.309081512" value="'.$sdept.'" hidden>
+                             <input type="text" name="entry.383571963" value="'.$sem.'" hidden>
+                             <input type="text" name="entry.1504310176" value="'.$sec.'" hidden>
+                             <input type="text" name="entry.15204943" value="'.$code.'"  hidden>
+                             <input type="text" name="entry.668277301" value="'.$name.'" hidden>
+                             
+                             <input type="text" name="entry.1170232087" value="'.$d1.'" hidden>
+                             <input type="text" name="entry.1628375111" value="'.$h.'" hidden>
+                             <input type="text" name="entry.1683190265" value="'.$cnt.'" hidden>
+                             <input type="text" name="entry.1675431824" value="'.$P.'" hidden>
+                             <input type="text" name="entry.1186250163" value="'.$A.'" hidden>
+                             <input type="text" name="entry.1654159561" value="'.(empty(implode(' , ',$ABS_ROLL))?'-':implode(' , ',$ABS_ROLL)).'" hidden>
+                             <input type="text" name="entry.1877284434" value="'.intval(($P/$cnt)*100).'%" hidden>'.
+                            (strpos($name,'Laboratory') !== false?'<input type="text" name="entry.1289128628" value="Laboratory" hidden>':'<div class="inline fields">
+    <label>Class Type : </label>
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input type="radio" name="entry.1289128628" value="Theory" checked="checked">
+        <label>Theory</label>
+      </div>
+    </div>
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input type="radio" name="entry.1289128628" value="Tutorial">
+        <label>Tutorial</label>
+      </div>
+    </div>
+     </div>').
+                              
+                             
+                             '<label>Meeting URL: </label>
+                             <input type="url" id="url" name="entry.588869143" pattern="https?://drive.google.com.+" required />
+                        </div><br/>
+                        <button class="ui violet button" type="submit" style="float:right;">Submit</button>
+                        <br/>
+                        <br/>
+                        </form>
                     </div>
-                    </div>
-
+                    </div>';
+                   }
                     
-                    <script>
+                    echo '<script>
                     $(document).ready(function(){
                          $("#'.$d.$h.'modal").on("click",function(){
                               $("#url").val("");
@@ -328,6 +354,7 @@
                          });
                     });
                     </script>';  
+            
                       
          }
         exit();
@@ -389,32 +416,34 @@
 
 <!-- 
 
-<form class="ui form" id="gfrm" onsubmit="googleForm()" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdsVdDBKvncmxe0wdcDteNqEAMJz-IvdWByge3E9x41QpHB0Q/formResponse" method="post" target="_blank">
-<div class="field">
-     <input type="text" name="entry.1760172262" value="'.$stf['name'].'" hidden>
-     <input type="text" name="entry.1519840088"  value="'.$stf["dept"].'" hidden>
-     <input type="text" name="entry.1907877152" value="'.($sdept!='MCSE'?'BE':'ME').'" hidden>
-     <input type="text" name="entry.309081512" value="'.$sdept.'" hidden>
-     
-     <input type="text" name="entry.383571963" value="'.$sem.'" hidden>
-     <input type="text" name="entry.1504310176" value="'.$sec.'" hidden>
-     <input type="text" name="entry.15204943" value="'.$code.'"  hidden>
-     <input type="text" name="entry.668277301" value="'.$name.'" hidden>
-     <input type="text" name="entry.1289128628" value="'.(strpos($name,'Laboratory') !== false?'Laboratory':'Theory').'" hidden>
-     <input type="text" name="entry.1170232087" value="'.$d.'" hidden>
-     <input type="text" name="entry.1628375111" value="'.$h.'" hidden>
-     <input type="text" name="entry.1683190265" value="'.$cnt.'" hidden>
-     <input type="text" name="entry.1675431824" value="'.$P.'" hidden>
-     <input type="text" name="entry.1186250163" value="'.$A.'" hidden>
-     <input type="text" name="entry.1654159561" value="'.implode(' , ',$ABS_ROLL).'" hidden>
-     <input type="text" name="entry.1877284434" value="'.intval(($P/$cnt)*100).'%" hidden>
-     <label>Meeting URL: </label>
-     <input type="url" id="url" name="entry.588869143" pattern="https?://drive.google.com.+" required />
-</div><br/>
-<button class="ui violet button" type="submit" style="float:right;">Submit</button>
-<br/>
-<br/>
-</form>
 
+
+<input type="text" name="entry.1289128628" value="'.(strpos($name,'Laboratory') !== false?'Laboratory':'Theory').'" hidden>
+
+                    <form class="ui form" id="gfrm" onsubmit="googleForm()" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdAsc0zaLRv11O-p0HEsQqld3d03_LX-rDnY7LyErzpTzNshg/formResponse" method="post" target="_blank">
+                         <div class="field">
+                              <input type="text" name="entry.1793626567" value="'.$stf['name'].'" hidden>
+                              <input type="text" name="entry.392332705"  value="'.$stf["dept"].'" hidden>
+                              <input type="text" name="entry.1531750144" value="'.($sdept!='MCSE'?'BE':'ME').'" hidden>
+                              <input type="text" name="entry.1145291381" value="'.$sdept.'" hidden>
+                              <input type="text" name="entry.2078851275" value="'.$sem.'" hidden>
+                              <input type="text" name="entry.979770386" value="'.$sec.'" hidden>
+                              <input type="text" name="entry.1589442083" value="'.$code.'"  hidden>
+                              <input type="text" name="entry.1343331822" value="'.$name.'" hidden>
+                              <input type="text" name="entry.454501088" value="'.(strpos($name,'Laboratory') !== false?'Laboratory':'Theory').'" hidden>
+                              <input type="text" name="entry.58122209" value="'.$d.'" hidden>
+                              <input type="text" name="entry.1781180711" value="'.$h.'" hidden>
+                              <input type="text" name="entry.429113532" value="'.$cnt.'" hidden>
+                              <input type="text" name="entry.524302518" value="'.$P.'" hidden>
+                              <input type="text" name="entry.540017284" value="'.$A.'" hidden>
+                              <input type="text" name="entry.359089973" value="'.implode(' , ',$ABS_ROLL).'" hidden>
+                              <input type="text" name="entry.2014037044" value="'.intval(($P/$cnt)*100).'%" hidden>
+                              <label>Meeting URL: </label>
+                              <input type="url" id="url" name="entry.454419795" pattern="https?://drive.google.com.+" required />
+                         </div><br/>
+                         <button class="ui violet button" type="submit" style="float:right;">Submit</button>
+                         <br/>
+                         <br/>
+                    </form>
 -->
 

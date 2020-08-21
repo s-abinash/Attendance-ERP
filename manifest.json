@@ -1,15 +1,15 @@
 {
   "name": "KEC Student+",
-  "short_name": "KEC",
-  "theme_color": "#21f330",
+  "short_name": "Attendance",
+  "theme_color": "#010203",
   "background_color": "#28292a",
   "display": "standalone",
   "Scope": "/",
   "start_url": "/",
   "icons": [
     {
-      "src": "./images/KEC.png",
-      "sizes": "192x160",
+      "src": "./images/images/KEC.png",
+      "sizes": "144x144",
       "purpose": "any",
       "type": "image/png"
     }

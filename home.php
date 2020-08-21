@@ -14,6 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
 
+
 </head>
 
 <body>
@@ -22,10 +23,22 @@
         background-image: url("./images/bgpic.jpg");
     }
     </style>
+    
     <div id="tabl">
         <div class="ui header" style="text-align:center;font-size:30px;margin-top:2%;color:#ADEFD1FF">Your Class
             Associations</div>
-        <table class="ui selectable striped  table" style="margin:auto;width:80%;margin-top:5%">
+        <!-- <div class="ui icon warning message" style="margin:auto;width:80%;">
+        <i class="close icon"></i>
+        <i class="exclamation circle icon"></i>
+        <div class="content">
+            <div class="header">
+            Important Announcement
+            </div>
+            <p>From Monday, new TimeTable will be followed. All are asked to fill attendance for the past within Saturday.
+            You will not be able to mark attendance for the old timetable from Monday.</p>
+            </div>
+        </div> -->
+        <table class="ui selectable striped  table" style="margin:auto;width:80%;margin-top:2%">
             <thead>
                 <tr style="color:black;font-size:20px" class="center aligned">
                     <th>Year</th>
@@ -43,7 +56,7 @@
                     $word="Laboratory";
                     $lab="";
 
-                    $ele=array("14CSE06","14CSE11","14CSO07","14ITO01","18ITO02","18MEO01");
+                    $ele=array("14CSE06","14CSE11","14CSO07","14ITO01","18ITO02","18MEO01","18CSO01");
                     $ele_course=array();
                     
                     $t=1;
@@ -91,8 +104,20 @@
                     <td>'.($row["dept"]!=="MCSE"?$sec:" - ").'</td>
                     <td>'.$code.'</td>
                     <td>'.$name.'</td>
-                    <td class="right aligned"><button class="ui primary right icon button" id="'.$btn.'" onclick="attend(this.id)"> Mark Attendance &nbsp&nbsp<i class="check icon"></i></button><button class="ui black right icon button" id="'.$btn.'" onclick="history(this.id)"> View History &nbsp&nbsp<i class="history icon"></i></button><button class="ui brown right icon button" id="'.$btn.'" onclick="consolidate(this.id)"> Report &nbsp&nbsp<i class="file export icon"></i></button></td>
+                    <td class="right aligned"><button class="ui primary right icon button" id="'.$btn.'" onclick="attend(this.id)"> Mark Attendance &nbsp&nbsp<i class="check icon"></i></button><button class="ui black right icon button" id="'.$btn.'" onclick="history(this.id)"> View History &nbsp&nbsp<i class="history icon"></i></button><button class="ui purple right icon button" id="'.$btn.'" onclick="consolidate(this.id)"> Report &nbsp&nbsp<i class="file export icon"></i></button></td>
                     </tr>';
+                        if($code=="18GET51")
+                        {
+                            $sec=++$sec;
+                            $btn=strval($row["batch"]%2000)."-".$row["dept"]."-".$sec."/".$code;
+                           echo '<tr>
+                            <td>'.($row["dept"]!=="MCSE"?$year:"M E").'</td>
+                            <td>'.($row["dept"]!=="MCSE"?$sec:" - ").'</td>
+                            <td>'.$code.'</td>
+                            <td>'.$name.'</td>
+                            <td class="right aligned"><button class="ui primary right icon button" id="'.$btn.'" onclick="attend(this.id)"> Mark Attendance &nbsp&nbsp<i class="check icon"></i></button><button class="ui black right icon button" id="'.$btn.'" onclick="history(this.id)"> View History &nbsp&nbsp<i class="history icon"></i></button><button class="ui purple right icon button" id="'.$btn.'" onclick="consolidate(this.id)"> Report &nbsp&nbsp<i class="file export icon"></i></button></td>
+                            </tr>';
+                        }
                     }
                     if(!empty($ele_course))
                     {
@@ -130,7 +155,7 @@
                             <td class="right aligned">
                                 <button class="ui primary right icon button" id="'.$btn.'" onclick="attend(this.id)"> Mark Attendance &nbsp; &nbsp;<i class="check icon"></i></button>
                                 <button class="ui black right icon button" id="'.$btn.'" onclick="history(this.id)"> View History &nbsp; &nbsp;<i class="history icon"></i></button>
-                                <button class="ui brown right icon button" id="'.$btn.'" onclick="consolidate(this.id)"> Report &nbsp; &nbsp;<i class="file export icon"></i></button>
+                                <button class="ui purple right icon button" id="'.$btn.'" onclick="consolidate(this.id)"> Report &nbsp; &nbsp;<i class="file export icon"></i></button>
                             </td>
                             </tr>';
                         }
@@ -167,7 +192,7 @@
                     <td>'.($code!=="18MSE13"?$code:"18MSE12").'</td>
                 
                     <td>'.$name.'</td>
-                    <td class="right aligned"><button class="ui primary right icon button " id="'.$btn.'"  onclick="attend(this.id)"> Mark Attendance &nbsp;&nbsp;<i class="check icon"></i></button><button class="ui black right icon button" id="'.$btn.'" onclick="history(this.id)"> View History &nbsp;&nbsp;<i class="history icon"></i></button><button class="ui brown right icon button" id="'.$btn.'" onclick="consolidate(this.id)"> Report &nbsp; &nbsp;<i class="file export icon"></i></button></td>
+                    <td class="right aligned"><button class="ui primary right icon button " id="'.$btn.'"  onclick="attend(this.id)"> Mark Attendance &nbsp;&nbsp;<i class="check icon"></i></button><button class="ui black right icon button" id="'.$btn.'" onclick="history(this.id)"> View History &nbsp;&nbsp;<i class="history icon"></i></button><button class="ui purple right icon button" id="'.$btn.'" onclick="consolidate(this.id)"> Report &nbsp; &nbsp;<i class="file export icon"></i></button></td>
                     
                 </tr>';
                 }
@@ -192,8 +217,6 @@
             </button>
         </div>
         <div class="content">
-
-
             <form autocomplete="off" class="ui form" id="frm2" method="POST" action="./import.php">
                 <br></br>
                 <center>
@@ -246,7 +269,7 @@
     var x,y;
     var response;
     var dt;
-    var elec=["14CSE06","14CSE11","14CSO07","14ITO01","18ITO02","18MEO01"];
+    var elec=["14CSE06","14CSE11","14CSO07","14ITO01","18ITO02","18MEO01","18CSO01"];
     function getWeekDay(date)
     {
     var weekdays = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
@@ -273,7 +296,18 @@
                 var alted=response[3];
                 
                 if (!(Array.isArray(dates) && dates.length) && alted=="Empty") {
-                    Notiflix.Notify.Info("You have no pending Attendance reports to be uploaded");
+                    // Notiflix.Notify.Info("You have no pending Attendance reports to be uploaded");
+                    $('body')
+                        .toast({
+                            position: 'bottom right',
+                            title: 'All Done!',
+                            displayTime: 5000,
+                            class: 'success',
+                            closeIcon: true,
+                            showIcon: true,
+                            message: 'You have no pending attendance to be uploaded',
+                            showProgress: 'top'
+                        });
                     return false;
                 }
                 for (i of dates) 
@@ -289,7 +323,7 @@
                         var r = altdat.split("-");
                         var alt_date=new Date(r[0], r[1] - 1, r[2]);
                         var alt_day=response[1][getWeekDay(alt_date)];  
-                        if(alt_day.length==alt[altdat].length)
+                        if((alt_day.length==alt[altdat].length)&&(!(Object.keys(alted)).includes(altdat)))
                         {
                             deldate.push(alt_date);
                         }
@@ -317,7 +351,7 @@
           
                 $('#cal').calendar({
                     type: 'date',
-                    enabledDates: arr,
+                     enabledDates: arr,
                     disabledDates: [
                         {
                             date: deldate,
@@ -331,6 +365,7 @@
                             message: 'Altered Period'
                         }
                     ],
+                   
                     formatter: {
                         date: function(date, settings) {
                             if (!date) return '';
@@ -415,7 +450,18 @@
             type: "POST",
             success: function(r) {
                 if (r === '') {
-                    Notiflix.Notify.Info("You haven't uploaded any Attendance reports yet");
+                    // Notiflix.Notify.Info("You haven't uploaded any Attendance reports yet");
+                    $('body')
+                        .toast({
+                            position: 'bottom right',
+                            title: 'No History !',
+                            displayTime: 3000,
+                            class: 'warning',
+                            closeIcon: true,
+                            showIcon: true,
+                            message: 'You have not uploaded any Attendance reports yet',
+                            showProgress: 'top'
+                        });
                     return false;
                 }
                 $("#seg").html("");
@@ -424,10 +470,20 @@
                     r);
                 $("#tabl").hide();
                 $("#seg").show();
-                $('.preloader').hide();
-                Notiflix.Notify.Info("Hover on Absentees count to the view Absentees List");
+               
+                // Notiflix.Notify.Info("Hover on Absentees count to the view Absentees List");
+                $('body').toast({
+                    position: 'bottom right',
+                    title: 'Tip !',
+                    displayTime: 5000,
+                    closeIcon: true,
+                    showIcon: true,
+                    message: 'Hover on Absentees count to view Absentee List',
+                    showProgress: 'top'
+                });
             }
         })
+        $('.preloader').hide();
     }
     function consolidate(id) {
         var btn2 = id.split("/");
@@ -439,14 +495,34 @@
             success: function(r) {
                 if (r == 'empty') {
 
-                    Notiflix.Notify.Info("You haven't uploaded any Attendance reports yet to consolidate");
+                    // Notiflix.Notify.Info("You haven't uploaded any Attendance reports yet to consolidate");
+                    $('body').toast({
+                    position: 'bottom right',
+                    title: 'Error!',
+                    displayTime: 3000,
+                    closeIcon: true,
+                    class: 'error',
+                    showIcon: true,
+                    message: 'You have not uploaded any attendance yet to get Report.',
+                    showProgress: 'top'
+                });
                     return false;
                 } else if (r == "export_ready") {
                     window.location.href = "export.php";
                 }else if (r == "export_ready_for_Elec") {
                     window.location.href = "exportElec.php";
                 } else {
-                    Notiflix.Notify.Warning("Error in retrieving data.Please try again Else Contact Admin");
+                    // Notiflix.Notify.Warning("Error in retrieving data.Please try again Else Contact Admin");
+                    $('body').toast({
+                    position: 'bottom right',
+                    title: 'Error!',
+                    displayTime: 3000,
+                    closeIcon: true,
+                    class: 'error',
+                    showIcon: true,
+                    message: 'Error in retrieving data. Please try again Else Contact Admin.',
+                    showProgress: 'top'
+                });
                 }
 
             }
@@ -454,7 +530,8 @@
     }
 
     $(document).ready(function() {
-
+        //$('.message .close').on('click', function() {
+        //$(this).closest('.message').transition('fade');});
         $("#datepickermod").modal();
         $("#closebtn1").click(function() {
             
@@ -466,10 +543,6 @@
             type: 'date'
         });
 
-     
-
-
-    });
     function googleForm()
     {
         $(".ui.modal").modal("hide");
