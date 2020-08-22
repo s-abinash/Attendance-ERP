@@ -190,4 +190,22 @@
           echo json_encode(array($dates,$day_per,$alt,$alted,$s2));
           exit();
     }
+    else if(isset($_POST["holidays"]))
+    {
+
+          foreach($_POST["holidays"] as $hol)
+          {
+               
+               $hol =date('Y-m-d', strtotime(str_replace('/', '-',$hol)));
+               $sql="INSERT INTO `holiday`( `date`, `comments`) VALUES ('$hol','Holiday')";
+               if(!($con->query($sql)))
+               {
+                    echo $sql;
+                    echo 'failed';
+                    return;
+               }
+          }
+          echo 'success';
+          exit();
+    }
 ?>
