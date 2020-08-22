@@ -15,6 +15,7 @@ if($res["designation"]!=="Advisor")
 else
 {
     $b=$res["batch"];
+    $d=$res['dept'];
     $s=$res["sec"];
     $batch=intval($b)%2000;
     $Class=($batch=="17"?"IV":($batch=="18"?"III":"II")).' - '.$res['sec'];
@@ -63,6 +64,9 @@ include_once('./navbar.php');
             ?>
         </div>
     </div><br />
+
+
+
     <div class="ui raised segment"
         style="height:90%;width:90%;overflow:auto;margin:0 auto;margin-bottom:3%;padding:2%;">
         <table class="ui violet selectable striped table" id="export">
@@ -70,17 +74,25 @@ include_once('./navbar.php');
                 <tr id="Dates" style="text-align:center">
                     <th>Register Number</th>
                     <th>Name</th>
+                    <th>No.of.Hrs<br></br>Present</th><th>No.of.Hrs<br></br>Absent</th><th>Total Working Hrs</th><th>Attendance <br></br>Percentage</th>
                 </tr>
                
             </thead>
             <tbody style="text-align:center">
-                 <tr id="Periods" style="text-align:center">
-                    <td></td>
-                    <td></td>
-                </tr>
+          
                 <?php
+
+                $tables=array($table);
+                $t=$con->query("SELECT `code` FROM `course_list` WHERE category LIKE 'elective' AND batch LIKE '$b' AND dept LIKE '$d' AND status LIKE 'active'");
+                while($tb=$t->fetch_assoc())
+                {
+                    array_push($tables,$tb["code"]);
+                }
+
+
                 $sql="SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N'$table'";
                 $res=$con->query($sql);
+                
                 while($row=$res->fetch_assoc())
                 {
                     if($row["COLUMN_NAME"]!='code' && $row["COLUMN_NAME"]!='date' && $row["COLUMN_NAME"]!='period')
@@ -88,200 +100,27 @@ include_once('./navbar.php');
                         $roll=$row["COLUMN_NAME"];
                         $sql="SELECT name FROM `registration` where regno LIKE '$roll';";
                         $reg=$con->query($sql)->fetch_assoc()["name"];
-                        echo "<tr class='' id=".$row["COLUMN_NAME"]."><td style='text-indent:15px'>".$row["COLUMN_NAME"]."</td><td style='text-align:left'>".$reg."</td></tr>";
+                        $P=0;
+                        $A=0;
+    
+                        foreach($tables as $tab)
+                        {
+                            
+                            $P+=$con->query("SELECT COUNT(`$roll`) AS 'P' FROM `$tab` WHERE `$roll` LIKE 'P'")->fetch_assoc()["P"];
+                            $A+=$con->query("SELECT COUNT(`$roll`) AS 'Ab' FROM `$tab` WHERE `$roll` LIKE 'A'")->fetch_assoc()["Ab"];
+
+                        }
+                        $per=intval(($P/($P+$A))*100);
+                        echo "<tr class=".(($per<50)?'error':'')." id=".$row["COLUMN_NAME"]."><td style='text-indent:15px'>".$row["COLUMN_NAME"]."</td><td style='text-align:left'>".$reg."</td><td>".strval($P)."</td><td>".strval($A)."</td><td>".strval($P+$A)."</td><td>".strval($per)." %</td></tr>";
                     }    
                 }
             ?>
             </tbody>
         </table>
     </div>
-    <?php     
-    $st=1;
-    $e=5;
-          if($b=="2018")
-          {
-              $elec=array("18ITO02");
-          }
-          if($b=="2019")
-          {
-              $elec=array();
-          }
-          else if($b=="2017")
-          {
-              $elec=array("14CSO07","14ITO01","14CSE06");
-              $st=3;
-              $e=6;
-          }  
     
-
-    $x=date("Y-m-d");
-    $tdy=date_create($x);
-    $date=date("2020-07-08");
-    $diff=intval(date_diff($tdy,date_create($date))->format("%a"))+1;
- 
-    for($i=1;$i<=$diff;$i++)
-    { 
-     
-        
-        $day=date("l", strtotime($date));
-        if (!in_array($day,array("Saturday","Sunday")))
-        {
-
-        for($p=$st;$p<=$e;$p++)   
-        {
-            echo "<script>$('#Dates').append('<th>".date("d/m",strtotime($date))."</th>')</script>";
-            $bool=0;
-            $sql="SELECT * FROM `$table` WHERE date LIKE '$date' AND period LIKE '$p'";
-            $res=$con->query($sql);
-            if($res->num_rows==1)
-            {
-                $row=$res->fetch_assoc();
-                foreach($row as $ind=>$val)
-                {
-                    if(($ind=="date") || ($ind=="code") || ($ind=="period"))
-                    {
-        
-                        if($ind=="period")
-                        {
-                            echo "<script>$('#Periods').append('<th>".$val."</th>')</script>";
-                        }
-                        continue;
-                    }
-                    else
-                    {
-                        echo "<script>$('#".$ind."').append('<td>".$val."</td>')</script>";
-                    }  
-                }
-            }
-            else if(!empty($elec))
-            {
-                foreach( $elec as $tab)
-                {
-                    $stf="staff".$s;
-                    $sl="SELECT `$stf` FROM `course_list` WHERE code LIKE '$tab'";
-               
-                    $code=($con->query($sl)->fetch_assoc()["$stf"]);
-                   
-                    $sql="SELECT * FROM `$tab` where code LIKE '$code' AND date LIKE '$date' AND period LIKE '$p'";
-                    $res=$con->query($sql);
-                   if($tab=="14CSE06")
-                   {
-                    $sql="SELECT * FROM `14CSE11` where code LIKE '$code' AND date LIKE '$date' AND period LIKE '$p'";
-                    $res1=$con->query($sql);
-                   }
-                    if($res->num_rows==1)
-                    {
-                        $row=$res->fetch_assoc();
-                        
-                        foreach($row as $ind=>$val)
-                        {
-                            if(($ind=="date") || ($ind=="code") || ($ind=="period"))
-                            {
-                                
-                               if($ind=="period")
-                                {
-                                    echo "<script>$('#Periods').append('<th>".$val."</th>')</script>";
-                                }
-                                continue;
-                            }
-                            else
-                            {
-                                echo "<script>$('#".$ind."').append('<td>".$val."</td>')</script>";
-                            }
-                            
-                        }
-                        if($tab=="14CSE06")
-                        {
-                            $row1=$res1->fetch_assoc();
-                            foreach($row1 as $ind=>$val)
-                            {
-                                if(($ind=="date") || ($ind=="code") || ($ind=="period"))
-                                {
-                                    
-                                   if($ind=="period")
-                                    {
-                                        echo "<script>$('#Periods').append('<th>".$val."</th>')</script>";
-                                    }
-                                    continue;
-                                }
-                                else
-                                {
-                                    echo "<script>$('#".$ind."').append('<td>".$val."</td>')</script>";
-                                }
-                                
-                            }
-                        }
-                        $bool=1;
-                        break;
-                    }
-                }
-                if($bool==0)
-                {
-                    
-                    echo '<script>
-                    
-                    $("table > tbody  > tr").each(function(index, tr) {
-                        if(index==0)
-                        { 
-                            $("#" + this.id).append("<td>" + '.$p.' + "</td>");
-                            return;
-                        }
-                        $("#" + this.id).append("<td>" + "NE" + "</td>");
-                    });
-                    </script>';
-                }
-            }
-            else
-            {
-                
-                echo '<script>
-                $("table > tbody  > tr").each(function(index, tr) {
-                    if(index==0)
-                    {
-                        $("#" + this.id).append("<td>" + '.$p.' + "</td>");
-                        return;
-                    }
-                    $("#" + this.id).append("<td>" + "NE" + "</td>");
-                });
-                </script>';
-            }
-        }
-    }
-    $date=date_format(date_add(date_create($date),date_interval_create_from_date_string("1 days")),"Y-m-d");
-}
-
-
 ?>
-    <script>
-    $("#Dates").append(
-        "<th>No.of.Hrs<br></br>Present</th><th>No.of.Hrs<br></br>Absent</th><th>Total Working Hrs</th><th>Not Updated</th><th>Attendance <br></br>Percentage</th>"
-    );
-    var P, A, T,N, per;
 
-    $("table > tbody  > tr").each(function(index, tr) {
-        if(index==0)
-        {
-            $("#" + this.id).append("<td>" + 'N/A' + "</td><td>" + 'N/A' + "</td><td>" + 'N/A' + "</td><td>" + 'N/A' + "</td><td>" + 'N/A' + "</td>");
-            return;
-        }
-
-        P = $('#' + this.id + ' td:contains("P")').length;
-        A = $('#' + this.id + ' td:contains("A")').length;
-        N = $('#' + this.id + ' td:contains("NE")').length;
-        T = $('#' + this.id + ' td').length - 2-N;
-        if (($('#' + this.id + ' td:nth-child(2):contains("P")').length) && P) {
-            P -= 1;
-        }
-        if (($('#' + this.id + ' td:nth-child(2):contains("A")').length) && A) {
-            A -= 1;
-        }
-        per = parseInt(((P / T) * 100), 10);
-        if (per < 80) {
-            $("#" + this.id).addClass("error");
-        }
-        $("#" + this.id).append("<td>" + P + "</td><td>" + A + "</td><td>" + T + "</td><td>" + N + "</td><td>" + per + "%</td>");
-    });
-    </script>
     <!-- basic Datatables -->
     <script>
     $(document).ready(function() {
@@ -301,7 +140,7 @@ include_once('./navbar.php');
                     extend: 'pdfHtml5',
                     download: 'open',
                     pageSize: 'A4',
-                    orientation: 'landscape',
+                    orientation: 'portrait',
                     "paging": true,
                     "autowidth": true,
                     title: 'KEC Student+ Export',
@@ -311,7 +150,7 @@ include_once('./navbar.php');
 
                         var cols = [];
                         cols[0] = {
-                            text: ' This document has been generated from KEC Student+ . \u00A9Kongu Engineering College.',
+                            text: ' This document has been generated from KEC Student+ . ',
                             alignment: 'left',
                             margin: [20]
                         };
@@ -362,17 +201,7 @@ include_once('./navbar.php');
             ]
         });
         table.buttons().container().appendTo($('div.eight.column:eq(0)', table.table().container()));
-        $('body')
-            .toast({
-                position: 'bottom right',
-                title: 'Info',
-                class: 'warning',
-                displayTime: 'auto',
-                closeIcon: true,
-                showIcon: true,
-                message: 'This page may not work properly, since there was a change in attendance.',
-                showProgress: 'top'
-            });
+       
     });
     </script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/dataTables.semanticui.min.css">
