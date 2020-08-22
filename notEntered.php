@@ -95,6 +95,10 @@ $(function(){
                 $dates=array();
                 for($i=1;$i<=$diff;$i++)
                 {    
+                    if($con->query("select * from holiday where date LIKE '$date'")->num_rows!=0)
+                    {
+                        continue;
+                    }
                     $s=date("l", strtotime($date));
                     foreach($day_per as $d=>$pd)
                     {
