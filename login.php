@@ -151,7 +151,7 @@ include_once("./db.php");
                 <label>Password</label>
             </div>
             <div style="float:left;color:pink;">
-                <a href="mailto:studentplus@kongu.edu?subject=Attendance Reg.," target="_blank">Admin Mail <i
+                <a href="mailto:studentplus@kongu.ac.in?subject=Attendance%20Project%20Reg.," target="_blank">Admin Mail <i
                         class="envelope outline icon"></i></a>
             </div>
             <div style="float:right;color:pink;">
