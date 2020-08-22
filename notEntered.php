@@ -41,7 +41,7 @@ $(function(){
         <thead>
             <tr><th>Subject</th>
             <th>Staff</th>
-            <th>Dates</th>
+            <th>Dates &emsp;&emsp;&emsp;&ensp;&nbsp;- &ensp;Periods</th>
             <th>Inform</th>
         </tr>
         </thead>
@@ -93,6 +93,7 @@ $(function(){
                 $date=date("2020-08-03");
                 $diff=intval(date_diff($tdy,date_create($date))->format("%a"))+1;
                 $dates=array();
+                
                 for($i=1;$i<=$diff;$i++)
                 {    
                     if($con->query("select * from holiday where date LIKE '$date'")->num_rows!=0)
@@ -104,6 +105,7 @@ $(function(){
                     {
                             if($d==$s)
                             {
+                                $day_pd=array();
                                 foreach($pd as $periods)
                                 {
                                     if(in_array($code,$ele))
@@ -112,8 +114,14 @@ $(function(){
                                         $sql="SELECT * FROM `$tab` where date LIKE '$date' AND code LIKE '$code' AND `period` LIKE '$periods'"; 
                                     $r=$con->query($sql);
                                     if($r->num_rows==0)
-                                        array_push($dates,$date);
+                                        array_push($day_pd,$periods);
+                                        
                                 }
+                            
+                                if(!empty($day_pd))
+                                {
+                                        $dates+=array($date=>$day_pd);
+                                }  
                             }
                     }
                     $date=date_format(date_add(date_create($date),date_interval_create_from_date_string("1 days")),"Y-m-d");
@@ -121,15 +129,16 @@ $(function(){
                 echo '<div class="bulleted list">';
                 $mailcontent="Dear ".$sname." Attendace entry is pending for '".$ssub. "' on the following dates:".'%0A%0A';
                 $datecell='';
-                foreach($dates as $i)
-                {    
+                foreach($dates as $i=>$pds)
+                {  
+                    
                     $mailcontent.=date_format(date_create($i),"d-m-Y").'%0A';
-                    $datecell.=date_format(date_create($i),"d-m-Y").'<br>';
+                    $datecell.=date_format(date_create($i),"d-m-Y").' &emsp;- &ensp;'.implode(",",$pds).'<br>';
                 }
               
                 $mailcontent.="%0AKindly mark the attendance ASAP %0A %20 -"."Advisor";
                 $mailcontent="mailto:".$smail."?subject=Attendace%20Pending%20report&body=".$mailcontent;
-                if(count($dates)!=0)
+                if(!empty($dates))
                 {
                     echo '<td>'.$datecell.'</td>';    
                     echo '<td><a href="'.$mailcontent.'" target="_blank">
@@ -139,6 +148,7 @@ $(function(){
                 }
                 else
                 {
+                    
                     echo '<td>NIL</td>';    
                     echo '<td><a href="#" target="_blank">
                           <button class="ui violet button" disabled>
