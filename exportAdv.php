@@ -57,21 +57,20 @@ include_once('./navbar.php');
     </style>
     <div class="ui header" style="text-align:center;font-size:30px;margin-top:2%;color:#ADEFD1FF">Export Attendance
     </div>
-    <div class="ui message" style="text-align:center;width:80%;margin: 0 auto;">
-        <div class="ui header">
-            <?php 
-                echo "Class : ".$Class;
-            ?>
-        </div>
-    </div><br />
-    <div class="ui black message">
     
+    <div class="ui black message" style="text-align:center;width:90%;margin: 0 auto;">
+    <div class="ui header">Attendance Pending Report: <a href="notEntered.php"><button class="ui pink button">Go there!</button></a></div>
     </div>
-
+    <br/>
 
 
     <div class="ui raised segment"
         style="height:90%;width:90%;overflow:auto;margin:0 auto;margin-bottom:3%;padding:2%;">
+        <h2 class="ui header" style="text-align:center">
+            <?php 
+                echo "Class : ".$Class;
+            ?>
+        </h2>
         <table class="ui violet selectable striped table" id="export">
             <thead>
                 <tr id="Dates" style="text-align:center">

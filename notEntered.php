@@ -1,6 +1,17 @@
 
 <?php 
 session_start();
+if(!isset($_SESSION['id']))
+{
+    header('Location: index.html');
+}
+include_once("./db.php");
+$staffid=$_SESSION["id"];
+$res=$con->query("SELECT * FROM staff where `staffid` LIKE '$staffid'")->fetch_assoc();
+if($res["designation"]!="Advisor")
+{
+    header('Location: exportAdv.php');
+}
 include_once('navbar.php'); 
 $staffid=$_SESSION['id'];
 
@@ -19,8 +30,11 @@ $(function(){
   
 </script>
 <div class="ui overlay fullscreen modal">
-  <div class="header">Missing Attendace List</div>
-    <a href="exportAdv.php"><i class="close icon"></i></a>
+
+  <div class="header">Missing Attendace List
+  <a href="exportAdv.php"><i class="close icon" style="float:right"></i></a>
+  </div>
+    
     <div class="scrolling content" style="overflow: auto;">
     <div class="ui raised segment">
     <table class="ui celled table">
@@ -115,7 +129,7 @@ $(function(){
                 {
                     echo '<td>'.$datecell.'</td>';    
                     echo '<td><a href="'.$mailcontent.'" target="_blank">
-                          <button class="ui red button">
+                          <button class="ui violet button">
                           <i class="mail icon"></i> Send Mail
                           </button></a></td>';
                 }
@@ -123,7 +137,7 @@ $(function(){
                 {
                     echo '<td>NIL</td>';    
                     echo '<td><a href="#" target="_blank">
-                          <button class="ui red button" disabled>
+                          <button class="ui violet button" disabled>
                           <i class="mail icon"></i> Send Mail
                           </button></a></td>';
                 }
@@ -135,7 +149,7 @@ $(function(){
  </div>
   </div>
     <div class="actions">
-        <a href="exportAdv.php"><div class="ui cancel button">Close</div></a>
+        <a href="exportAdv.php"><div class="ui bottom attached black button">Close</div></a>
     </div>
 </div>
 
