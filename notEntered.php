@@ -149,7 +149,10 @@ $(function(){
  </div>
   </div>
     <div class="actions">
-        <a href="exportAdv.php"><div class="ui bottom attached black button">Close</div></a>
+        <div class="ui bottom attached buttons">
+        <div class="ui positive button" onclick="window.print()">Print</div>
+        <div class="ui negative button" onclick="window.location.replace('exportAdv.php');">Close</div>
+        </div>
     </div>
 </div>
 
