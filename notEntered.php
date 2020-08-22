@@ -47,6 +47,7 @@ $(function(){
         </thead>
         <tbody>
         <?php 
+           
             $sql="SELECT `dept`,`batch`,`sec` from `staff` where `staffid` like '$staffid'";
             $temp=($con->query($sql))->fetch_assoc();
             $class=substr($temp['batch'],-2).'-'.strtolower($temp['dept']).'-'.$temp['sec'];
@@ -55,6 +56,8 @@ $(function(){
             $data=$con->query($sql);
             $sec=$temp['sec'];
             $tab=strtolower($class);
+      
+           
             while($row=mysqli_fetch_array($data))
             {
                 echo '<tr>';
@@ -150,10 +153,10 @@ $(function(){
                 {
                     
                     echo '<td>NIL</td>';    
-                    echo '<td><a href="#" target="_blank">
+                    echo '<td>
                           <button class="ui violet button" disabled>
                           <i class="mail icon"></i> Send Mail
-                          </button></a></td>';
+                          </button></td>';
                 }
                 echo '</tr>';
                     
