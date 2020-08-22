@@ -64,6 +64,9 @@ include_once('./navbar.php');
             ?>
         </div>
     </div><br />
+    <div class="ui black message">
+    
+    </div>
 
 
 

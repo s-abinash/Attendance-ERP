@@ -94,7 +94,7 @@
             <a class="active green item" href="#root">KEC Student+</a>
             <a class="item" id="home" href="home.php">Home</a>
             <a class="item" id="alter" href="alter.php">Alter Period</a>
-            <a class="item" id="alter" href="exportAdv.php">Advisor Export <span style="font-size: 10px; color: grey; margin-top: 5px">&nbsp;<i class="tag icon"></i>Alpha</span></a>
+            <a class="item" id="alter" href="exportAdv.php">Advisor Export <span style="font-size: 10px; color: grey; margin-top: 5px">&nbsp;<i class="tag icon"></i>New!</span></a>
             <a class="item" id="ann">Announcement  <em data-emoji=":bell:" class="notify"></em></a>
             <a class="right item"
                 style="margin-right:1%;font-weight:bold;color:cyan"><em><?php echo $_SESSION["name"]?><em></a>
@@ -114,6 +114,7 @@
             <div class="ui vertical borderless fluid inverted menu">
                 <a class="item" id="index" href="home.php">Home</a>
                 <a class="item" id="alter" href="alter.php">Alter Period</a>
+                <a class="item" id="alter" href="exportAdv.php">Advisor Export </a>
                 <a class="item" id="ann">Announcement </a>
                 <a class="right item"
                     style="margin-right:1%;font-weight:bold;color:cyan"><em><?php echo $_SESSION["name"]?><em></a>
