@@ -444,6 +444,7 @@
         $('.preloader').show();
         var btn1 = id.split("/");
         d1 = "cls=" + btn1[0] + "&code=" + btn1[1];
+        
         $.ajax({
             url: "./AJAX/handler.php",
             data: d1,
@@ -481,11 +482,13 @@
                     message: 'Hover on Absentees count to view Absentee List',
                     showProgress: 'top'
                 });
+                $('.preloader').hide();
             }
         })
-        $('.preloader').hide();
+        
     }
     function consolidate(id) {
+        $('.preloader').show();
         var btn2 = id.split("/");
         d2 = "tname=" + btn2[0] + "&ccode=" + btn2[1] + "&consolidate=true";
         $.ajax({
@@ -506,12 +509,15 @@
                     message: 'You have not uploaded any attendance yet to get Report.',
                     showProgress: 'top'
                 });
+                    $('.preloader').hide();
                     return false;
+
                 } else if (r == "export_ready") {
                     window.location.href = "export.php";
                 }else if (r == "export_ready_for_Elec") {
                     window.location.href = "exportElec.php";
                 } else {
+                    $('.preloader').hide();
                     // Notiflix.Notify.Warning("Error in retrieving data.Please try again Else Contact Admin");
                     $('body').toast({
                     position: 'bottom right',
