@@ -38,7 +38,7 @@ else
     .ui.table thead tr:first-child>th {
         position: sticky !important;
         top: 0;
-        z-index: 2;
+        z-index: 1;
     }
  
     
@@ -71,11 +71,12 @@ include_once('./navbar.php');
                 echo "Class : ".$Class;
             ?>
         </h2>
+        
         <table class="ui violet selectable striped table" id="export">
-            <thead>
+            <thead >
                 <tr id="Dates" style="text-align:center">
                     <th>Register Number</th>
-                    <th>Name</th>
+                    <th style="text-align:left">Name</th>
                     <th>No.of.Hrs<br></br>Present</th><th>No.of.Hrs<br></br>Absent</th><th>Total Working Hrs</th><th>Attendance <br></br>Percentage</th>
                 </tr>
                
@@ -113,7 +114,7 @@ include_once('./navbar.php');
 
                         }
                         $per=intval(($P/($P+$A))*100);
-                        echo "<tr class=".(($per<50)?'error':'')." id=".$row["COLUMN_NAME"]."><td style='text-indent:15px'>".$row["COLUMN_NAME"]."</td><td style='text-align:left'>".$reg."</td><td>".strval($P)."</td><td>".strval($A)."</td><td>".strval($P+$A)."</td><td>".strval($per)." %</td></tr>";
+                        echo "<tr class=".(($per<80)?'error':'')." id=".$row["COLUMN_NAME"]."><td style='text-indent:15px'>".$row["COLUMN_NAME"]."</td><td style='text-align:left'>".$reg."</td><td>".strval($P)."</td><td>".strval($A)."</td><td>".strval($P+$A)."</td><td>".strval($per)." %</td></tr>";
                     }    
                 }
             ?>
@@ -199,12 +200,41 @@ include_once('./navbar.php');
                         });
                     }
 
-                }, 'colvis'
+                }, 'colvis',
+                {
+                    text: 'Filter ',
+                    action: function ( e, dt, node, config ) {
+                        r+=1;
+                        table.draw();
+            }
+        }
             ]
         });
+        
         table.buttons().container().appendTo($('div.eight.column:eq(0)', table.table().container()));
-       
+        var r=0;
+        $.fn.dataTable.ext.search.push(
+            
+            function( settings, data, dataIndex ) {
+                
+                var per= parseInt( (data[5].split(" "))[0] ) || 0; // use data for the age column
+                if(r%2!=0)
+                {
+                    if ( per<80 )
+                    {
+                        return true;
+                    }
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+                
+            }
+        );
     });
+    
     </script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/dataTables.semanticui.min.css">
     <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
