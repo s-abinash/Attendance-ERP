@@ -47,6 +47,7 @@ $(function(){
         </thead>
         <tbody>
         <?php 
+           
             $sql="SELECT `dept`,`batch`,`sec` from `staff` where `staffid` like '$staffid'";
             $temp=($con->query($sql))->fetch_assoc();
             $class=substr($temp['batch'],-2).'-'.strtolower($temp['dept']).'-'.$temp['sec'];
@@ -55,6 +56,8 @@ $(function(){
             $data=$con->query($sql);
             $sec=$temp['sec'];
             $tab=strtolower($class);
+      
+           
             while($row=mysqli_fetch_array($data))
             {
                 echo '<tr>';
@@ -121,15 +124,17 @@ $(function(){
                 echo '<div class="bulleted list">';
                 $mailcontent="Dear ".$sname." Attendace entry is pending for '".$ssub. "' on the following dates:".'%0A%0A';
                 $datecell='';
+              
                 foreach($dates as $i)
                 {    
-                    $mailcontent.=date_format(date_create($i),"d-m-Y").'%0A';
-                    $datecell.=date_format(date_create($i),"d-m-Y").'<br>';
+                        $mailcontent.=date_format(date_create($i),"d-m-Y").'%0A';
+                        $datecell.=date_format(date_create($i),"d-m-Y").'<br>';
                 }
               
                 $mailcontent.="%0AKindly mark the attendance ASAP %0A %20 -"."Advisor";
                 $mailcontent="mailto:".$smail."?subject=Attendace%20Pending%20report&body=".$mailcontent;
-                if(count($dates)!=0)
+            
+                if(count($dates)!=0 )
                 {
                     echo '<td>'.$datecell.'</td>';    
                     echo '<td><a href="'.$mailcontent.'" target="_blank">
@@ -140,10 +145,10 @@ $(function(){
                 else
                 {
                     echo '<td>NIL</td>';    
-                    echo '<td><a href="#" target="_blank">
+                    echo '<td>
                           <button class="ui violet button" disabled>
                           <i class="mail icon"></i> Send Mail
-                          </button></a></td>';
+                          </button></td>';
                 }
                 echo '</tr>';
                     
