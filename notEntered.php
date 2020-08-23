@@ -135,7 +135,7 @@ $(function(){
                 foreach($dates as $i=>$pds)
                 {  
                     
-                    $mailcontent.=date_format(date_create($i),"d-m-Y").'%20'.'-'.'%20'.$pds.'%0A';
+                    $mailcontent.=date_format(date_create($i),"d-m-Y").'%20'.'-'.'%20'.implode(",",$pds).'%0A';
                     $datecell.=date_format(date_create($i),"d-m-Y").' &emsp;- &ensp;'.implode(",",$pds).'<br>';
                 }
               
