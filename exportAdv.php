@@ -93,8 +93,8 @@ include_once('./navbar.php');
                 }
 
 
-                $sql="SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N'$table'";
-                $res=$con->query($sql);
+
+                $res=$con->query("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N'$table'");
                 
                 while($row=$res->fetch_assoc())
                 {
@@ -107,10 +107,14 @@ include_once('./navbar.php');
                         $A=0;
     
                         foreach($tables as $tab)
-                        {
+                        { 
+                     
+                            if($con->query("SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE table_name = '$tab' AND column_name = '$roll'")->num_rows!=0)
+                            {
+                                $P+=$con->query("SELECT COUNT(`$roll`) AS 'P' FROM `$tab` WHERE `$roll` LIKE 'P'")->fetch_assoc()["P"];
+                                $A+=$con->query("SELECT COUNT(`$roll`) AS 'Ab' FROM `$tab` WHERE `$roll` LIKE 'A'")->fetch_assoc()["Ab"];
+                            }
                             
-                            $P+=$con->query("SELECT COUNT(`$roll`) AS 'P' FROM `$tab` WHERE `$roll` LIKE 'P'")->fetch_assoc()["P"];
-                            $A+=$con->query("SELECT COUNT(`$roll`) AS 'Ab' FROM `$tab` WHERE `$roll` LIKE 'A'")->fetch_assoc()["Ab"];
 
                         }
                         $per=intval(($P/($P+$A))*100);
