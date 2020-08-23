@@ -19,11 +19,15 @@ $ele=array("14CSE06","14CSE11","14CSO07","14ITO01","18ITO02","18MEO01","18CSO01"
 
 $temp='';
 ?>
+<head>
+<title>Pending Report</title>
+</head>
 <script type="text/javascript">
 $(function(){
 
   $('.overlay.fullscreen.modal').modal({
-    transition: 'horizontal flip'
+    closable: false,
+    transition: 'horizontal flip',
   }).modal('show');
   
   });

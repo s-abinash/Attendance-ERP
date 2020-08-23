@@ -30,7 +30,7 @@ else
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Holiday</title>
+    <title>Holiday Entry</title>
     <script src="./assets/jquery.min.js"></script>
     <script src="./assets/Fomantic/dist/semantic.min.js"></script>
     <link rel="icon" type="image/png" href="./images/KEC.png">
