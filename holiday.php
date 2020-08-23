@@ -8,7 +8,7 @@ if(!isset($_SESSION['id']))
 include_once("./db.php");
 $sid=$_SESSION["id"];
 $res=$con->query("SELECT * FROM staff where `staffid` LIKE '$sid'")->fetch_assoc();
-if($res["designation"]!=="Advisor")
+if($res["designation"]!=="HOD")
 {
     header('Location: home.php');
 }

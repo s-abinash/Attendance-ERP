@@ -4,6 +4,10 @@
     {
         header('Location: ./login.php');
     }
+    else
+    {
+        $staffid=$_SESSION['id'];
+    }
     include_once("./db.php");
     include_once("./navbar.php");
 ?>
@@ -26,7 +30,19 @@
     
     <div id="tabl">
         <div class="ui header" style="text-align:center;font-size:30px;margin-top:2%;color:#ADEFD1FF">Your Class
-            Associations</div>
+            Associations
+            <?php 
+            $sql="SELECT designation from `staff` where `staffid` like '$staffid'";
+            $data=$con->query($sql);
+            $row=$data->fetch_assoc();
+            $design=$row['designation'];
+            if($design=='HOD')
+                echo '<span class="ui pink button" style="float:right;" onclick="location.href=\'holiday.php\'">Add Holiday</span>'
+
+        ?>
+        </div>
+
+        
         <!-- <div class="ui icon warning message" style="margin:auto;width:80%;">
         <i class="close icon"></i>
         <i class="exclamation circle icon"></i>
