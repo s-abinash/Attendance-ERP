@@ -25,7 +25,10 @@ include_once("./db.php");
     <meta name="keywords" content="KEC,kec,Kongu Engineering College,Perundurai,KEC Student+,KEC CSE,Abinash,Ajay,Arulprasath,Kongu,KEC Attendance,Computer Science,Kongu Erode,KEC Erode,KEC Perndurai,
     KEC Thopupalayam,KVITT,KEC Student,studentplus,Computer Science KEC,kongu.edu,kongu.ac.in,kongu,keccse,KEC CSE A,studentplus@kongu.edu,kecstudent.xyz">
     <meta name="author" content="Abinash S, Ajay R, Arul Prasath V">
-    <meta name=”robots” content="index, follow">
+    <meta name="robots" content="index,follow">
+    <meta name="distribution" content="Global" />
+    <meta name="publisher" content="Abinash, Kongu Engineering College" />
+    <link rel="canonical" href="https://kecstudent.xyz">
     <!--  -->
 
     <!-- PWA Part -->
