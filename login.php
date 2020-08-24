@@ -166,11 +166,12 @@ include_once("./db.php");
                 <label>Password</label>
             </div>
             <div style="float:left;color:pink;">
-                <a href="mailto:studentplus@kongu.ac.in?subject=Attendance%20Project%20Reg.," target="_blank">studentplus@kongu.ac.in<i
-                        class="envelope outline icon"></i></a>
+                <a href="mailto:studentplus@kongu.ac.in?subject=Attendance%20Project%20Reg.," target="_blank"><i
+                        class="envelope outline icon"></i>studentplus@kongu.ac.in</a>
             </div>
             <div style="float:right;color:pink;">
-                <a id="tele" style="cursor:pointer;" target="_blank">Telegram Help <i class="hands helping icon"></i>
+                <a id="tele" style="cursor:pointer;" target="_blank">
+                <i class="telegram plane icon"></i></i>Telegram Help 
                 </a>
             </div>
             <br /><br /><br/>
