@@ -184,11 +184,14 @@ if (isset($_POST['period'])) {
                             //    return false;
                             response = JSON.parse(r);
                             var arr = [];
+                            var holiday=[];
                             var i;
                             var dates = response[0];
                             var alt = response[2];
                             var alted = response[3];
                             altto = response[4];
+                            var hol=response[5];
+                            
 
                             if (!(Array.isArray(dates) && dates.length) && alted == "Empty") {
                                 Notiflix.Notify.Info("You have no pending Attendance reports to be uploaded");
@@ -198,6 +201,12 @@ if (isset($_POST['period'])) {
                                 var r = i.split("-");
                                 arr.push(new Date(r[0], r[1] - 1, r[2]));
                             }
+                            for (i of hol) {
+                                var r = i.split("-");
+                                holiday.push(new Date(r[0], r[1] - 1, r[2]));
+                            }
+                         
+
                             var deldate = [];
                             var delday = [];
                             if (alt != "Empty") {
@@ -212,7 +221,9 @@ if (isset($_POST['period'])) {
                                     }
 
                                 }
+                              
                             }
+
                             var al = [];
                             var foc = [];
                             if (alted != "Empty") {
@@ -224,15 +235,15 @@ if (isset($_POST['period'])) {
                                     al.push(alteddat);
                                 }
                             }
-
+                        holiday=holiday.concat(deldate);
 
                             $('#cal').calendar({
                                 type: 'date',
                                 enabledDates: arr,
                                 disabledDates: [
                                     {
-                                        date: deldate,
-                                        message: 'Altered'
+                                        date: holiday,
+                                        message: 'Altered or Holiday'
                                     }
                                 ],
                                 eventClass: 'inverted red',

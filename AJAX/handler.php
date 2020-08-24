@@ -33,9 +33,19 @@
          $date=date("2020-08-03");
          $diff=intval(date_diff($tdy,date_create($date))->format("%a"))+1;
          $dates=array();
+
+         $re=($con->query("SELECT * FROM `course_list` WHERE `code` LIKE '$code'"))->fetch_assoc();
+         $dept=$re["dept"];
+         $bat=$re["batch"];
+         if($dept=="MCSE")
+         {
+              $dept='CSE';
+              $bat="2020";
+         }
          for($i=1;$i<=$diff;$i++)
          { 
-              if($con->query("select * from holiday where date LIKE '$date'")->num_rows!=0)
+            
+              if($con->query("select * from `holiday` where `date` LIKE '$date' AND `dept` LIKE '$dept' AND `year` like '$bat'")->num_rows!=0)
               {
                    continue;
               }

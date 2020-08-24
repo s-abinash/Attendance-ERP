@@ -186,24 +186,44 @@
           {
                $alted="Empty";
           }  
-
-          echo json_encode(array($dates,$day_per,$alt,$alted,$s2));
+         $re=($con->query("SELECT * FROM `course_list` WHERE `code` LIKE '$code'"))->fetch_assoc();
+         $dept=$re["dept"];
+         $bat=$re["batch"];
+         if($dept=="MCSE")
+         {
+              $dept='CSE';
+              $bat="2020";
+         }
+         $holid=array();
+    
+         $res2=$con->query("select * from `holiday` where `dept` LIKE '$dept' AND `year` like '$bat'");
+         while($row=$res2->fetch_assoc())
+         {
+               array_push($holid,$row["date"]);
+         }
+          echo json_encode(array($dates,$day_per,$alt,$alted,$s2,$holid));
           exit();
     }
     else if(isset($_POST["holidays"]))
     {
-
+         $dept=$con->query("SELECT * from `staff` where `staffid` like '$sid'")->fetch_assoc()["dept"];
+         $com=$_POST["comment"];
+         $type=$_POST["type"];
+         foreach($_POST["year"] as $y)
+          {
           foreach($_POST["holidays"] as $hol)
           {
                
                $hol =date('Y-m-d', strtotime(str_replace('/', '-',$hol)));
-               $sql="INSERT INTO `holiday`( `date`, `comments`) VALUES ('$hol','Holiday')";
+               
+              $sql="INSERT INTO `holiday`(`date`, `dept`, `year`, `type`, `comments`) VALUES ('$hol','$dept','$y','$type','$com')";
                if(!($con->query($sql)))
                {
-                    echo $sql;
+                  
                     echo 'failed';
                     return;
                }
+          }
           }
           echo 'success';
           exit();

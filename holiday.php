@@ -14,12 +14,13 @@ if($res["designation"]!=="HOD")
 }
 else
 {
-    $res=$con->query("SELECT date from holiday");
-        $hol=array();
-        while($row=$res->fetch_assoc())
-        {
-            array_push($hol,$row["date"]);
-        }
+    $dep=$res["dept"];
+    // $res=$con->query("SELECT date from holiday");
+    //     $hol=array();
+    //     while($row=$res->fetch_assoc())
+    //     {
+    //         array_push($hol,$row["date"]);
+    //     }
      
 }
 
@@ -53,16 +54,58 @@ include_once('./navbar.php');
     </style>
     <div class="ui raised segment" style="width:80%;margin:auto;margin-top:2%">
         <form class="ui form" id="frm">
-        <div class="ui raised segment" style="width:96%;margin:auto;height:70%;">
+        <div class="ui raised segment" style="width:96%;margin:auto;">
             <div class="ui header" style="text-align:center;margin-top:1%;font-size:26px">Mark Holidays</div>
-            <div style="width:40%;margin:auto;">
+            <div style="width:45%;margin:auto;">
                 <select name="holidays[]" multiple="" class="ui fluid dropdown" id="holidays" >
                     <option value="">Select the Dates from Calendar</option>
                 </select>
             </div>
-            <div class="ui calendar" id="inline_calendar" style="width:40%;margin:auto;margin-top:1%;" onselect="func()">
+            <div class="ui calendar" id="inline_calendar" style="width:45%;margin:auto;margin-top:1%;" onselect="func()">
             </div>
           <br>
+        <div  style="width:90%;margin:auto">
+        <div class="two fields">
+    
+            <div class="field" >
+                <label>Date Exemption Type</label>
+                <div class="ui selection dropdown" id="type">
+                    <input name="type" type="hidden">
+                    <div class="default text">Exemption Type</div>
+                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                            <div class="item" data-value="Holiday">Holiday</div>
+                            <div class="item" data-value="Exam">Exam</div>
+                        </div>
+                    </div>
+                </div>
+            
+            <div class="field" >
+                <label>Year</label>
+                <select name="year[]" multiple="" class="ui fluid dropdown" id="year" >
+                    <option value="">Choose Year</option>
+                    <option value="2019">II</option>
+                    <option value="2018">III</option>
+                    <option value="2017">IV</option>
+                    <?php 
+                        if($dep=='CSE')
+                        {
+                            echo "<option value='2020' >ME</option>"; 
+                        }
+                     ?>
+                </select>
+                 
+                </div>   
+            </div>
+       
+        <br>
+        <div class="field">
+            <label>Comments</label>
+            <input placeholder="Comments" name="comment" type="text">
+        </div>
+        <br>
+        </div>
+
         <center>
             <button class="ui primary button"  type="submit" >Mark as Holiday</button>
         </center>
@@ -72,23 +115,24 @@ include_once('./navbar.php');
     <script>
         var arr=[];
     
-        var ar=[];
-        var dates=<?php echo json_encode($hol);?>;
-        for (i of dates) 
-        {
-            var r = i.split("-");
-            ar.push({date:new Date(r[0], r[1] - 1, r[2]),message:"Holiday",class: 'green'});
-        }
+        // var ar=[];
+        // var dates=
+        <?php //echo json_encode($hol);?>;
+        // for (i of dates) 
+        // {
+        //     var r = i.split("-");
+        //     ar.push({date:new Date(r[0], r[1] - 1, r[2]),message:"Holiday",class: 'green'});
+        // }
         $(document).ready(function(){
         
             $('#inline_calendar').calendar({
                 type: 'date',
                 
-                disabledDates: ar,
+                // disabledDates: ar,
                 formatter: {
                     date: function (date, settings) {
                         if (!date) return '';
-                        console.log(ar);
+                       
                         var day = date.getDate();
                         var month = date.getMonth() + 1;
                         var year = date.getFullYear();
@@ -114,8 +158,9 @@ include_once('./navbar.php');
                 disabledDaysOfWeek: [0,6],
                 inline:true
             });
-         
-            $('.ui.fluid.dropdown').dropdown({
+            $('#type').dropdown();
+          
+            $('#holidays,#year').dropdown({
                 clearable: true,
                 sortSelect: true
             });
@@ -133,6 +178,8 @@ include_once('./navbar.php');
                     data: $("#frm").serialize(),
                     type: "POST",
                     success: function(res) {
+                       
+               
                        if(res=="success")
                        {
                         Notiflix.Notify.Success("Holidays Declared Successfully");
