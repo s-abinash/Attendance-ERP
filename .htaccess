@@ -13,7 +13,7 @@ RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteRule ^ %{REQUEST_URI}.html [NC,L]
 RewriteRule index.html login.php
 
-<filesMatch ".(ico|jpg|jpeg|png|gif|svg)$">
+<filesMatch ".(ico|jpg|jpeg|png|gif|svg|woff2)$">
  Header set Cache-Control "max-age=2592000, public"
 </filesMatch>
 <filesMatch ".(css|js)$">
