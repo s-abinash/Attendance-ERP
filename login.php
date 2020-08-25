@@ -173,7 +173,7 @@ include_once("./db.php");
                         class="envelope outline icon"></i>studentplus@kongu.ac.in</a>
             </div>
             <div style="float:right;color:pink;">
-                <a id="tele" style="cursor:pointer;" target="_blank">
+                <a href="https://xn--r1a.website/s/kecattd" style="cursor:pointer;" target="_blank">
                 <i class="telegram plane icon"></i></i>Telegram Help 
                 </a>
             </div>
