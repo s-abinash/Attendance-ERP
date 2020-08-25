@@ -1,1 +1,0 @@
-select * from `18-cse-a`;
