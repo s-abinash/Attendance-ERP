@@ -77,7 +77,8 @@ include_once('./navbar.php');
                         $roll=$row["COLUMN_NAME"];
                         $sql="SELECT name FROM `registration` where regno LIKE '$roll';";
                         $reg=$con->query($sql)->fetch_assoc()["name"];
-                        echo "<tr class='' id=".$row["COLUMN_NAME"]."><td style='text-indent:15px'>".$row["COLUMN_NAME"]."</td><td style='text-align:left'>".$reg."</td></tr>";
+                        echo $roll .' - '.$reg;
+                        //  echo "<tr class='' id=".$row["COLUMN_NAME"]."><td style='text-indent:15px'>".$row["COLUMN_NAME"]."</td><td style='text-align:left'>".$reg."</td></tr>";
                     }    
                 }
             ?>
