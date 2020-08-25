@@ -69,7 +69,7 @@ include_once('./navbar.php');
                 <?php
                 $sql="SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N'$table'";
                 $res=$con->query($sql);
-                
+                echo $sql;
                 while($row=$res->fetch_assoc())
                 {
                     if($row["COLUMN_NAME"]!='code' && $row["COLUMN_NAME"]!='date' && $row["COLUMN_NAME"]!='period')
@@ -77,7 +77,7 @@ include_once('./navbar.php');
                         $roll=$row["COLUMN_NAME"];
                         $sql="SELECT name FROM `registration` where regno LIKE '$roll';";
                         $reg=$con->query($sql)->fetch_assoc()["name"];
-                        echo $roll .' - '.$reg;
+                        echo '\n'.$roll .' - '.$reg;
                         //  echo "<tr class='' id=".$row["COLUMN_NAME"]."><td style='text-indent:15px'>".$row["COLUMN_NAME"]."</td><td style='text-align:left'>".$reg."</td></tr>";
                     }    
                 }
