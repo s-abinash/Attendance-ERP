@@ -64,7 +64,7 @@ include_once('./navbar.php');
             </thead>
             <tbody style="text-align:center">
                 <?php
-                $sql="SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N'$code'";
+                $sql="SELECT DISTINCT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N'$code'";
                 $res=$con->query($sql);
                 $arr=array();
                 while($row=$res->fetch_assoc())
