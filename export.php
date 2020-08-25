@@ -67,7 +67,7 @@ include_once('./navbar.php');
                     <td></td>
                 </tr>
                 <?php
-                $sql="SELECT distinct COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N'$table'";
+                $sql="SELECT DISTINCT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N'$table'";
                 $res=$con->query($sql);
                 echo $sql;
                 while($row=$res->fetch_assoc())
@@ -77,8 +77,8 @@ include_once('./navbar.php');
                         $roll=$row["COLUMN_NAME"];
                         $sql="SELECT name FROM `registration` where regno LIKE '$roll';";
                         $reg=$con->query($sql)->fetch_assoc()["name"];
-                        echo '\n'.$roll .' - '.$reg;
-                        //  echo "<tr class='' id=".$row["COLUMN_NAME"]."><td style='text-indent:15px'>".$row["COLUMN_NAME"]."</td><td style='text-align:left'>".$reg."</td></tr>";
+                     
+                         echo "<tr class='' id=".$row["COLUMN_NAME"]."><td style='text-indent:15px'>".$row["COLUMN_NAME"]."</td><td style='text-align:left'>".$reg."</td></tr>";
                     }    
                 }
             ?>
