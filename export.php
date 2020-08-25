@@ -69,7 +69,7 @@ include_once('./navbar.php');
                 <?php
                 $sql="SELECT DISTINCT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N'$table'";
                 $res=$con->query($sql);
-                echo $sql;
+               
                 while($row=$res->fetch_assoc())
                 {
                     if($row["COLUMN_NAME"]!='code' && $row["COLUMN_NAME"]!='date' && $row["COLUMN_NAME"]!='period')
