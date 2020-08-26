@@ -174,13 +174,13 @@ include_once('./navbar.php');
                             fit: [70, 70],
                         });
                     }
-                }, 'colvis',
-                {
-                    text: 'Defaulters List',
+                },{
+                    text: 'Attendance Laggibng Students List',
                     action: function ( e, dt, node, config ) {
                         r+=1;
                         table.draw();
-            }
+            }, 'colvis'
+                
         }
             ]
         });
