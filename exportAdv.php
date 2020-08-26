@@ -204,6 +204,8 @@ include_once('./navbar.php');
                 }
             }
         );
+        $.fn.dataTable.tables( { api: true } )
+    .buttons.resize();
     });
     
     </script>
