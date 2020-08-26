@@ -174,12 +174,12 @@ include_once('./navbar.php');
                             fit: [70, 70],
                         });
                     }
-                }., 'colvis',{
+                },'colvis',{
                     text: 'Attendance Lagging Students List',
                     action: function ( e, dt, node, config ) {
                         r+=1;
                         table.draw();
-            }
+                    }
                 },'copy'
                 
         
