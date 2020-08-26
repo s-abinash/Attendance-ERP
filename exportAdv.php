@@ -179,9 +179,9 @@ include_once('./navbar.php');
                     action: function ( e, dt, node, config ) {
                         r+=1;
                         table.draw();
-            }, 'colvis'
+            }}, 'colvis'
                 
-        }
+        
             ]
         });
         
