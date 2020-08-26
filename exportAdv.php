@@ -175,7 +175,7 @@ include_once('./navbar.php');
                         });
                     }
                 },'colvis',{
-                    text: 'Attendance Lagging Students List',
+                    text: 'Defaulters List',
                     action: function ( e, dt, node, config ) {
                         r+=1;
                         table.draw();
