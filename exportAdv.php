@@ -116,6 +116,7 @@ include_once('./navbar.php');
             "info": false,
             lengthChange: false,
             buttons: [
+                'copy',
                 {
                     extend: 'excelHtml5',
                     title: 'KEC Student+ Export',
@@ -180,7 +181,7 @@ include_once('./navbar.php');
                         r+=1;
                         table.draw();
                     }
-                },'copy'
+                }
                 
         
             ]
