@@ -115,7 +115,7 @@ include_once('./navbar.php');
             "columnDefs": [{"targets": [0,1,2],"orderable": false}, {"targets":[3,4,5],"orderable":true}],
             "info": false,
             lengthChange: false,
-            buttons: ['copy',
+            buttons: [
                 {
                     extend: 'excelHtml5',
                     title: 'KEC Student+ Export',
@@ -174,12 +174,13 @@ include_once('./navbar.php');
                             fit: [70, 70],
                         });
                     }
-                },{
-                    text: 'Attendance Laggibng Students List',
+                }., 'colvis',{
+                    text: 'Attendance Lagging Students List',
                     action: function ( e, dt, node, config ) {
                         r+=1;
                         table.draw();
-            }}, 'colvis'
+            }
+                },'copy'
                 
         
             ]
