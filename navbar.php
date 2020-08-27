@@ -95,7 +95,8 @@
             <a class="item" id="home" href="home.php">Home</a>
             <a class="item" id="alter" href="alter.php">Alter Period</a>
             <a class="item" id="alter" href="exportAdv.php">Advisor Export <span style="font-size: 10px; color: grey; margin-top: 5px">&nbsp;New!</span></a>
-            <a class="item" id="ann">Announcement  <em data-emoji=":bell:" class="notify"></em></a>
+            <a class="item" id="ann">Announcement<em data-emoji=":bell:" class="notify"></em></a>
+            <a class="item" style="font-size:16px;text-indent:20%;" id="togglepass">Change Password</a>
             <a class="right item"
                 style="margin-right:1%;font-weight:bold;color:cyan"><em><?php echo $_SESSION["name"]?><em></a>
             <a class="right item" id="logout" href="./Logout.php"><i class="share square outline icon"></i>Logout</a>
@@ -116,6 +117,7 @@
                 <a class="item" id="alter" href="alter.php">Alter Period</a>
                 <a class="item" id="alter" href="exportAdv.php">Advisor Export </a>
                 <a class="item" id="ann">Announcement </a>
+                <a class="item" style="font-size:16px;text-indent:20%;"><span id="togglepass" class="ui inverted grey text">Change Password</span></a>
                 <a class="right item"
                     style="margin-right:1%;font-weight:bold;color:cyan"><em><?php echo $_SESSION["name"]?><em></a>
                 <a class="right item" id="logout" href="./Logout.php"><i
@@ -123,6 +125,36 @@
             </div>
         </div>
     </div>
+
+    <!-- Password Change -->
+
+    <div class="ui small modal" id="changepass">
+    <i class="close icon"></i>
+    <div class="header">Change Password</div>
+    <div class="content">
+      <form class="ui form segment error" id="passform">
+        <div class="field">
+          <label>Old Password:</label>
+          <input type="password" name="oldpass" id="oldpass" placeholder="Old Password">
+        </div>
+        <div class="field">
+          <label>New Password:</label>
+          <input type="password" name="newpass" id="newpass" placeholder="New Password">
+        </div>
+        <div class="field">
+          <label>Confirm New Password:</label>
+          <input type="password" name="cnfmnewpass" placeholder="Confirm Password">
+        </div>
+        <div class="actions" style="text-align: right;">
+          <button class="ui positive button" type="submit" name="changepass">Proceed</button>
+          <div class="ui negative button" onClick="return true">Ignore</div><br />
+          <div class="ui error message"></div>
+        </div>
+      </form>
+
+    </div>
+
+  </div>
 
 
     <?php include_once('announcement.php');?>
@@ -168,3 +200,114 @@
         background: #ef8376;
     }
     </style>
+    <script>
+    $(function(){
+    $('#togglepass').on("click", function() {
+        $('#changepass').modal({
+          onApprove: function() {
+            return false;
+          }
+        }).modal('show');
+        $('#newpass').on("change", function() {
+          var pass = $("#newpass").val();
+        });
+      });
+
+
+      $('#passform').form({
+        fields: {
+          oldpass: {
+            identifier: 'oldpass',
+            rules: [{
+                type: 'empty',
+                prompt: 'Please Enter the Old Password'
+              },
+              {
+                type: 'maxLength[16]',
+                prompt: 'Please Enter Password upto 16 Characters'
+              },
+              {
+                type: 'minLength[4]',
+                prompt: 'Please Enter Password above 4 characters'
+              }
+            ]
+          },
+          newpass: {
+            identifier: 'newpass',
+            rules: [{
+                type: 'empty',
+                prompt: 'Please Enter the Old Password'
+              },
+              {
+                type: 'maxLength[16]',
+                prompt: 'Please Enter Password upto 16 Characters'
+              },
+              {
+                type: 'minLength[4]',
+                prompt: 'Please Enter Password above 4 characters'
+              }
+            ]
+          },
+          cnfmnewpass: {
+            identifier: 'cnfmnewpass',
+            rules: [{
+                type: 'empty',
+                prompt: 'Please Enter the Old Password'
+              },
+              {
+                type: 'maxLength[16]',
+                prompt: 'Please Enter Password upto 16 Characters'
+              },
+              {
+                type: 'minLength[4]',
+                prompt: 'Please Enter Password above 4 characters'
+              },
+              {
+                type: 'match[newpass]',
+                prompt: 'Password and Confirm Password should be same'
+              },
+
+            ]
+          }
+
+        },
+        onSuccess: function(event, fields) {
+          event.preventDefault();
+          SubmitDetails();
+        }
+
+      });
+    });
+
+    function SubmitDetails() {
+      data = $("#passform").serializeArray();
+      $("#passform").attr("class", "ui blue double loading form segment error");
+      data[3] = {
+        name: "staffid",
+        value: "<?php echo $_SESSION['id']; ?>",
+      };
+      //console.log(data);
+      $.ajax({
+        url: "AJAX/util_handler.php",
+        type: "POST",
+        data: data,
+        success: function(d) {
+          $("#passform").attr("class", "ui form segment error");
+          $('#changepass').modal('hide');
+          document.getElementById('passform').reset();
+          $('body')
+            .toast({
+                position: 'bottom right',
+                title: (d=='success')?'Successful':'Failed',
+                class: d,
+                displayTime: 3000,
+                closeIcon: true,
+                showIcon: true,
+                message: (d=='success')?'Your Password Changed Successfully':'You entered incorrect password',
+                showProgress: 'top'
+            });
+        }
+      });
+
+    }
+  </script>

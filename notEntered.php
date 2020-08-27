@@ -22,31 +22,26 @@ $temp='';
 <head>
 <title>Pending Report</title>
 </head>
-<script type="text/javascript">
-$(function(){
+<style>
+    body {
+        background: url("./images/bgpic.jpg");
+    }
+    th{
+        font-size: 20px;
+    }
 
-  $('.overlay.fullscreen.modal').modal({
-    closable: false,
-    transition: 'horizontal flip',
-  }).modal('show');
-  
-  });
-  
-</script>
-<div class="ui overlay fullscreen modal">
+    </style>
 
-  <div class="header">Missing Attendace List
-  <a href="exportAdv.php"><i class="close icon" style="float:right"></i></a>
+  <div><center><h1 class="ui white header" style="color:white;margin-top:2%">Missing Attendace List</h1></center>
+  
   </div>
-    
-    <div class="scrolling content" style="overflow: auto;">
-    <div class="ui raised segment">
-    <table class="ui celled table">
+ 
+    <table class="ui inverted celled table" style="width:80%;margin-right:10%;margin-left:10%;margin-bottom:3%">
         <thead>
             <tr><th>Subject</th>
             <th>Staff</th>
             <th>Dates &emsp;&emsp;&emsp;&ensp;&nbsp;- &ensp;Periods</th>
-            <th>Inform</th>
+            <th><span class="ui brown button" onclick="window.print()"><i class="print icon"></i>Print</span></th>
         </tr>
         </thead>
         <tbody>
@@ -167,13 +162,7 @@ $(function(){
             }
             echo '</tbody></table>';
         ?>
- </div>
-  </div>
-    <div class="actions">
-        <div class="ui bottom attached buttons">
-        <div class="ui positive button" onclick="window.print()">Print</div>
-        <div class="ui negative button" onclick="window.location.replace('exportAdv.php');">Close</div>
-        </div>
-    </div>
-</div>
+
+</body>
+</html>
 
