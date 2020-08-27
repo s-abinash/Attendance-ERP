@@ -36,7 +36,7 @@ $temp='';
   
   </div>
  
-    <table class="ui inverted celled table" style="width:80%;margin-right:10%;margin-left:10%;margin-bottom:3%">
+    <table class="ui inverted selectable celled table" style="width:80%;margin-right:10%;margin-left:10%;margin-bottom:3%">
         <thead>
             <tr><th>Subject</th>
             <th>Staff</th>

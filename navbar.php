@@ -94,9 +94,14 @@
             <a class="active green item" href="#root">KEC Student+</a>
             <a class="item" id="home" href="home.php">Home</a>
             <a class="item" id="alter" href="alter.php">Alter Period</a>
-            <a class="item" id="alter" href="exportAdv.php">Advisor Export <span style="font-size: 10px; color: grey; margin-top: 5px">&nbsp;New!</span></a>
-            <a class="item" id="ann">Announcement<em data-emoji=":bell:" class="notify"></em></a>
-            <a class="item" style="font-size:16px;text-indent:20%;" id="togglepass">Change Password</a>
+            <a class="item" id="alter" href="exportAdv.php">Advisor Export 
+            <div class="ui yellow inverted label">New</div></a>
+            <!-- <span style="font-size: 10px; color: grey; margin-top: 5px">&nbsp;New!</span></a> -->
+            <a class="item" id="ann">Announcement
+            <!-- <em data-emoji=":bell:" class="notify"></em> -->
+            </a>
+            <a class="item" id="togglepass" data-title="Change Password" data-content="Change your password using old password">Change Password
+            <div class="ui yellow inverted label">New</div></a>
             <a class="right item"
                 style="margin-right:1%;font-weight:bold;color:cyan"><em><?php echo $_SESSION["name"]?><em></a>
             <a class="right item" id="logout" href="./Logout.php"><i class="share square outline icon"></i>Logout</a>
