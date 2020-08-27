@@ -151,7 +151,8 @@ if(isset($_POST["upload"]))
                 $arr3 = array();
                 
                 if ($xlsx = SimpleXLSX::parse($targetfolder)) {
-                    //var_dump($xlsx->rows(3));
+                    //var_dump($xlsx->rows(0)[]);
+                    
                     try{
                         if(empty($xlsx->rows(0)) || empty($xlsx->rows(1)) || empty($xlsx->rows(2)))
                         {    
@@ -180,7 +181,7 @@ if(isset($_POST["upload"]))
                     }
                     // echo '<h1>Sheet1</h1>';
                     foreach ($xlsx->rows(0) as $r) {
-                        $s = implode($r);
+                        $s = $r[0];    
                         $str = strtoupper(substr(trim($s), -8));
                         if((intval(substr($str,0,2))!=0)&&(intval(substr($str,-3))!=0))
                         {
@@ -190,7 +191,7 @@ if(isset($_POST["upload"]))
                     }
                     // echo '<h1>Sheet2</h1>';
                     foreach ($xlsx->rows(1) as $r) {
-                        $s = implode($r);
+                        $s = $r[0];
                         $str = strtoupper(substr(trim($s), -8));
                         if((intval(substr($str,0,2))!=0)&&(intval(substr($str,-3))!=0))
                         {          
@@ -200,7 +201,7 @@ if(isset($_POST["upload"]))
                     }
                     // echo '<h1>Sheet3</h1>';
                     foreach ($xlsx->rows(2) as $r) {
-                        $s = implode($r);
+                        $s = $r[0];
                         $str = strtoupper(substr(trim($s), -8));
                         if((intval(substr($str,0,2))!=0)&&(intval(substr($str,-3))!=0))
                         {
@@ -345,7 +346,7 @@ if(isset($_POST['finalize']))
                     <div class="field">
                         <label>File Upload</label>
                         <div class="ui action input">
-                            <input type="text" placeholder="Upload xlsx" readonly>
+                            <input type="text" style="cursor:pointer;" placeholder="Upload xlsx" readonly>
                             <input type="file" name="excel" id="file">
                             <div class="ui icon button">
                                 <i class="attach icon"></i>
