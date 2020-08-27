@@ -59,7 +59,7 @@ include_once('./navbar.php');
     </div>
     <br/>
     <div class="ui raised segment"
-        style="height:90%;width:90%;overflow:auto;margin:0 auto;margin-bottom:3%;padding:2%;">
+        style="height:90%;width:95%;overflow:auto;margin:0 auto;margin-bottom:3%;padding:2%;">
         <h2 class="ui header" style="text-align:center">
             <?php 
                 echo "Class : ".$Class;
@@ -70,17 +70,34 @@ include_once('./navbar.php');
                 <tr id="Dates" style="text-align:center">
                     <th>Register Number</th>
                     <th style="text-align:left">Name</th>
+                    <?php
+                            $tables=array($table);
+                            $csub=array();
+                            $esub=array();
+                            $estf=array();
+                            $stf="staff".$s;
+                            $t=$con->query("SELECT `code`,`abbr` FROM `course_list` WHERE category LIKE 'core' AND batch LIKE '$b' AND dept LIKE '$d' AND status LIKE 'active'");
+                            while($tb=$t->fetch_assoc())
+                            {
+                                echo "<th >".$tb["abbr"]."<br><br>%</th>";
+                                array_push($csub,$tb["code"]);
+                            }
+                            $t=$con->query("SELECT `$stf`,`code`,`abbr` FROM `course_list` WHERE category LIKE 'elective' AND batch LIKE '$b' AND dept LIKE '$d' AND status LIKE 'active'");
+                            while($tb=$t->fetch_assoc())
+                            {
+                                echo "<th >".$tb["abbr"]."<br><br>%</th>";
+                                array_push($estf,$tb[$stf]);
+                                array_push($esub,$tb["code"]);
+                                array_push($tables,$tb["code"]);
+                            }
+                          
+                    ?>
                     <th>No.of.Hrs<br></br>Present</th><th>No.of.Hrs<br></br>Absent</th><th>Total Working Hrs</th><th>Attendance <br></br>Percentage</th>
                 </tr>
             </thead>
             <tbody style="text-align:center">
-                <?php
-                $tables=array($table);
-                $t=$con->query("SELECT `code` FROM `course_list` WHERE category LIKE 'elective' AND batch LIKE '$b' AND dept LIKE '$d' AND status LIKE 'active'");
-                while($tb=$t->fetch_assoc())
-                {
-                    array_push($tables,$tb["code"]);
-                }
+            <?php
+            
                 $sql="SELECT DISTINCT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N'$table'";
                 $res=$con->query($sql);
                 while($row=$res->fetch_assoc())
@@ -92,13 +109,39 @@ include_once('./navbar.php');
                         $reg=$con->query($sql)->fetch_assoc()["name"];
                         $P=0;
                         $A=0;
+                        $PR=0;
+                        $AB=0;
                         foreach($tables as $tab)
                         {               
                             $P+=$con->query("SELECT COUNT(`$roll`) AS 'P' FROM `$tab` WHERE `$roll` LIKE 'P'")->fetch_assoc()["P"];
                             $A+=$con->query("SELECT COUNT(`$roll`) AS 'Ab' FROM `$tab` WHERE `$roll` LIKE 'A'")->fetch_assoc()["Ab"];
                         }
                         $per=intval(($P/($P+$A))*100);
-                        echo "<tr class=".(($per<80)?'red':'')." id=".$row["COLUMN_NAME"]."><td style='text-indent:15px'>".$row["COLUMN_NAME"]."</td><td style='text-align:left'>".$reg."</td><td>".strval($P)."</td><td>".strval($A)."</td><td>".strval($P+$A)."</td><td>".strval($per)." %</td></tr>";
+                        $tr="<tr class=".(($per<80)?'red':'')." id=".$row["COLUMN_NAME"]."><td style='text-indent:15px'>".$row["COLUMN_NAME"]."</td><td style='text-align:left'>".$reg."</td>"; 
+                      
+                        foreach($csub as $c)
+                        {
+                           
+                            $PR+=$con->query("SELECT COUNT(`$roll`) AS 'P' FROM `$table` WHERE `$roll` LIKE 'P' AND code LIKE '$c'")->fetch_assoc()["P"];
+                            $AB+=$con->query("SELECT COUNT(`$roll`) AS 'Ab' FROM `$table` WHERE `$roll` LIKE 'A' AND code LIKE '$c'")->fetch_assoc()["Ab"];
+                            $percent=intval(($PR/($PR+$AB))*100);
+                            $tr.="<td class=".(($percent<60)?'red':'').">".strval($percent)."</td>";
+                        }
+                        $i=0;
+                        foreach($esub as $e)
+                        {
+                            $st=$estf[$i];
+                            $PR+=$con->query("SELECT COUNT(`$roll`) AS 'P' FROM `$e` WHERE `$roll` LIKE 'P' AND code LIKE '$st'")->fetch_assoc()["P"];
+                            $AB+=$con->query("SELECT COUNT(`$roll`) AS 'Ab' FROM `$e` WHERE `$roll` LIKE 'A' AND code LIKE '$st'")->fetch_assoc()["Ab"];
+                            $percent=intval(($PR/($PR+$AB))*100);
+                            $tr.="<td class=".(($percent<60)?'red':'').">".strval($percent)."</td>";
+
+                            $i+=1;
+                            
+                        }
+                        
+                        $tr.="<td>".strval($P)."</td><td>".strval($A)."</td><td>".strval($P+$A)."</td><td>".strval($per)." %</td></tr>";
+                        echo $tr;
                     }    
                 }
             ?>
@@ -176,7 +219,7 @@ include_once('./navbar.php');
                         });
                     }
                 },'colvis',{
-                    text: 'Defaulters List',
+                    text: 'Attendance<br> Lagger &apos;s List',
                     action: function ( e, dt, node, config ) {
                         r+=1;
                         table.draw();
@@ -191,7 +234,8 @@ include_once('./navbar.php');
         var r=0;
         $.fn.dataTable.ext.search.push(
             function( settings, data, dataIndex ) {
-                var per= parseInt( (data[5].split(" "))[0] ) || 0; // use data for the age column
+               
+                var per= parseInt( (data[data.length-1].split(" "))[0] ) || 0; // use data for the age column
                 if(r%2!=0)
                 {
                     if ( per<80 )
