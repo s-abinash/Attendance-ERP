@@ -112,9 +112,13 @@ include_once('./navbar.php');
                         $PR=0;
                         $AB=0;
                         foreach($tables as $tab)
-                        {               
-                            $P+=$con->query("SELECT COUNT(`$roll`) AS 'P' FROM `$tab` WHERE `$roll` LIKE 'P'")->fetch_assoc()["P"];
-                            $A+=$con->query("SELECT COUNT(`$roll`) AS 'Ab' FROM `$tab` WHERE `$roll` LIKE 'A'")->fetch_assoc()["Ab"];
+                        {         
+                            if($con->query("SELECT DISTINCT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N'$tab' AND COLUMN_NAME LIKE '$roll'")->num_rows!=0)    
+                            {
+                                $P+=$con->query("SELECT COUNT(`$roll`) AS 'P' FROM `$tab` WHERE `$roll` LIKE 'P'")->fetch_assoc()["P"];
+                                $A+=$con->query("SELECT COUNT(`$roll`) AS 'Ab' FROM `$tab` WHERE `$roll` LIKE 'A'")->fetch_assoc()["Ab"];
+                            }  
+                           
                         }
                         $per=intval(($P/($P+$A))*100);
                         $tr="<tr class=".(($per<80)?'red':'')." id=".$row["COLUMN_NAME"]."><td style='text-indent:15px'>".$row["COLUMN_NAME"]."</td><td style='text-align:left'>".$reg."</td>"; 
@@ -131,11 +135,16 @@ include_once('./navbar.php');
                         foreach($esub as $e)
                         {
                             $st=$estf[$i];
-                            $PR+=$con->query("SELECT COUNT(`$roll`) AS 'P' FROM `$e` WHERE `$roll` LIKE 'P' AND code LIKE '$st'")->fetch_assoc()["P"];
-                            $AB+=$con->query("SELECT COUNT(`$roll`) AS 'Ab' FROM `$e` WHERE `$roll` LIKE 'A' AND code LIKE '$st'")->fetch_assoc()["Ab"];
-                            $percent=intval(($PR/($PR+$AB))*100);
-                            $tr.="<td class=".(($percent<60)?'red':'').">".strval($percent)."</td>";
-
+                            if($con->query("SELECT DISTINCT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N'$e' AND COLUMN_NAME LIKE '$roll'")->num_rows!=0)    
+                            {
+                                $PR+=$con->query("SELECT COUNT(`$roll`) AS 'P' FROM `$e` WHERE `$roll` LIKE 'P' AND code LIKE '$st'")->fetch_assoc()["P"];
+                                $AB+=$con->query("SELECT COUNT(`$roll`) AS 'Ab' FROM `$e` WHERE `$roll` LIKE 'A' AND code LIKE '$st'")->fetch_assoc()["Ab"];
+                                $percent=intval(($PR/($PR+$AB))*100);
+                                $tr.="<td class=".(($percent<60)?'red':'').">".strval($percent)."</td>";
+                            }
+                            else{
+                                $tr.="<td>N/A</td>";
+                            }
                             $i+=1;
                             
                         }
