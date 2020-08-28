@@ -178,8 +178,6 @@
         $(".ui.toggle.button").click(function() {
             $(".mobile.only.grid .ui.vertical.menu").toggle(100);
         });
-       
-
     });
 
     $(window).on("load", function() {
