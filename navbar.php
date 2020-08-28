@@ -316,7 +316,7 @@
         name: "staffid",
         value: "<?php echo $_SESSION['id']; ?>",
       };
-      console.log(data);
+      //console.log(data);
       $.ajax({
         url: "AJAX/util_handler.php",
         type: "POST",
