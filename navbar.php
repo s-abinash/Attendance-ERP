@@ -84,6 +84,16 @@
 <body>
     <?php include_once('./db.php'); ?>
   
+
+    <?php
+    $id=$_SESSION['id'];
+    $sql="SELECT `designation`,`userid` from `staff` where `staffid` like '$id'";
+    $data=$con->query($sql);
+    $row=$data->fetch_assoc();
+    $design=$row['designation'];
+
+
+    ?>
     <div class="preloader">
         <div class="ui active dimmer" style="position: fixed;">
             <div class="ui massive active green elastic loader"></div>
@@ -94,8 +104,20 @@
             <a class="active green item" href="#root">KEC Student+</a>
             <a class="item" id="home" href="home.php">Home</a>
             <a class="item" id="alter" href="alter.php">Alter Period</a>
-            <a class="item" id="alter" href="exportAdv.php">Advisor Export 
-            <div class="ui yellow inverted label">New</div></a>
+            <?php
+            if($design=='Advisor')
+              echo '<a class="item" id="alter" href="exportAdv.php">Advisor Export 
+                    <div class="ui yellow inverted label">New</div></a>';
+            else if($row['userid']=='mallisenthil')
+            {
+                echo '<a class="item" href="hodReport.php">Pending Report <div class="ui yellow inverted label">New</div> </a>';
+            }  
+            else if($row['designation']=='HOD')
+            {
+                echo '<a class="item" href="holiday.php">Pending Report <div class="ui yellow inverted label">New</div> </a>';
+                echo '<a class="item" href="hodReport.php">Add Holiday <div class="ui yellow inverted label">New</div></a>';
+            }
+            ?>
             <!-- <span style="font-size: 10px; color: grey; margin-top: 5px">&nbsp;New!</span></a> -->
             <a class="item" id="ann">Announcement
             <!-- <em data-emoji=":bell:" class="notify"></em> -->
@@ -120,7 +142,10 @@
             <div class="ui vertical borderless fluid inverted menu">
                 <a class="item" id="index" href="home.php">Home</a>
                 <a class="item" id="alter" href="alter.php">Alter Period</a>
-                <a class="item" id="alter" href="exportAdv.php">Advisor Export </a>
+                <?php
+                if($row=='Advisor')
+                  echo '<a class="item" id="alter" href="exportAdv.php">Advisor Export</a>';
+                ?>
                 <a class="item" id="ann">Announcement </a>
                 <a class="item" style="font-size:16px;text-indent:20%;"><span id="togglepass" class="ui inverted grey text">Change Password</span></a>
                 <a class="right item"

@@ -32,21 +32,21 @@
         <div class="ui header" style="text-align:center;font-size:30px;margin-top:2%;color:#ADEFD1FF">Your Class
             Associations
             <?php 
-            $sql="SELECT `designation`,`userid` from `staff` where `staffid` like '$staffid'";
-            $data=$con->query($sql);
-            $row=$data->fetch_assoc();
-            $design=$row['designation'];
-            $name=$row['userid'];
-            if($design=='HOD')
-            {
-                echo '<span class="ui pink button" style="float:right;" onclick="location.href=\'holiday.php\'">Add Holiday</span>';
-                echo '<span class="ui brown button" style="float:right;" onclick="location.href=\'hodReport.php\'">Not Entered List</span>';
+            // $sql="SELECT `designation`,`userid` from `staff` where `staffid` like '$staffid'";
+            // $data=$con->query($sql);
+            // $row=$data->fetch_assoc();
+            // $design=$row['designation'];
+            // $name=$row['userid'];
+            // if($design=='HOD')
+            // {
+            //     echo '<span class="ui pink button" style="float:right;" onclick="location.href=\'holiday.php\'">Add Holiday</span>';
+            //     echo '<span class="ui brown button" style="float:right;" onclick="location.href=\'hodReport.php\'">Not Entered List</span>';
 
-            }    
-            else if($name=='mallisenthil')
-            {
-                echo '<span class="ui brown button" style="float:right;" onclick="location.href=\'hodReport.php\'">Not Entered List</span>';
-            }
+            // }    
+            // else if($name=='mallisenthil')
+            // {
+            //     echo '<span class="ui brown button" style="float:right;" onclick="location.href=\'hodReport.php\'">Not Entered List</span>';
+            // }
 
         ?>
         </div>
