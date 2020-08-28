@@ -55,7 +55,9 @@ $temp='';
                     $sql="SELECT * FROM `staff` WHERE `dept` LIKE '$dept' ORDER BY `staffid` Asc";
                     $data=$con->query($sql);
                     $p=0;
-                    $st=0;
+                    $scnt=0;
+                   
+                    
                     while($row=mysqli_fetch_array($data))
                     {
                         $sid=$row['staffid'];
@@ -65,21 +67,13 @@ $temp='';
                         $data1=$con->query($sql);
                         
                         $n=mysqli_num_rows($data1);
-
-                        $bool=true;
+                        $bool=1;
                         $bol=0;
-                            while($row1=mysqli_fetch_array($data1))
-                            {
-                                echo '<tr>';
+                        $cnt=0;
+                        while($row1=mysqli_fetch_array($data1))
+                        {
+                              
                                 $ssub=$row1['name'];
-                                if($bool)
-                                {
-                                    echo '<td rowspan="'.$n.'"><span style="color:red;">'.$sname.'</span></td>';
-                                    $bool=false;
-                                }   
-                                
-                                echo '<td><span style="color:blue">'.$ssub.'</span></td>';
-
                                 $code=$row1["code"];
                                 if($row1["staffA"]==$sid)
                                 {
@@ -103,7 +97,7 @@ $temp='';
                                 {
                                     $cls='ME';
                                 }
-                                echo '<td style="text-align:center"><span style="color:blue">'.$cls.'</span></td>';
+                                
                                 $tab=strtolower($batch.'-'.$dept.'-'.$sec);
                                 $sql="SELECT * FROM `tt` WHERE `class` LIKE '$tab'";
                                 $res=$con->query($sql);
@@ -129,14 +123,15 @@ $temp='';
                                 $date=date("2020-08-03");
                                 $diff=intval(date_diff($tdy,date_create($date))->format("%a"))+1;
                                 $dates=array();
-                                
-                                for($i=1;$i<=$diff;$i++)
+                                for($i=1;$i<$diff;$i++)
                                 {    
                                     if($con->query("select * from holiday where date LIKE '$date'")->num_rows!=0)
                                     {
+                                        $date=date_format(date_add(date_create($date),date_interval_create_from_date_string("1 days")),"Y-m-d");
                                         continue;
                                     }
-                                    $s=date("l", strtotime($date));
+                                    
+                                    $s=date("l",strtotime($date));
                                     foreach($day_per as $d=>$pd)
                                     {
                                             if($d==$s)
@@ -148,21 +143,18 @@ $temp='';
                                                         $sql="SELECT * FROM `$code` where date LIKE '$date' AND code LIKE '$sid' AND `period` LIKE '$periods'"; 
                                                     else
                                                         $sql="SELECT * FROM `$tab` where date LIKE '$date' AND code LIKE '$code' AND `period` LIKE '$periods'"; 
-                                                
                                                     $r=$con->query($sql);
                                                     if($r->num_rows==0)
                                                     {
                                                         $p+=1;
                                                         $bol=1;
                                                         array_push($day_pd,$periods);
-                                                    }
-                                                        
-                                                        
+                                                    }                               
                                                 }
-                                            
                                                 if(!empty($day_pd))
-                                                {
-                                                        $dates+=array($date=>$day_pd);
+                                                { 
+                                                  
+                                                    $dates+=array($date=>$day_pd);
                                                 }  
                                             }
                                     }
@@ -182,35 +174,27 @@ $temp='';
                             $mailcontent="mailto:".$smail."?subject=Attendace%20Pending%20report&body=".$mailcontent;
                             if(!empty($dates))
                             {
-                                echo '<td>'.$datecell.'</td>';    
-                                echo '<td><a href="'.$mailcontent.'" target="_blank">
-                                    <button class="ui violet button">
-                                    <i class="mail icon"></i> Send Mail
-                                    </button></a></td>';
+                                $cnt=1;    
+                                echo '<tr>'.'<td><span style="color:red;">'.$sname.'</span></td>'.'<td><span style="color:blue">'.$ssub.'</span></td>'.'<td style="text-align:center"><span style="color:blue">'.$cls.'</span></td>'.'<td>'.$datecell.'</td>'.'<td><a href="'.$mailcontent.'" target="_blank">
+                                <button class="ui violet button">
+                                <i class="mail icon"></i> Send Mail
+                                </button></a></td>'.'</tr>';
+  
                             }
-                            else
-                            {
-                                
-                                echo '<td>NIL</td>';    
-                                echo '<td>
-                                    <button class="ui violet button" disabled>
-                                    <i class="mail icon"></i> Send Mail
-                                    </button></td>';
-                            }
-                            echo '</tr>';
                             
                           
                         }
-                        if($bol==1)
+                        if($cnt==1)
                         {
-                            $st+=1;
+                            $scnt+=1;
                         }
+                        
                        
                     }
                     echo '</tbody>
                     <tfoot>
                         <tr>
-                        <th><em>'.$st.' Staffs </em></th>
+                        <th><em>'.$scnt.' Staffs </em></th>
                         <th></th>
                         <th></th>
                         <th><em>'.$p.' Periods </em></th>
