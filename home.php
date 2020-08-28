@@ -32,28 +32,49 @@
         <div class="ui header" style="text-align:center;font-size:30px;margin-top:2%;color:#ADEFD1FF">Your Class
             Associations
             <?php 
-            $sql="SELECT designation from `staff` where `staffid` like '$staffid'";
+            $sql="SELECT `designation`,`userid` from `staff` where `staffid` like '$staffid'";
             $data=$con->query($sql);
             $row=$data->fetch_assoc();
             $design=$row['designation'];
+            $name=$row['userid'];
             if($design=='HOD')
-                echo '<span class="ui pink button" style="float:right;" onclick="location.href=\'holiday.php\'">Add Holiday</span>'
+            {
+                echo '<span class="ui pink button" style="float:right;" onclick="location.href=\'holiday.php\'">Add Holiday</span>';
+                echo '<span class="ui brown button" style="float:right;" onclick="location.href=\'hodReport.php\'">Not Entered List</span>';
+
+            }    
+            else if($name=='mallisenthil')
+            {
+                echo '<span class="ui brown button" style="float:right;" onclick="location.href=\'hodReport.php\'">Not Entered List</span>';
+            }
 
         ?>
         </div>
 
         
-        <!-- <div class="ui icon warning message" style="margin:auto;width:80%;">
-        <i class="close icon"></i>
-        <i class="exclamation circle icon"></i>
-        <div class="content">
-            <div class="header">
-            Important Announcement
-            </div>
-            <p>From Monday, new TimeTable will be followed. All are asked to fill attendance for the past within Saturday.
-            You will not be able to mark attendance for the old timetable from Monday.</p>
-            </div>
-        </div> -->
+        <?php
+
+        $staffid = $_SESSION['id'];
+        //echo '<script>alert("'.$staffid.'");</script>';
+        $sql = "SELECT * from `staff` where `staffid` like '$staffid'";
+        $data = $con->query($sql);
+        $row = $data->fetch_assoc();
+        if ($row['status'] == 'Not Changed') {
+        echo "<script>$(function(){
+        $('body')
+        .toast({
+            position: 'bottom right',
+            title: 'Warning',
+            class: 'warning',
+            displayTime: 3000,
+            closeIcon: true,
+            showIcon: true,
+            message: 'Password needs to be changed atleast once',
+            showProgress: 'top'
+        });
+        });</script>";
+        }
+        ?>
         <table class="ui selectable striped  table" style="margin:auto;width:80%;margin-top:2%">
             <thead>
                 <tr style="color:black;font-size:20px" class="center aligned">

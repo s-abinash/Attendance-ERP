@@ -140,15 +140,24 @@
       <form class="ui form segment error" id="passform">
         <div class="field">
           <label>Old Password:</label>
-          <input type="password" name="oldpass" id="oldpass" placeholder="Old Password">
+          <div class="ui action input">
+          <input type="password" name="current-password" id="oldpass" placeholder="Old Password" autocomplete="current-password">
+          <span class="ui button" onclick="toggleeye('oldpass')"><i class="eye icon" id="oldpasseyeicon" "></i></span>
+          </div>
         </div>
         <div class="field">
           <label>New Password:</label>
-          <input type="password" name="newpass" id="newpass" placeholder="New Password">
+          <div class="ui action input">
+          <input type="password" name="new-password" id="newpass" placeholder="New Password" autocomplete="new-password">
+          <span class="ui button" onclick="toggleeye('newpass')"><i class="eye icon" id="newpasseyeicon" "></i></span>
+          </div>
         </div>
         <div class="field">
           <label>Confirm New Password:</label>
-          <input type="password" name="cnfmnewpass" placeholder="Confirm Password">
+          <div class="ui action input">
+          <input type="password" name="cfm-new-password" id="cfmnewpass" placeholder="Confirm Password" autocomplete="new-password">
+          <span class="ui button" onclick="toggleeye('cfmnewpass')"><i class="eye icon" id="cfmnewpasseyeicon" "></i></span>
+          </div>
         </div>
         <div class="actions" style="text-align: right;">
           <button class="ui positive button" type="submit" name="changepass">Proceed</button>
@@ -165,15 +174,30 @@
     <?php include_once('announcement.php');?>
 
     <script>
-    $(document).ready(function() {
+    $(function() {
         $(".ui.toggle.button").click(function() {
             $(".mobile.only.grid .ui.vertical.menu").toggle(100);
         });
+       
+
     });
 
     $(window).on("load", function() {
         $('.preloader').hide();
     });
+    function toggleeye(lk) {
+      var x = document.getElementById(lk);
+      var y = lk+'eyeicon';
+          if (x.type === "password") {
+            x.type = "text";
+            //$("y").attr("class", "ui blue double loading form segment error");
+            document.getElementById(y).className = "eye slash icon";
+          } else {
+            x.type = "password";
+            document.getElementById(y).className = "eye icon";
+          }
+      
+    }
     </script>
     <style>
     /* Refers the whole setup */
@@ -206,19 +230,20 @@
     }
     </style>
     <script>
-    $(function(){
-    $('#togglepass').on("click", function() {
+    function opentogglepass()
+      {
         $('#changepass').modal({
           onApprove: function() {
             return false;
           }
         }).modal('show');
-        $('#newpass').on("change", function() {
-          var pass = $("#newpass").val();
+      }
+    $(function(){
+      
+        $('#togglepass').on("click", function() {
+          opentogglepass();
         });
-      });
-
-
+        
       $('#passform').form({
         fields: {
           oldpass: {

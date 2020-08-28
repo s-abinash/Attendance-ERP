@@ -30,7 +30,11 @@ $temp='';
 <title>Pending Report</title>
 </head>
 <body>
-        
+<style>
+    body {
+        background: url("./images/bgpic.jpg");
+    }
+</style> 
     <div class="ui raised segment" style="width:96%;margin:2%;">
 
         <div class="ui header">Missing Attendace List
