@@ -141,21 +141,21 @@
         <div class="field">
           <label>Old Password:</label>
           <div class="ui action input">
-          <input type="password" name="current-password" id="oldpass" placeholder="Old Password" autocomplete="current-password">
+          <input type="password" name="oldpass" id="oldpass" placeholder="Old Password" autocomplete="current-password">
           <span class="ui button" onclick="toggleeye('oldpass')"><i class="eye icon" id="oldpasseyeicon" "></i></span>
           </div>
         </div>
         <div class="field">
           <label>New Password:</label>
           <div class="ui action input">
-          <input type="password" name="new-password" id="newpass" placeholder="New Password" autocomplete="new-password">
+          <input type="password" name="newpass" id="newpass" placeholder="New Password" autocomplete="new-password">
           <span class="ui button" onclick="toggleeye('newpass')"><i class="eye icon" id="newpasseyeicon" "></i></span>
           </div>
         </div>
         <div class="field">
           <label>Confirm New Password:</label>
           <div class="ui action input">
-          <input type="password" name="cfm-new-password" id="cfmnewpass" placeholder="Confirm Password" autocomplete="new-password">
+          <input type="password" id="cfmnewpass" placeholder="Confirm Password" autocomplete="new-password">
           <span class="ui button" onclick="toggleeye('cfmnewpass')"><i class="eye icon" id="cfmnewpasseyeicon" "></i></span>
           </div>
         </div>
