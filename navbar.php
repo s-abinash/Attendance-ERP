@@ -79,6 +79,7 @@
     <?php include_once('./assets/notiflix.php'); ?>
     <script src="./assets/jquery.min.js"></script>
     <script src="./assets/Fomantic/dist/semantic.min.js"></script>
+   
 </head>
 
 <body>
@@ -110,12 +111,12 @@
                     <div class="ui yellow inverted label">New</div></a>';
             else if($row['userid']=='mallisenthil')
             {
-                echo '<a class="item" href="hodReport.php">Pending Report <div class="ui yellow inverted label">New</div> </a>';
+                echo '<a class="item" href="hodReport.php">Pending Report  </a>';
             }  
             else if($row['designation']=='HOD')
             {
-                echo '<a class="item" href="holiday.php">Pending Report <div class="ui yellow inverted label">New</div> </a>';
-                echo '<a class="item" href="hodReport.php">Add Holiday <div class="ui yellow inverted label">New</div></a>';
+                echo '<a class="item" href="holiday.php">Pending Report  </a>';
+                echo '<a class="item" href="hodReport.php">Add Holiday </a>';
             }
             ?>
             <!-- <span style="font-size: 10px; color: grey; margin-top: 5px">&nbsp;New!</span></a> -->
@@ -124,6 +125,21 @@
             </a>
             <a class="item" id="togglepass" data-title="Change Password" data-content="Change your password using old password">Change Password
             <div class="ui yellow inverted label">New</div></a>
+            <?php if($row['designation']!='HOD')
+                  echo '<a class="item" id="contact">Contact</a>';
+              ?>
+            
+            <div class="ui special animated inverted popup" id="contactpopup">
+            <div class="header">Contact Us</div>
+            <div class="content">
+            Any issues/queries, write us to <a href="mailto:studentplus@kongu.ac.in?subject=Attendance Reg.," target="_blank">studentplus@kongu.ac.in</a>
+            <p style="vertical-align: middle;  font-family: sans-serif; padding: 15px;"> Site development and support by
+            <span style="color:violet;cursor: pointer;" id="abinash">Abinash S</span> and <span style="color:violet;cursor: pointer;" id="ajay">Ajay R
+            </span>of III CSE - A
+            </p>
+            </div>
+          </div>
+
             <a class="right item"
                 style="margin-right:1%;font-weight:bold;color:cyan"><em><?php echo $_SESSION["name"]?><em></a>
             <a class="right item" id="logout" href="./Logout.php"><i class="share square outline icon"></i>Logout</a>
@@ -143,8 +159,18 @@
                 <a class="item" id="index" href="home.php">Home</a>
                 <a class="item" id="alter" href="alter.php">Alter Period</a>
                 <?php
-                if($row=='Advisor')
-                  echo '<a class="item" id="alter" href="exportAdv.php">Advisor Export</a>';
+                if($design=='Advisor')
+                  echo '<a class="item" id="alter" href="exportAdv.php">Advisor Export 
+                        <div class="ui yellow inverted label">New</div></a>';
+                else if($row['userid']=='mallisenthil')
+                {
+                    echo '<a class="item" href="hodReport.php">Pending Report <div class="ui yellow inverted label">New</div> </a>';
+                }  
+                else if($row['designation']=='HOD')
+                {
+                    echo '<a class="item" href="hodReport.php">Pending Report <div class="ui yellow inverted label">New</div> </a>';
+                    echo '<a class="item" href="holiday.php">Add Holiday <div class="ui yellow inverted label">New</div></a>';
+                }
                 ?>
                 <a class="item" id="ann">Announcement </a>
                 <a class="item" style="font-size:16px;text-indent:20%;"><span id="togglepass" class="ui inverted grey text">Change Password</span></a>
@@ -202,6 +228,17 @@
     $(function() {
         $(".ui.toggle.button").click(function() {
             $(".mobile.only.grid .ui.vertical.menu").toggle(100);
+        });
+        $('#contact').popup({
+          popup : $('#contactpopup'),
+          on    : 'click',
+          inline : true,
+        });
+        $("#abinash").on("click", function() {
+            window.open("mailto:s.abinash@kongu.ac.in?subject=Attendance Reg.,", "_blank");
+        });
+        $("#ajay").on("click", function() {
+            window.open("mailto:r.ajay@kongu.ac.in?subject=Attendance Reg.,", "_blank");
         });
     });
 

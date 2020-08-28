@@ -188,7 +188,7 @@ include_once("./db.php");
                 College</span></center>
     </div>
     <div class="footer">
-        <p style="vertical-align: middle;  font-family: sans-serif; padding: 15px;"> Website developed by
+        <p style="vertical-align: middle;  font-family: sans-serif; padding: 15px;"> Site development and support by
             <span style="color:violet;cursor: pointer;" id="abinash">Abinash S</span> and <span style="color:violet;cursor: pointer;" id="ajay">Ajay R
             </span>of III CSE - A
 
