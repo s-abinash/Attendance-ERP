@@ -155,7 +155,7 @@
         <div class="field">
           <label>Confirm New Password:</label>
           <div class="ui action input">
-          <input type="password" id="cfmnewpass" placeholder="Confirm Password" autocomplete="new-password">
+          <input type="password" name="cnfnewpass" id="cfmnewpass" placeholder="Confirm Password" autocomplete="new-password">
           <span class="ui button" onclick="toggleeye('cfmnewpass')"><i class="eye icon" id="cfmnewpasseyeicon" "></i></span>
           </div>
         </div>
@@ -311,12 +311,12 @@
 
     function SubmitDetails() {
       data = $("#passform").serializeArray();
-      $("#passform").attr("class", "ui blue double loading form segment error");
+      $("#passform").attr("class","ui blue double loading form segment error");
       data[3] = {
         name: "staffid",
         value: "<?php echo $_SESSION['id']; ?>",
       };
-      //console.log(data);
+      console.log(data);
       $.ajax({
         url: "AJAX/util_handler.php",
         type: "POST",
