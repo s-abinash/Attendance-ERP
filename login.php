@@ -165,7 +165,7 @@ include_once("./db.php");
                 <label>User Id</label>
             </div>
             <div class="inputBox">
-                <input type="password" name="pass" minlength="4" maxlength="4" id="pass" required>
+                <input type="password" name="pass" minlength="4" maxlength="20" id="pass" required>
                 <label>Password</label>
             </div>
             <div style="float:left;color:pink;">
