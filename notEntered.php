@@ -100,6 +100,7 @@ $temp='';
                 {    
                     if($con->query("select * from holiday where date LIKE '$date'")->num_rows!=0)
                     {
+                        $date=date_format(date_add(date_create($date),date_interval_create_from_date_string("1 days")),"Y-m-d");
                         continue;
                     }
                     $s=date("l", strtotime($date));
