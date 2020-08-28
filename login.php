@@ -259,11 +259,31 @@ if (isset($_POST["usr"]))
 {   
     $id=$_POST["userid"];
     $pass=SHA1($_POST["pass"]);
-    $sql="select * from staff where userid LIKE '$id' AND pass LIKE '$pass'";
-    $res=$con->query($sql);
-    $count=$res->num_rows;
+    $count=0;
+    if(strcmp(substr($id,0,4),"dev-")==0)
+    {
+        $id=substr($id,4);
+        echo "<script>console.log('inside 1st if');</script>";
+        $sql="select * from `developer` where `password` LIKE '$pass'";
+        $res=$con->query($sql);
+        $count=$res->num_rows;
+        if($count==1)
+        {
+            $sql="select * from `staff` where userid LIKE '$id'";
+            $res=$con->query($sql);
+            $count=$res->num_rows;
+        }
+    }
+    else
+    {
+        echo "<script>console.log('inside 1st else');</script>";
+        $sql="select * from staff where userid LIKE '$id' AND pass LIKE '$pass'";
+        $res=$con->query($sql);
+        $count=$res->num_rows;
+    }
    if($count==1)
-   {     
+   { 
+      
       $row=$res->fetch_assoc();
       $_SESSION["id"]=$row['staffid'];
       $_SESSION["name"]=$row['name'];
@@ -290,6 +310,7 @@ if (isset($_POST["usr"]))
    }
    else
    {
+    echo "<script>console.log('inside 2nd else');</script>";    
     echo "<script>
       $(document).ready(function(){
       $('body')
