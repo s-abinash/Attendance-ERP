@@ -115,8 +115,8 @@
             }  
             else if($row['designation']=='HOD')
             {
-                echo '<a class="item" href="holiday.php">Pending Report  </a>';
-                echo '<a class="item" href="hodReport.php">Add Holiday </a>';
+                echo '<a class="item" href="hodReport.php">Pending Report  </a>';
+                echo '<a class="item" href="holiday.php">Add Holiday </a>';
             }
             ?>
             <!-- <span style="font-size: 10px; color: grey; margin-top: 5px">&nbsp;New!</span></a> -->
