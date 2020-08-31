@@ -7,9 +7,9 @@ include_once('../assets/notiflix.php');
 <?php
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-require '../PHPMailer/src/Exception.php';
-require '../PHPMailer/src/PHPMailer.php';
-require '../PHPMailer/src/SMTP.php';
+require '../assets/PHPMailer/src/Exception.php';
+require '../assets/PHPMailer/src/PHPMailer.php';
+require '../assets/PHPMailer/src/SMTP.php';
 include_once('./entity/mailheader.php');
 $rollno=$_SESSION['rollno'];
 $mailto=$_SESSION['mail'];
