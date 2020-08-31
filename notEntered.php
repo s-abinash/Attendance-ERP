@@ -123,7 +123,10 @@ $temp='';
                             
                                 if(!empty($day_pd))
                                 {
+                                    if(($con->query("SELECT * FROM `alteration` WHERE `s1` LIKE '$staffid' AND `c1` LIKE '$code' AND`period` LIKE '$periods' AND `date` like '$date' "))->num_rows==0)
+                                    {
                                         $dates+=array($date=>$day_pd);
+                                    }
                                 }  
                             }
                     }
