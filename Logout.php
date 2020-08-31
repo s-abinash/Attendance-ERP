@@ -22,18 +22,32 @@
     <meta name="google-signin-client_id" content="652923881233-ra0pbk90pmmbsg10455ljb1ljpuccu0b.apps.googleusercontent.com">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-151639011-3"></script>
+    <script src="https://apis.google.com/js/platform.js?onload=onLoadCallback" async defer></script>
 
     <script>
     $(document).ready(function() {
         $('.ui.card').transition('drop');
         $('.ui.card').transition('drop');
-        function signOut() {
+        // function signOut() {
+        // gapi.auth2.getAuthInstance().signOut().then(function() {
+        //     console.log('user signed out')
+        // })
+        // }
+        // signOut();
+    });
+
+    window.onLoadCallback = function(){
+    gapi.auth2.init({
+        client_id: '652923881233-ra0pbk90pmmbsg10455ljb1ljpuccu0b.apps.googleusercontent.com'
+        });
+    function signOut() {
         gapi.auth2.getAuthInstance().signOut().then(function() {
             console.log('user signed out')
         })
         }
         signOut();
-    });
+    }
+
     </script>
 </head>
 
