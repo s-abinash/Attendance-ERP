@@ -97,7 +97,7 @@ $temp='';
                 $dates=array();
                 
                 for($i=1;$i<=$diff;$i++)
-                {    
+                {    $fin=array();
                     if($con->query("select * from holiday where date LIKE '$date'")->num_rows!=0)
                     {
                         $date=date_format(date_add(date_create($date),date_interval_create_from_date_string("1 days")),"Y-m-d");
@@ -141,9 +141,9 @@ $temp='';
                                             array_push($day_pd,$periods);
                                         }
                                     }
-                                    if(!empty($fin))
+                                    if(!empty($day_pd))
                                     {
-                                        $fin=array_merge($alt,$day_pd);
+                                        $alt=array_merge($alt,$day_pd);
                                             
                                     }  
                                         
@@ -152,6 +152,7 @@ $temp='';
                                 
                             }
                     }
+                 $fin+=$alt;
                     if(!empty($fin))
                     {
                        
