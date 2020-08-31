@@ -104,6 +104,20 @@ $temp='';
                         continue;
                     }
                     $s=date("l", strtotime($date));
+                    if($res->num_rows!=0)
+                    {
+                        while($row=$res->fetch_assoc())
+                        {
+                            $prds=$row["period"];
+                            if(in_array($code,$ele))
+                                $sql="SELECT * FROM `$code` where date LIKE '$date' AND code LIKE '$sid' AND `period` LIKE '$prds'"; 
+                            else
+                                $sql="SELECT * FROM `$tab` where date LIKE '$date' AND code LIKE '$code' AND `period` LIKE '$prds'"; 
+                            $r=$con->query($sql);
+                            if($r->num_rows==0)
+                                array_push($day_pd,$periods);
+                        }
+                    }
                     foreach($day_per as $d=>$pd)
                     {
                             if($d==$s)
@@ -117,16 +131,20 @@ $temp='';
                                         $sql="SELECT * FROM `$tab` where date LIKE '$date' AND code LIKE '$code' AND `period` LIKE '$periods'"; 
                                     $r=$con->query($sql);
                                     if($r->num_rows==0)
-                                        array_push($day_pd,$periods);
+                                    {
+                                        if(($con->query("SELECT * FROM `alteration` WHERE `s1` LIKE '$sid' AND `c1` LIKE '$code' AND`period` LIKE '$periods' AND `date` like '$date' "))->num_rows==0)
+                                        {
+                                            array_push($day_pd,$periods);
+                                        }
+                                    }
                                         
                                 }
                             
                                 if(!empty($day_pd))
                                 {
-                                    if(($con->query("SELECT * FROM `alteration` WHERE `s1` LIKE '$sid' AND `c1` LIKE '$code' AND`period` LIKE '$periods' AND `date` like '$date' "))->num_rows==0)
-                                    {
+                                    
                                         $dates+=array($date=>$day_pd);
-                                    }
+                                    
                                 }  
                             }
                     }
