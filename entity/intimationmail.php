@@ -15,7 +15,7 @@ $hash=sha1($rollno.$key);
 $link='http://student.kongu.edu/entity/auth.php?regno='.$rollno.'&hash='.$hash;
 $mail = new PHPMailer(true);
 $mail->isSMTP();                            // Set mailer to use SMTP
-$mail->SMTPDebug = true;
+$mail->SMTPDebug = 0;
 $mail->Host = $Host;             // Specify main and backup SMTP servers
 $mail->SMTPAuth = $SMTPAuth;                     // Enable SMTP authentication
 $mail->Username = $Username;          // SMTP username
