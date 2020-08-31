@@ -126,7 +126,7 @@
             ?>
             <!-- <span style="font-size: 10px; color: grey; margin-top: 5px">&nbsp;New!</span></a> -->
             <a class="item" id="ann">Announcement
-            <!-- <em data-emoji=":bell:" class="notify"></em> -->
+            <em data-emoji=":bell:" class="notify"></em>
             </a>
             <a class="item" id="togglepass" data-title="Change Password" data-content="Change your password using old password">Change Password
             <div class="ui yellow inverted label">New</div></a>
