@@ -40,7 +40,7 @@ $(document).ready(function(){
     <div class="scrolling content" style="height: 350px;overflow: auto;">
     
     <div class="ui bulleted list">
-        <h3 class="item">Google Login is enable. Use your kongu.edu account to sign in. <div class="ui yellow horizontal label">New</div></h3>
+        <h3 class="item">Google Login is enabled. Select your kongu.edu account to sign in. <div class="ui yellow horizontal label">New</div></h3>
         <h3 class="item">Advisor Report is available (Cumulative and Period wise). <div class="ui yellow horizontal label">New</div></h3>
         <h3 class="item">Not Entered Report is available for Advisors. <div class="ui yellow horizontal label">New</div></h3>
         <h3 class="item">Holiday entry for HOD. <div class="ui yellow horizontal label">New</div></h3>
