@@ -1,25 +1,21 @@
-<?php
-session_start();
-include_once('../assets/notiflix.php');
 
-?>
-<html>  <?php include_once('../assets/notiflix.php');?></html>
+<html> </html>
 <?php
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 require '../assets/PHPMailer/src/Exception.php';
 require '../assets/PHPMailer/src/PHPMailer.php';
 require '../assets/PHPMailer/src/SMTP.php';
-include_once('./entity/mailheader.php');
-$rollno=$_SESSION['rollno'];
-$mailto=$_SESSION['mail'];
-$Name=$_SESSION['name'];
+include_once('./mailheader.php');
+$rollno='18CSR002';
+$mailto='s.abinash333@gmail.com';
+$Name='Abinash S';
 $key='AbinashArulAjayMNC';
 $hash=sha1($rollno.$key);
 $link='http://student.kongu.edu/entity/auth.php?regno='.$rollno.'&hash='.$hash;
 $mail = new PHPMailer(true);
 $mail->isSMTP();                            // Set mailer to use SMTP
-$mail->SMTPDebug = 0;
+$mail->SMTPDebug = true;
 $mail->Host = $Host;             // Specify main and backup SMTP servers
 $mail->SMTPAuth = $SMTPAuth;                     // Enable SMTP authentication
 $mail->Username = $Username;          // SMTP username
@@ -186,12 +182,11 @@ $bodyContent = '<!doctype html>
         $mail->Subject = 'Welcome to KEC Student+';
         $mail->Body=$bodyContent;
         if(!$mail->send())
-           echo "<script>Notiflix.Report.Failure( 'Read Below!', 'Error sending the Activation Link Sent to your mail. Please select Resend Activation Link in the Login Page.', 'Okay',function(){location.replace('./../index.php
-            ');} );</script> ";
+           echo "Faied ";
                 
         else
 
-            echo "<script>Notiflix.Report.Success( 'Read Below!', 'Activation Link Sent to your mail Successfully. Please Activate to continue.', 'Okay',function(){location.replace('./../index.php');}  );</script> ";
+            echo "Succesfull";
         
         ?>                   
         </body>
