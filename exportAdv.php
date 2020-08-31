@@ -55,7 +55,8 @@ include_once('./navbar.php');
     <div class="ui header" style="text-align:center;font-size:30px;margin-top:2%;color:#ADEFD1FF">Export Attendance
     </div>
     <div class="ui black message" style="text-align:center;width:90%;margin: 0 auto;">
-    <div class="ui header">Attendance Pending Report: <a href="notEntered.php"><button class="ui pink button">Go there!</button></a></div>
+    <div class="ui header"><a href="notEntered.php"><button class="ui pink button">Staff Attendance Pending Report</button></a>
+    <a href="./errorfile/comingsoon/home.html"><button class="ui brown button">Day-Wise Student Attendance</button></a></div>
     </div>
     <br/>
     <div class="ui raised segment"
@@ -164,7 +165,7 @@ include_once('./navbar.php');
         var table = $('#export').DataTable({
             "paging": false,
             "ordering": true,
-            "columnDefs": [{"targets": [0,1,2],"orderable": false}, {"targets":[3,4,5],"orderable":true}],
+            "columnDefs": [{"targets": [1],"orderable": false}, {"targets":[0,2,3,4,5,6,7,8,9,10,11,12],"orderable":true}],
             "info": false,
             lengthChange: false,
             buttons: [
