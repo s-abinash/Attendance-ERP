@@ -130,10 +130,11 @@ $temp='';
                                         $date=date_format(date_add(date_create($date),date_interval_create_from_date_string("1 days")),"Y-m-d");
                                         continue;
                                     }
-                                    $res=$con->query("SELECT * FROM `alteration` where `date` LIKE '$date' AND `s2` LIKE '$sid' AND `code` LIKE '$code'");
-                                    if($res->num_rows!=0)
+                                    $alt=array();
+                                    $result=$con->query("SELECT * FROM `alteration` where `date` LIKE '$date' AND `s2` LIKE '$sid' AND `c2` LIKE '$code'");
+                                    if($result->num_rows!=0)
                                     {
-                                        while($row=$res->fetch_assoc())
+                                        while($row=$result->fetch_assoc())
                                         {
                                             $prds=$row["period"];
                                             if(in_array($code,$ele))
@@ -142,16 +143,19 @@ $temp='';
                                                 $sql="SELECT * FROM `$tab` where date LIKE '$date' AND code LIKE '$code' AND `period` LIKE '$prds'"; 
                                             $r=$con->query($sql);
                                             if($r->num_rows==0)
-                                                array_push($day_pd,$periods);
+                                            {
+                                                array_push($alt,$prds);
+                                                $bol=1;
+                                                $p+=1;
+                                            }   
                                         }
                                     }
-                                    
                                     $s=date("l",strtotime($date));
+                                    $day_pd=array();
                                     foreach($day_per as $d=>$pd)
                                     {
                                             if($d==$s)
                                             {
-                                                $day_pd=array();
                                                 foreach($pd as $periods)
                                                 {
                                                     if(in_array($code,$ele))
@@ -169,13 +173,14 @@ $temp='';
                                                         }
                                                     }                               
                                                 }
-                                                if(!empty($day_pd))
-                                                { 
-                                                  
-                                                    $dates+=array($date=>$day_pd);
-                                                }  
+                                                
                                             }
                                     }
+                                    if(!empty(array_merge($alt,$day_pd)))
+                                    {
+                                    
+                                        $dates+=array($date=>array_merge($alt,$day_pd));
+                                    }  
                                     $date=date_format(date_add(date_create($date),date_interval_create_from_date_string("1 days")),"Y-m-d");
                                 }
                             echo '<div class="bulleted list">';
