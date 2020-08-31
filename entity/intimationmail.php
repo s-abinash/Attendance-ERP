@@ -21,7 +21,6 @@ while($row=mysqli_fetch_array($res))
 }
                     
 $sql="SELECT * FROM `staff` WHERE `dept` LIKE '$dept' ORDER BY `staffid` ASC ";
-echo $sql;
 $data=$con->query($sql);
 $p=0;
 $scnt=0;
@@ -164,8 +163,7 @@ while($row=mysqli_fetch_array($data))
             {
                 $cnt=1;    
                 $content= '<span style="color:blue">'.$datecell.'</span>';
-            }
-            $mail = new PHPMailer(true);
+                $mail = new PHPMailer(true);
             $mail->isSMTP();                            // Set mailer to use SMTP
             $mail->SMTPDebug = 0;
             $mail->Host = $Host;             // Specify main and backup SMTP servers
@@ -304,7 +302,7 @@ while($row=mysqli_fetch_array($data))
                                         <p style="color:black"><strong>Dear '.$sname.',</strong></p><br>Your Attendance pending report for this week is follows: <br>
                                         <br>
                                         <br><p style="color:red"><strong>Course: '.$ssub.'</p></strong><br>
-                                        <p style="color:black"><strong>Dates: '.$content.'</p></strong><br>
+                                        <p style="color:black"><strong>Dates: <br>'.$content.'</p></strong><br>
                                     <table cellspacing="0" cellpadding="0" border="0" align="center" style="margin: auto">
                                         <tr>
                                         <td style="border-radius: 3px; background: #00ff00; text-align: center;" class="button-td"><a href="https://attendance.kecstudent.tech
@@ -342,7 +340,9 @@ while($row=mysqli_fetch_array($data))
                         // else
                         //     echo $mailto."Succesfull";
                         echo $bodyContent;
-                }
+            }
+            
+        }
     
 }      
 
