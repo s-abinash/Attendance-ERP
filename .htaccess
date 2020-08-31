@@ -24,6 +24,8 @@ RewriteRule index.html login.php
 ErrorDocument 403 /errorfile/error403.html
 ErrorDocument 404 /errorfile/error404.html
 ErrorDocument 500 /errorfile/error500.html
+ErrorDocument 502 /errorfile/nointernet.html
+ErrorDocument 503 /errorfile/nointernet.html
 ErrorDocument 505 /errorfile/nointernet.html
 
 DirectoryIndex index.html index.php 
