@@ -75,6 +75,10 @@
     <noscript>
         <meta http-equiv="refresh" content="0; URL='./errorfile/noscript.html'" /></noscript>
     <!--  -->
+    <script> 
+        if (navigator.onLine==false)  
+            window.location.href="./errorfile/nointernet.html";
+    </script> 
   
     <?php include_once('./assets/notiflix.php'); ?>
     <script src="./assets/jquery.min.js"></script>

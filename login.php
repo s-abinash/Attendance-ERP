@@ -60,7 +60,13 @@ include_once("./db.php");
     <link rel="icon" type="image/png" href="./images/KEC.png">
     <link rel="stylesheet" href="./assets/Fomantic/dist/semantic.min.css" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
-    
+   
+    <!-- Google Login -->
+    <meta name="google-signin-client_id" content="652923881233-ra0pbk90pmmbsg10455ljb1ljpuccu0b.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-151639011-3"></script>
+
+    <!--  -->
     <script> 
         if (navigator.onLine==false)  
             window.location.href="./errorfile/nointernet.html";
@@ -75,12 +81,14 @@ include_once("./db.php");
     }
 
     .box {
-        position: absolute;
+        position: relative;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         width: 400px;
         padding: 40px;
+        padding-bottom: 20px;
+        padding-top: 20px;
         background: rgba(0, 0, 0, .8);
         box-sizing: border-box;
         box-shadow: 0 15px 25px rgba(0, 0, 0, .5);
@@ -151,14 +159,20 @@ include_once("./db.php");
         color: white;
         text-align: center;
     }
+
     </style>
 </head>
 
 <body>
+    <div class="preloader">
+        <div class="ui active dimmer" style="position: fixed;">
+            <div class="ui massive active green elastic loader"></div>
+        </div>
+    </div>
     <div class="box">
-        <h2 class="animate__animated animate__bounce ">
+        <h2 class="animate__animated animate__pulse ">
         <!-- <img src="./images/KEC.png" height="30px" width="30px" style="border-radius: 5px;position:relative;top:8px;"/>  -->
-        Staff Login</h2>
+        Login</h2>
         <form id="login" autocomplete="off"  action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
             <div class="inputBox">
                 <input type="text" name="userid" id="userid" required>
@@ -178,9 +192,16 @@ include_once("./db.php");
                 </a>
             </div>
             <br /><br /><br/>
-            <center>
+            <center class="animate__animated animate__pulse ">
                 <button type="submit" id="sub" name="usr" val="verified" class="ui large positive button">Sign
-                    in</button>
+                    in</button><br>
+                    <div style="width: 100%; height: 20px; border-bottom: 1px solid black; text-align: center;color: #929292">
+                    <span style="font-size: 10px; color: #929292; padding: 0 10px;">
+                    OR 
+                    </span>
+                    </div>
+                
+                    <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
             </center>
         </form>
         <center><span style="color:#ffffb3; margin-top:10%;padding: 20px;font-size:12px">v4.0</span></center>
@@ -189,7 +210,7 @@ include_once("./db.php");
     </div>
     <div class="footer">
         <p style="vertical-align: middle;  font-family: sans-serif; padding: 15px;"> Site development and support by
-            <span style="color:violet;cursor: pointer;" id="abinash">Abinash S</span> and <span style="color:violet;cursor: pointer;" id="ajay">Ajay R
+            <span style="color:violet;cursor: pointer;" class="animate__animated animate__pulse" id="abinash">Abinash S</span> and <span style="color:violet;cursor: pointer;" class="animate__animated animate__pulse" id="ajay">Ajay R
             </span>of III CSE - A
 
         </p>
@@ -215,8 +236,10 @@ include_once("./db.php");
         <!--  -->
     <script src="./assets/jquery.min.js"></script>
     <script src="./assets/Fomantic/dist/semantic.min.js"></script>
+    
     <script>
     $(document).ready(function() {
+       
         $("#tele").on("click",function(){
             $('.ui.basic.modal').modal('show');
         });
@@ -226,22 +249,57 @@ include_once("./db.php");
         $("#ajay").on("click", function() {
             window.open("mailto:r.ajay@kongu.ac.in?subject=Attendance Reg.,", "_blank");
         });
-        // $("#pass,#userid").on("keyup",function(){
-        //     if(($("#userid").val()!='')&&(($("#pass").val().length)===4))
-        //     {
-        //         $("#sub").removeClass("disabled");
-        //     }
-        //     if(($("#userid").val()=='')||(($("#pass").val().length)!==4))
-        //     {
-        //         $("#sub").addClass("disabled");
-        //     }
-        // });
+
         
     });
+    $(window).on("load", function() {
+        $('.preloader').hide();
+    });
+    function onSignIn(googleUser) {
+        $('.preloader').show();
+        var profile = googleUser.getBasicProfile();
+        var image= profile.getImageUrl();
+        var email = profile.getEmail(); 
+        var id_token = googleUser.getAuthResponse().id_token;
+        var d={'profile':profile,'image':image,'email':email,'id_token':id_token};
+        $.ajax({
+                url: "./entity/auth.php",
+                data: d,
+                type: "POST",
+                success: function(res) {
+                    console.log(res);
+                    if(res=="success")
+                    {
+                        $('.preloader').hide();
+                        location.replace('home.php');
+                    }
+                    else
+                    {
+                        $('.preloader').hide();
+                        $(document).ready(function(){
+                        $('body')
+                                .toast({
+                                    position: 'bottom right',
+                                    title: 'Account Not Found',
+                                    displayTime: 5000,
+                                    class: 'error',
+                                    closeIcon: true,
+                                    showIcon: true,
+                                    message: 'Please check the Username and Password',
+                                    showProgress: 'top'
+                                });
+                            });
+                    }
+
+                }
 
 
+                
+        });
+    }
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+   // Global site tag (gtag.js) - Google Analytics -->
     </script>
 
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-151639011-3"></script>
@@ -321,7 +379,7 @@ if (isset($_POST["usr"]))
                 class: 'error',
                 closeIcon: true,
                 showIcon: true,
-                message: 'Please enter the correct password',
+                message: 'Please select your edu mail',
                 showProgress: 'top'
             });
         });
