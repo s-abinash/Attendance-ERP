@@ -141,14 +141,15 @@ $temp='';
                                         
                                 }
                             
-                                if(!empty($day_pd))
-                                {
-                                    
-                                        $dates+=array($date=>$day_pd);
-                                    
-                                }  
+                                
                             }
                     }
+                    if(!empty($day_pd))
+                    {
+
+                            $dates+=array($date=>$day_pd);
+
+                    }  
                     $date=date_format(date_add(date_create($date),date_interval_create_from_date_string("1 days")),"Y-m-d");
                 }
                 echo '<div class="bulleted list">';
