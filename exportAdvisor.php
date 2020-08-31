@@ -106,6 +106,7 @@ if(!isset($_POST["fetch"]))
 
 if(isset($_POST["fetch"]))
 {
+    $rolls=array();
     echo '<script>
     $(document).ready(function(){
         $(".card-1").css("display", "none");
@@ -133,8 +134,8 @@ if(isset($_POST["fetch"]))
                 </thead>
                 <tbody style="text-align:center">
                     <tr id="Periods" style="text-align:center">
-                        <td></td>
-                        <td></td>
+                        <td colspan="2"><b>Periods</b></td>
+                        
                     </tr>';
     
                 $sql="SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N'$table'";
@@ -146,6 +147,7 @@ if(isset($_POST["fetch"]))
                         $roll=$row["COLUMN_NAME"];
                         $sql="SELECT name FROM `registration` where regno LIKE '$roll';";
                         $reg=$con->query($sql)->fetch_assoc()["name"];
+                        array_push($rolls,$roll);
                         echo "<tr class='' id=".$row["COLUMN_NAME"]."><td style='text-indent:15px'>".$row["COLUMN_NAME"]."</td><td style='text-align:left'>".$reg."</td></tr>";
                     }    
                 }
@@ -194,7 +196,7 @@ if(isset($_POST["fetch"]))
                 }
                 else
                 {
-                    $st=1;$e=5;$dif=5;
+                    $st=1;$e=5;
                 }
             }
             else
@@ -205,7 +207,7 @@ if(isset($_POST["fetch"]))
                 }
                 else
                 {
-                    $st=1;$e=4;$dif=4;
+                    $st=1;$e=4;
                 }
             }
             
@@ -239,91 +241,40 @@ if(isset($_POST["fetch"]))
                 }
                 else if(!empty($elec))
                 {
+                  
+                    $results=array();
                     foreach( $elec as $tab)
                     {
                         $stf="staff".$s;
                         $sl="SELECT `$stf` FROM `course_list` WHERE code LIKE '$tab'";
-                
                         $code=($con->query($sl)->fetch_assoc()["$stf"]);
-                    
+                       
                         $sql="SELECT * FROM `$tab` where code LIKE '$code' AND date LIKE '$date' AND period LIKE '$p'";
                         $res=$con->query($sql);
-                        if($tab=="14CSE06")
+                        if($res->num_rows!=0)
                         {
-                            $sql="SELECT * FROM `14CSE11` where code LIKE '$code' AND date LIKE '$date' AND period LIKE '$p'";
-                            $res1=$con->query($sql);
-                        }
-                        if($res->num_rows==1)
-                        {
-                            $row=$res->fetch_assoc();
-                            foreach($row as $ind=>$val)
+                            while($row=$res->fetch_assoc())
                             {
-                                if(($ind=="date") || ($ind=="code") || ($ind=="period"))
-                                {      
-                                    if($ind=="period")
-                                    {
-                                        echo "<script>$('#Periods').append('<th>".$val."</th>')</script>";
-                                    }
-                                    continue;
-                                }
-                                else
-                                {
-                                    echo "<script>$('#".$ind."').append('<td>".$val."</td>')</script>";
-                                } 
+                                $results+=$row;
                             }
-                            if($tab=="14CSE06")
-                            {
-                                $row1=$res1->fetch_assoc();
-                                foreach($row1 as $ind=>$val)
-                                {
-                                    if(($ind=="date") || ($ind=="code") || ($ind=="period"))
-                                    {
-                                        
-                                    if($ind=="period")
-                                        {
-                                            echo "<script>$('#Periods').append('<th>".$val."</th>')</script>";
-                                        }
-                                        continue;
-                                    }
-                                    else
-                                    {
-                                        echo "<script>$('#".$ind."').append('<td>".$val."</td>')</script>";
-                                    }  
-                                }
-                            }
-                            $bool=1;
-                            break;
                         }
+                       
                     }
-                    if($bool==0)
+                    echo "<script>$('#Periods').append('<th>".$p."</th>')</script>";
+                    foreach($rolls as $roll)
                     {
-                        
-                        echo '<script>
-                        
-                        $("table > tbody  > tr").each(function(index, tr) {
-                            if(index==0)
-                            { 
-                                $("#" + this.id).append("<td>" + '.$p.' + "</td>");
-                                return;
-                            }
-                            $("#" + this.id).append("<td>" + "NE" + "</td>");
-                        });
-                        </script>';
-                    }
-                }
-                else
-                { 
-                    echo '<script>
-                    $("table > tbody  > tr").each(function(index, tr) {
-                        if(index==0)
+                        if(array_key_exists($roll,$results))
                         {
-                            $("#" + this.id).append("<td>" + '.$p.' + "</td>");
-                            return;
+                            echo "<script>$('#".$roll."').append('<td>".$results[$roll]."</td>')</script>";
                         }
-                        $("#" + this.id).append("<td>" + "NE" + "</td>");
-                    });
-                    </script>';
-                }
+                        else 
+                        {
+                            echo "<script>$('#".$roll."').append('<td>".'NE'."</td>')</script>";
+                        }
+                    }
+  
+                } 
+               
             }
         }
         $date=date_format(date_add(date_create($date),date_interval_create_from_date_string("1 days")),"Y-m-d");
