@@ -4,10 +4,10 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 $dir = dirname(__FILE__);
-require $dir.'./PHPMailer/src/Exception.php';
-require $dir.'./PHPMailer/src/PHPMailer.php';
-require $dir.'./PHPMailer/src/SMTP.php';
-include_once('./mailheader.php');
+require $dir.'/PHPMailer/src/Exception.php';
+require $dir.'/PHPMailer/src/PHPMailer.php';
+require $dir.'/PHPMailer/src/SMTP.php';
+include_once($dir.'/mailheader.php');
 $rollno='18CSR002';
 $mailto='s.abinash333@gmail.com';
 $Name='Abinash S';
