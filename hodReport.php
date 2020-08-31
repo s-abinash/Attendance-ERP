@@ -22,7 +22,7 @@ while($row=mysqli_fetch_array($res))
 {
     array_push($ele,$row['code']);
 }
-$ele=array("14CSE06","14CSE11","14CSO07","14ITO01","18ITO02","18MEO01","18CSO01");
+
 
 $temp='';
 ?>
