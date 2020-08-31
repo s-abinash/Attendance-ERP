@@ -92,6 +92,7 @@
     $data=$con->query($sql);
     $row=$data->fetch_assoc();
     $design=$row['designation'];
+    $usrname=$row['userid'];
 
 
     ?>
@@ -132,7 +133,7 @@
             <div class="ui special animated inverted popup" id="contactpopup">
             <div class="header">Contact Us</div>
             <div class="content">
-            Any issues/queries, write us to <a href="mailto:studentplus@kongu.ac.in?subject=Attendance Reg.," target="_blank">studentplus@kongu.ac.in</a>
+            Any issues/queries, click on this mail <a href="mailto:studentplus@kongu.ac.in?subject=Attendance Reg.,&body=Username:<?php echo $usrname;?>%20%28Leave%20this%20as%20it%20is%29%0AType%20in%20your%20message%20here%3A%20" target="_blank">studentplus@kongu.ac.in</a>
             <p style="vertical-align: middle;  font-family: sans-serif; padding: 15px;"> Site development and support by
             <span style="color:violet;cursor: pointer;" id="abinash">Abinash S</span> and <span style="color:violet;cursor: pointer;" id="ajay">Ajay R
             </span>of III CSE - A
