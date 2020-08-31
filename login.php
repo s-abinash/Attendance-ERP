@@ -204,7 +204,7 @@ include_once("./db.php");
                     <div data-tooltip="Select your kongu.edu mail" class="g-signin2" data-onsuccess="onSignIn" ></div>
             </center>
         </form>
-        <center><span style="color:#ffffb3; margin-top:10%;padding: 20px;font-size:12px">v4.0</span></center>
+        <center><span style="color:#ffffb3; margin-top:10%;padding: 20px;font-size:12px">v4.1</span></center>
         <center><span style="color:bisque;font-size:11px">&copy; Kongu Engineering
                 College</span></center>
     </div>
