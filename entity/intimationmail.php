@@ -20,7 +20,7 @@ while($row=mysqli_fetch_array($res))
     array_push($ele,$row['code']);
 }
                     
-$sql="SELECT * FROM `staff` WHERE `dept` LIKE '$dept' ORDER BY `staffid` ASC LIMIT 2";
+$sql="SELECT * FROM `staff` WHERE `dept` LIKE '$dept' ORDER BY `staffid` ASC";
 $data=$con->query($sql);
 $p=0;
 $scnt=0;
