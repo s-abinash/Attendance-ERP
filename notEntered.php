@@ -105,8 +105,10 @@ $temp='';
                     }
                     $s=date("l", strtotime($date));
                     $res=$con->query("SELECT * FROM `alteration` where `date` LIKE '$date' AND `s2` LIKE '$sid' AND `code` LIKE '$code'");
+                    $alt=array();
                     if($res->num_rows!=0)
                     {
+                        
                         while($row=$res->fetch_assoc())
                         {
                             $prds=$row["period"];
@@ -116,11 +118,12 @@ $temp='';
                                 $sql="SELECT * FROM `$tab` where date LIKE '$date' AND code LIKE '$code' AND `period` LIKE '$prds'"; 
                             $r=$con->query($sql);
                             if($r->num_rows==0)
-                                array_push($day_pd,$periods);
+                                array_push($alt,$prds);
                         }
                     }
                     foreach($day_per as $d=>$pd)
                     {
+                        
                             if($d==$s)
                             {
                                 $day_pd=array();
@@ -140,9 +143,8 @@ $temp='';
                                     }
                                     if(!empty($day_pd))
                                     {
-
-                                            $dates+=array($date=>$day_pd);
-
+                                        $fin=array_merge($alt,$day_pd);
+                                            
                                     }  
                                         
                                 }
@@ -150,6 +152,11 @@ $temp='';
                                 
                             }
                     }
+                    if(!empty($fin))
+                    {
+                       
+                        $dates+=array($date=>$fin);
+                    }  
                     
                     $date=date_format(date_add(date_create($date),date_interval_create_from_date_string("1 days")),"Y-m-d");
                 }
