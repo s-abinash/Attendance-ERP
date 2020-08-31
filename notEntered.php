@@ -104,6 +104,7 @@ $temp='';
                         continue;
                     }
                     $s=date("l", strtotime($date));
+                    $res=$con->query("SELECT * FROM `alteration` where `date` LIKE '$date' AND `s2` LIKE '$sid' AND `code` LIKE '$code'");
                     if($res->num_rows!=0)
                     {
                         while($row=$res->fetch_assoc())
