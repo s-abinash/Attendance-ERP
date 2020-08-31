@@ -20,12 +20,12 @@ while($row=mysqli_fetch_array($res))
     array_push($ele,$row['code']);
 }
                     
-$sql="SELECT * FROM `staff` WHERE `dept` LIKE '$dept' ORDER BY `staffid` ASC";
+$sql="SELECT * FROM `staff` WHERE `dept` LIKE '$dept' ORDER BY `staffid` ASC LIMIT 4";
 $data=$con->query($sql);
 $p=0;
 $scnt=0;
 $ijk=0;
-$m=array('abinashs.18cse@kongu.edu','ajayr.18cse@kongu.edu');
+$m=array('abinashs.18cse@kongu.edu','ajayr.18cse@kongu.edu','deeptir.18cse@kongu.edu','arulprasathv.18cse@kongu.edu');
 while($row=mysqli_fetch_array($data))
 {    
         $sid=$row['staffid'];
@@ -33,7 +33,7 @@ while($row=mysqli_fetch_array($data))
         $smail=$row['mail'];
         $sname=$row['name'];
         $mailto=$smail;
-        $mailto=$m[$ijk++];
+        
         $sql="SELECT * FROM `course_list` WHERE (`staffA`  LIKE '$sid' OR `staffB`  LIKE '$sid' OR `staffC`  LIKE '$sid' OR `staffD` LIKE '$sid' ) AND `status` LIKE 'active'";
         $data1=$con->query($sql);
         $n=mysqli_num_rows($data1);
@@ -331,14 +331,15 @@ while($row=mysqli_fetch_array($data))
                         </table>
                     </body>
                     </html>';
-                        // $mail->addAddress($mailto); 
-                        // $mail->addReplyTo('studentplus@kongu.ac.in', 'KEC Student+');
-                        // $mail->Subject = 'Attendance Pending';
-                        // $mail->Body=$bodyContent;
-                        // if(!$mail->send())
-                        //     echo $mailto.'Error';         
-                        // else
-                        //     echo $mailto."Succesfull";
+                        $mailto=$m[$ijk++];
+                        $mail->addAddress($mailto); 
+                        $mail->addReplyTo('studentplus@kongu.ac.in', 'KEC Student+');
+                        $mail->Subject = 'Attendance Pending';
+                        $mail->Body=$bodyContent;
+                        if(!$mail->send())
+                            echo $mailto.'Error';         
+                        else
+                            echo $mailto."Succesfull";
                         echo $bodyContent;
             }
             
