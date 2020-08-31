@@ -3,9 +3,12 @@
 <?php
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-require '../assets/PHPMailer/src/Exception.php';
-require '../assets/PHPMailer/src/PHPMailer.php';
-require '../assets/PHPMailer/src/SMTP.php';
+$dir = dirname(__FILE__);
+echo $dir;
+exit();
+require $dir.'../assets/PHPMailer/src/Exception.php';
+require $dir.'../assets/PHPMailer/src/PHPMailer.php';
+require $dir.'../assets/PHPMailer/src/SMTP.php';
 include_once('./mailheader.php');
 $rollno='18CSR002';
 $mailto='s.abinash333@gmail.com';
