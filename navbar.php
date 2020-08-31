@@ -147,7 +147,7 @@
 
             <a class="right item"
                 style="margin-right:1%;font-weight:bold;color:cyan"><em><?php echo $_SESSION["name"]?><em></a>
-            <a class="right item" id="logout" href="./Logout.php"><i class="share square outline icon"></i>Logout</a>
+            <a class="right item" id="logout" onclick="signOut();"><i class="share square outline icon"></i>Logout</a>
         </div>
     </div>
     <div class="ui mobile only padded grid">
@@ -181,7 +181,7 @@
                 <a class="item" style="font-size:16px;text-indent:20%;"><span id="togglepass" class="ui inverted grey text">Change Password</span></a>
                 <a class="right item"
                     style="margin-right:1%;font-weight:bold;color:cyan"><em><?php echo $_SESSION["name"]?><em></a>
-                <a class="right item" id="logout" href="./Logout.php"><i
+                <a class="right item" id="logout" onclick="signOut();"><i
                         class="share square outline icon"></i>Logout</a>
             </div>
         </div>
@@ -228,7 +228,24 @@
 
 
     <?php include_once('announcement.php');?>
-
+    <meta name="google-signin-client_id" content="652923881233-ra0pbk90pmmbsg10455ljb1ljpuccu0b.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-151639011-3"></script>
+    <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
+    <script>
+    function signOut() {
+        gapi.auth2.getAuthInstance().signOut().then(function() {
+            console.log('user signed out')
+        })
+        window.location.replace('Logout.php');
+        }
+    function onLoad() {
+      gapi.load('auth2', function() {
+        gapi.auth2.init();
+      });
+      
+    }
+</script>
     <script>
     $(function() {
         $(".ui.toggle.button").click(function() {
