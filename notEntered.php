@@ -141,7 +141,7 @@ $temp='';
                                             array_push($day_pd,$periods);
                                         }
                                     }
-                                    if(!empty($day_pd))
+                                    if(!empty($fin))
                                     {
                                         $fin=array_merge($alt,$day_pd);
                                             
