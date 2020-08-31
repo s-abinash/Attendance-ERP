@@ -4,8 +4,6 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 $dir = dirname(__FILE__);
-echo $dir;
-exit();
 require $dir.'../assets/PHPMailer/src/Exception.php';
 require $dir.'../assets/PHPMailer/src/PHPMailer.php';
 require $dir.'../assets/PHPMailer/src/SMTP.php';
