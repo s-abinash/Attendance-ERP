@@ -40,7 +40,7 @@ if (isset($_POST['period'])) {
 
     if ($con->query($sql)) {
         echo '<body><script>Notiflix.Notify.Success("Period Altered Successfully");</script></body>';
-        echo '<script>location.href="./home.php";</script>';
+        //echo '<script>location.href="./home.php";</script>';
     } else {
         echo '<body><script>Notiflix.Notify.Failure("Please provide Valid Details");</script></body>';
     }
@@ -214,11 +214,12 @@ if (isset($_POST['period'])) {
                                     var r = altdat.split("-");
                                     var alt_date = new Date(r[0], r[1] - 1, r[2]);
                                     var alt_day = response[1][getWeekDay(alt_date)];
-                                    if (alt_day.length == alt[altdat].length) {
-                                        deldate.push(alt_date);
-                                    } else {
-                                        delday.push(altdat);
-                                    }
+                                    deldate.push(alt_date);
+                                    // if (alt_day.length == alt[altdat].length) {
+                                    //     deldate.push(alt_date);
+                                    // } else {
+                                    //     delday.push(altdat);
+                                    // }
 
                                 }
                               
