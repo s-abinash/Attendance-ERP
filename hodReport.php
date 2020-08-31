@@ -93,12 +93,15 @@ $temp='';
                                 }
                                 $batch=$row1["batch"]%2000;
                                 $cls=($batch==17?'IV':(($batch==18)?'III':'II')).' - '.$sec;
+                                $dep=$dept;
                                 if($row1['dept']=='MCSE')
                                 {
+                                    $dep='mcse';
                                     $cls='ME';
+
                                 }
-                                
-                                $tab=strtolower($batch.'-'.$dept.'-'.$sec);
+                                 
+                                $tab=strtolower($batch.'-'.$dep.'-'.$sec);
                                 $sql="SELECT * FROM `tt` WHERE `class` LIKE '$tab'";
                                 $res=$con->query($sql);
                                 $day=array();
@@ -134,6 +137,7 @@ $temp='';
                                     $result=$con->query("SELECT * FROM `alteration` where `date` LIKE '$date' AND `s2` LIKE '$sid' AND `c2` LIKE '$code'");
                                     if($result->num_rows!=0)
                                     {
+                                        
                                         while($row=$result->fetch_assoc())
                                         {
                                             $prds=$row["period"];
