@@ -103,14 +103,13 @@ $temp='';
                         $date=date_format(date_add(date_create($date),date_interval_create_from_date_string("1 days")),"Y-m-d");
                         continue;
                     }
-                    $s=date("l", strtotime($date));          
+                    $s=date("l", strtotime($date));
+                    $res=$con->query("SELECT * FROM `alteration` where `date` LIKE '$date' AND `s2` LIKE '$sid' AND `code` LIKE '$code'");
                     $alt=array();
-
-                    $r=$con->qury("SELECT * FROM `alteration` where `date` LIKE '$date' AND `s2` LIKE '$sid' AND `c2` LIKE '$code'");
-                    if($r->num_rows!=0)
+                    if($res->num_rows!=0)
                     {
                         
-                        while($row=$r->fetch_assoc())
+                        while($row=$res->fetch_assoc())
                         {
                             $prds=$row["period"];
                             if(in_array($code,$ele))
@@ -122,11 +121,12 @@ $temp='';
                                 array_push($alt,$prds);
                         }
                     }
-                    $day_pd=array();
                     foreach($day_per as $d=>$pd)
                     {
+                        
                             if($d==$s)
-                            {    
+                            {
+                                $day_pd=array();
                                 foreach($pd as $periods)
                                 {
                                     if(in_array($code,$ele))
@@ -140,14 +140,23 @@ $temp='';
                                         {
                                             array_push($day_pd,$periods);
                                         }
-                                    }     
+                                    }
+                                    if(!empty($day_pd))
+                                    {
+                                        $alt=array_merge($alt,$day_pd);
+                                            
+                                    }  
+                                        
                                 }
+                            
+                                
                             }
                     }
-                    if(!empty(array_merge($alt,$day_pd)))
+                 $fin+=$alt;
+                    if(!empty($fin))
                     {
                        
-                        $dates+=array($date=>array_merge($alt,$day_pd));
+                        $dates+=array($date=>$fin);
                     }  
                     
                     $date=date_format(date_add(date_create($date),date_interval_create_from_date_string("1 days")),"Y-m-d");
