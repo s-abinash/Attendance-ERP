@@ -257,8 +257,7 @@ if(isset($_POST["fetch"]))
                             {
                                 $results+=$row;
                             }
-                        }
-                       
+                        }  
                     }
                     echo "<script>$('#Periods').append('<th>".$p."</th>')</script>";
                     foreach($rolls as $roll)
