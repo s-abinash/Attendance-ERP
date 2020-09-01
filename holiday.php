@@ -158,11 +158,14 @@ include_once('./navbar.php');
                 disabledDaysOfWeek: [0,6],
                 inline:true
             });
-            $('#type').dropdown();
+            $('#type').dropdown({
+                allowAdditions: true
+            });
           
             $('#holidays,#year').dropdown({
                 clearable: true,
-                sortSelect: true
+                sortSelect: true,
+                
             });
             $("#frm").on("submit",function(e)
             {
