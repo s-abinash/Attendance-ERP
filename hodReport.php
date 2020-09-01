@@ -9,10 +9,10 @@ include_once("./db.php");
 $staffid=$_SESSION["id"];
 $res=$con->query("SELECT * FROM staff where `staffid` LIKE '$staffid'")->fetch_assoc();
 $dept=$res["dept"];
-if($_SESSION["id"]!='CSE001SF' || $_SESSION["id"]!='CSE004SF' )
-{
-    header('Location: home.php');
-}
+// if($_SESSION["id"]!='CSE001SF' || $_SESSION["id"]!='CSE004SF' )
+// {
+// //     header('Location: home.php');
+// }
 include_once('navbar.php'); 
 $staffid=$_SESSION['id'];
 $sql="SELECT `code` FROM `course_list` where `dept` LIKE 'CSE' AND `status` LIKE 'active' AND `category` LIKE 'elective'";
