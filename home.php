@@ -433,7 +433,7 @@
                             {
                                 if(date<new Date(2020,08,03))
                                 {
-                                    tt=response[6];   //ott
+                                    tt=response[4];   //ott
                                 }
                                 else
                                 {
