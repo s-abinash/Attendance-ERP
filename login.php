@@ -201,7 +201,7 @@ include_once("./db.php");
                     </span>
                     </div>
                 
-                    <div data-tooltip="Select your kongu.edu mail" class="g-signin2" data-onsuccess="onSignIn" ></div>
+                    <div data-tooltip="Select your kongu.edu mail" class="g-signin2" data-width="100" data-onsuccess="onSignIn"></div>
             </center>
         </form>
         <center><span style="color:#ffffb3; margin-top:10%;padding: 20px;font-size:12px">v4.1</span></center>
