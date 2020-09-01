@@ -101,7 +101,7 @@
                     $word="Laboratory";
                     $lab="";
 
-                    $ele=array("14CSE06","14CSE11","14CSO07","14ITO01","18ITO02","18MEO01","18CSO01");
+                   
                     $ele_course=array();
                     
                     $t=1;
@@ -315,7 +315,7 @@
     var response;
     var dt;
     var elec=["14CSE06","14CSE11","14CSO07","14ITO01","18ITO02","18MEO01","18CSO01"];
-    var elec=<?php json_encode($ele) ?>;
+    var elec=JSON.parse(<?php json_encode($ele) ?>);
     function getWeekDay(date)
     {
     var weekdays = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
