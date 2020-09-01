@@ -10,7 +10,15 @@
     }
     include_once("./db.php");
     include_once("./navbar.php");
+    $sql="SELECT `code` FROM `course_list` where `dept` LIKE 'CSE' AND `status` LIKE 'active' AND `category` LIKE 'elective'";
+    $res=$con->query($sql);
+    $ele=array();
+    while($row=mysqli_fetch_array($res))
+    {
+        array_push($ele,$row['code']);
+    }
 ?>
+
 <html lang="en">
 
 <head>
@@ -307,6 +315,7 @@
     var response;
     var dt;
     var elec=["14CSE06","14CSE11","14CSO07","14ITO01","18ITO02","18MEO01","18CSO01"];
+    var elec=<?php json_encode($ele) ?>;
     function getWeekDay(date)
     {
     var weekdays = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
