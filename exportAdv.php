@@ -56,7 +56,7 @@ include_once('./navbar.php');
     </div>
     <div class="ui black message" style="text-align:center;width:90%;margin: 0 auto;">
     <div class="ui header"><a href="notEntered.php"><button class="ui pink button">Staff Attendance Pending Report</button></a>
-    <a href="./errorfile/comingsoon/home.html"><button class="ui brown button">Day-Wise Student Attendance</button></a></div>
+    <a href="./exportAdvisor.php"><button class="ui brown button">Day-Wise Student Attendance</button></a></div>
     </div>
     <br/>
     <div class="ui raised segment"
