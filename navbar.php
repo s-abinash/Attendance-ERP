@@ -144,9 +144,46 @@
             </p>
             </div>
           </div>
-
             <a class="right item"
-                style="margin-right:1%;font-weight:bold;color:cyan"><em><?php echo $_SESSION["name"]?><em></a>
+                style="margin-right:1%;font-weight:bold;color:cyan" id="profile"><em><?php echo $_SESSION["name"]?><em></a>
+
+                <div class="ui special animated inverted popup" id="profilepopup">
+                <?php 
+                if(isset($_SESSION['image']))
+                echo '<div class="header"><img class="ui avatar image" src="'.$_SESSION['image'].'">
+                <span style="color:purple;font-weight:bold;font-size:20px;">'.$_SESSION['name'].'</span></div><hr>';
+                else
+                echo '<span style="color:purple;font-weight:bold;font-size:20px;">'.$_SESSION['name'].'</span><hr>';
+                ?>
+            <div class="content">
+  
+            <h5>Mail: <span style="color:pink;"><?php echo $_SESSION['mail'];?></span></h5>
+            <h5>Department: <span style="color:yellow;"><?php echo $_SESSION['dept'];?></span></h5>
+            <?php
+              if($_SESSION['design']=='Advisor')
+              {
+                  echo "<h5>Role: <span style='color:blue;'>".$_SESSION['design']."</span></h5>";
+                  echo "<h5>Class: <span style='color:brown;'>".$_SESSION['batch']."-".$_SESSION['sec']."</span></h5>";
+                  
+              }
+              else if($_SESSION['design']=='Year in Charge')
+              {
+                echo "<h5>Role: <span style='color:blue;'>".$_SESSION['design']."</span></h5>";
+                echo "<h5>Class: <span style='color:brown;'>".$_SESSION['batch']."</span></h5>";
+              }
+              else if($_SESSION['design']=='HOD')
+              {
+                echo "<h4>Role: <span style='color:blue;'>".$_SESSION['design']."</span></h4>";
+                echo "<h5>Ithu na vechathu mam - Abi :)</h5>";
+              } 
+              else
+              {
+                echo "<h4>Role: <span style='color:blue;'>Faculty</span></h4>";
+              }
+            ?>
+            </div>
+          </div>
+
             <a class="right item" id="logout" onclick="signOut();"><i class="share square outline icon"></i>Logout</a>
         </div>
     </div>
@@ -253,6 +290,11 @@
         });
         $('#contact').popup({
           popup : $('#contactpopup'),
+          on    : 'click',
+          inline : true,
+        });
+        $('#profile').popup({
+          popup : $('#profilepopup'),
           on    : 'click',
           inline : true,
         });

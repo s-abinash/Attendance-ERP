@@ -344,6 +344,7 @@ if (isset($_POST["usr"]))
       
       $row=$res->fetch_assoc();
       $_SESSION["id"]=$row['staffid'];
+      $_SESSION['mail']=$row['mail'];
       $_SESSION["name"]=$row['name'];
       $_SESSION["dept"]=$row['dept'];
       $_SESSION['batch']=$row['batch'];
