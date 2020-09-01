@@ -86,19 +86,19 @@
                    continue;
               }
                $s=date("l", strtotime($date));
-               
+                if(date($date)<date("2020-08-03"))
+               {
+                    $day_per=$ott;
+               }
+               else
+               {
+                    $day_per=$tt;
+               }
                foreach($day_per as $d=>$pd)
                {
                     if($d==$s)
                     {
-                       if(date($date)<date("2020-08-03"))
-                       {
-                            $day_per=$ott;
-                       }
-                       else
-                       {
-                            $day_per=$tt;
-                       }
+                      
                          foreach($pd as $periods)
                          {
                               if(in_array($code,$ele))
