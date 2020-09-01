@@ -530,8 +530,9 @@
                 });
                
             }
+            $('.preloader').hide(); 
         })
-        $('.preloader').hide(); 
+        
     }
     function consolidate(id) {
         $('.preloader').show();
