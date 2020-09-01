@@ -70,7 +70,7 @@
         $tab=$b."-".$c."-".$sec;
         
         
-        $sql="SELECT * FROM `tt` WHERE `class` LIKE '$tab'";
+        $sql="SELECT * FROM `ott` WHERE `class` LIKE '$tab'";
 
          $res=$con->query($sql);
          $day=array();
