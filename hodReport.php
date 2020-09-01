@@ -11,7 +11,7 @@ $res=$con->query("SELECT * FROM staff where `staffid` LIKE '$staffid'")->fetch_a
 $dept=$res["dept"];
 if($_SESSION["id"]!='CSE001SF' || $_SESSION["id"]!='CSE004SF' )
 {
-    // header('Location: exportAdv.php');
+    header('Location: exportAdv.php');
 }
 include_once('navbar.php'); 
 $staffid=$_SESSION['id'];
