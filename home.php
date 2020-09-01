@@ -528,10 +528,10 @@
                     message: 'Hover on Absentees count to view Absentee List',
                     showProgress: 'top'
                 });
-                $('.preloader').hide();
+               
             }
         })
-        
+        $('.preloader').hide(); 
     }
     function consolidate(id) {
         $('.preloader').show();
