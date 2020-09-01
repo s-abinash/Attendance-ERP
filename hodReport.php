@@ -15,7 +15,7 @@ if($_SESSION["id"]!='CSE001SF' || $_SESSION["id"]!='CSE004SF' )
 }
 include_once('navbar.php'); 
 $staffid=$_SESSION['id'];
-$sql="SELECT `code` FROM `course_list` where `dept` LIKE '$dept' AND `status` LIKE 'active' AND `category` LIKE 'ELECTIVE'";
+$sql="SELECT `code` FROM `course_list` where `dept` LIKE 'CSE' AND `status` LIKE 'active' AND `category` LIKE 'elective'";
 $res=$con->query($sql);
 $ele=array();
 while($row=mysqli_fetch_array($res))
