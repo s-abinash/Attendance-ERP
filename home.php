@@ -509,6 +509,7 @@
                             message: 'You have not uploaded any Attendance reports yet',
                             showProgress: 'top'
                         });
+                    $('.preloader').hide(); 
                     return false;
                 }
                 $("#seg").html("");
