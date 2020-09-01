@@ -428,9 +428,18 @@
                                 y="0"+y;
                             }
                             var day = date.getFullYear() + '-' +x+ '-' +y ;
+                            var tt;
                             if(dates.includes(day))
                             {
-                                var ar=response[1][getWeekDay(date)];    
+                                if(date<new Date(2020,08,03))
+                                {
+                                    tt=response[6];   //ott
+                                }
+                                else
+                                {
+                                    tt=response[1];   //tt
+                                }
+                                var ar=tt[getWeekDay(date)];    
                                 for (i of ar)
                                 {
                                     $("#hr").append("<option value='"+i+"'>"+i+"</option>");
