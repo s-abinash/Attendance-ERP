@@ -545,7 +545,7 @@
             type: "POST",
             success: function(r) {
                 if (r == 'empty') {
-
+                    $('.preloader').hide();
                     // Notiflix.Notify.Info("You haven't uploaded any Attendance reports yet to consolidate");
                     $('body').toast({
                     position: 'bottom right',
@@ -557,7 +557,7 @@
                     message: 'You have not uploaded any attendance yet to get Report.',
                     showProgress: 'top'
                 });
-                    $('.preloader').hide();
+                    
                     return false;
 
                 } else if (r == "export_ready") {
