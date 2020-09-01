@@ -279,7 +279,16 @@ if (isset($_POST['period'])) {
                                     var day = date.getFullYear() + '-' + x + '-' + y;
                                     if (dates.includes(day)) {
                                         var ar = response[1][getWeekDay(date)];
+                                        var tt;
                                         for (i of ar) {
+                                            if(date<new Date(2020,08,03))
+                                        {
+                                            tt=response[6];   //ott
+                                        }
+                                        else
+                                        {       
+                                            tt=response[1];   //tt
+                                        }
                                             $("#hr").append("<option value='" + i + "'>" + i + "</option>");
                                         }
                                     }
