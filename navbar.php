@@ -147,14 +147,14 @@
             <a class="right item"
                 style="margin-right:1%;font-weight:bold;color:cyan" id="profile"><em><?php echo $_SESSION["name"]?><em></a>
 
-                <div class="ui special animated inverted popup" id="profilepopup">
-                <?php 
-                if(isset($_SESSION['image']))
-                echo '<div class="header"><img class="ui avatar image" src="'.$_SESSION['image'].'">
-                <span style="color:purple;font-weight:bold;font-size:20px;">'.$_SESSION['name'].'</span></div><hr>';
-                else
-                echo '<span style="color:purple;font-weight:bold;font-size:20px;">'.$_SESSION['name'].'</span><hr>';
-                ?>
+            <div class="ui special animated inverted popup" id="profilepopup">
+            <?php 
+            if(isset($_SESSION['image']))
+            echo '<div class="header"><img class="ui avatar image" src="'.$_SESSION['image'].'">
+            <span style="color:purple;font-weight:bold;font-size:20px;">'.$_SESSION['name'].'</span></div><hr>';
+            else
+            echo '<span style="color:purple;font-weight:bold;font-size:20px;">'.$_SESSION['name'].'</span><hr>';
+            ?>
             <div class="content">
   
             <h5>Mail: <span style="color:pink;"><?php echo $_SESSION['mail'];?></span></h5>
@@ -296,7 +296,9 @@
         $('#profile').popup({
           popup : $('#profilepopup'),
           on    : 'click',
-          inline : true,
+          
+          position   : 'bottom center'
+          // position: top right,
         });
         $("#abinash").on("click", function() {
             window.open("mailto:s.abinash@kongu.ac.in?subject=Attendance Reg.,", "_blank");
