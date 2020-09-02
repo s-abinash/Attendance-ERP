@@ -195,12 +195,12 @@ include_once("./db.php");
             <center class="animate__animated animate__pulse ">
                 <button type="submit" id="sub" name="usr" val="verified" class="ui large positive button">Sign
                     in</button><br>
-                    <div style="width: 100%; height: 20px; border-bottom: 1px solid black; text-align: center;color: #929292">
+                    <!-- <div style="width: 100%; height: 20px; border-bottom: 1px solid black; text-align: center;color: #929292">
                     <span style="font-size: 10px; color: #929292; padding: 0 10px;">
                     OR 
                     </span>
-                    </div>
-                
+                    </div> -->
+                    <div class="ui horizontal divider" style="color: #929292;">OR</div>
                     <div data-tooltip="Select your kongu.edu mail" class="g-signin2" data-width="100" data-onsuccess="onSignIn"></div>
             </center>
         </form>
@@ -211,7 +211,7 @@ include_once("./db.php");
     <div class="footer">
         <p style="vertical-align: middle;  font-family: sans-serif; padding: 15px;"> Site development and support by
             <span style="color:violet;cursor: pointer;" class="animate__animated animate__pulse" id="abinash">Abinash S</span> and <span style="color:violet;cursor: pointer;" class="animate__animated animate__pulse" id="ajay">Ajay R
-            </span>of III CSE - A
+            </span>of <span style="color:brown;">III CSE - A</span>
 
         </p>
     </div>

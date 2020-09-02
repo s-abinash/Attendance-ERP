@@ -140,7 +140,7 @@
             Any issues/queries, click on this mail <a href="mailto:studentplus@kongu.ac.in?subject=Attendance Reg.,&body=Username:<?php echo $usrname;?>%20%28Leave%20this%20as%20it%20is%29%0AType%20in%20your%20message%20here%3A%20" target="_blank">studentplus@kongu.ac.in</a>
             <p style="vertical-align: middle;  font-family: sans-serif; padding: 15px;"> Site development and support by
             <span style="color:violet;cursor: pointer;" id="abinash">Abinash S</span> and <span style="color:violet;cursor: pointer;" id="ajay">Ajay R
-            </span>of III CSE - A
+            </span>of <br><span style="color:brown;">III CSE - A</span>
             </p>
             </div>
           </div>
@@ -151,9 +151,9 @@
             <?php 
             if(isset($_SESSION['image']))
             echo '<div class="header"><img class="ui avatar image" src="'.$_SESSION['image'].'">
-            <span style="color:purple;font-weight:bold;font-size:20px;">'.$_SESSION['name'].'</span></div><hr>';
+            <span style="color:purple;font-weight:bold;font-size:20px;">'.$_SESSION['name'].'</span></div><div class="ui horizontal divider">Profile</div>';
             else
-            echo '<span style="color:purple;font-weight:bold;font-size:20px;">'.$_SESSION['name'].'</span><hr>';
+            echo '<span style="color:purple;font-weight:bold;font-size:20px;">'.$_SESSION['name'].'</span><div class="ui horizontal divider">Profile</div>';
             ?>
             <div class="content">
   
@@ -164,7 +164,6 @@
               {
                   echo "<h5>Role: <span style='color:blue;'>".$_SESSION['design']."</span></h5>";
                   echo "<h5>Class: <span style='color:brown;'>".$_SESSION['batch']."-".$_SESSION['sec']."</span></h5>";
-                  
               }
               else if($_SESSION['design']=='Year in Charge')
               {
