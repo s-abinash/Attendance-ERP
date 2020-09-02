@@ -371,16 +371,17 @@ while($row=mysqli_fetch_array($data))
                         </table>
                     </body>
                     </html>';
-                        // $mailto=$m[$ijk++];
-                        // $mail->addAddress($mailto); 
-                        // $mail->addReplyTo('studentplus@kongu.ac.in', 'KEC Student+');
-                        // $mail->Subject = 'Attendance Pending';
-                        // $mail->Body=$bodyContent;
-                        // if(!$mail->send())
-                        //     echo $mailto.'Error';         
-                        // else
-                        //     echo $mailto."Succesfull";
-                        echo $bodyContent;
+                        $mailto=$m[$ijk++];
+                        $mail->addAddress($mailto); 
+                        $mail->addReplyTo('studentplus@kongu.ac.in', 'KEC Student+');
+                        $mail->Subject = 'Attendance Pending';
+                        $mail->Body=$bodyContent;
+                        if(!$mail->send())
+                            echo $mailto.'Error';         
+                        else
+                            echo $mailto."Succesfull";
+                            
+                         // echo $bodyContent;
             }
             
         }
