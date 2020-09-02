@@ -36,13 +36,14 @@ while($row=mysqli_fetch_array($data))
         
         $sql="SELECT * FROM `course_list` WHERE (`staffA`  LIKE '$sid' OR `staffB`  LIKE '$sid' OR `staffC`  LIKE '$sid' OR `staffD` LIKE '$sid' ) AND `status` LIKE 'active'";
         $data1=$con->query($sql);
+        
         $n=mysqli_num_rows($data1);
         $bool=1;
         $bol=0;
         $cnt=0;
         while($row1=mysqli_fetch_array($data1))
         {
-                $content='';
+              
                 $ssub=$row1['name'];
                 $code=$row1["code"];
                 if($row1["staffA"]==$sid)
@@ -63,12 +64,39 @@ while($row=mysqli_fetch_array($data))
                 }
                 $batch=$row1["batch"]%2000;
                 $cls=($batch==17?'IV':(($batch==18)?'III':'II')).' - '.$sec;
+                $dep=$dept;
                 if($row1['dept']=='MCSE')
                 {
+                    $dep='mcse';
                     $cls='ME';
+
                 }
-                
-                $tab=strtolower($batch.'-'.$dept.'-'.$sec);
+                 
+                $tab=strtolower($batch.'-'.$dep.'-'.$sec);
+            
+                $sql="SELECT * FROM `ott` WHERE `class` LIKE '$tab'";
+                $res=$con->query($sql);
+                $day=array();
+                $day_per=array();
+                while($row=$res->fetch_assoc())
+                { 
+                    $per=array();
+                    foreach($row as $in=>$v)
+                    {
+                        if(strpos($v,$code)!==false)
+                        {
+                                array_push($per,$in);
+                        } 
+                    }
+                    if(!empty($per))
+                    {
+                            $day_per+=array($row["day"]=>$per);
+                    }   
+                }
+                $ott=$day_per;
+            
+            
+            
                 $sql="SELECT * FROM `tt` WHERE `class` LIKE '$tab'";
                 $res=$con->query($sql);
                 $day=array();
@@ -88,9 +116,11 @@ while($row=mysqli_fetch_array($data))
                             $day_per+=array($row["day"]=>$per);
                     }   
                 }
+                $tt=$day_per;
+            
                 $x=date("Y-m-d");
                 $tdy=date_create($x);
-                $date=date("2020-08-03");
+                $date=date("2020-07-08");
                 $diff=intval(date_diff($tdy,date_create($date))->format("%a"))+1;
                 $dates=array();
                 for($i=1;$i<$diff;$i++)
@@ -100,10 +130,20 @@ while($row=mysqli_fetch_array($data))
                         $date=date_format(date_add(date_create($date),date_interval_create_from_date_string("1 days")),"Y-m-d");
                         continue;
                     }
+                    if(date($date)<date("2020-08-03"))
+                   {
+                        $day_per=$ott;
+                   }
+                   else
+                   {
+                        $day_per=$tt;
+                   }
+                    
                     $alt=array();
                     $result=$con->query("SELECT * FROM `alteration` where `date` LIKE '$date' AND `s2` LIKE '$sid' AND `c2` LIKE '$code'");
                     if($result->num_rows!=0)
                     {
+                        
                         while($row=$result->fetch_assoc())
                         {
                             $prds=$row["period"];
@@ -332,15 +372,15 @@ while($row=mysqli_fetch_array($data))
                     </body>
                     </html>';
                         // $mailto=$m[$ijk++];
-                        $mail->addAddress($mailto); 
-                        $mail->addReplyTo('studentplus@kongu.ac.in', 'KEC Student+');
-                        $mail->Subject = 'Attendance Pending';
-                        $mail->Body=$bodyContent;
-                        if(!$mail->send())
-                            echo $mailto.'Error';         
-                        else
-                            echo $mailto."Succesfull";
-                        // echo $bodyContent;
+                        // $mail->addAddress($mailto); 
+                        // $mail->addReplyTo('studentplus@kongu.ac.in', 'KEC Student+');
+                        // $mail->Subject = 'Attendance Pending';
+                        // $mail->Body=$bodyContent;
+                        // if(!$mail->send())
+                        //     echo $mailto.'Error';         
+                        // else
+                        //     echo $mailto."Succesfull";
+                        echo $bodyContent;
             }
             
         }
