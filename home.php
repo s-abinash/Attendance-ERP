@@ -324,7 +324,7 @@
     return weekdays[day];
     }
     function attend(id) {
-        $('.preloader').show();
+        $('.preloader').css("display","");
         var btn = id.split("/");
         d = "tab=" + btn[0] + "&code=" + btn[1];
         $.ajax({
@@ -496,7 +496,7 @@
                 }).modal("show");
             }
         });
-        $('.preloader').hide();
+        $('.preloader').css("display","none");
     }
 
     function history(id) {

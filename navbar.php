@@ -113,7 +113,7 @@
             <?php
             if($design=='Advisor')
               echo '<a class="item" id="alter" href="exportAdv.php">Advisor Export 
-                    <div class="ui yellow inverted label">New</div></a>';
+                   </a>';
             else if($row['userid']=='mallisenthil')
             {
                 echo '<a class="item" href="hodReport.php">Pending Report  </a>';
@@ -129,11 +129,10 @@
             <em data-emoji=":bell:" class="notify"></em>
             </a>
             <a class="item" id="togglepass" data-title="Change Password" data-content="Change your password using old password">Change Password
-            <div class="ui yellow inverted label">New</div></a>
+            </a>
             <?php if($row['designation']!='HOD')
                   echo '<a class="item" id="contact">Contact</a>';
               ?>
-            
             <div class="ui special animated inverted popup" id="contactpopup">
             <div class="header">Contact Us</div>
             <div class="content">
@@ -199,18 +198,19 @@
             <div class="ui vertical borderless fluid inverted menu">
                 <a class="item" id="index" href="home.php">Home</a>
                 <a class="item" id="alter" href="alter.php">Alter Period</a>
+                <!-- <div class="ui yellow inverted label">New</div> -->
                 <?php
                 if($design=='Advisor')
                   echo '<a class="item" id="alter" href="exportAdv.php">Advisor Export 
-                        <div class="ui yellow inverted label">New</div></a>';
+                        </a>';
                 else if($row['userid']=='mallisenthil')
                 {
-                    echo '<a class="item" href="hodReport.php">Pending Report <div class="ui yellow inverted label">New</div> </a>';
+                    echo '<a class="item" href="hodReport.php">Pending Report  </a>';
                 }  
                 else if($row['designation']=='HOD')
                 {
-                    echo '<a class="item" href="hodReport.php">Pending Report <div class="ui yellow inverted label">New</div> </a>';
-                    echo '<a class="item" href="holiday.php">Add Holiday <div class="ui yellow inverted label">New</div></a>';
+                    echo '<a class="item" href="hodReport.php">Pending Report  </a>';
+                    echo '<a class="item" href="holiday.php">Add Holiday </a>';
                 }
                 ?>
                 <a class="item" id="ann">Announcement </a>
