@@ -393,8 +393,6 @@
                         al.push(alteddat);
                     }
                 }
-                
-          
                 $('#cal').calendar({
                     type: 'date',
                      enabledDates: arr,

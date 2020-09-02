@@ -37,7 +37,7 @@ $temp='';
 
     </style>
 
-  <div><center><h1 class="ui white header" style="color:white;margin-top:2%">Missing Attendace List</h1></center>
+  <div><center><h1 class="ui white header" style="color:white;margin-top:2%">Missing Attendance List</h1></center>
   
   </div>
  
@@ -187,7 +187,7 @@ $temp='';
                     $date=date_format(date_add(date_create($date),date_interval_create_from_date_string("1 days")),"Y-m-d");
                 }
                 echo '<div class="bulleted list">';
-                $mailcontent="Dear ".$sname." Attendace entry is pending for '".$ssub. "' on the following dates:".'%0A%0A';
+                $mailcontent="Dear ".$sname." Attendance entry is pending for '".$ssub. "' on the following dates:".'%0A%0A';
                 $datecell='';
                 foreach($dates as $i=>$pds)
                 {  
@@ -197,7 +197,7 @@ $temp='';
                 }
               
                 $mailcontent.="%0AKindly mark the attendance ASAP %0A %20 -"."Advisor";
-                $mailcontent="mailto:".$smail."?subject=Attendace%20Pending%20report&body=".$mailcontent;
+                $mailcontent="mailto:".$smail."?subject=Attendance%20Pending%20report&body=".$mailcontent;
                 if(!empty($dates))
                 {
                     echo '<td>'.$datecell.'</td>';    
