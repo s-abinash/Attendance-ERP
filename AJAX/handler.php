@@ -189,7 +189,7 @@
           {
                $alted="Empty";
           }  
-          echo json_encode(array($dates,$day_per,$alt,$alted,$ott));
+          echo json_encode(array($dates,$tt,$alt,$alted,$ott));
           exit();
 
     }
