@@ -340,8 +340,8 @@
                 var dates =response[0];
                 var alt=response[2];
                 var alted=response[3];
-                
-                if (!(Array.isArray(dates) && dates.length) && alted=="Empty") {
+    
+                if ((!(Array.isArray(dates) && dates.length) && alted=="Empty")||((JSON.stringify(Object.keys(alt)) === JSON.stringify(dates))&& alted=="Empty")) {
                     // Notiflix.Notify.Info("You have no pending Attendance reports to be uploaded");
                     $('body')
                         .toast({
@@ -356,6 +356,7 @@
                         });
                     return false;
                 }
+               
                 for (i of dates) 
                 {
                     var r = i.split("-");
