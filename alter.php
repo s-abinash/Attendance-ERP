@@ -264,6 +264,7 @@ if (isset($_POST['period'])) {
                                     }
                                 },
                                 onChange: function (date, settings) {
+                                    var datecreated;
                                     $('#hr').dropdown('clear');
                                     $("#hr").html("<option value=''>Select Period</option>");
                                     if (!date) return '';
@@ -280,8 +281,10 @@ if (isset($_POST['period'])) {
                                     if (dates.includes(day)) {
                                         var ar = response[1][getWeekDay(date)];
                                         var tt;
+                                        datecreated=parseInt((date.getFullYear())+''+(x)+''+(y)) 
+                                        
                                         for (i of ar) {
-                                            if(date<new Date(2020,08,03))
+                                        if((datecreated)<(20200803))
                                         {
                                             tt=response[6];   //ott
                                         }

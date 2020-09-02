@@ -422,6 +422,7 @@
                         }
                     },
                     onChange   : function(date, settings) {
+                        var datecreated;
                         $('#hr').dropdown('clear');
                         $("#hr").html("<option value=''>Select Period</option>");
                         if (!date) return '';
@@ -440,13 +441,18 @@
                             var tt;
                             if(dates.includes(day))
                             {
-                                if(date<new Date(2020,08,03))
+                                datecreated=parseInt((date.getFullYear())+''+(x)+''+(y)) 
+                                if((datecreated)<(20200803))
                                 {
                                     tt=response[4];   //ott
+                                    console.log("Old Time Table");
+                                    //console.log(tt);
                                 }
                                 else
                                 {
                                     tt=response[1];   //tt
+                                    console.log("New Time Table");
+                                    //console.log(tt);
                                 }
                                 var ar=tt[getWeekDay(date)];    
                                 for (i of ar)
