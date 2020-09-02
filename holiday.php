@@ -69,7 +69,7 @@ include_once('./navbar.php');
     
             <div class="field" >
                 <label>Date Exemption Type</label>
-                <div class="ui selection dropdown" id="type">
+                <div class="ui search selection dropdown" id="type">
                     <input name="type" type="hidden">
                     <div class="default text">Exemption Type</div>
                         <i class="dropdown icon"></i>
@@ -158,11 +158,15 @@ include_once('./navbar.php');
                 disabledDaysOfWeek: [0,6],
                 inline:true
             });
-            $('#type').dropdown();
+            $('#type').dropdown({
+    allowAdditions: true
+  })
+;
           
             $('#holidays,#year').dropdown({
                 clearable: true,
-                sortSelect: true
+                sortSelect: true,
+                
             });
             $("#frm").on("submit",function(e)
             {

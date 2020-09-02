@@ -10,7 +10,15 @@
     }
     include_once("./db.php");
     include_once("./navbar.php");
+    $sql="SELECT `code` FROM `course_list` where `dept` LIKE 'CSE' AND `status` LIKE 'active' AND `category` LIKE 'elective'";
+    $res=$con->query($sql);
+    $ele=array();
+    while($row=mysqli_fetch_array($res))
+    {
+        array_push($ele,$row['code']);
+    }
 ?>
+
 <html lang="en">
 
 <head>
@@ -93,7 +101,7 @@
                     $word="Laboratory";
                     $lab="";
 
-                    $ele=array("14CSE06","14CSE11","14CSO07","14ITO01","18ITO02","18MEO01","18CSO01");
+                   
                     $ele_course=array();
                     
                     $t=1;
@@ -306,7 +314,8 @@
     var x,y;
     var response;
     var dt;
-    var elec=["14CSE06","14CSE11","14CSO07","14ITO01","18ITO02","18MEO01","18CSO01"];
+    var elec=["14CSE06","14CSE11","14CSO07","14ECO07","14EEO04","14ITO01","14ITO04","14ITO06","14MEO07","18CSO01","18ITO02","18MEO01"];
+   
     function getWeekDay(date)
     {
     var weekdays = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
@@ -315,7 +324,7 @@
     return weekdays[day];
     }
     function attend(id) {
-        $('.preloader').show();
+        $('.preloader').css("display","");
         var btn = id.split("/");
         d = "tab=" + btn[0] + "&code=" + btn[1];
         $.ajax({
@@ -389,8 +398,6 @@
                         al.push(alteddat);
                     }
                 }
-                
-          
                 $('#cal').calendar({
                     type: 'date',
                      enabledDates: arr,
@@ -418,6 +425,7 @@
                         }
                     },
                     onChange   : function(date, settings) {
+                        var datecreated;
                         $('#hr').dropdown('clear');
                         $("#hr").html("<option value=''>Select Period</option>");
                         if (!date) return '';
@@ -433,9 +441,23 @@
                                 y="0"+y;
                             }
                             var day = date.getFullYear() + '-' +x+ '-' +y ;
+                            var tt;
                             if(dates.includes(day))
                             {
-                                var ar=response[1][getWeekDay(date)];    
+                                datecreated=parseInt((date.getFullYear())+''+(x)+''+(y)) 
+                                if((datecreated)<(20200803))
+                                {
+                                    tt=response[4];   //ott
+                                    console.log("Old Time Table");
+                                    //console.log(tt);
+                                }
+                                else
+                                {
+                                    tt=response[1];   //tt
+                                    console.log("New Time Table");
+                                    //console.log(tt);
+                                }
+                                var ar=tt[getWeekDay(date)];    
                                 for (i of ar)
                                 {
                                     $("#hr").append("<option value='"+i+"'>"+i+"</option>");
@@ -479,7 +501,7 @@
                 }).modal("show");
             }
         });
-        $('.preloader').hide();
+        $('.preloader').css("display","none");
     }
 
     function history(id) {
@@ -505,6 +527,7 @@
                             message: 'You have not uploaded any Attendance reports yet',
                             showProgress: 'top'
                         });
+                    $('.preloader').hide(); 
                     return false;
                 }
                 $("#seg").html("");
@@ -524,8 +547,9 @@
                     message: 'Hover on Absentees count to view Absentee List',
                     showProgress: 'top'
                 });
-                $('.preloader').hide();
+               $('.preloader').hide(); 
             }
+            
         })
         
     }
@@ -539,7 +563,7 @@
             type: "POST",
             success: function(r) {
                 if (r == 'empty') {
-
+                    $('.preloader').hide();
                     // Notiflix.Notify.Info("You haven't uploaded any Attendance reports yet to consolidate");
                     $('body').toast({
                     position: 'bottom right',
@@ -551,7 +575,7 @@
                     message: 'You have not uploaded any attendance yet to get Report.',
                     showProgress: 'top'
                 });
-                    $('.preloader').hide();
+                    
                     return false;
 
                 } else if (r == "export_ready") {

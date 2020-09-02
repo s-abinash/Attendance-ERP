@@ -2,8 +2,13 @@
     include_once("../db.php");
     session_start();
     $sid=$_SESSION["id"];
-    $ele=array("14CSE06","14CSE11","14CSO07","14ITO01","18ITO02","18MEO01","18CSO01");
-      
+    $sql="SELECT `code` FROM `course_list` where `dept` LIKE 'CSE' AND `status` LIKE 'active' AND `category` LIKE 'elective'";
+    $res=$con->query($sql);
+    $ele=array();
+    while($row=mysqli_fetch_array($res))
+    {
+    array_push($ele,$row['code']);
+    }
     if(isset($_POST["s1drop"]))
     {
         $sql="SELECT code,name FROM `course_list` WHERE staffA LIKE '$sid' OR staffB LIKE '$sid' OR staffC LIKE '$sid' OR staffD LIKE '$sid' ORDER BY batch desc";
@@ -63,6 +68,30 @@
         }
         
         $tab=$b."-".$c."-".$sec;
+        
+        
+        $sql="SELECT * FROM `ott` WHERE `class` LIKE '$tab'";
+
+         $res=$con->query($sql);
+         $day=array();
+         $day_per=array();
+         while($row=$res->fetch_assoc())
+         { 
+              $per=array();
+              foreach($row as $in=>$v)
+              {
+                   if(strpos($v,$code)!==false)
+                   {
+                        array_push($per,$in);
+                   } 
+              }
+              if(!empty($per))
+              {
+                    $day_per+=array($row["day"]=>$per);
+              }   
+         }
+        $ott=$day_per;
+        
         $sql="SELECT * FROM `tt` WHERE `class` LIKE '$tab'";
 
          $res=$con->query($sql);
@@ -83,10 +112,11 @@
                     $day_per+=array($row["day"]=>$per);
               }   
          }
+        $tt=$day_per;
      
          $x=date("Y-m-d");
          $tdy=date_create($x);
-         $date=date("2020-08-03");
+         $date=date("2020-07-08");
          $diff=intval(date_diff($tdy,date_create($date))->format("%a"))+1;
          $diff+=30;
          $dates=array();
@@ -95,6 +125,14 @@
          for($i=1;$i<=$diff;$i++)
          {    
               $s=date("l", strtotime($date));
+             if(date($date)<date("2020-08-03"))
+               {
+                    $day_per=$ott;
+               }
+               else
+               {
+                    $day_per=$tt;
+               }
                foreach($day_per as $d=>$pd)
                {
                     if($d==$s)
@@ -120,24 +158,24 @@
                }
                $date=date_format(date_add(date_create($date),date_interval_create_from_date_string("1 days")),"Y-m-d");
           }
-          if(in_array($code,array("14CSL71","14CSL72")))
-          {
-               $c=$dates;
-               $dates=array();
-               foreach($c as $dt)
-               {
-                    $x=date_diff(date_create(date("2020-07-08")),date_create(date($dt)))->format("%a");
-                    if(($code=="14CSL71")&&(($x/7)%2))
-                    {
-                         array_push($dates,$dt);
-                    }
-                    else if(($code=="14CSL72")&&((($x/7)%2)==0))
-                    {
-                         array_push($dates,$dt);
-                    }
+//           if(in_array($code,array("14CSL71","14CSL72")))
+//           {
+//                $c=$dates;
+//                $dates=array();
+//                foreach($c as $dt)
+//                {
+//                     $x=date_diff(date_create(date("2020-07-08")),date_create(date($dt)))->format("%a");
+//                     if(($code=="14CSL71")&&(($x/7)%2))
+//                     {
+//                          array_push($dates,$dt);
+//                     }
+//                     else if(($code=="14CSL72")&&((($x/7)%2)==0))
+//                     {
+//                          array_push($dates,$dt);
+//                     }
                     
-               }
-          }
+//                }
+//           }
           $altsql="SELECT date,period FROM `alteration` WHERE `s1` LIKE '$sid' AND `c1` LIKE '$code' AND date<=CURRENT_DATE";
           $res=$con->query($altsql);
           $alt=array();
@@ -201,7 +239,7 @@
          {
                array_push($holid,$row["date"]);
          }
-          echo json_encode(array($dates,$day_per,$alt,$alted,$s2,$holid));
+          echo json_encode(array($dates,$day_per,$alt,$alted,$s2,$holid,$ott));
           exit();
     }
     else if(isset($_POST["holidays"]))

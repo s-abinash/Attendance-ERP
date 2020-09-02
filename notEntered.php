@@ -15,8 +15,13 @@ if($res["designation"]!="Advisor")
 include_once('navbar.php'); 
 $staffid=$_SESSION['id'];
 
-$ele=array("14CSE06","14CSE11","14CSO07","14ITO01","18ITO02","18MEO01","18CSO01");
-
+$sql="SELECT `code` FROM `course_list` where `dept` LIKE 'CSE' AND `status` LIKE 'active' AND `category` LIKE 'elective'";
+$res=$con->query($sql);
+$ele=array();
+while($row=mysqli_fetch_array($res))
+{
+    array_push($ele,$row['code']);
+}
 $temp='';
 ?>
 <head>
@@ -32,7 +37,7 @@ $temp='';
 
     </style>
 
-  <div><center><h1 class="ui white header" style="color:white;margin-top:2%">Missing Attendace List</h1></center>
+  <div><center><h1 class="ui white header" style="color:white;margin-top:2%">Missing Attendance List</h1></center>
   
   </div>
  
@@ -71,6 +76,26 @@ $temp='';
                 echo '<td><span style="color:blue;">'.$sname.'</span></td>';
                
                 $code=$row["code"];
+                $sql="SELECT * FROM `ott` WHERE `class` LIKE '$tab'";
+                $res=$con->query($sql);
+                $day=array();
+                $day_per=array();
+                while($row=$res->fetch_assoc())
+                { 
+                    $per=array();
+                    foreach($row as $in=>$v)
+                    {
+                        if(strpos($v,$code)!==false)
+                        {
+                                array_push($per,$in);
+                        } 
+                    }
+                    if(!empty($per))
+                    {
+                            $day_per+=array($row["day"]=>$per);
+                    }   
+                }
+                $ott=$day_per;
                 $sql="SELECT * FROM `tt` WHERE `class` LIKE '$tab'";
                 $res=$con->query($sql);
                 $day=array();
@@ -90,9 +115,10 @@ $temp='';
                             $day_per+=array($row["day"]=>$per);
                     }   
                 }
+                $tt=$day_per;
                 $x=date("Y-m-d");
                 $tdy=date_create($x);
-                $date=date("2020-08-03");
+                $date=date("2020-07-08");
                 $diff=intval(date_diff($tdy,date_create($date))->format("%a"))+1;
                 $dates=array();
                 
@@ -103,7 +129,15 @@ $temp='';
                         $date=date_format(date_add(date_create($date),date_interval_create_from_date_string("1 days")),"Y-m-d");
                         continue;
                     }
-                    $s=date("l", strtotime($date));          
+                    $s=date("l", strtotime($date));   
+                   if(date($date)<date("2020-08-03"))
+                   {
+                        $day_per=$ott;
+                   }
+                   else
+                   {
+                        $day_per=$tt;
+                   }
                     $alt=array();
                    
                     $result=$con->query("SELECT * FROM `alteration` where `date` LIKE '$date' AND `s2` LIKE '$sid' AND `c2` LIKE '$code'");
@@ -153,7 +187,7 @@ $temp='';
                     $date=date_format(date_add(date_create($date),date_interval_create_from_date_string("1 days")),"Y-m-d");
                 }
                 echo '<div class="bulleted list">';
-                $mailcontent="Dear ".$sname." Attendace entry is pending for '".$ssub. "' on the following dates:".'%0A%0A';
+                $mailcontent="Dear ".$sname." Attendance entry is pending for '".$ssub. "' on the following dates:".'%0A%0A';
                 $datecell='';
                 foreach($dates as $i=>$pds)
                 {  
@@ -163,7 +197,7 @@ $temp='';
                 }
               
                 $mailcontent.="%0AKindly mark the attendance ASAP %0A %20 -"."Advisor";
-                $mailcontent="mailto:".$smail."?subject=Attendace%20Pending%20report&body=".$mailcontent;
+                $mailcontent="mailto:".$smail."?subject=Attendance%20Pending%20report&body=".$mailcontent;
                 if(!empty($dates))
                 {
                     echo '<td>'.$datecell.'</td>';    

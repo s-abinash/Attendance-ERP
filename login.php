@@ -195,23 +195,23 @@ include_once("./db.php");
             <center class="animate__animated animate__pulse ">
                 <button type="submit" id="sub" name="usr" val="verified" class="ui large positive button">Sign
                     in</button><br>
-                    <div style="width: 100%; height: 20px; border-bottom: 1px solid black; text-align: center;color: #929292">
+                    <!-- <div style="width: 100%; height: 20px; border-bottom: 1px solid black; text-align: center;color: #929292">
                     <span style="font-size: 10px; color: #929292; padding: 0 10px;">
                     OR 
                     </span>
-                    </div>
-                
-                    <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+                    </div> -->
+                    <div class="ui horizontal divider" style="color: #929292;">OR</div>
+                    <div data-tooltip="Select your kongu.edu mail" class="g-signin2" data-width="100" data-onsuccess="onSignIn"></div>
             </center>
         </form>
-        <center><span style="color:#ffffb3; margin-top:10%;padding: 20px;font-size:12px">v4.0</span></center>
+        <center><span style="color:#ffffb3; margin-top:10%;padding: 20px;font-size:12px">v4.1</span></center>
         <center><span style="color:bisque;font-size:11px">&copy; Kongu Engineering
                 College</span></center>
     </div>
     <div class="footer">
         <p style="vertical-align: middle;  font-family: sans-serif; padding: 15px;"> Site development and support by
             <span style="color:violet;cursor: pointer;" class="animate__animated animate__pulse" id="abinash">Abinash S</span> and <span style="color:violet;cursor: pointer;" class="animate__animated animate__pulse" id="ajay">Ajay R
-            </span>of III CSE - A
+            </span>of <span style="color:brown;">III CSE - A</span>
 
         </p>
     </div>
@@ -344,6 +344,7 @@ if (isset($_POST["usr"]))
       
       $row=$res->fetch_assoc();
       $_SESSION["id"]=$row['staffid'];
+      $_SESSION['mail']=$row['mail'];
       $_SESSION["name"]=$row['name'];
       $_SESSION["dept"]=$row['dept'];
       $_SESSION['batch']=$row['batch'];

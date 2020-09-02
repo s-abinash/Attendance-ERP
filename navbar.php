@@ -113,7 +113,7 @@
             <?php
             if($design=='Advisor')
               echo '<a class="item" id="alter" href="exportAdv.php">Advisor Export 
-                    <div class="ui yellow inverted label">New</div></a>';
+                   </a>';
             else if($row['userid']=='mallisenthil')
             {
                 echo '<a class="item" href="hodReport.php">Pending Report  </a>';
@@ -126,28 +126,63 @@
             ?>
             <!-- <span style="font-size: 10px; color: grey; margin-top: 5px">&nbsp;New!</span></a> -->
             <a class="item" id="ann">Announcement
-            <!-- <em data-emoji=":bell:" class="notify"></em> -->
+            <em data-emoji=":bell:" class="notify"></em>
             </a>
             <a class="item" id="togglepass" data-title="Change Password" data-content="Change your password using old password">Change Password
-            <div class="ui yellow inverted label">New</div></a>
+            </a>
             <?php if($row['designation']!='HOD')
                   echo '<a class="item" id="contact">Contact</a>';
               ?>
-            
             <div class="ui special animated inverted popup" id="contactpopup">
             <div class="header">Contact Us</div>
             <div class="content">
             Any issues/queries, click on this mail <a href="mailto:studentplus@kongu.ac.in?subject=Attendance Reg.,&body=Username:<?php echo $usrname;?>%20%28Leave%20this%20as%20it%20is%29%0AType%20in%20your%20message%20here%3A%20" target="_blank">studentplus@kongu.ac.in</a>
             <p style="vertical-align: middle;  font-family: sans-serif; padding: 15px;"> Site development and support by
             <span style="color:violet;cursor: pointer;" id="abinash">Abinash S</span> and <span style="color:violet;cursor: pointer;" id="ajay">Ajay R
-            </span>of III CSE - A
+            </span>of <br><span style="color:brown;">III CSE - A</span>
             </p>
             </div>
           </div>
-
             <a class="right item"
-                style="margin-right:1%;font-weight:bold;color:cyan"><em><?php echo $_SESSION["name"]?><em></a>
-            <a class="right item" id="logout" href="./Logout.php"><i class="share square outline icon"></i>Logout</a>
+                style="margin-right:1%;font-weight:bold;color:cyan" id="profile"><em><?php echo $_SESSION["name"]?><em></a>
+
+            <div class="ui special animated inverted popup" id="profilepopup">
+            <?php 
+            if(isset($_SESSION['image']))
+            echo '<div class="header"><img class="ui avatar image" src="'.$_SESSION['image'].'">
+            <span style="color:purple;font-weight:bold;font-size:20px;">'.$_SESSION['name'].'</span></div><div class="ui horizontal divider" style="color: #929292;">Profile</div>';
+            else
+            echo '<span style="color:purple;font-weight:bold;font-size:20px;">'.$_SESSION['name'].'</span><div class="ui horizontal divider" style="color: #929292;">Profile</div>';
+            ?>
+            <div class="content">
+  
+            <h5>Mail: <span style="color:pink;"><?php echo $_SESSION['mail'];?></span></h5>
+            <h5>Department: <span style="color:yellow;"><?php echo $_SESSION['dept'];?></span></h5>
+            <?php
+              if($_SESSION['design']=='Advisor')
+              {
+                  echo "<h5>Role: <span style='color:blue;'>".$_SESSION['design']."</span></h5>";
+                  echo "<h5>Class: <span style='color:brown;'>".$_SESSION['batch']."-".$_SESSION['sec']."</span></h5>";
+              }
+              else if($_SESSION['design']=='Year in Charge')
+              {
+                echo "<h5>Role: <span style='color:blue;'>".$_SESSION['design']."</span></h5>";
+                echo "<h5>Class: <span style='color:brown;'>".$_SESSION['batch']."</span></h5>";
+              }
+              else if($_SESSION['design']=='HOD')
+              {
+                echo "<h4>Role: <span style='color:blue;'>".$_SESSION['design']."</span></h4>";
+                echo "<h5>Ithu na vechathu mam - Abi :)</h5>";
+              } 
+              else
+              {
+                echo "<h4>Role: <span style='color:blue;'>Faculty</span></h4>";
+              }
+            ?>
+            </div>
+          </div>
+
+            <a class="right item" id="logout" onclick="signOut();"><i class="share square outline icon"></i>Logout</a>
         </div>
     </div>
     <div class="ui mobile only padded grid">
@@ -163,25 +198,26 @@
             <div class="ui vertical borderless fluid inverted menu">
                 <a class="item" id="index" href="home.php">Home</a>
                 <a class="item" id="alter" href="alter.php">Alter Period</a>
+                <!-- <div class="ui yellow inverted label">New</div> -->
                 <?php
                 if($design=='Advisor')
                   echo '<a class="item" id="alter" href="exportAdv.php">Advisor Export 
-                        <div class="ui yellow inverted label">New</div></a>';
+                        </a>';
                 else if($row['userid']=='mallisenthil')
                 {
-                    echo '<a class="item" href="hodReport.php">Pending Report <div class="ui yellow inverted label">New</div> </a>';
+                    echo '<a class="item" href="hodReport.php">Pending Report  </a>';
                 }  
                 else if($row['designation']=='HOD')
                 {
-                    echo '<a class="item" href="hodReport.php">Pending Report <div class="ui yellow inverted label">New</div> </a>';
-                    echo '<a class="item" href="holiday.php">Add Holiday <div class="ui yellow inverted label">New</div></a>';
+                    echo '<a class="item" href="hodReport.php">Pending Report  </a>';
+                    echo '<a class="item" href="holiday.php">Add Holiday </a>';
                 }
                 ?>
                 <a class="item" id="ann">Announcement </a>
                 <a class="item" style="font-size:16px;text-indent:20%;"><span id="togglepass" class="ui inverted grey text">Change Password</span></a>
                 <a class="right item"
                     style="margin-right:1%;font-weight:bold;color:cyan"><em><?php echo $_SESSION["name"]?><em></a>
-                <a class="right item" id="logout" href="./Logout.php"><i
+                <a class="right item" id="logout" onclick="signOut();"><i
                         class="share square outline icon"></i>Logout</a>
             </div>
         </div>
@@ -228,7 +264,24 @@
 
 
     <?php include_once('announcement.php');?>
-
+    <meta name="google-signin-client_id" content="652923881233-ra0pbk90pmmbsg10455ljb1ljpuccu0b.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-151639011-3"></script>
+    <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
+    <script>
+    function signOut() {
+        gapi.auth2.getAuthInstance().signOut().then(function() {
+            console.log('user signed out')
+        })
+        window.location.replace('Logout.php');
+        }
+    function onLoad() {
+      gapi.load('auth2', function() {
+        gapi.auth2.init();
+      });
+      
+    }
+</script>
     <script>
     $(function() {
         $(".ui.toggle.button").click(function() {
@@ -238,6 +291,13 @@
           popup : $('#contactpopup'),
           on    : 'click',
           inline : true,
+        });
+        $('#profile').popup({
+          popup : $('#profilepopup'),
+          on    : 'click',
+          
+          position   : 'bottom center'
+          // position: top right,
         });
         $("#abinash").on("click", function() {
             window.open("mailto:s.abinash@kongu.ac.in?subject=Attendance Reg.,", "_blank");

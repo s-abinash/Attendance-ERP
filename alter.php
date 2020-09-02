@@ -264,6 +264,7 @@ if (isset($_POST['period'])) {
                                     }
                                 },
                                 onChange: function (date, settings) {
+                                    var datecreated;
                                     $('#hr').dropdown('clear');
                                     $("#hr").html("<option value=''>Select Period</option>");
                                     if (!date) return '';
@@ -279,7 +280,18 @@ if (isset($_POST['period'])) {
                                     var day = date.getFullYear() + '-' + x + '-' + y;
                                     if (dates.includes(day)) {
                                         var ar = response[1][getWeekDay(date)];
+                                        var tt;
+                                        datecreated=parseInt((date.getFullYear())+''+(x)+''+(y)) 
+                                        
                                         for (i of ar) {
+                                        if((datecreated)<(20200803))
+                                        {
+                                            tt=response[6];   //ott
+                                        }
+                                        else
+                                        {       
+                                            tt=response[1];   //tt
+                                        }
                                             $("#hr").append("<option value='" + i + "'>" + i + "</option>");
                                         }
                                     }

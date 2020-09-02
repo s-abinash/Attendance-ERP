@@ -14,6 +14,7 @@ if (isset($_POST["email"]))
       $_SESSION["id"]=$row['staffid'];
       $_SESSION["id_token"]=$_POST['id_token'];
       $_SESSION["name"]=$row['name'];
+      $_SESSION['mail']=$row['mail'];
       $_SESSION["dept"]=$row['dept'];
       $_SESSION['batch']=$row['batch'];
       $_SESSION['design']=$row['designation'];
