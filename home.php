@@ -368,11 +368,33 @@
                     for (const altdat in alt) {
                         var r = altdat.split("-");
                         var alt_date=new Date(r[0], r[1] - 1, r[2]);
-                        var alt_day=response[1][getWeekDay(alt_date)];
-                        if(response[1][getWeekDay(alt_date)]=="undefined")
+                        x=(alt_date.getMonth() + 1);
+                        y=alt_date.getDate()
+                        if(x<=9)
                         {
-                            alt_day=[];
+                            x="0"+x;
                         }
+                        if(y<=9)
+                        {
+                            y="0"+y;
+                        }
+                        var tt;
+                        datecreated=parseInt((alt_date.getFullYear())+''+(x)+''+(y)) 
+                        if((datecreated)<(20200803))
+                        {
+                            tt=response[4];   //ott
+                            console.log("Old Time Table");
+                            
+                        }
+                        else
+                        {
+                            tt=response[1];   //tt
+                            console.log("New Time Table");
+                           
+                        }
+
+                        var alt_day=tt[getWeekDay(alt_date)];
+
                        
                         if((alt_day.length==alt[altdat].length)&&(!(Object.keys(alted)).includes(altdat)))
                         {
