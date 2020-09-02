@@ -359,7 +359,12 @@
                     for (const altdat in alt) {
                         var r = altdat.split("-");
                         var alt_date=new Date(r[0], r[1] - 1, r[2]);
-                        var alt_day=response[1][getWeekDay(alt_date)];  
+                        var alt_day=response[1][getWeekDay(alt_date)];
+                        if(response[1][getWeekDay(alt_date)]=="undefined")
+                        {
+                            alt_day=[];
+                        }
+                       
                         if((alt_day.length==alt[altdat].length)&&(!(Object.keys(alted)).includes(altdat)))
                         {
                             deldate.push(alt_date);
