@@ -294,7 +294,7 @@
         });
         $('#profile').popup({
           popup : $('#profilepopup'),
-          on    : 'click',
+          on    : 'hover',
           
           position   : 'bottom center'
           // position: top right,

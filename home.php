@@ -340,7 +340,7 @@
                 var dates =response[0];
                 var alt=response[2];
                 var alted=response[3];
-                
+                console.log(dates)
                 if (!(Array.isArray(dates) && dates.length) && alted=="Empty") {
                     // Notiflix.Notify.Info("You have no pending Attendance reports to be uploaded");
                     $('body')
@@ -369,6 +369,7 @@
                         var r = altdat.split("-");
                         var alt_date=new Date(r[0], r[1] - 1, r[2]);
                         var alt_day=response[1][getWeekDay(alt_date)];  
+                        console.log(alt_day)
                         if((alt_day.length==alt[altdat].length)&&(!(Object.keys(alted)).includes(altdat)))
                         {
                             deldate.push(alt_date);
