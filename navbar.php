@@ -151,9 +151,9 @@
             <?php 
             if(isset($_SESSION['image']))
             echo '<div class="header"><img class="ui avatar image" src="'.$_SESSION['image'].'">
-            <span style="color:purple;font-weight:bold;font-size:20px;">'.$_SESSION['name'].'</span></div><div class="ui horizontal divider">Profile</div>';
+            <span style="color:purple;font-weight:bold;font-size:20px;">'.$_SESSION['name'].'</span></div><div class="ui horizontal divider" style="color: #929292;">Profile</div>';
             else
-            echo '<span style="color:purple;font-weight:bold;font-size:20px;">'.$_SESSION['name'].'</span><div class="ui horizontal divider">Profile</div>';
+            echo '<span style="color:purple;font-weight:bold;font-size:20px;">'.$_SESSION['name'].'</span><div class="ui horizontal divider" style="color: #929292;">Profile</div>';
             ?>
             <div class="content">
   
