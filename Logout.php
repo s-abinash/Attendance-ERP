@@ -25,6 +25,20 @@
     <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
 
     <script>
+
+    let redirect_Page = () => {
+        let iCnt = 3;	// for time in seconds.
+        let iTimerId = setInterval(function () {
+            iCnt--;     // decrease counter by 1.
+            document.getElementById("counter").innerHTML=iCnt;
+            if (iCnt === 0) {
+                // now, redirect page.
+                window.location.replace('./login.php');
+                clearInterval(iTimerId);		// clear time interval.
+            }
+        }, 1000);
+    }
+    redirect_Page();
     $(document).ready(function() {
         $('.ui.card').transition('drop');
         $('.ui.card').transition('drop');
@@ -42,33 +56,12 @@
     //   });
       
     // }
-    // window.onLoadCallback = function(){
-    //     gapi.load('auth2', initSigninV2);
-    //     function initSigninV2() {
-    //         gapi.auth2.init({
-    //             client_id: '652923881233-ra0pbk90pmmbsg10455ljb1ljpuccu0b.apps.googleusercontent.com'
-    //         }).then(function (authInstance) {
-    //             gapi.auth2.getAuthInstance().signOut().then(function() {
-    //             console.log('user signed out')
-    //              })
-    //         });
-    //     }
-    //     initSigninV2();
-    // gapi.auth2.init({
-    //     client_id: '652923881233-ra0pbk90pmmbsg10455ljb1ljpuccu0b.apps.googleusercontent.com'
-    //     });
-    // function signOut() {
-    //     gapi.auth2.getAuthInstance().signOut().then(function() {
-    //         console.log('user signed out')
-    //     })
-    //     }
-    //     signOut();
-    
+
 
     </script>
 </head>
 
-<body onclick="signOut()">
+<body>
     <style>
     body {
         background-image: url('./images/bgpic.jpg');
@@ -105,7 +98,6 @@ else{
                         <a class="header"><?php echo $status; ?></a>
                         <div class="description">
                             You have logged out successfuly.<br />
-                            You will be redirected to the homepage. <br />
                             Have a Nice Day!<br />
                         </div>
                     </div>
@@ -113,7 +105,7 @@ else{
                         <div class="ui bottom attached green button"><!--onclick="signOut();">-->
                         <!-- onclick="window.open('login.php','_self')"> -->
                             <i class="sign language icon"></i>
-                            Click here to continue
+                            You are being redirected <span id="counter"></span> Seconds<br />
                         </div>
                     </div>
                 </div>
