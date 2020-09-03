@@ -81,6 +81,7 @@ include_once("./db.php");
     }
 
     .box {
+        content-visibility: auto;
         position: relative;
         top: 50%;
         left: 50%;
