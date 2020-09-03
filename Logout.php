@@ -30,18 +30,18 @@
         $('.ui.card').transition('drop');
     });
    
-    function signOut() {
-        gapi.auth2.getAuthInstance().signOut().then(function() {
-            console.log('user signed out')
-        })
-        window.location.replace('login.php');
-        }
-    function onLoad() {
-      gapi.load('auth2', function() {
-        gapi.auth2.init();
-      });
+    // function signOut() {
+    //     gapi.auth2.getAuthInstance().signOut().then(function() {
+    //         console.log('user signed out')
+    //     })
+    //     window.location.replace('login.php');
+    //     }
+    // function onLoad() {
+    //   gapi.load('auth2', function() {
+    //     gapi.auth2.init();
+    //   });
       
-    }
+    // }
     // window.onLoadCallback = function(){
     //     gapi.load('auth2', initSigninV2);
     //     function initSigninV2() {
@@ -110,7 +110,7 @@ else{
                         </div>
                     </div>
                     <div class="extra content">
-                        <div class="ui bottom attached green button" onclick="signOut();">
+                        <div class="ui bottom attached green button"><!--onclick="signOut();">-->
                         <!-- onclick="window.open('login.php','_self')"> -->
                             <i class="sign language icon"></i>
                             Click here to continue
