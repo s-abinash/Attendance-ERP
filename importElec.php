@@ -351,7 +351,7 @@ if(isset($_POST['finalize']))
                         <label>File Upload</label>
                         <div class="ui action input">
                             <input type="text" style="cursor:pointer;" placeholder="Upload xlsx" readonly>
-                            <input type="file" name="excel" id="file">
+                            <input type="file" name="excel" id="file" style="display:none;">
                             <div class="ui icon button">
                                 <i class="attach icon"></i>
                                 Upload
