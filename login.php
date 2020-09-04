@@ -183,8 +183,16 @@ include_once("./db.php");
                 <input type="password" name="pass" minlength="4" maxlength="20" id="pass" required>
                 <label>Password</label>
             </div>
-            
-            <!-- <br /><br /><br/> -->
+            <div style="float:left;color:pink;">
+                <a href="mailto:studentplus@kongu.ac.in?subject=Attendance%20Project%20Reg.," target="_blank"><i
+                        class="envelope outline icon"></i>studentplus@kongu.ac.in</a>
+            </div>
+            <div style="float:right;color:pink;">
+                <a href="https://xn--r1a.website/s/kecattd" style="cursor:pointer;" target="_blank">
+                <i class="telegram plane icon"></i></i>Telegram Help 
+                </a>
+            </div>
+            <br /><br /><br/>
             <center class="animate__animated animate__pulse ">
                 <button type="submit" id="sub" name="usr" val="verified" class="ui large positive button">Sign
                     in</button><br>
@@ -197,16 +205,6 @@ include_once("./db.php");
                     <div data-tooltip="Select your kongu.edu mail" class="g-signin2" data-width="100" data-onsuccess="onSignIn"></div>
             </center>
         </form>
-        <br><br>
-        <div style="float:left;color:pink;">
-                <a href="mailto:studentplus@kongu.ac.in?subject=Attendance%20Project%20Reg.," target="_blank"><i
-                        class="envelope outline icon"></i>studentplus@kongu.ac.in</a>
-            </div>
-            <div style="float:right;color:pink;">
-                <a href="https://xn--r1a.website/s/kecattd" style="cursor:pointer;" target="_blank">
-                <i class="telegram plane icon"></i></i>Telegram Help 
-                </a>
-            </div>
         <center><span style="color:#ffffb3; margin-top:10%;padding: 20px;font-size:12px">v4.1</span></center>
         <center><span style="color:bisque;font-size:11px">&copy; Kongu Engineering
                 College</span></center>
