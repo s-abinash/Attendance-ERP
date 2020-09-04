@@ -184,7 +184,7 @@ include_once("./db.php");
                 <label>Password</label>
             </div>
             
-            <br /><br /><br/>
+            <!-- <br /><br /><br/> -->
             <center class="animate__animated animate__pulse ">
                 <button type="submit" id="sub" name="usr" val="verified" class="ui large positive button">Sign
                     in</button><br>
@@ -197,6 +197,7 @@ include_once("./db.php");
                     <div data-tooltip="Select your kongu.edu mail" class="g-signin2" data-width="100" data-onsuccess="onSignIn"></div>
             </center>
         </form>
+        <br><br>
         <div style="float:left;color:pink;">
                 <a href="mailto:studentplus@kongu.ac.in?subject=Attendance%20Project%20Reg.," target="_blank"><i
                         class="envelope outline icon"></i>studentplus@kongu.ac.in</a>
