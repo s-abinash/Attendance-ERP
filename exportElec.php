@@ -42,6 +42,7 @@ include_once('./navbar.php');
         background: url("./images/bgpic.jpg");
     }
     </style>
+    <button class="ui left floated circular teal icon button" id="bt" data-tooltip="Back to Home" data-position="right center" data-inverted=""  onclick="location.replace('home.php')" style="margin-left:2%;"><i class="arrow left icon"></i></button>
     <div class="ui header" style="text-align:center;font-size:30px;margin-top:2%;color:#ADEFD1FF">Export Attendance
     </div>
     <div class="ui message" style="text-align:center;width:80%;margin: 0 auto;">

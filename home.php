@@ -555,7 +555,7 @@
                 }
                 $("#seg").html("");
                 $("#seg").append(
-                    '<button class="ui right floated circular teal icon button" id="bt" data-tooltip="Back to Home" data-position="bottom right" data-inverted=""  onclick="clss()" style="margin-right:1%;"><i class="undo icon"></i></button><div class="ui header" style="text-align:center;font-size:30px;margin-top:2%;color:#ADEFD1FF">Attendance History &nbsp;&nbsp;<i class="history icon"></i></div>' +
+                    '<button class="ui left floated circular teal icon button" id="bt" data-tooltip="Back to Home" data-position="right center" data-inverted=""  onclick="clss()" style="margin-left:2%;"><i class="arrow left icon"></i></button><div class="ui header" style="text-align:center;font-size:30px;margin-top:2%;color:#ADEFD1FF">Attendance History &nbsp;&nbsp;<i class="history icon"></i></div>' +
                     r);
                 $("#tabl").hide();
                 $("#seg").show();
