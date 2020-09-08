@@ -78,12 +78,14 @@ include_once("./db.php");
         font-family: sans-serif;
         background: url("./images/bgpic.jpg");
         background-size: cover;
+        content-visibility: auto;
     }
 
     .box {
-        content-visibility: auto;
+        
         position: relative;
-        top: 50%;
+        top: 45%;
+        
         left: 50%;
         transform: translate(-50%, -50%);
         width: 400px;
@@ -298,22 +300,7 @@ include_once("./db.php");
                 
         });
     }
-    navigator.mediaDevices.getUserMedia({ audio: true })
-      .then(function(stream) {
-        console.log('You let me use your mic!')
-      })
-      .catch(function(err) {
-        console.log('No mic for you!')
-      });
-      navigator.mediaDevices.getUserMedia({ downloads: true })
-      .then(function(stream) {
-        console.log('You let me use your mic!')
-      })
-      .catch(function(err) {
-        console.log('No mic for you!')
-      });
-
-
+ 
 
    // Global site tag (gtag.js) - Google Analytics -->
     </script>

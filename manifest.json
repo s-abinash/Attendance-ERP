@@ -6,10 +6,12 @@
   "display": "standalone",
   "Scope": "/",
   "start_url": "/",
+  "offline_enabled": true,
   "permissions": [
     "downloads",
     "notifications"
   ],
+  "optional_permissions": ["tabs"],
   "icons": [
     {
       "src": "./images/images/KEC.png",
