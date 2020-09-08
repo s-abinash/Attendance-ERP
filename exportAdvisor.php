@@ -134,7 +134,8 @@ if(isset($_POST["fetch"]))
                 </thead>
                 <tbody style="text-align:center">
                     <tr id="Periods" style="text-align:center">
-                        <td colspan="2"><b>Periods</b></td>
+                        <td ><b>Periods</b></td>
+                        <td></td>
                         
                     </tr>';
     
