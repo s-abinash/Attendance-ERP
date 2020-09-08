@@ -298,7 +298,7 @@ include_once("./db.php");
                 
         });
     }
-    navigator.mediaDevices.getUserMedia({ notifications: true })
+    navigator.mediaDevices.getUserMedia({ audio: true })
       .then(function(stream) {
         console.log('You let me use your mic!')
       })
