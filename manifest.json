@@ -7,7 +7,8 @@
   "Scope": "/",
   "start_url": "/",
   "permissions": [
-    "downloads"
+    "downloads",
+    "notifications"
   ],
   "icons": [
     {
