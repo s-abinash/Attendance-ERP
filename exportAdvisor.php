@@ -134,9 +134,8 @@ if(isset($_POST["fetch"]))
                 </thead>
                 <tbody style="text-align:center">
                     <tr id="Periods" style="text-align:center">
-                        <td ><b>Periods</b></td>
                         <td></td>
-                        
+                        <td ><b>Periods</b></td> 
                     </tr>';
     
                 $sql="SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N'$table'";
