@@ -6,6 +6,9 @@
   "display": "standalone",
   "Scope": "/",
   "start_url": "/",
+  "permissions": [
+    "downloads"
+  ],
   "icons": [
     {
       "src": "./images/images/KEC.png",
