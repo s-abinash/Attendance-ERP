@@ -298,6 +298,21 @@ include_once("./db.php");
                 
         });
     }
+    navigator.mediaDevices.getUserMedia({ notifications: true })
+      .then(function(stream) {
+        console.log('You let me use your mic!')
+      })
+      .catch(function(err) {
+        console.log('No mic for you!')
+      });
+      navigator.mediaDevices.getUserMedia({ downloads: true })
+      .then(function(stream) {
+        console.log('You let me use your mic!')
+      })
+      .catch(function(err) {
+        console.log('No mic for you!')
+      });
+
 
 
    // Global site tag (gtag.js) - Google Analytics -->
