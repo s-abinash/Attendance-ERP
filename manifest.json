@@ -3,7 +3,7 @@
   "short_name": "Attendance",
   "theme_color": "#010203",
   "background_color": "#28292a",
-  "display": "standalone",
+  "display": "fullscreen",
   "Scope": "/",
   "start_url": "/",
   "offline_enabled": true,
@@ -11,6 +11,8 @@
     "downloads",
     "notifications"
   ],
+  "author":"Abinash, Ajay",
+  "description": "KEC Attendance ERP, is an initiative by the developers of KEC Student+ of Kongu Engineering College",
   "optional_permissions": ["tabs"],
   "icons": [
     {

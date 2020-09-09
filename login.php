@@ -15,16 +15,11 @@ include_once("./db.php");
     <meta charset="UTF-8">
 
     <!-- SEO -->
-    <meta name="description" content="KEC Student+, an all in one student portal of Kongu Engineering College
-    KEC student + is a promising e-platform that serves both faculty and students in a better way with enhanced UI( user interfaces)and UX( user experience). 
-    This Automated platform is a better alternative to conventional pen paper based applications. Using this platform students can apply on-duties and get it  
-    approved by faculties on time with ease. Students can also keep track of their approved or declined status of their applications. Faculties can review their 
-    application and accept or deny the student request online. This application maintains an e-repository where the certificates submitted by the students are 
-    stacked and made available to both faculties and respective students for their future retrieval">
+    <meta name="description" content="KEC Attendance ERP, is an initiative by the developers of KEC Student+ of Kongu Engineering College">
     <meta name="copyright" content="KEC Student+ is a trademark of students of KEC, Abinash S, Ajay R, Arul Prasath V">
-    <meta name="keywords" content="KEC,kec,Kongu Engineering College,Perundurai,KEC Student+,KEC CSE,Abinash,Ajay,Arulprasath,Kongu,KEC Attendance,Computer Science,Kongu Erode,KEC Erode,KEC Perndurai,
+    <meta name="keywords" content="KEC Attendance,Attendance KEC,kec, KOngu Attendance, Kongu Engineering College,Perundurai,KEC Student+,KEC CSE,Abinash,Ajay,Arulprasath,Kongu,KEC Attendance,Computer Science,Kongu Erode,KEC Erode,KEC Perndurai,
     KEC Thopupalayam,KVITT,KEC Student,studentplus,Computer Science KEC,kongu.edu,kongu.ac.in,kongu,keccse,KEC CSE A,studentplus@kongu.edu,kecstudent.xyz">
-    <meta name="author" content="Abinash S, Ajay R, Arul Prasath V">
+    <meta name="author" content="Abinash S, Ajay R">
     <meta name="robots" content="index,follow">
     <meta name="distribution" content="Global" />
     <meta name="publisher" content="Abinash, Kongu Engineering College" />
