@@ -250,6 +250,12 @@ include_once("./db.php");
                     }
                     else
                     {
+                       
+                        var auth2 = gapi.auth2.getAuthInstance();
+                        auth2.signOut().then(function () {
+                        console.log('User signed out.');
+                        });
+ 
                         $('.preloader').hide();
                         $(document).ready(function(){
                         $('body')
