@@ -260,7 +260,7 @@ include_once("./db.php");
                                     class: 'error',
                                     closeIcon: true,
                                     showIcon: true,
-                                    message: 'Please check the Username and Password',
+                                    message: 'Please select your kongu.edu Mail',
                                     showProgress: 'top'
                                 });
                             });
