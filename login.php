@@ -10,9 +10,15 @@ include_once("./db.php");
 <html lang="en">
 
 <head>
+    
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
+
+    <!-- No Script Part -->
+    <noscript>
+        <meta http-equiv="refresh" content="0; URL='./errorfile/noscript.html'" />
+    </noscript>
 
     <!-- SEO -->
     <meta name="description" content="KEC Attendance ERP, is an initiative by the developers of KEC Student+ of Kongu Engineering College">
@@ -23,7 +29,7 @@ include_once("./db.php");
     <meta name="robots" content="index,follow">
     <meta name="distribution" content="Global" />
     <meta name="publisher" content="Abinash, Kongu Engineering College" />
-    <link rel="canonical" href="https://kecstudent.xyz">
+   
     <!--  -->
 
     <!-- PWA Part -->
@@ -41,26 +47,15 @@ include_once("./db.php");
     <link rel="icon" type="image/png" sizes="144x144" href="./images/images/KEC.png">
     <link rel="apple-touch-icon" type="image/png" sizes="144x144" href="./images/images/KEC.png">
    
-    <script type="module">
-
-            import 'https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate@0.2.0/dist/pwa-update.min.js';
-
-            const el = document.createElement('pwa-update');
-            document.body.appendChild(el);
-    </script>
-    <script src="manup.js"></script>
+   
 
     <!--  -->
     <title>KEC Student+</title>
     <link rel="icon" type="image/png" href="./images/KEC.png">
-    <link rel="stylesheet" href="./assets/Fomantic/dist/semantic.min.css" type="text/css" />
+    <link rel="stylesheet" href="./assets/Fomantic/dist/components/loader.min.css" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
    
-    <!-- Google Login -->
-    <meta name="google-signin-client_id" content="652923881233-ra0pbk90pmmbsg10455ljb1ljpuccu0b.apps.googleusercontent.com">
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-151639011-3"></script>
-
+ 
     <!--  -->
     <script> 
         if (navigator.onLine==false)  
@@ -213,25 +208,7 @@ include_once("./db.php");
 
         </p>
     </div>
-<!-- Telegram Modal -->
-        <div class="ui basic modal">
-        <i class="close icon"></i>
-        <div class="ui icon header">
-           <i class="telegram plane icon"></i>
-           Telegram Support
-        </div>
-        <div class="content">
-            <p>Search in Telegram: @kecattd</p>
-            <img src="./images/tele.jpg"/>
-        </div>
-        <div class="actions">
-            <div class="ui red basic cancel inverted button">
-            <i class="close icon"></i>
-            Okay
-            </div>
-        </div>
-        </div>
-        <!--  -->
+
     <script src="./assets/jquery.min.js"></script>
     <script src="./assets/Fomantic/dist/semantic.min.js"></script>
     
@@ -300,14 +277,6 @@ include_once("./db.php");
    // Global site tag (gtag.js) - Google Analytics -->
     </script>
 
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-151639011-3"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-151639011-3');
-</script>
 
 </body>
 <?php
@@ -319,7 +288,6 @@ if (isset($_POST["usr"]))
     if(strcmp(substr($id,0,4),"dev-")==0)
     {
         $id=substr($id,4);
-        echo "<script>console.log('inside 1st if');</script>";
         $sql="select * from `developer` where `password` LIKE '$pass'";
         $res=$con->query($sql);
         $count=$res->num_rows;
@@ -332,7 +300,6 @@ if (isset($_POST["usr"]))
     }
     else
     {
-        echo "<script>console.log('inside 1st else');</script>";
         $sql="select * from staff where userid LIKE '$id' AND pass LIKE '$pass'";
         $res=$con->query($sql);
         $count=$res->num_rows;
@@ -367,7 +334,6 @@ if (isset($_POST["usr"]))
    }
    else
    {
-    echo "<script>console.log('inside 2nd else');</script>";    
     echo "<script>
       $(document).ready(function(){
       $('body')
@@ -386,30 +352,24 @@ if (isset($_POST["usr"]))
    }
 }
 ?>
-    <!-- Firebase -->
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
-
-<!-- TODO: Add SDKs for Firebase products that you want to use
-    https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-analytics.js"></script>
 
 
-  <script>
-        // Your web app's Firebase configuration
-        var firebaseConfig = {
-            apiKey: "AIzaSyDF7km3mvKXpyI54-Rwv2O3vdIn_R5WV1I",
-            authDomain: "kec-attendance.firebaseapp.com",
-            databaseURL: "https://kec-attendance.firebaseio.com",
-            projectId: "kec-attendance",
-            storageBucket: "kec-attendance.appspot.com",
-            messagingSenderId: "1023068574898",
-            appId: "1:1023068574898:web:adf26a428a570d625c25ab",
-            measurementId: "G-CN4PZ5ZTV6"
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        firebase.analytics();
-        </script>
-    <!--  -->
+<!-- PWA -->
+
+    <script type="module">
+
+    import 'https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate@0.2.0/dist/pwa-update.min.js';
+
+    const el = document.createElement('pwa-update');
+    document.body.appendChild(el);
+    </script>
+    <script src="manup.js"></script>
+
+       <!-- Google Login -->
+       <meta name="google-signin-client_id" content="652923881233-ra0pbk90pmmbsg10455ljb1ljpuccu0b.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-151639011-3"></script>
+
+
+   
 </html>
