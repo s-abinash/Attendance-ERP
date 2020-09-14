@@ -448,9 +448,11 @@ if(isset($_POST['finalize']))
 
     <script>
     $("input:text").click(function() {
+        console.log("clicking");
         $(this).parent().find("input:file").click();
     });
     $(".ui.icon.button").click(function() {
+        console.log("clicking");
         $(this).parent().find("input:file").click();
     });
     $(document).ready(function() {
