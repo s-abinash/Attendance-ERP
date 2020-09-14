@@ -14,7 +14,35 @@ $sid=$_SESSION["id"];
     <title>Mark Attendance</title>
     <script src="./assets/jquery.min.js"></script>
     <script src="./assets/Fomantic/dist/semantic.min.js"></script>
+    <script>
+    
+    $(document).ready(function() {
+        $("#filenametext").on("click",function() {
+        console.log("clicking");
+        $(this).parent().find("input:file").click();
+        });
 
+        $("#filebutton").on("click",function() {
+            console.log("clicking");
+            $(this).parent().find("input:file").click();
+        });
+
+        $('.slider.checkbox').checkbox({
+            onChecked: function() {
+                $('#file').attr('disabled', 'disabled');
+            },
+            onUnchecked: function() {
+                $('#file').removeAttr('disabled');
+            }
+        });
+
+        $('input:file', '.ui.action.input')
+            .on('change', function(e) {
+                var name = e.target.files[0].name;
+                $('input:text', $(e.target).parent()).val(name);
+            });
+    });
+    </script>
     <?php include_once('./assets/notiflix.php'); ?>
     <?php
 
@@ -350,9 +378,9 @@ if(isset($_POST['finalize']))
                     <div class="field">
                         <label>File Upload</label>
                         <div class="ui action input">
-                            <input type="text" style="cursor:pointer;" placeholder="Upload xlsx" readonly>
+                            <input type="text" style="cursor:pointer;" placeholder="Upload xlsx" id="filenametext" readonly>
                             <input type="file" name="excel" id="file" style="display:none;">
-                            <div class="ui icon button">
+                            <div class="ui icon button" id="filebutton">
                                 <i class="attach icon"></i>
                                 Upload
                             </div>
