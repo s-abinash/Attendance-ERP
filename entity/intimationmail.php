@@ -371,7 +371,7 @@ while($row=mysqli_fetch_array($data))
                         </table>
                     </body>
                     </html>';
-                        $mailto=$m[$ijk++];
+//                         $mailto=$m[$ijk++];
                         $mail->addAddress($mailto); 
                         $mail->addReplyTo('studentplus@kongu.ac.in', 'KEC Student+');
                         $mail->Subject = 'Attendance Pending';
