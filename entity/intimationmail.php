@@ -380,7 +380,7 @@ while($row=mysqli_fetch_array($data))
 //                             echo $mailto.'Error';         
 //                         else
 //                             echo $mailto."Succesfull";
-                            echo $smail;
+                            echo $mailto;
                          echo $bodyContent;
             }
             
