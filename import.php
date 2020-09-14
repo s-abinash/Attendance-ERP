@@ -447,15 +447,16 @@ if(isset($_POST['finalize']))
     </div>
 
     <script>
-    $("input:text").click(function() {
-        console.log("clicking");
-        $(this).parent().find("input:file").click();
-    });
-    $(".ui.icon.button").click(function() {
-        console.log("clicking");
-        $(this).parent().find("input:file").click();
-    });
+    
     $(document).ready(function() {
+        $("input:text").click(function() {
+        console.log("clicking");
+        $(this).parent().find("input:file").click();
+        });
+        $(".ui.icon.button").click(function() {
+            console.log("clicking");
+            $(this).parent().find("input:file").click();
+        });
         $('.slider.checkbox').checkbox({
             onChecked: function() {
                 $('#file').attr('disabled', 'disabled');
