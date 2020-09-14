@@ -340,9 +340,9 @@ if(isset($_POST['finalize']))
                     <div class="field">
                         <label>File Upload</label>
                         <div class="ui action input">
-                            <input type="text" style="cursor:pointer;" placeholder="Upload xlsx" readonly>
+                            <input type="text" style="cursor:pointer;" placeholder="Upload xlsx" id="filenametext" readonly>
                             <input type="file" name="excel" id="file" style="display:none;">
-                            <div class="ui icon button">
+                            <div class="ui icon button" id="filebutton">
                                 <i class="attach icon"></i>
                                 Upload
                             </div>
@@ -449,14 +449,16 @@ if(isset($_POST['finalize']))
     <script>
     
     $(document).ready(function() {
-        $("input:text").on("click",function() {
+        $("#filenametext").on("click",function() {
         console.log("clicking");
         $(this).parent().find("input:file").click();
         });
-        $(".ui.icon.button").on("click",function() {
+
+        $("#filebutton").on("click",function() {
             console.log("clicking");
             $(this).parent().find("input:file").click();
         });
+
         $('.slider.checkbox').checkbox({
             onChecked: function() {
                 $('#file').attr('disabled', 'disabled');
