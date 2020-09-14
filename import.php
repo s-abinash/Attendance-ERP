@@ -257,6 +257,8 @@ if(isset($_POST['finalize']))
             {
                 if(isset($_POST[$roll]))
                     $stat='P';
+                else if($roll=='18CSR002' || $roll=='18CSR007')
+                    $stat='P';
                 else
                     $stat='A';
                 $into.='`'.$roll.'`,';
