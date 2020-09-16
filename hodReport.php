@@ -91,12 +91,14 @@ $temp='';
                                 {
                                     $sec="D";
                                 }
+                                $year=$row1["batch"];
                                 $batch=$row1["batch"]%2000;
                                 $cls=($batch==17?'IV':(($batch==18)?'III':'II')).' - '.$sec;
                                 $dep=$dept;
                                 if($row1['dept']=='MCSE')
                                 {
                                     $dep='mcse';
+                                    $year="2020";
                                     $cls='ME';
 
                                 }
@@ -151,10 +153,13 @@ $temp='';
                                 $tdy=date_create($x);
                                 $date=date("2020-07-08");
                                 $diff=intval(date_diff($tdy,date_create($date))->format("%a"))+1;
+                                
                                 $dates=array();
-                                for($i=1;$i<$diff;$i++)
+                                for($i=1;$i<=$diff;$i++)
                                 {    
-                                    if($con->query("select * from holiday where date LIKE '$date'")->num_rows!=0)
+              
+                                   
+                                    if($con->query("select * from holiday where date LIKE '$date' AND `year` LIKE '$year'")->num_rows!=0)
                                     {
                                         $date=date_format(date_add(date_create($date),date_interval_create_from_date_string("1 days")),"Y-m-d");
                                         continue;
@@ -222,6 +227,7 @@ $temp='';
                                     }  
                                     $date=date_format(date_add(date_create($date),date_interval_create_from_date_string("1 days")),"Y-m-d");
                                 }
+                            
                             echo '<div class="bulleted list">';
                             $mailcontent="Dear ".$sname." Attendance entry is pending for '".$ssub. "' on the following dates:".'%0A%0A';
                             $datecell='';
@@ -243,14 +249,14 @@ $temp='';
                                 </button></a></td>'.'</tr>';
   
                             }
-                            
+                   
                           
                         }
                         if($cnt==1)
                         {
                             $scnt+=1;
                         }
-                        
+                     
                        
                     }
                     echo '</tbody>
