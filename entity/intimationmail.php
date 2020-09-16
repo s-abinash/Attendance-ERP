@@ -63,13 +63,14 @@ while($row=mysqli_fetch_array($data))
                     $sec="D";
                 }
                 $batch=$row1["batch"]%2000;
+                $year=$row1["batch"];
                 $cls=($batch==17?'IV':(($batch==18)?'III':'II')).' - '.$sec;
                 $dep=$dept;
                 if($row1['dept']=='MCSE')
                 {
                     $dep='mcse';
                     $cls='ME';
-
+                    $year='2020';
                 }
                  
                 $tab=strtolower($batch.'-'.$dep.'-'.$sec);
@@ -125,7 +126,7 @@ while($row=mysqli_fetch_array($data))
                 $dates=array();
                 for($i=1;$i<$diff;$i++)
                 {    
-                    if($con->query("select * from holiday where date LIKE '$date'")->num_rows!=0)
+                    if($con->query("select * from holiday where date LIKE '$date' AND `year` LIKE '$year'")->num_rows!=0)
                     {
                         $date=date_format(date_add(date_create($date),date_interval_create_from_date_string("1 days")),"Y-m-d");
                         continue;
