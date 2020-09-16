@@ -54,6 +54,7 @@ $temp='';
            
             $sql="SELECT `dept`,`batch`,`sec` from `staff` where `staffid` like '$staffid'";
             $temp=($con->query($sql))->fetch_assoc();
+            $year=$temp['batch'];
             $class=substr($temp['batch'],-2).'-'.strtolower($temp['dept']).'-'.$temp['sec'];
             $sql="SELECT * from `course_list` where `dept` = (SELECT `dept` from `staff` where `staffid` like '$staffid') and `batch` = (SELECT `batch` from `staff` where `staffid` like '$staffid') 
             and `status` like 'active';";
@@ -124,7 +125,7 @@ $temp='';
                 
                 for($i=1;$i<=$diff;$i++)
                 {    $fin=array();
-                    if($con->query("select * from holiday where date LIKE '$date'")->num_rows!=0)
+                    if($con->query("select * from holiday where date LIKE '$date' AND `year` LIKE '$year'")->num_rows!=0)
                     {
                         $date=date_format(date_add(date_create($date),date_interval_create_from_date_string("1 days")),"Y-m-d");
                         continue;
