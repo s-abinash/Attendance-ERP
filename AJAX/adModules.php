@@ -2,7 +2,7 @@
     include_once("../db.php");
     session_start();
     $sid=$_SESSION["id"];
-    $sql="SELECT `code` FROM `course_list` where `dept` LIKE 'CSE' AND `status` LIKE 'active' AND `category` LIKE 'elective'";
+    $sql="SELECT `code` FROM `course_list` where `status` LIKE 'active' AND `category` LIKE 'elective'";
     $res=$con->query($sql);
     $ele=array();
     while($row=mysqli_fetch_array($res))
