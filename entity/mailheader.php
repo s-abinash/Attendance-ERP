@@ -1,9 +1,9 @@
 <?php 
 
-$Host = 'smtp.sendgrid.net';             // Specify main and backup SMTP servers
+$Host = 'in-v3.mailjet.com';             // Specify main and backup SMTP servers
 $SMTPAuth = true;                     // Enable SMTP authentication
-$Username = 'apikey';          // SMTP username
-$Password = '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'; // SMTP password
+$Username = '7018fe75de8b42ea3910a0231f4afb84';          // SMTP username
+$Password = '8032c5c02f1ac1cda864a0975f1f784f'; // SMTP password
 $SMTPSecure = 'tls';                  // Enable TLS encryption, `ssl` also accepted
 $Port = 587; 
 ?>
