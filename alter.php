@@ -87,7 +87,7 @@ if (isset($_POST['period'])) {
                 </div>
                 <div class="field">
                     <label>Period</label>
-                    <select class="ui dropdown" name="period" id="hr" required>
+                    <select class="ui dropdown" name="period" id="hr" required="required">
                         <option value="">Select Period</option>
                     </select>
                 </div>
@@ -113,7 +113,7 @@ if (isset($_POST['period'])) {
                     </select>
                 </div>
             </div>
-            <button style="float: right;" class="ui positive button" type="submit">Confirm Alter</button>
+            <button form="ifrm" style="float: right;" class="ui positive button" type="submit">Confirm Alter</button>
             <br/><br/>
         </form>
         <!-- <div class="ui warning message">
