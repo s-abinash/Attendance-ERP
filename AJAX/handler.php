@@ -60,6 +60,27 @@
          }
         $tt=$day_per;
         
+         $sql="SELECT * FROM `tt_8-10` WHERE `class` LIKE '$tab'";
+         $res=$con->query($sql);
+         $day=array();
+         $day_per=array();
+         while($row=$res->fetch_assoc())
+         { 
+              $per=array();
+              foreach($row as $in=>$v)
+              {
+                   if(strpos($v,$code)!==false)
+                   {
+                        array_push($per,$in);
+                   } 
+              }
+              if(!empty($per))
+              {
+                    $day_per+=array($row["day"]=>$per);
+              }   
+         }
+        $tt_new=$day_per;
+        
         
         
      
@@ -86,7 +107,11 @@
                    continue;
               }
                $s=date("l", strtotime($date));
-                if(date($date)<date("2020-08-03"))
+             if(date($date)>date("2020-10-07"))
+               {
+                    $day_per=$tt_new;
+               }
+               else if(date($date)<date("2020-08-03"))
                {
                     $day_per=$ott;
                }
