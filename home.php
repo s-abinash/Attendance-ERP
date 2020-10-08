@@ -475,17 +475,23 @@
                             {
                                 datecreated=parseInt((date.getFullYear())+''+(x)+''+(y)) 
                                 if((datecreated)<(20200803))
-                                {
-                                    tt=response[4];   //ott
-                                    console.log("Old Time Table");
-                                    //console.log(tt);
-                                }
-                                else
-                                {
-                                    tt=response[1];   //tt
-                                    console.log("New Time Table");
-                                    //console.log(tt);
-                                }
+                        {
+                            tt=response[4];   //ott
+                            console.log("Old Time Table");
+                            
+                        }
+                        else if((datecreated)<(20201008))
+                        {
+                            tt=response[1];   //tt
+                            console.log("New Time Table");
+                           
+                        }
+                        else 
+                        {
+                            tt=response[5];   //tt
+                            console.log("New-1 Time Table");
+                           
+                        }
                                 var ar=tt[getWeekDay(date)];    
                                 for (i of ar)
                                 {
