@@ -1,6 +1,6 @@
 <?php
-   echo '<script src="./assets/Notiflix/Minified/notiflix-2.1.2.min.js"></script>';
-   echo '<link rel="stylesheet" href="./assets/Notiflix/Minified/notiflix-2.1.2.min.css">';
+   echo '<script src="./assets/Notiflix/notiflix-2.5.0.min.js"></script>';
+   echo '<link rel="stylesheet" href="./assets/Notiflix/notiflix-2.5.0.min.css">';
 ?>
 <script type="text/javascript">
 Notiflix.Notify.Init({
