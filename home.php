@@ -387,10 +387,16 @@
                             console.log("Old Time Table");
                             
                         }
-                        else
+                        else if((datecreated)<(20201008))
                         {
                             tt=response[1];   //tt
                             console.log("New Time Table");
+                           
+                        }
+                        else 
+                        {
+                            tt=response[5];   //tt
+                            console.log("New-1 Time Table");
                            
                         }
 
