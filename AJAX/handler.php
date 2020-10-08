@@ -214,7 +214,7 @@
           {
                $alted="Empty";
           }  
-          echo json_encode(array($dates,$tt,$alt,$alted,$ott));
+          echo json_encode(array($dates,$tt,$alt,$alted,$ott,$tt_new));
           exit();
 
     }
