@@ -64,6 +64,10 @@ include_once('./navbar.php');
 
             </thead>
             <tbody style="text-align:center">
+                <tr id="Periods" style="text-align:center">
+                    <td></td>
+                    <td></td>
+                </tr>
                 <?php
                 $sql="SELECT DISTINCT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N'$code'";
                 $res=$con->query($sql);
@@ -102,6 +106,10 @@ include_once('./navbar.php');
                 {
                     echo "<script>$('#Dates').append('<th>".date("d/m",strtotime($val))."</th>')</script>";
                 }
+                if($ind=="period")
+                {
+                    echo "<script>$('#Periods').append('<th>".$val."</th>')</script>";
+                }
                 continue;
             }
             else if(in_array($ind,$arr))
@@ -121,7 +129,11 @@ include_once('./navbar.php');
     );
     var P, A, T, per;
     $("table > tbody  > tr").each(function(index, tr) {
-
+        if(index==0)
+        {
+            $("#" + this.id).append("<td>" + 'N/A' + "</td><td>" + 'N/A' + "</td><td>" + 'N/A' + "</td><td>" + 'N/A' + "</td>");
+            return;
+        }
         P = $('#' + this.id + ' td:contains("P")').length;
         A = $('#' + this.id + ' td:contains("A")').length;
         T = $('#' + this.id + ' td').length - 2;
