@@ -251,17 +251,21 @@
     </div>
 
     <script type="text/javascript">
-    var date=document.getElementById("dat").value;
-    var period=document.getElementById("hr").value;
-    if(data =='' || period=='')
+    function frm2check()
     {
-        Notiflix.Notify.Failure('Please select Date and Period');
-        return false;
+        var date=document.getElementById("dat").value;
+        var period=document.getElementById("hr").value;
+        if(data =='' || period=='')
+        {
+            Notiflix.Notify.Failure('Please select Date and Period');
+            return false;
+        }
+        else
+        {
+            return true;
+        }
     }
-    else
-    {
-        return true;
-    }
+    
     </script>
 
 
