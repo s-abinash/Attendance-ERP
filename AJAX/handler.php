@@ -13,8 +13,6 @@
     {
          $tab=strtolower($_POST["tab"]);
          $code=$_POST["code"];
-        
-        
          $sql="SELECT * FROM `ott` WHERE `class` LIKE '$tab'";
          $res=$con->query($sql);
          $day=array();

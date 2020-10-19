@@ -250,7 +250,19 @@
     <div id="seg" style="display:none">
     </div>
 
-
+    <script type="text/javascript">
+    var date=document.getElementById("dat").value;
+    var period=document.getElementById("hr").value;
+    if(data =='' || period=='')
+    {
+        Notiflix.Notify.Failure('Please select Date and Period');
+        return false;
+    }
+    else
+    {
+        return true;
+    }
+    </script>
 
 
 
@@ -262,7 +274,7 @@
             </button>
         </div>
         <div class="content">
-            <form autocomplete="off" class="ui form" id="frm2" method="POST" action="./import.php">
+            <form autocomplete="off" class="ui form" id="frm2" method="POST" action="./import.php" onsubmit="frm2check()">
                 <br></br>
                 <center>
                     <div class="two fields">
@@ -303,7 +315,8 @@
 
         </div>
         <div class="actions">
-            <button class="ui positive right labeled icon button" type="submit" name="homy">
+            <button class="ui positive right labeled icon button"
+             type="submit" name="homy">
                 Proceed<i class="checkmark icon"></i>
             </button>
             </form>
@@ -391,18 +404,13 @@
                         {
                             tt=response[1];   //tt
                             console.log("New Time Table");
-                           
                         }
                         else 
                         {
                             tt=response[5];   //tt
-                            console.log("New-1 Time Table");
-                           
+                            console.log("New-1 Time Table");  
                         }
-
                         var alt_day=tt[getWeekDay(alt_date)];
-
-                       
                         if((alt_day.length==alt[altdat].length)&&(!(Object.keys(alted)).includes(altdat)))
                         {
                             deldate.push(alt_date);
@@ -411,7 +419,6 @@
                         {
                             delday.push(altdat);
                         }
-
                     }
             
                 }
