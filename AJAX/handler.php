@@ -360,7 +360,7 @@
                                   
                                    
                          echo '</div></div>
-                    </div></div><div class="ui flowing popup" id="pop'.$d.$h.'" style="width:100%">'.$abs.'</div>
+                    </div></div><div class="ui popup" id="pop'.$d.$h.'" style="width:100%">'.$abs.'</div>
                     
                     
                     <script>
