@@ -118,6 +118,27 @@ while($row=mysqli_fetch_array($data))
                     }   
                 }
                 $tt=$day_per;
+                    
+         $sql="SELECT * FROM `tt_8-10` WHERE `class` LIKE '$tab'";
+         $res=$con->query($sql);
+         $day=array();
+         $day_per=array();
+         while($row=$res->fetch_assoc())
+         { 
+              $per=array();
+              foreach($row as $in=>$v)
+              {
+                   if(strpos($v,$code)!==false)
+                   {
+                        array_push($per,$in);
+                   } 
+              }
+              if(!empty($per))
+              {
+                    $day_per+=array($row["day"]=>$per);
+              }   
+         }
+        $tt_new=$day_per;
             
                 $x=date("Y-m-d");
                 $tdy=date_create($x);
@@ -131,15 +152,18 @@ while($row=mysqli_fetch_array($data))
                         $date=date_format(date_add(date_create($date),date_interval_create_from_date_string("1 days")),"Y-m-d");
                         continue;
                     }
-                    if(date($date)<date("2020-08-03"))
-                   {
-                        $day_per=$ott;
-                   }
-                   else
-                   {
-                        $day_per=$tt;
-                   }
-                    
+                           if(date($date)>date("2020-10-07"))
+               {
+                    $day_per=$tt_new;
+               }
+               else if(date($date)<date("2020-08-03"))
+               {
+                    $day_per=$ott;
+               }
+               else
+               {
+                    $day_per=$tt;
+               }
                     $alt=array();
                     $result=$con->query("SELECT * FROM `alteration` where `date` LIKE '$date' AND `s2` LIKE '$sid' AND `c2` LIKE '$code'");
                     if($result->num_rows!=0)
