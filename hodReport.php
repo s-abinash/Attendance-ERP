@@ -177,7 +177,7 @@ $temp='';
                                 $diff=intval(date_diff($tdy,date_create($date))->format("%a"))+1;
                                 
                                 $dates=array();
-                                for($i=1;$i<=$diff;$i++)
+                                for($i=1;$i<$diff;$i++)
                                 {    
               
                                    
