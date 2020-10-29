@@ -370,8 +370,7 @@
                          popup: "#pop'.$d.$h.'",
                          inline     : true,
                          hoverable  : true,
-                         height:300px;
-   overflow:auto;
+                         
                          });
                         
                     });
