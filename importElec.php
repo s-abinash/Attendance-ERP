@@ -88,6 +88,7 @@ if(isset($_POST['homy']))
     $batch=intval('20'.$arr[0]);
     $dep=$arr[1];
     $sec=strtoupper($arr[2]);
+    $sid=$_SESSION["id"];
     $sql="SELECT `name` from `course_list` WHERE `code` like '$code'";
     //echo '<script>alert("'.$sql.'");</script>';
     $row=($con->query($sql))->fetch_assoc();
@@ -113,6 +114,7 @@ else
     $sec=$_SESSION['sec'];
     $dep=$_SESSION['dep'];
     $hrs=$_SESSION['hrs'];
+    $sid=$_SESSION["id"];
 }
 
 ?>
@@ -285,6 +287,10 @@ if(isset($_POST['finalize']))
     {
         foreach($hrs as $h)
         {
+            $cnt=0;
+            $P=0;
+            $A=0;
+            $ABS_ROLL=array();
             $asst=$_SESSION['assoc'];
             $into='(`date`,`code`,`period`,';
             $code=$_SESSION["id"];
@@ -292,10 +298,19 @@ if(isset($_POST['finalize']))
             $stat='';
             foreach($asst as $roll=>$at)
             {
+              
+                $cnt++;
                 if(isset($_POST[$roll]))
+                {
                     $stat='P';
+                    $P++;
+                }
                 else
+                {
                     $stat='A';
+                    $A++;
+                    array_push($ABS_ROLL,$roll);
+                }
                 $into.='`'.$roll.'`,';
                 $vals.='"'.$stat.'",';
             }
@@ -312,7 +327,84 @@ if(isset($_POST['finalize']))
         unset($_SESSION['array3']);
         unset($_SESSION['assoc']);
         unset($_SESSION['upload']);
-        echo "<script>Notiflix.Report.Success('Success','Attendance Marked Successfully','Okay',function(){window.location.replace('home.php');});</script>";
+        if(!in_array($code,array('18CSO01','18ITO01')))
+        {
+        $stf=($con->query("SELECT * FROM `staff` WHERE `staffid` like '$sid'"))->fetch_assoc();
+        $sem=(($batch=='2017')?'VII':($batch=='2018'?'V':'III'));
+        $sql="SELECT * FROM `course_list` WHERE code LIKE '$code'";
+        $res=($con->query($sql))->fetch_assoc();
+        $name=$res["name"]; 
+        $sdept=$res["dept"];
+
+
+        echo '<div class="ui modal" id="modal">
+        <div class="header">Meeting Recording Link Submission</div>
+        <i class="close icon"></i>
+        <div class="content">      
+          
+            <form class="ui form"  action="https://docs.google.com/forms/d/e/1FAIpQLSdsVdDBKvncmxe0wdcDteNqEAMJz-IvdWByge3E9x41QpHB0Q/viewform" target="_blank" id="gf">
+            <div class="field">
+                 <input type="text" name="usp" value="pp_url" hidden>
+                 <input type="text" name="entry.1760172262" value="'.$stf['name'].'" hidden>
+                 <input type="text" name="entry.1519840088"  value="'.$stf["dept"].'" hidden>
+                 <input type="text" name="entry.1907877152" value="'.($sdept!='MCSE'?'BE':'ME').'" hidden>
+                 <input type="text" name="entry.309081512" value="'.$sdept.'" hidden>
+                 <input type="text" name="entry.383571963" value="'.$sem.'" hidden>
+                 <input type="text" name="entry.1504310176" value="'.$sec.'" hidden>
+                 <input type="text" name="entry.15204943" value="'.$code.'"  hidden>
+                 <input type="text" name="entry.668277301" value="'.$name.'" hidden>
+                 <input type="text" name="entry.1170232087" value="'.$date.'" hidden>
+                 <input type="text" name="entry.1628375111" value="'.implode(' , ',$hrs).'" hidden>
+                 <input type="text" name="entry.1683190265" value="'.$cnt.'" hidden>
+                 <input type="text" name="entry.1675431824" value="'.$P.'" hidden>
+                 <input type="text" name="entry.1186250163" value="'.$A.'" hidden>
+                 <input type="text" name="entry.1654159561" value="'.(empty(implode(' , ',$ABS_ROLL))?'-':implode(' , ',$ABS_ROLL)).'" hidden>
+                 <input type="text" name="entry.1877284434" value="'.intval(($P/$cnt)*100).'%" hidden>'.
+                (strpos($name,'Laboratory') !== false?'<input type="text" name="entry.1289128628" value="Laboratory" hidden>':'<div class="inline fields">
+                    <label>Class Type : </label>
+                    <div class="field">
+                    <div class="ui radio checkbox">
+                        <input type="radio" name="entry.1289128628" value="Theory" checked="checked">
+                        <label>Theory</label>
+                    </div>
+                    </div>
+                    <div class="field">
+                    <div class="ui radio checkbox">
+                        <input type="radio" name="entry.1289128628" value="Tutorial">
+                        <label>Tutorial</label>
+                    </div>
+                    </div>
+                    </div>').  
+                 '<label>Meeting URL: </label>
+                 <input type="url" id="url" name="entry.588869143" pattern="https?://drive.google.com.+" required />
+            </div><br/>
+            <button class="ui violet button" type="submit" onClick="googleForm()" style="float:right;">Submit</button>
+            <br/>
+            <br/>
+            </form>
+        </div>
+        </div>';
+        echo "<script>
+        Notiflix.Report.Success('Success','Attendance Marked Successfully','Proceed to fill Google Form',function(){
+            $('#modal').modal('show');
+        });
+        function googleForm()
+        {
+            $('#gf').submit();
+            $('#modal').modal('hide');
+            $('#url').val('');
+
+            window.location.replace('./home.php');  
+        }
+        </script>";
+        }
+        else{
+            echo "<script>
+            Notiflix.Report.Success('Success','Attendance Marked Successfully','Okay',function(){
+                window.location.replace('./home.php');  
+            });
+            </script>";
+        }
         exit();
     }
     else
