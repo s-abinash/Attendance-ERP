@@ -163,7 +163,7 @@
                     
 //                }
 //           }
-          $altsql="SELECT date,period FROM `alteration` WHERE `s1` LIKE '$sid' AND `c1` LIKE '$code' AND date<=CURRENT_DATE  AND date>='2020-07-08'";
+          $altsql="SELECT date,period FROM `alteration` WHERE `s1` LIKE '$sid' AND `c1` LIKE '$code' AND date<=CURRENT_DATE";
           $res=$con->query($altsql);
           $alt=array();
           while($row=$res->fetch_assoc())
@@ -175,7 +175,7 @@
           {
                $alt="Empty";
           }  
-          $alted="SELECT date,period FROM `alteration` WHERE `s2` LIKE '$sid' AND `c2` LIKE '$code' AND date<=CURRENT_DATE AND date>='2020-08-03'";
+          $alted="SELECT date,period FROM `alteration` WHERE `s2` LIKE '$sid' AND `c2` LIKE '$code' AND date<=CURRENT_DATE ";
           $res=$con->query($alted);
           $alted=array();
          
