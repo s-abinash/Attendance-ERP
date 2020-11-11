@@ -344,7 +344,7 @@ if(isset($_POST['finalize']))
                  <input type="text" name="entry.1907877152" value="'.($sdept!='MCSE'?'BE':'ME').'" hidden>
                  <input type="text" name="entry.309081512" value="'.($sdept=='MCSE'?'CSE':$sdept).'" hidden>
                  <input type="text" name="entry.383571963" value="'.$sem.'" hidden>
-                 <input type="text" name="entry.1504310176" value="'.$sec.'" hidden>
+                 <input type="text" name="entry.1504310176" value="'.($sdept=='MCSE'?'-':$sec).'" hidden>
                  <input type="text" name="entry.15204943" value="'.$code.'"  hidden>
                  <input type="text" name="entry.668277301" value="'.$name.'" hidden>
                  <input type="text" name="entry.1170232087" value="'.$date.'" hidden>
