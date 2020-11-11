@@ -327,7 +327,9 @@ if(isset($_POST['finalize']))
         $res=($con->query($sql))->fetch_assoc();
         $name=$res["name"]; 
         $sdept=$res["dept"];
-
+        if($sdept=="MCSE"){
+            $sem="III";
+        }
 
         echo '<div class="ui modal" id="modal">
         <div class="header">Meeting Recording Link Submission</div>
@@ -340,7 +342,7 @@ if(isset($_POST['finalize']))
                  <input type="text" name="entry.1760172262" value="'.$stf['name'].'" hidden>
                  <input type="text" name="entry.1519840088"  value="'.$stf["dept"].'" hidden>
                  <input type="text" name="entry.1907877152" value="'.($sdept!='MCSE'?'BE':'ME').'" hidden>
-                 <input type="text" name="entry.309081512" value="'.$sdept.'" hidden>
+                 <input type="text" name="entry.309081512" value="'.($sdept=='MCSE'?'CSE':$sdept).'" hidden>
                  <input type="text" name="entry.383571963" value="'.$sem.'" hidden>
                  <input type="text" name="entry.1504310176" value="'.$sec.'" hidden>
                  <input type="text" name="entry.15204943" value="'.$code.'"  hidden>
