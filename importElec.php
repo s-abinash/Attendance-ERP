@@ -81,6 +81,7 @@ if(isset($_POST['homy']))
 {
     $date=date("Y-m-d", strtotime(str_replace('/', '-', $_POST['dates'])));
     $code=$_POST['code'];
+    $coded=$code;
     $class=$_POST['code'];
     $table=$_POST['tab'];
     $hrs=$_POST['hrs'];
@@ -107,6 +108,7 @@ else
 {
     $course=$_SESSION['course'];
     $code=$_SESSION['code'];
+    $coded=$code;
     $date=$_SESSION['date'];
     $class=$_SESSION['class'];
     $batch=$_SESSION['batch'];
@@ -331,10 +333,28 @@ if(isset($_POST['finalize']))
         {
         $stf=($con->query("SELECT * FROM `staff` WHERE `staffid` like '$sid'"))->fetch_assoc();
         $sem=(($batch=='2017')?'VII':($batch=='2018'?'V':'III'));
-        $sql="SELECT * FROM `course_list` WHERE code LIKE '$code'";
+        $sql="SELECT * FROM `course_list` WHERE code LIKE '$coded'";
         $res=($con->query($sql))->fetch_assoc();
         $name=$res["name"]; 
         $sdept=$res["dept"];
+        $sec="";
+        if($res["staffA"]==$sid)
+        {
+            $sec.=" A";
+        }
+        if($res["staffB"]==$sid)
+        {
+            $sec.=" B";
+        }
+        if($res["staffC"]==$sid)
+        {
+            $sec.=" C";
+        }
+        if($res["staffD"]==$sid)
+        {
+            $sec.=" D";
+        }
+        $sec=trim($sec);
         if($sdept=="MCSE"){
             $sem="III";
         }
@@ -353,7 +373,7 @@ if(isset($_POST['finalize']))
                  <input type="text" name="entry.309081512" value="'.($sdept=='MCSE'?'CSE':$sdept).'" hidden>
                  <input type="text" name="entry.383571963" value="'.$sem.'" hidden>
                  <input type="text" name="entry.1504310176" value="'.($sdept=='MCSE'?'-':$sec).'" hidden>
-                 <input type="text" name="entry.15204943" value="'.$code.'"  hidden>
+                 <input type="text" name="entry.15204943" value="'.$coded.'"  hidden>
                  <input type="text" name="entry.668277301" value="'.$name.'" hidden>
                  <input type="text" name="entry.1170232087" value="'.$date.'" hidden>
                  <input type="text" name="entry.1628375111" value="'.implode(' , ',$hrs).'" hidden>
