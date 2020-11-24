@@ -203,7 +203,7 @@ if(isset($_POST["fetch"]))
             {
                 if($b=="2017")
                 {
-                    $st=3;$e=5;
+                    $st=1;$e=5;
                 }
                 else
                 {
