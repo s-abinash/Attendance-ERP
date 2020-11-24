@@ -188,7 +188,18 @@ if(isset($_POST["fetch"]))
                 continue;
             }
            
-            if(date($date)<date("2020-08-03"))
+            if(date($date)>date("2020-10-07"))
+            {
+                if($b=="2017")
+                {
+                    $st=1;$e=5;
+                }
+                else
+                {
+                    $st=1;$e=4;
+                }
+            }
+            else if(date($date)<date("2020-08-03"))
             {
                 if($b=="2017")
                 {
@@ -203,12 +214,13 @@ if(isset($_POST["fetch"]))
             {
                 if($b=="2017")
                 {
-                    $st=1;$e=5;
+                    $st=3;$e=5;
                 }
                 else
                 {
                     $st=1;$e=4;
                 }
+                 
             }
             
           
@@ -247,7 +259,9 @@ if(isset($_POST["fetch"]))
                     {
                         $stf="staff".$s;
                         $sl="SELECT `$stf` FROM `course_list` WHERE code LIKE '$tab'";
+                    
                         $code=($con->query($sl)->fetch_assoc()["$stf"]);
+                        
                        
                         $sql="SELECT * FROM `$tab` where code LIKE '$code' AND date LIKE '$date' AND period LIKE '$p'";
                         $res=$con->query($sql);
@@ -258,6 +272,21 @@ if(isset($_POST["fetch"]))
                                 $results+=$row;
                             }
                         }  
+                        if(($s=="A")&&($tab=="14CSE06"))
+                        {
+                            $cod=["CSE027SF","CSE019SF","CSE022SF"];
+                            foreach( $cod as $code)
+                    {
+                            $sql="SELECT * FROM `$tab` where code LIKE '$code' AND date LIKE '$date' AND period LIKE '$p'";
+                            $res=$con->query($sql);
+                            if($res->num_rows!=0)
+                            {
+                                while($row=$res->fetch_assoc())
+                                {
+                                    $results+=$row;
+                                }
+                            } }
+                        }
                     }
                     echo "<script>$('#Periods').append('<th>".$p."</th>')</script>";
                     foreach($rolls as $roll)
@@ -271,7 +300,10 @@ if(isset($_POST["fetch"]))
                             echo "<script>$('#".$roll."').append('<td>".'NE'."</td>')</script>";
                         }
                     }
-  
+   
+
+
+                    
                 } 
                
             }
