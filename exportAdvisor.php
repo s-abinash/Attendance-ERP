@@ -463,9 +463,6 @@ if(isset($_POST["fetch"]))
                 {
                     extend: 'excelHtml5',
                     title: 'KEC Student+ Export',
-                    
-
-
                 }, 'print',
                 
                 {
@@ -529,7 +526,10 @@ if(isset($_POST["fetch"]))
                         });
                     }
 
-                }, 'colvis',
+                }, {
+                    extend: 'colvis',
+                    text: 'Visibility',
+                },
                 {
                 text: 'Absentees List',
                 action: function ( e, dt, node, config ) {
