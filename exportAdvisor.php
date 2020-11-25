@@ -155,6 +155,27 @@ if(isset($_POST["fetch"]))
                 echo '</tbody>
                 
                 </table></div>';
+
+                echo '<br />
+                <div class="ui raised segment"style="height:90%;width:90%;overflow:auto;margin:0 auto;margin-bottom:3%;padding:2%; display: none;">
+                    <table class="ui violet selectable striped table" id="abtable">
+                        <thead>
+                            <tr style="text-align:center">
+                            
+                                <th>Date</th>
+                                <th>Period</th>
+                                <th>Absentees</th>
+                            </tr>
+                        
+                        </thead>
+                        <tbody  id="ab_body">
+                        <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        </tr>
+                        </tbody>
+                        </table></div>';
       
     $st=1;
     $e=5;
@@ -185,7 +206,7 @@ if(isset($_POST["fetch"]))
         if(!in_array($day,array("Saturday","Sunday")))
         {
 
-            if($con->query("select * from holiday where `date` LIKE '$date' AND `year` LIKE '$year'")->num_rows!=0)
+            if($con->query("select * from holiday where `date` LIKE '$date' AND `year` LIKE '$b'")->num_rows!=0)
             {
                 
                 $date=date_format(date_add(date_create($date),date_interval_create_from_date_string("1 days")),"Y-m-d");
@@ -237,6 +258,7 @@ if(isset($_POST["fetch"]))
                 $res=$con->query($sql);
                 if($res->num_rows==1)
                 {
+                    $ab=array();
                     $row=$res->fetch_assoc();
                     foreach($row as $ind=>$val)
                     {
@@ -252,13 +274,25 @@ if(isset($_POST["fetch"]))
                         else
                         {
                             echo "<script>$('#".$ind."').append('<td>".$val."</td>')</script>";
+                            if($val=="A")
+                            {
+                               array_push($ab,$ind);
+                            }
                         }  
                     }
+                   $var= (count($ab)!=0)?implode(" , ",$ab):" NIL ";
+                   
+                   echo "<script>$('#ab_body').append('<tr><td>".date("d/m",strtotime($date))."</td><td>".$p."</td><td>".$var."</td></tr>');</script>";
+                   if($p==$e)
+                   {
+                    echo "<script>$('#ab_body').append('<tr><td></td><td></td><td></td></tr>');</script>";
+                   }
                 }
                 else if(!empty($elec))
                 {
                   
                     $results=array();
+                    $ab=array();
                     foreach( $elec as $tab)
                     {
                         $stf="staff".$s;
@@ -293,18 +327,36 @@ if(isset($_POST["fetch"]))
                         }
                     }
                     echo "<script>$('#Periods').append('<th>".$p."</th>')</script>";
+                    $d=0;
                     foreach($rolls as $roll)
                     {
                         if(array_key_exists($roll,$results))
                         {
+                            $d+=1;
                             echo "<script>$('#".$roll."').append('<td>".$results[$roll]."</td>')</script>";
+                            if($results[$roll]=="A")
+                            {
+                                array_push($ab,$roll);
+                            }
                         }
                         else 
                         {
                             echo "<script>$('#".$roll."').append('<td>".'NE'."</td>')</script>";
                         }
                     }
-   
+                    if($d==count($rolls))
+                    {
+                        $var= (count($ab)!=0)?implode(" , ",$ab):" NIL ";
+                        echo "<script>$('#ab_body').append('<tr><td>".date("d/m",strtotime($date))."</td><td>".$p."</td><td>".$var."</td></tr>');</script>";
+                       
+                    }
+                    else{
+                        echo "<script>$('#ab_body').append('<tr><td>".date("d/m",strtotime($date))."</td><td>".$p."</td><td> Waiting for Entry</td></tr>');</script>";
+                    }
+                    if($p==$e)
+                    {
+                     echo "<script>$('#ab_body').append('<tr><td></td><td></td><td></td></tr>');</script>";
+                    }
 
 
                     
@@ -323,7 +375,7 @@ if(isset($_POST["fetch"]))
         );
         var P, A, T,N, per;
 
-        $("table > tbody  > tr").each(function(index, tr) {
+        $("#export > tbody  > tr").each(function(index, tr) {
             if(index==0)
             {
                 $("#" + this.id).append("<td>" + 'N/A' + "</td><td>" + 'N/A' + "</td><td>" + 'N/A' + "</td><td>" + 'N/A' + "</td><td>" + 'N/A' + "</td>");
@@ -390,6 +442,18 @@ if(isset($_POST["fetch"]))
     
 
     $(document).ready(function() {
+       
+       var abtab=$("#abtable").DataTable({
+        "paging": false,
+            "ordering": false,
+            "info": false,
+        buttons: [{
+                    extend: 'excelHtml5',
+                    title: 'KEC Student+ Export',
+                    text: 'Absentees List',
+                    attr: { id: 'abs' }
+                }],
+       });
         var table = $('#export').DataTable({
             "paging": false,
             "ordering": false,
@@ -399,9 +463,11 @@ if(isset($_POST["fetch"]))
                 {
                     extend: 'excelHtml5',
                     title: 'KEC Student+ Export',
+                    
 
 
                 }, 'print',
+                
                 {
                     extend: 'pdfHtml5',
                     download: 'open',
@@ -463,10 +529,21 @@ if(isset($_POST["fetch"]))
                         });
                     }
 
-                }, 'colvis'
+                }, 'colvis',
+                {
+                text: 'Absentees List',
+                action: function ( e, dt, node, config ) {
+                    $("#abs").click();
+                }
+            }
+                
+            
+                
             ]
         });
+        
         table.buttons().container().appendTo($('div.eight.column:eq(0)', table.table().container()));
+        abtab.buttons().container().appendTo($('div.eight.column:eq(0)', abtab.table().container()));
         $('body')
             .toast({
                 position: 'bottom right',
@@ -477,7 +554,7 @@ if(isset($_POST["fetch"]))
                 showIcon: true,
                 message: 'This page may not work properly, since there was a change in attendance.',
                 showProgress: 'top'
-            });
+            });          
     });
     </script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/dataTables.semanticui.min.css">
