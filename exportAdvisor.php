@@ -152,7 +152,9 @@ if(isset($_POST["fetch"]))
                     }    
                 }
 
-                echo '</tbody></table></div>';
+                echo '</tbody>
+                
+                </table></div>';
       
     $st=1;
     $e=5;
@@ -182,12 +184,14 @@ if(isset($_POST["fetch"]))
         $day=date("l",strtotime($date));
         if(!in_array($day,array("Saturday","Sunday")))
         {
-            if($con->query("select * from holiday where `date` LIKE '$date'")->num_rows!=0)
+
+            if($con->query("select * from holiday where `date` LIKE '$date' AND `year` LIKE '$year'")->num_rows!=0)
             {
+                
                 $date=date_format(date_add(date_create($date),date_interval_create_from_date_string("1 days")),"Y-m-d");
                 continue;
             }
-           
+         
             if(date($date)>date("2020-10-07"))
             {
                 if($b=="2017")
