@@ -288,7 +288,7 @@ if(isset($_POST["fetch"]))
                     echo "<script>$('#ab_body').append('<tr><td></td><td></td><td></td></tr>');</script>";
                    }
                 }
-                else if(!empty($elec))
+                else if((!empty($elec))||($b!=2019)||($b!=2018))
                 {
                   
                     $results=array();
