@@ -344,14 +344,15 @@ if(isset($_POST["fetch"]))
                             echo "<script>$('#".$roll."').append('<td>".'NE'."</td>')</script>";
                         }
                     }
+                    $var= (count($ab)!=0)?implode(" , ",$ab):" NIL ";
                     if($d==count($rolls))
                     {
-                        $var= (count($ab)!=0)?implode(" , ",$ab):" NIL ";
+                        
                         echo "<script>$('#ab_body').append('<tr><td>".date("d/m",strtotime($date))."</td><td>".$p."</td><td>".$var."</td></tr>');</script>";
                        
                     }
                     else{
-                        echo "<script>$('#ab_body').append('<tr><td>".date("d/m",strtotime($date))."</td><td>".$p."</td><td> Waiting for Entry</td></tr>');</script>";
+                        echo "<script>$('#ab_body').append('<tr><td>".date("d/m",strtotime($date))."</td><td>".$p."</td><td><b> Waiting for Entry  </b>".$var."</td></tr>');</script>";
                     }
                     if($p==$e)
                     {
