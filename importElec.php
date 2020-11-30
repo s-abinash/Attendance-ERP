@@ -368,9 +368,9 @@ if(isset($_POST['finalize']))
             <div class="field">
                  <input type="text" name="usp" value="pp_url" hidden>
                  <input type="text" name="entry.1760172262" value="'.$stf['name'].'" hidden>
-                 <input type="text" name="entry.1519840088"  value="'.$stf["dept"].'" hidden>
+                 <input type="text" name="entry.1519840088"  value="'.($sdept!='MCSE'?$stf["dept"]:'CSE').'" hidden>
                  <input type="text" name="entry.1907877152" value="'.($sdept!='MCSE'?'BE':'ME').'" hidden>
-                 <input type="text" name="entry.309081512" value="'.($sdept=='MCSE'?'CSE':$sdept).'" hidden>
+                 <input type="text" name="entry.309081512" value="'.($dep=='MCSE'?'CSE':$dep).'" hidden>
                  <input type="text" name="entry.383571963" value="'.$sem.'" hidden>
                  <input type="text" name="entry.1504310176" value="'.($sdept=='MCSE'?'-':$sec).'" hidden>
                  <input type="text" name="entry.15204943" value="'.$coded.'"  hidden>
@@ -394,6 +394,18 @@ if(isset($_POST['finalize']))
                     <div class="ui radio checkbox">
                         <input type="radio" name="entry.1289128628" value="Tutorial">
                         <label>Tutorial</label>
+                    </div>
+                    </div>
+                    <div class="field">
+                    <div class="ui radio checkbox">
+                        <input type="radio" name="entry.1289128628" value="Test">
+                        <label>Test</label>
+                    </div>
+                    </div>
+                    <div class="field">
+                    <div class="ui radio checkbox">
+                        <input type="radio" name="entry.1289128628" value="Laboratory">
+                        <label>Laboratory</label>
                     </div>
                     </div>
                     </div>').  
