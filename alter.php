@@ -284,14 +284,34 @@ if (isset($_POST['period'])) {
                                         datecreated=parseInt((date.getFullYear())+''+(x)+''+(y)) 
                                         
                                         for (i of ar) {
-                                        if((datecreated)<(20200803))
-                                        {
-                                            tt=response[6];   //ott
-                                        }
-                                        else
-                                        {       
-                                            tt=response[1];   //tt
-                                        }
+                                            if((datecreated)<(20200803))
+                        {
+                            tt=response[6];   //ott
+                            console.log("Old Time Table");
+                            
+                        }
+                        else if((datecreated)<(20201008))
+                        {
+                            tt=response[1];   //tt
+                            console.log("New Time Table");
+                        }
+                        else if((datecreated)<(20201130))
+                        {
+                            tt=response[7];   //tt
+                            console.log("New-1 Time Table");  
+                        }
+                        else if((datecreated)<(20201207))
+                        {
+                            tt=response[8];   /
+                            console.log("Lab1");
+                            
+                        }
+                        else
+                        {
+                            tt=response[9];   //ott
+                            console.log("Lab2");
+                            
+                        }
                                             $("#hr").append("<option value='" + i + "'>" + i + "</option>");
                                         }
                                     }

@@ -398,6 +398,7 @@
                         }
                         var tt;
                         datecreated=parseInt((alt_date.getFullYear())+''+(x)+''+(y)) 
+                       
                         if((datecreated)<(20200803))
                         {
                             tt=response[4];   //ott
@@ -409,10 +410,22 @@
                             tt=response[1];   //tt
                             console.log("New Time Table");
                         }
-                        else 
+                        else if((datecreated)<(20201130))
                         {
                             tt=response[5];   //tt
                             console.log("New-1 Time Table");  
+                        }
+                        else if((datecreated)<(20201207))
+                        {
+                            tt=response[6];   /
+                            console.log("Lab1");
+                            
+                        }
+                        else
+                        {
+                            tt=response[7];   //ott
+                            console.log("Lab2");
+                            
                         }
                         var alt_day=tt[getWeekDay(alt_date)];
                         if((alt_day.length==alt[altdat].length)&&(!(Object.keys(alted)).includes(altdat)))
@@ -497,11 +510,22 @@
                             console.log("New Time Table");
                            
                         }
-                        else 
+                        else if((datecreated)<(20201130))
                         {
                             tt=response[5];   //tt
-                            console.log("New-1 Time Table");
-                           
+                            console.log("New-1 Time Table");  
+                        }
+                        else if((datecreated)<(20201207))
+                        {
+                            tt=response[6];   /
+                            console.log("Lab1");
+                            
+                        }
+                        else
+                        {
+                            tt=response[7];   //ott
+                            console.log("Lab2");
+                            
                         }
                                 var ar=tt[getWeekDay(date)];    
                                 for (i of ar)

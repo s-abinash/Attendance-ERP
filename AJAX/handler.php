@@ -80,6 +80,47 @@
         $tt_new=$day_per;
         
         
+        $sql="SELECT * FROM `tt_30-11` WHERE `class` LIKE '$tab'";
+        $res=$con->query($sql);
+        $day=array();
+        $day_per=array();
+        while($row=$res->fetch_assoc())
+        { 
+             $per=array();
+             foreach($row as $in=>$v)
+             {
+                  if(strpos($v,$code)!==false)
+                  {
+                       array_push($per,$in);
+                  } 
+             }
+             if(!empty($per))
+             {
+                   $day_per+=array($row["day"]=>$per);
+             }   
+        }
+       $tt_lab1=$day_per;
+
+       $sql="SELECT * FROM `tt_07-12` WHERE `class` LIKE '$tab'";
+       $res=$con->query($sql);
+       $day=array();
+       $day_per=array();
+       while($row=$res->fetch_assoc())
+       { 
+            $per=array();
+            foreach($row as $in=>$v)
+            {
+                 if(strpos($v,$code)!==false)
+                 {
+                      array_push($per,$in);
+                 } 
+            }
+            if(!empty($per))
+            {
+                  $day_per+=array($row["day"]=>$per);
+            }   
+       }
+      $tt_lab2=$day_per;
         
      
          $x=date("Y-m-d");
@@ -105,7 +146,15 @@
                    continue;
               }
                $s=date("l", strtotime($date));
-             if(date($date)>date("2020-10-07"))
+               if(date($date)>date("2020-12-06"))
+               {
+                    $day_per=$tt_lab2;
+               }
+               else if(date($date)>date("2020-11-29"))
+               {
+                    $day_per=$tt_lab1;
+               }
+           else if(date($date)>date("2020-10-07"))
                {
                     $day_per=$tt_new;
                }
@@ -212,7 +261,7 @@
           {
                $alted="Empty";
           }  
-          echo json_encode(array($dates,$tt,$alt,$alted,$ott,$tt_new));
+          echo json_encode(array($dates,$tt,$alt,$alted,$ott,$tt_new,$tt_lab1,$tt_lab2));
           exit();
 
     }
