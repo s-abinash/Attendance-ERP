@@ -417,7 +417,7 @@
                         }
                         else if((datecreated)<(20201207))
                         {
-                            tt=response[6];   /
+                            tt=response[6];   
                             console.log("Lab1");
                             
                         }
