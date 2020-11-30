@@ -302,7 +302,7 @@ if (isset($_POST['period'])) {
                         }
                         else if((datecreated)<(20201207))
                         {
-                            tt=response[8];   /
+                            tt=response[8];   
                             console.log("Lab1");
                             
                         }
