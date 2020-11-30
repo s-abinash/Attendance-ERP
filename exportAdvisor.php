@@ -235,7 +235,7 @@ if(isset($_POST["fetch"]))
                     $st=1;$e=5;
                 }
             }
-            else
+            else if(date($date)<date("2020-11-30"))
             {
                 if($b=="2017")
                 {
@@ -246,6 +246,10 @@ if(isset($_POST["fetch"]))
                     $st=1;$e=4;
                 }
                  
+            }
+            else 
+            {
+                    $st=1;$e=4;   
             }
             
           
