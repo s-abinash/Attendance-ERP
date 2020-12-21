@@ -84,21 +84,21 @@
         $res=$con->query($sql);
         $day=array();
         $day_per=array();
-        while($row=$res->fetch_assoc())
-        { 
-             $per=array();
-             foreach($row as $in=>$v)
-             {
-                  if(strpos($v,$code)!==false)
-                  {
-                       array_push($per,$in);
-                  } 
-             }
-             if(!empty($per))
-             {
-                   $day_per+=array($row["day"]=>$per);
-             }   
-        }
+          while($row=$res->fetch_assoc())
+          { 
+               $per=array();
+               foreach($row as $in=>$v)
+               {
+                    if(strpos($v,$code)!==false)
+                    {
+                         array_push($per,$in);
+                    } 
+               }
+               if(!empty($per))
+               {
+                    $day_per+=array($row["day"]=>$per);
+               }   
+          }
        $tt_lab1=$day_per;
 
        $sql="SELECT * FROM `tt_07-12` WHERE `class` LIKE '$tab'";
@@ -120,7 +120,7 @@
                   $day_per+=array($row["day"]=>$per);
             }   
        }
-      $tt_lab2=$day_per;
+         $tt_lab2=$day_per;
         
      
          $x=date("Y-m-d");
@@ -145,6 +145,16 @@
                    $date=date_format(date_add(date_create($date),date_interval_create_from_date_string("1 days")),"Y-m-d");
                    continue;
               }
+               if((date($date)>date("2020-12-11")) &&($bat=="2018"))
+               {
+                   $date=date_format(date_add(date_create($date),date_interval_create_from_date_string("1 days")),"Y-m-d");
+                   continue;
+               }
+               if((date($date)>date("2020-12-04")) &&($bat=="2017"))
+               {
+                   $date=date_format(date_add(date_create($date),date_interval_create_from_date_string("1 days")),"Y-m-d");
+                   continue;
+               }
                $s=date("l", strtotime($date));
                if(date($date)>date("2020-12-06"))
                {
@@ -154,7 +164,7 @@
                {
                     $day_per=$tt_lab1;
                }
-           else if(date($date)>date("2020-10-07"))
+               else if(date($date)>date("2020-10-07"))
                {
                     $day_per=$tt_new;
                }
@@ -194,24 +204,7 @@
                }
                $date=date_format(date_add(date_create($date),date_interval_create_from_date_string("1 days")),"Y-m-d");
           }
-//           if(in_array($code,array("14CSL71","14CSL72")))
-//           {
-//                $c=$dates;
-//                $dates=array();
-//                foreach($c as $dt)
-//                {
-//                     $x=date_diff(date_create(date("2020-07-08")),date_create(date($dt)))->format("%a");
-//                     if(($code=="14CSL71")&&(($x/7)%2))
-//                     {
-//                          array_push($dates,$dt);
-//                     }
-//                     else if(($code=="14CSL72")&&((($x/7)%2)==0))
-//                     {
-//                          array_push($dates,$dt);
-//                     }
-                    
-//                }
-//           }
+
           $altsql="SELECT date,period FROM `alteration` WHERE `s1` LIKE '$sid' AND `c1` LIKE '$code' AND date<=CURRENT_DATE";
           $res=$con->query($altsql);
           $alt=array();

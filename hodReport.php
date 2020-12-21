@@ -229,6 +229,16 @@ $temp='';
                                         $date=date_format(date_add(date_create($date),date_interval_create_from_date_string("1 days")),"Y-m-d");
                                         continue;
                                     }
+                                    if((date($date)>date("2020-12-11")) &&($year=="2018"))
+                                    {
+                                        $date=date_format(date_add(date_create($date),date_interval_create_from_date_string("1 days")),"Y-m-d");
+                                        continue;
+                                    }
+                                    if((date($date)>date("2020-12-04")) &&($year=="2017"))
+                                    {
+                                        $date=date_format(date_add(date_create($date),date_interval_create_from_date_string("1 days")),"Y-m-d");
+                                        continue;
+                                    }
                                     if(date($date)>date("2020-12-06"))
                                     {
                                             $day_per=$tt_lab2;
@@ -237,7 +247,7 @@ $temp='';
                                     {
                                             $day_per=$tt_lab1;
                                     }
-                                else if(date($date)>date("2020-10-07"))
+                                    else if(date($date)>date("2020-10-07"))
                                     {
                                             $day_per=$tt_new;
                                     }

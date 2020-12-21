@@ -212,6 +212,17 @@ if(isset($_POST["fetch"]))
                 $date=date_format(date_add(date_create($date),date_interval_create_from_date_string("1 days")),"Y-m-d");
                 continue;
             }
+
+            if((date($date)>date("2020-12-11")) &&($b=="2018"))
+               {
+                   $date=date_format(date_add(date_create($date),date_interval_create_from_date_string("1 days")),"Y-m-d");
+                   continue;
+               }
+               if((date($date)>date("2020-12-04")) &&($b=="2017"))
+               {
+                   $date=date_format(date_add(date_create($date),date_interval_create_from_date_string("1 days")),"Y-m-d");
+                   continue;
+               }
          
             if(date($date)>date("2020-10-07"))
             {
