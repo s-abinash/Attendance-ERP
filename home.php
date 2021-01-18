@@ -98,22 +98,25 @@
                         {
                             $batch=(2020%intval($core["batch"]))+1;
                             $year=$batch==2?"II":($batch==3?"III":"IV");
-                            if(strpos($core["staffA"],$id))
+                            $sec="";
+                            if(substr_count($core["staffA"],$id))
                             {
                                 $sec="A";
+
                             }
-                            if(strpos($core["staffB"],$id))
+                            if(substr_count($core["staffB"],$id))
                             {
                                 $sec="B";
                             }
-                            if(strpos($core["staffC"],$id))
+                            if(substr_count($core["staffC"],$id))
                             {
                                 $sec="C";
                             }
-                            if(strpos($core["staffD"],$id)) 
+                            if(substr_count($core["staffD"],$id)) 
                             {
                                 $sec="D";
                             }
+                           
                             if($batch==1)
                             {
                                 $year='ME';
@@ -190,19 +193,19 @@
                         {
                         $batch=(2020%intval($row["batch"]))+1;
                         $year=$batch==2?"II":($batch==3?"III":"IV");
-                        if(strpos($core["staffA"],$id))
+                        if(substr_count($core["staffA"],$id))
                         {
                             $sec="A";
                         }
-                        if(strpos($core["staffB"],$id))
+                        if(substr_count($core["staffB"],$id))
                         {
                             $sec="B";
                         }
-                        if(strpos($core["staffC"],$id))
+                        if(substr_count($core["staffC"],$id))
                         {
                             $sec="C";
                         }
-                        if(strpos($core["staffD"],$id)) 
+                        if(substr_count($core["staffD"],$id)) 
                         {
                             $sec="D";
                         }
@@ -232,19 +235,19 @@
                             $batch=(2020%intval($core["batch"]))+1;
                             $year=$batch==2?"II":($batch==3?"III":"IV");
                            
-                            if(strpos($core["staffA"],$id))
+                            if(substr_count($core["staffA"],$id))
                             {
                                 $sec="A";
                             }
-                            if(strpos($core["staffB"],$id))
+                            if(substr_count($core["staffB"],$id))
                             {
                                 $sec="B";
                             }
-                            if(strpos($core["staffC"],$id))
+                            if(substr_count($core["staffC"],$id))
                             {
                                 $sec="C";
                             }
-                            if(strpos($core["staffD"],$id)) 
+                            if(substr_count($core["staffD"],$id)) 
                             {
                                 $sec="D";
                             }
