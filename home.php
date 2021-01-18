@@ -10,59 +10,9 @@
     }
     include_once("./db.php");
     include_once("./navbar.php");
-    $sql="SELECT `code` FROM `course_list` where `dept` LIKE 'CSE' AND `status` LIKE 'active' AND `category` LIKE 'elective'";
-    $res=$con->query($sql);
-    $ele=array();
-    while($row=mysqli_fetch_array($res))
-    {
-        array_push($ele,$row['code']);
-    }
-?>
+    include_once("./AJAX/header.php");
 
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-
-
-</head>
-
-<body>
-    <style>
-    body {
-        background-image: url("./images/bgpic.jpg");
-    }
-    </style>
-    
-    <div id="tabl">
-        <div class="ui header" style="text-align:center;font-size:30px;margin-top:2%;color:#ADEFD1FF">Your Class
-            Associations
-            <?php 
-            // $sql="SELECT `designation`,`userid` from `staff` where `staffid` like '$staffid'";
-            // $data=$con->query($sql);
-            // $row=$data->fetch_assoc();
-            // $design=$row['designation'];
-            // $name=$row['userid'];
-            // if($design=='HOD')
-            // {
-            //     echo '<span class="ui pink button" style="float:right;" onclick="location.href=\'holiday.php\'">Add Holiday</span>';
-            //     echo '<span class="ui brown button" style="float:right;" onclick="location.href=\'hodReport.php\'">Not Entered List</span>';
-
-            // }    
-            // else if($name=='mallisenthil')
-            // {
-            //     echo '<span class="ui brown button" style="float:right;" onclick="location.href=\'hodReport.php\'">Not Entered List</span>';
-            // }
-
-        ?>
-        </div>
-
-        
-        <?php
-
-        $staffid = $_SESSION['id'];
+    $staffid = $_SESSION['id'];
         //echo '<script>alert("'.$staffid.'");</script>';
         $sql = "SELECT * from `staff` where `staffid` like '$staffid'";
         $data = $con->query($sql);
@@ -82,7 +32,26 @@
         });
         });</script>";
         }
-        ?>
+?>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+
+<body>
+    <style>
+    body {
+        background-image: url("./images/bgpic.jpg");
+    }
+    </style>
+    
+    <div id="tabl">
+        <div class="ui header" style="text-align:center;font-size:30px;margin-top:2%;color:#ADEFD1FF">Your Class Associations
+        </div>
         <table class="ui selectable striped  table" style="margin:auto;width:80%;margin-top:2%">
             <thead>
                 <tr style="color:black;font-size:20px" class="center aligned">
@@ -96,151 +65,207 @@
             <tbody class="center aligned">
                 <?php
                     $id=$_SESSION["id"];
-                    $sql="SELECT * FROM `course_list` WHERE staffA LIKE '$id' OR staffB LIKE '$id' OR staffC LIKE '$id' OR staffD LIKE '$id' ORDER BY batch desc";
-                    $res=$con->query($sql);
-                    $word="Laboratory";
-                    $lab="";
-
-                   
-                    $ele_course=array();
-                    
-                    $t=1;
-                    while($row=$res->fetch_assoc())
+                    $result=$con->query("SELECT * FROM `course_list` WHERE staffA LIKE '%$id%' OR staffB LIKE '%$id%' OR staffC LIKE '%$id%' OR staffD LIKE '%$id%' ORDER BY batch desc");
+                    $core_list=array();
+                    $elect_list=array();
+                    $lab_list=array();
+                    $proj_list=array();
+                    while($row=$result->fetch_assoc())
                     {
-
-                    if(strpos($row["name"],$word) !== false)
-                    {
-                        $lab=$row;
-                        continue;
-                    }
-                    else if(in_array($row["code"],$ele))
-                    {
-                        array_push($ele_course,$row);
-                        continue;
-                    }
-                    if($t==1)
-                    {
-                        echo '<tr ><td colspan="5" style="font-size:17px" class="left aligned"><em>General Course</em></td></tr>';
-                        $t=0;
-                    }
-                    $batch=(2020%intval($row["batch"]))+1;
-                    $year=$batch==2?"II":($batch==3?"III":"IV");
-                    if($row["staffA"]==$id)
-                    {
-                        $sec="A";
-                    }
-                    else if($row["staffB"]==$id)
-                    {
-                        $sec="B";
-                    }
-                    else if($row["staffC"]==$id)
-                    {
-                        $sec="C";
-                    }
-                    else 
-                    {
-                        $sec="D";
-                    }
-                    $code=$row["code"];
-                    $name=$row["name"];
-                    $btn=strval($row["batch"]%2000)."-".$row["dept"]."-".$sec."/".$code;
-                    echo '<tr>
-                    <td>'.($row["dept"]!=="MCSE"?$year:"M E").'</td>
-                    <td>'.($row["dept"]!=="MCSE"?$sec:" - ").'</td>
-                    <td>'.$code.'</td>
-                    <td>'.$name.'</td>
-                    <td class="right aligned"><button class="ui primary right icon button" id="'.$btn.'" onclick="attend(this.id)"> Mark Attendance &nbsp&nbsp<i class="check icon"></i></button><button class="ui black right icon button" id="'.$btn.'" onclick="history(this.id)"> View History &nbsp&nbsp<i class="history icon"></i></button><button class="ui purple right icon button" id="'.$btn.'" onclick="consolidate(this.id)"> Report &nbsp&nbsp<i class="file export icon"></i></button></td>
-                    </tr>';
-                        if($code=="18GET51")
+                        
+                        if($row["category"]==="core")
                         {
-                            $sec=++$sec;
-                            $btn=strval($row["batch"]%2000)."-".$row["dept"]."-".$sec."/".$code;
-                           echo '<tr>
-                            <td>'.($row["dept"]!=="MCSE"?$year:"M E").'</td>
-                            <td>'.($row["dept"]!=="MCSE"?$sec:" - ").'</td>
-                            <td>'.$code.'</td>
-                            <td>'.$name.'</td>
-                            <td class="right aligned"><button class="ui primary right icon button" id="'.$btn.'" onclick="attend(this.id)"> Mark Attendance &nbsp&nbsp<i class="check icon"></i></button><button class="ui black right icon button" id="'.$btn.'" onclick="history(this.id)"> View History &nbsp&nbsp<i class="history icon"></i></button><button class="ui purple right icon button" id="'.$btn.'" onclick="consolidate(this.id)"> Report &nbsp&nbsp<i class="file export icon"></i></button></td>
-                            </tr>';
+                            array_push($core_list,$row);
+                        }
+                        else if($row["category"]==="elective")
+                        {
+                            array_push($elect_list,$row);
+                        }
+                        else if($row["category"]==="lab")
+                        {
+                            array_push($lab_list,$row);
+                        }
+                        else if($row["category"]==="proj")
+                        {
+                            array_push($proj_list,$row);
                         }
                     }
-                    if(!empty($ele_course))
+
+                    if(!empty($core_list))
                     {
-                        echo '<tr ><td colspan="5" style="font-size:17px" class="left aligned"><em>Elective Course</em></td></tr>';
-                        foreach($ele_course as $row)
+                        echo '<tr ><td colspan="5" style="font-size:17px" class="left aligned"><em>General Course</em></td></tr>';
+                        foreach ($core_list as $core) 
                         {
-                            
-                            $batch=(2020%intval($row["batch"]))+1;
+                            $batch=(2020%intval($core["batch"]))+1;
                             $year=$batch==2?"II":($batch==3?"III":"IV");
-                            $sec="";
-                            if($row["staffA"]==$id)
+                            if(strpos($core["staffA"],$id))
                             {
-                                $sec.="A ";
+                                $sec="A";
                             }
-                            if($row["staffB"]==$id)
+                            if(strpos($core["staffB"],$id))
                             {
-                                $sec.="B ";
+                                $sec="B";
                             }
-                            if($row["staffC"]==$id)
+                            if(strpos($core["staffC"],$id))
                             {
-                                $sec.="C ";
+                                $sec="C";
                             }
-                            if($row["staffD"]==$id) 
+                            if(strpos($core["staffD"],$id)) 
                             {
-                                $sec.="D ";
+                                $sec="D";
                             }
-                            $code=$row["code"];
-                            $name=$row["name"];
-                            $btn=strval($row["batch"]%2000)."-".$row["dept"]."-".$sec[0]."/".$code;
+                            if($batch==1)
+                            {
+                                $year='ME';
+                                $sec='-';
+                            }
+                            $code=$core["code"];
+                            $name=$core["name"];
+                            $btn=strval($core["batch"]%2000)."-".$core["dept"]."-".$sec."/".$code;
                             echo '<tr>
                             <td>'.$year.'</td>
                             <td>'.$sec.'</td>
                             <td>'.$code.'</td>
                             <td>'.$name.'</td>
-                            <td class="right aligned">
-                                <button class="ui primary right icon button" id="'.$btn.'" onclick="attend(this.id)"> Mark Attendance &nbsp; &nbsp;<i class="check icon"></i></button>
-                                <button class="ui black right icon button" id="'.$btn.'" onclick="history(this.id)"> View History &nbsp; &nbsp;<i class="history icon"></i></button>
-                                <button class="ui purple right icon button" id="'.$btn.'" onclick="consolidate(this.id)"> Report &nbsp; &nbsp;<i class="file export icon"></i></button>
-                            </td>
-                            </tr>';
+                            <td class="right aligned"><button class="ui primary right icon button" id="'.$btn.'" onclick="attend(this.id)"> Mark Attendance &nbsp&nbsp<i class="check icon"></i></button><button class="ui black right icon button" id="'.$btn.'" onclick="history(this.id)"> View History &nbsp&nbsp<i class="history icon"></i></button><button class="ui purple right icon button" id="'.$btn.'" onclick="consolidate(this.id)"> Report &nbsp&nbsp<i class="file export icon"></i></button></td>
+                            </tr>'; 
                         }
                     }
-                    if($lab!="")
-                    {
-                    echo '<tr ><td colspan="5" style="font-size:17px" class="left aligned"><em>Laboratory Course</em></td></tr>';
                     
-                    $batch=(2020%intval($lab["batch"]))+1;
-                    $year=$batch==2?"II":($batch==3?"III":"IV");
-                    if($lab["staffA"]==$id)
+                    if(!empty($elect_list))
                     {
-                    $sec="A";
+                        echo '<tr ><td colspan="5" style="font-size:17px" class="left aligned"><em>Elective Course</em></td></tr>';
+                        foreach ($elect_list as $row) 
+                        {
+                        $batch=(2020%intval($row["batch"]))+1;
+                        $year=$batch==2?"II":($batch==3?"III":"IV");
+                        $sec="";
+                        if($row["staffA"]==$id)
+                        {
+                            $sec.="A ";
+                        }
+                        if($row["staffB"]==$id)
+                        {
+                            $sec.="B ";
+                        }
+                        if($row["staffC"]==$id)
+                        {
+                            $sec.="C ";
+                        }
+                        if($row["staffD"]==$id) 
+                        {
+                            $sec.="D ";
+                        }
+                        if($batch==1)
+                        {
+                            $year='ME';
+                            $sec='-';
+                        }
+
+                        $code=$row["code"];
+                        $name=$row["name"];
+                        $btn=strval($row["batch"]%2000)."-".$row["dept"]."-".$sec[0]."/".$code;
+                        if($code==="18CSE02")
+                        {
+                            $sec="A ".$sec;
+                        }
+                        echo '<tr>
+                        <td>'.$year.'</td>
+                        <td>'.$sec.'</td>
+                        <td>'.$code.'</td>
+                        <td>'.$name.'</td>
+                        <td class="right aligned">
+                            <button class="ui primary right icon button" id="'.$btn.'" onclick="attend(this.id)"> Mark Attendance &nbsp; &nbsp;<i class="check icon"></i></button>
+                            <button class="ui black right icon button" id="'.$btn.'" onclick="history(this.id)"> View History &nbsp; &nbsp;<i class="history icon"></i></button>
+                            <button class="ui purple right icon button" id="'.$btn.'" onclick="consolidate(this.id)"> Report &nbsp; &nbsp;<i class="file export icon"></i></button>
+                        </td>
+                        </tr>';
+                        }
                     }
-                    else if($lab["staffB"]==$id)
+
+                    if(!empty($lab_list))
                     {
-                    $sec="B";
+                        echo '<tr ><td colspan="5" style="font-size:17px" class="left aligned"><em>Laboratory Course</em></td></tr>';
+                        foreach ($lab_list as $row) 
+                        {
+                        $batch=(2020%intval($row["batch"]))+1;
+                        $year=$batch==2?"II":($batch==3?"III":"IV");
+                        if(strpos($core["staffA"],$id))
+                        {
+                            $sec="A";
+                        }
+                        if(strpos($core["staffB"],$id))
+                        {
+                            $sec="B";
+                        }
+                        if(strpos($core["staffC"],$id))
+                        {
+                            $sec="C";
+                        }
+                        if(strpos($core["staffD"],$id)) 
+                        {
+                            $sec="D";
+                        }
+                        if($batch==1)
+                        {
+                            $year='ME';
+                            $sec='-';
+                        }
+                        $code=$row["code"];
+                        $name=$row["name"];
+                        $btn=strval($row["batch"]%2000)."-".$row["dept"]."-".$sec."/".$code;
+                        echo '<tr>
+                        <td>'.$year.'</td>
+                        <td>'.$sec.'</td>
+                        <td>'.$code.'</td>
+                        <td>'.$name.'</td>
+                        <td class="right aligned"><button class="ui primary right icon button " id="'.$btn.'"  onclick="attend(this.id)"> Mark Attendance &nbsp;&nbsp;<i class="check icon"></i></button><button class="ui black right icon button" id="'.$btn.'" onclick="history(this.id)"> View History &nbsp;&nbsp;<i class="history icon"></i></button><button class="ui purple right icon button" id="'.$btn.'" onclick="consolidate(this.id)"> Report &nbsp; &nbsp;<i class="file export icon"></i></button></td>
+                        </tr>';
+                        }
                     }
-                    else if($lab["staffC"]==$id)
+        
+                    if(!empty($proj_list))
                     {
-                    $sec="C";
+                        echo '<tr ><td colspan="5" style="font-size:17px" class="left aligned"><em>Project Course</em></td></tr>';
+                        foreach ($proj_list as $core) 
+                        {
+                            $batch=(2020%intval($core["batch"]))+1;
+                            $year=$batch==2?"II":($batch==3?"III":"IV");
+                           
+                            if(strpos($core["staffA"],$id))
+                            {
+                                $sec="A";
+                            }
+                            if(strpos($core["staffB"],$id))
+                            {
+                                $sec="B";
+                            }
+                            if(strpos($core["staffC"],$id))
+                            {
+                                $sec="C";
+                            }
+                            if(strpos($core["staffD"],$id)) 
+                            {
+                                $sec="D";
+                            }
+                            if($batch==1)
+                            {
+                                $year='ME';
+                                $sec='-';
+                            }
+                            $code=$core["code"];
+                            $name=$core["name"];
+                            $btn=strval($core["batch"]%2000)."-".$core["dept"]."-".$sec."/".$code;
+                            echo '<tr>
+                            <td>'.$year.'</td>
+                            <td>'.$sec.'</td>
+                            <td>'.$code.'</td>
+                            <td>'.$name.'</td>
+                            <td class="right aligned"><button class="ui primary right icon button" id="'.$btn.'" onclick="attend(this.id)"> Mark Attendance &nbsp&nbsp<i class="check icon"></i></button><button class="ui black right icon button" id="'.$btn.'" onclick="history(this.id)"> View History &nbsp&nbsp<i class="history icon"></i></button><button class="ui purple right icon button" id="'.$btn.'" onclick="consolidate(this.id)"> Report &nbsp&nbsp<i class="file export icon"></i></button></td>
+                            </tr>'; 
+                        }
                     }
-                    else 
-                    {
-                    $sec="D";
-                    }
-                    $code=$lab["code"];
-                    $name=$lab["name"];
-                    $btn=strval($lab["batch"]%2000)."-".$lab["dept"]."-".$sec."/".$code;
-                
-                    echo '    <tr>
-                    <td>'.($lab["dept"]!=="MCSE"?$year:"M E").'</td>
-                    <td>'.($lab["dept"]!=="MCSE"?$sec:" - ").'</td>
-                    <td>'.($code!=="18MSE13"?$code:"18MSE12").'</td>
-                
-                    <td>'.$name.'</td>
-                    <td class="right aligned"><button class="ui primary right icon button " id="'.$btn.'"  onclick="attend(this.id)"> Mark Attendance &nbsp;&nbsp;<i class="check icon"></i></button><button class="ui black right icon button" id="'.$btn.'" onclick="history(this.id)"> View History &nbsp;&nbsp;<i class="history icon"></i></button><button class="ui purple right icon button" id="'.$btn.'" onclick="consolidate(this.id)"> Report &nbsp; &nbsp;<i class="file export icon"></i></button></td>
-                    
-                </tr>';
-                }
+                   
 
                 ?>
             </tbody>
@@ -281,6 +306,7 @@
             <form autocomplete="off" class="ui form" id="frm2" method="POST" action="./import.php" onsubmit="frm2check()">
                 <br></br>
                 <center>
+                <div id="fm1">
                     <div class="two fields">
                         <div class="field">
                             <div class="ui header"><span class="ui inverted grey text"> Choose Date to mark the
@@ -297,7 +323,7 @@
                             <div class="ui header"><span class="ui inverted grey text"> Select <br>Period Handled</span>
                             </div>
                             <br>
-                            <select name="hrs[]" multiple="" class="ui selection dropdown" id="hr" required>
+                            <select name="hrs[]" multiple="" class="ui selection dropdown" id="hr"  required>
                                 <option value="">Select Period</option>
                              
                             </select>
@@ -314,14 +340,20 @@
                             <p style="font-size:16px;">Only Dates for Pending Attendance will be enabled!</p>
                         </div>
                     </div>
-
+                </div>
+                <div id="fm2">
+                </div>
                 </center>
-
+                
+                
         </div>
         <div class="actions">
+            <button class="ui primary right labeled icon button" id="modalnxt">
+                Next<i class="checkmark icon"></i>
+            </button>
             <button class="ui positive right labeled icon button"
-             type="submit" name="homy">
-                Proceed<i class="checkmark icon"></i>
+             type="submit" name="homy" id="homy" disabled>
+                Proceed<i class="arrow circle right icon"></i></i>
             </button>
             </form>
         </div>
@@ -331,7 +363,7 @@
     var x,y;
     var response;
     var dt;
-    var elec=["14CSE06","14CSE11","14CSO07","14ECO07","14EEO04","14ITO01","14ITO04","14ITO06","14MEO07","18CSO01","18ITO02","18MEO01"];
+    var elec=<?php echo json_encode($ele)?>;
    
     function getWeekDay(date)
     {
@@ -340,6 +372,7 @@
     
     return weekdays[day];
     }
+
     function attend(id) {
         $('.preloader').css("display","");
         var btn = id.split("/");
@@ -349,12 +382,13 @@
             data: d,
             type: "POST",
             success: function(res) {
-                // alert(res);
-                // return false;
+            //    console.log(res);
+            //     return false;
                 response=JSON.parse(res);
                 var arr = [];
                 var i;
                 var dates =response[0];
+                var tt_rev=response[1];
                 var alt=response[2];
                 var alted=response[3];
     
@@ -381,6 +415,7 @@
                 }
                 var deldate=[];
                 var delday=[];
+               
                 if(alt!="Empty")
                 {
                     for (const altdat in alt) {
@@ -398,35 +433,15 @@
                         }
                         var tt;
                         datecreated=parseInt((alt_date.getFullYear())+''+(x)+''+(y)) 
-                       
-                        if((datecreated)<(20200803))
-                        {
-                            tt=response[4];   //ott
-                            console.log("Old Time Table");
-                            
-                        }
-                        else if((datecreated)<(20201008))
-                        {
-                            tt=response[1];   //tt
-                            console.log("New Time Table");
-                        }
-                        else if((datecreated)<(20201130))
-                        {
-                            tt=response[5];   //tt
-                            console.log("New-1 Time Table");  
-                        }
-                        else if((datecreated)<(20201207))
-                        {
-                            tt=response[6];   
-                            console.log("Lab1");
-                            
-                        }
-                        else
-                        {
-                            tt=response[7];   //ott
-                            console.log("Lab2");
-                            
-                        }
+                        tt_rev.forEach(rev => {
+                            var from=rev["from"].replaceAll("-","");
+                            var to=rev["to"].replaceAll("-","");
+                            if((datecreated>=parseInt(from))&&(datecreated<=parseInt(to)))
+                            {
+                                tt=rev["tt"];
+                                return;
+                            }
+                       });
                         var alt_day=tt[getWeekDay(alt_date)];
                         if((alt_day.length==alt[altdat].length)&&(!(Object.keys(alted)).includes(altdat)))
                         {
@@ -437,7 +452,6 @@
                             delday.push(altdat);
                         }
                     }
-            
                 }
                 var al=[];
                 var foc=[];
@@ -497,36 +511,17 @@
                             var tt;
                             if(dates.includes(day))
                             {
-                                datecreated=parseInt((date.getFullYear())+''+(x)+''+(y)) 
-                                if((datecreated)<(20200803))
-                        {
-                            tt=response[4];   //ott
-                            console.log("Old Time Table");
-                            
-                        }
-                        else if((datecreated)<(20201008))
-                        {
-                            tt=response[1];   //tt
-                            console.log("New Time Table");
+                                datecreated=parseInt((date.getFullYear())+''+(x)+''+(y));
+                                tt_rev.forEach(rev => {
+                            var from=rev["from"].replaceAll("-","");
+                            var to=rev["to"].replaceAll("-","");
+                            if((datecreated>=parseInt(from))&&(datecreated<=parseInt(to)))
+                            {
+                                tt=rev["tt"];
+                                return;
+                            }
                            
-                        }
-                        else if((datecreated)<(20201130))
-                        {
-                            tt=response[5];   //tt
-                            console.log("New-1 Time Table");  
-                        }
-                        else if((datecreated)<(20201207))
-                        {
-                            tt=response[6];   
-                            console.log("Lab1");
-                            
-                        }
-                        else
-                        {
-                            tt=response[7];   //ott
-                            console.log("Lab2");
-                            
-                        }
+                       });
                                 var ar=tt[getWeekDay(date)];    
                                 for (i of ar)
                                 {
@@ -562,10 +557,12 @@
                 $('#code').val(btn[1]);
                 if(elec.includes(btn[1]))
                 {
-        
                     $('#frm2').attr('action','importElec.php');
                 }
-                
+                $("#fm1").show();
+                $("#fm2").html("");
+                $("#modalnxt").show();
+                $( "#homy" ).prop( "disabled", true );
                 $("#datepickermod").modal({
                     centered: false
                 }).modal("show");
@@ -670,19 +667,49 @@
             }
         })
     }
-
+   
     $(document).ready(function() {
         //$('.message .close').on('click', function() {
         //$(this).closest('.message').transition('fade');});
         $("#datepickermod").modal();
+        $('.ui.dropdown').dropdown();
         $("#closebtn1").click(function() {
             
             $("#datepickermod").modal("hide");
             $('form').form('clear');
             $('#hr').dropdown('clear');
+
         });
         $('#cal').calendar({
             type: 'date'
+        });
+        $("#modalnxt").click(function (e) {
+            var pds=$("#hr").val();
+            $("#fm1").hide();
+            $("#fm2").html("");
+            pds.forEach(i => {
+                $("#fm2").append(
+            '<div class="two fields">'+
+                '<div class="field"><span class="ui large  text">'
+                 +((i>3)?i+'<sup>th</sup>':((i==1)?'1<sup>st</sup>':((i==2)?'2<sup>nd</sup>':((i==3)?'3<sup>rd</sup>':''))))+' Hour'+
+                '</span></div>'+
+                '<div class="field">'+
+                '<select name="'+i+'" class="ui dropdown"  required>'+
+                    '<option value="">Select Class Type</option><option value="Theory">Theory</option>'+
+                    '<option value="Tutorial">Tutorial</option><option value="Test">Test</option>'+
+                    '<option value="Laboratory">Laboratory</option><option value="Project">Project</option>'+
+                '</select>'+
+                '</div>'+
+            '</div>');
+            });
+
+
+            
+          
+           $("#modalnxt").hide();
+           $( "#homy" ).prop( "disabled", false );
+
+            e.preventDefault();
         });
     });
 

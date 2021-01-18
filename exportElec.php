@@ -77,7 +77,7 @@ include_once('./navbar.php');
                     if($row["COLUMN_NAME"]!='code' && $row["COLUMN_NAME"]!='date' && $row["COLUMN_NAME"]!='period')
                     {
                         $roll=$row["COLUMN_NAME"];
-                        $sql="SELECT * FROM elective e,registration r WHERE e.regno LIKE r.regno AND (( E1 LIKE '$code' AND S1 LIKE '$sid') OR ( E2 LIKE '$code' AND S2 LIKE '$sid') OR ( E3 LIKE '$code' AND S3 LIKE '$sid') ) AND e.regno LIKE '$roll' ";
+                        $sql="SELECT * FROM elective e,registration r WHERE e.regno LIKE r.regno AND E1 LIKE '$code' AND S1 LIKE '$sid' AND e.regno LIKE '$roll' ";
                         if($con->query($sql)->num_rows!=0)
                         {
                             $reg=$con->query($sql)->fetch_assoc()["name"];

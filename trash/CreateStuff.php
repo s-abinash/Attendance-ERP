@@ -39,11 +39,11 @@ include_once("../db.php");
 session_start();
 
 
-$tableName="14CSE11";
+$tableName="20MSE01";
 
 
 $str="CREATE TABLE `$tableName` (date varchar(10) NOT NULL,code varchar(10) NOT NULL,period int NOT NULL,";
-$sql="SELECT regno FROM `elective` WHERE `S1` LIKE 'CSE002SF'";
+$sql="SELECT regno FROM `elective` WHERE `E1` LIKE '$tableName'";
 
 $res=$con->query($sql);
 while($row=$res->fetch_assoc())
@@ -51,7 +51,7 @@ while($row=$res->fetch_assoc())
   $roll=$row["regno"];
     $str.=$roll." VARCHAR(3) DEFAULT 'N/A',";   
 }
-$str.="PRIMARY KEY(DATE,CODE))";
+$str.="PRIMARY KEY(DATE,CODE,PERIOD))";
 if($con->query($str))
 {
     echo "Successfull";

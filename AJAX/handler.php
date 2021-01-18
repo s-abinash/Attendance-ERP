@@ -2,141 +2,28 @@
     include_once("../db.php");
     session_start();
     $sid=$_SESSION["id"];
-    $sql="SELECT `code` FROM `course_list` where `status` LIKE 'active' AND `category` LIKE 'elective'";
-    $res=$con->query($sql);
-    $ele=array();
-    while($row=mysqli_fetch_array($res))
-    {
-        array_push($ele,$row['code']);
-    }
-    if(isset($_POST["tab"]))
-    {
-         $tab=strtolower($_POST["tab"]);
-         $code=$_POST["code"];
-         $sql="SELECT * FROM `ott` WHERE `class` LIKE '$tab'";
-         $res=$con->query($sql);
-         $day=array();
-         $day_per=array();
-         while($row=$res->fetch_assoc())
-         { 
-              $per=array();
-              foreach($row as $in=>$v)
-              {
-                   if(strpos($v,$code)!==false)
-                   {
-                        array_push($per,$in);
-                   } 
-              }
-              if(!empty($per))
-              {
-                    $day_per+=array($row["day"]=>$per);
-              }   
-         }
-        $ott=$day_per;
-        
-        
-        
-        
-         $sql="SELECT * FROM `tt` WHERE `class` LIKE '$tab'";
-         $res=$con->query($sql);
-         $day=array();
-         $day_per=array();
-         while($row=$res->fetch_assoc())
-         { 
-              $per=array();
-              foreach($row as $in=>$v)
-              {
-                   if(strpos($v,$code)!==false)
-                   {
-                        array_push($per,$in);
-                   } 
-              }
-              if(!empty($per))
-              {
-                    $day_per+=array($row["day"]=>$per);
-              }   
-         }
-        $tt=$day_per;
-        
-         $sql="SELECT * FROM `tt_8-10` WHERE `class` LIKE '$tab'";
-         $res=$con->query($sql);
-         $day=array();
-         $day_per=array();
-         while($row=$res->fetch_assoc())
-         { 
-              $per=array();
-              foreach($row as $in=>$v)
-              {
-                   if(strpos($v,$code)!==false)
-                   {
-                        array_push($per,$in);
-                   } 
-              }
-              if(!empty($per))
-              {
-                    $day_per+=array($row["day"]=>$per);
-              }   
-         }
-        $tt_new=$day_per;
-        
-        
-        $sql="SELECT * FROM `tt_30-11` WHERE `class` LIKE '$tab'";
-        $res=$con->query($sql);
-        $day=array();
-        $day_per=array();
-          while($row=$res->fetch_assoc())
-          { 
-               $per=array();
-               foreach($row as $in=>$v)
-               {
-                    if(strpos($v,$code)!==false)
-                    {
-                         array_push($per,$in);
-                    } 
-               }
-               if(!empty($per))
-               {
-                    $day_per+=array($row["day"]=>$per);
-               }   
-          }
-       $tt_lab1=$day_per;
-
-       $sql="SELECT * FROM `tt_07-12` WHERE `class` LIKE '$tab'";
-       $res=$con->query($sql);
-       $day=array();
-       $day_per=array();
-       while($row=$res->fetch_assoc())
-       { 
-            $per=array();
-            foreach($row as $in=>$v)
-            {
-                 if(strpos($v,$code)!==false)
-                 {
-                      array_push($per,$in);
-                 } 
-            }
-            if(!empty($per))
-            {
-                  $day_per+=array($row["day"]=>$per);
-            }   
-       }
-         $tt_lab2=$day_per;
-        
-     
+    include_once("./header.php");
+    
+     if(isset($_POST["tab"]))
+     {
+          $tab=strtolower($_POST["tab"]);
+          $code=$_POST["code"];
+       
+          $timetables=timetablesfn($con,$tab,$code);
+       
          $x=date("Y-m-d");
          $tdy=date_create($x);
-         $date=date("2020-07-08");
+         $date=date("2021-01-18");
          $diff=intval(date_diff($tdy,date_create($date))->format("%a"))+1;
          $dates=array();
 
          $re=($con->query("SELECT * FROM `course_list` WHERE `code` LIKE '$code'"))->fetch_assoc();
          $dept=$re["dept"];
          $bat=$re["batch"];
-         if($dept=="MCSE")
-         {
-              $dept='CSE';
-              $bat="2020";
-         }
+          if($dept=="ME")
+          {
+               $dept='CSE';
+          }
          for($i=1;$i<=$diff;$i++)
          { 
             
@@ -145,37 +32,19 @@
                    $date=date_format(date_add(date_create($date),date_interval_create_from_date_string("1 days")),"Y-m-d");
                    continue;
               }
-               if((date($date)>date("2020-12-11")) &&($bat=="2018"))
-               {
-                   $date=date_format(date_add(date_create($date),date_interval_create_from_date_string("1 days")),"Y-m-d");
-                   continue;
-               }
-               if((date($date)>date("2020-12-04")) &&($bat=="2017"))
-               {
-                   $date=date_format(date_add(date_create($date),date_interval_create_from_date_string("1 days")),"Y-m-d");
-                   continue;
-               }
+     
                $s=date("l", strtotime($date));
-               if(date($date)>date("2020-12-06"))
-               {
-                    $day_per=$tt_lab2;
+               foreach ($timetables as $key => $value) {
+                    if((date($date)>=date($value["from"]))&&(date($date)<=date($value["to"])))
+                    {
+                         $day_per=$value["tt"];
+                         break;
+                    }
                }
-               else if(date($date)>date("2020-11-29"))
-               {
-                    $day_per=$tt_lab1;
-               }
-               else if(date($date)>date("2020-10-07"))
-               {
-                    $day_per=$tt_new;
-               }
-               else if(date($date)<date("2020-08-03"))
-               {
-                    $day_per=$ott;
-               }
-               else
-               {
-                    $day_per=$tt;
-               }
+               
+              
+          
+
                foreach($day_per as $d=>$pd)
                {
                     if($d==$s)
@@ -184,16 +53,13 @@
                          foreach($pd as $periods)
                          {
                               if(in_array($code,$ele))
-                              {
-                                   
-                                   
+                              {                
                                    $sql="SELECT * FROM `$code` where date LIKE '$date' AND code LIKE '$sid' AND `period` LIKE '$periods'"; 
                               }
                               else
                               {
                                    $sql="SELECT * FROM `$tab` where date LIKE '$date' AND code LIKE '$code' AND `period` LIKE '$periods'"; 
                               }
-                           
                               $r=$con->query($sql);
                               if($r->num_rows==0)
                               {    
@@ -205,12 +71,12 @@
                $date=date_format(date_add(date_create($date),date_interval_create_from_date_string("1 days")),"Y-m-d");
           }
 
+          
           $altsql="SELECT date,period FROM `alteration` WHERE `s1` LIKE '$sid' AND `c1` LIKE '$code' AND date<=CURRENT_DATE";
           $res=$con->query($altsql);
           $alt=array();
           while($row=$res->fetch_assoc())
           { 
-          
                $alt+=array($row["date"]=>explode(",",$row["period"]));   
           }  
           if(empty($alt))
@@ -254,7 +120,7 @@
           {
                $alted="Empty";
           }  
-          echo json_encode(array($dates,$tt,$alt,$alted,$ott,$tt_new,$tt_lab1,$tt_lab2));
+          echo json_encode(array($dates,$timetables,$alt,$alted));
           exit();
 
     }
@@ -262,8 +128,6 @@
     {
          
          $tab=strtolower($_POST["cls"]);
-
-
          $code=$_POST["code"];
          $sql="SELECT * FROM `course_list` WHERE code LIKE '$code'";
          $res=($con->query($sql))->fetch_assoc();
@@ -424,7 +288,7 @@
                     <i class="close icon"></i>
                     <div class="content">      
                       
-                        <form class="ui form" onsubmit="googleForm()"  action="https://docs.google.com/forms/d/e/1FAIpQLSdsVdDBKvncmxe0wdcDteNqEAMJz-IvdWByge3E9x41QpHB0Q/viewform" target="_blank">
+                        <form class="ui form" onsubmit="googleForm()"  action="https://docs.google.com/forms/d/e/1FAIpQLSfXc-nE08ukuvLtuax1V4-Ecb8-Y5p1okU3ALZjlCLatePDPQ/viewform" target="_blank">
                         <div class="field">
                              <input type="text" name="usp" value="pp_url" hidden>
                              <input type="text" name="entry.1760172262" value="'.$stf['name'].'" hidden>
@@ -571,4 +435,3 @@
                          <br/>
                     </form>
 -->
-

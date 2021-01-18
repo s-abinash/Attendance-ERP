@@ -77,6 +77,7 @@ $batch=0;
 $sec='';
 $dep='';
 $hrs='';
+$hrs_type='';
 if(isset($_POST['homy']))
 {
     $date=date("Y-m-d", strtotime(str_replace('/', '-', $_POST['dates'])));
@@ -89,6 +90,10 @@ if(isset($_POST['homy']))
     $batch=intval('20'.$arr[0]);
     $dep=$arr[1];
     $sec=strtoupper($arr[2]);
+    $hrs_type=array();
+    foreach ($hrs as $i) {
+        $hrs_type[$i]=$_POST[$i];
+    }
     $sid=$_SESSION["id"];
     $sql="SELECT `name` from `course_list` WHERE `code` like '$code'";
     //echo '<script>alert("'.$sql.'");</script>';
@@ -103,6 +108,7 @@ if(isset($_POST['homy']))
     $_SESSION['sec']=$sec;
     $_SESSION['dep']=$dep;
     $_SESSION['hrs']=$hrs;
+    $_SESSION['hrs_type']=$hrs_type;
 }
 else
 {
@@ -116,6 +122,7 @@ else
     $sec=$_SESSION['sec'];
     $dep=$_SESSION['dep'];
     $hrs=$_SESSION['hrs'];
+    $hrs_type=$_SESSION['hrs_type'];
     $sid=$_SESSION["id"];
 }
 
@@ -294,9 +301,9 @@ if(isset($_POST['finalize']))
             $A=0;
             $ABS_ROLL=array();
             $asst=$_SESSION['assoc'];
-            $into='(`date`,`code`,`period`,';
+            $into='(`date`,`code`,`period`,`type`,';
             $code=$_SESSION["id"];
-            $vals='("'.$date.'","'.$code.'","'.$h.'",';
+            $vals='("'.$date.'","'.$code.'","'.$h.'","'.$hrs_type[$h].'",';
             $stat='';
             foreach($asst as $roll=>$at)
             {
@@ -329,10 +336,10 @@ if(isset($_POST['finalize']))
         unset($_SESSION['array3']);
         unset($_SESSION['assoc']);
         unset($_SESSION['upload']);
-        if(!in_array($code,array('18CSO01','18ITO01')))
+        if(1)
         {
         $stf=($con->query("SELECT * FROM `staff` WHERE `staffid` like '$sid'"))->fetch_assoc();
-        $sem=(($batch=='2017')?'VII':($batch=='2018'?'V':'III'));
+        $sem=(($batch=='2017')?'VIII':($batch=='2018'?'VI':($batch=='2019'?'IV':'I')));
         $sql="SELECT * FROM `course_list` WHERE code LIKE '$coded'";
         $res=($con->query($sql))->fetch_assoc();
         $name=$res["name"]; 
@@ -355,8 +362,8 @@ if(isset($_POST['finalize']))
             $sec.=" D";
         }
         $sec=trim($sec);
-        if($sdept=="MCSE"){
-            $sem="III";
+        if($coded==="18CSE02"){
+            $sec="A ".$sec;
         }
 
         echo '<div class="ui modal" id="modal">
@@ -364,15 +371,15 @@ if(isset($_POST['finalize']))
         <i class="close icon"></i>
         <div class="content">      
           
-            <form class="ui form"  action="https://docs.google.com/forms/d/e/1FAIpQLSdsVdDBKvncmxe0wdcDteNqEAMJz-IvdWByge3E9x41QpHB0Q/viewform" target="_blank" id="gf">
+            <form class="ui form"  action="https://docs.google.com/forms/d/e/1FAIpQLSfXc-nE08ukuvLtuax1V4-Ecb8-Y5p1okU3ALZjlCLatePDPQ/viewform?" target="_blank" id="gf">
             <div class="field">
                  <input type="text" name="usp" value="pp_url" hidden>
                  <input type="text" name="entry.1760172262" value="'.$stf['name'].'" hidden>
-                 <input type="text" name="entry.1519840088"  value="'.($sdept!='MCSE'?$stf["dept"]:'CSE').'" hidden>
-                 <input type="text" name="entry.1907877152" value="'.($sdept!='MCSE'?'BE':'ME').'" hidden>
-                 <input type="text" name="entry.309081512" value="'.($dep=='MCSE'?'CSE':$dep).'" hidden>
+                 <input type="text" name="entry.1519840088"  value="'.$stf["dept"].'" hidden>
+                 <input type="text" name="entry.1907877152" value="'.($sem!='I'?'BE':'ME').'" hidden>
+                 <input type="text" name="entry.309081512" value="'.($sem=='I'?'CSE':$dep).'" hidden>
                  <input type="text" name="entry.383571963" value="'.$sem.'" hidden>
-                 <input type="text" name="entry.1504310176" value="'.($sdept=='MCSE'?'-':$sec).'" hidden>
+                 <input type="text" name="entry.1504310176" value="'.$sec.'" hidden>
                  <input type="text" name="entry.15204943" value="'.$coded.'"  hidden>
                  <input type="text" name="entry.668277301" value="'.$name.'" hidden>
                  <input type="text" name="entry.1170232087" value="'.$date.'" hidden>
@@ -381,34 +388,8 @@ if(isset($_POST['finalize']))
                  <input type="text" name="entry.1675431824" value="'.$P.'" hidden>
                  <input type="text" name="entry.1186250163" value="'.$A.'" hidden>
                  <input type="text" name="entry.1654159561" value="'.(empty(implode(' , ',$ABS_ROLL))?'-':implode(' , ',$ABS_ROLL)).'" hidden>
-                 <input type="text" name="entry.1877284434" value="'.intval(($P/$cnt)*100).'%" hidden>'.
-                (strpos($name,'Laboratory') !== false?'<input type="text" name="entry.1289128628" value="Laboratory" hidden>':'<div class="inline fields">
-                    <label>Class Type : </label>
-                    <div class="field">
-                    <div class="ui radio checkbox">
-                        <input type="radio" name="entry.1289128628" value="Theory" checked="checked">
-                        <label>Theory</label>
-                    </div>
-                    </div>
-                    <div class="field">
-                    <div class="ui radio checkbox">
-                        <input type="radio" name="entry.1289128628" value="Tutorial">
-                        <label>Tutorial</label>
-                    </div>
-                    </div>
-                    <div class="field">
-                    <div class="ui radio checkbox">
-                        <input type="radio" name="entry.1289128628" value="Test">
-                        <label>Test</label>
-                    </div>
-                    </div>
-                    <div class="field">
-                    <div class="ui radio checkbox">
-                        <input type="radio" name="entry.1289128628" value="Laboratory">
-                        <label>Laboratory</label>
-                    </div>
-                    </div>
-                    </div>').  
+                 <input type="text" name="entry.1877284434" value="'.intval(($P/$cnt)*100).'%" hidden>
+                 <input type="text" name="entry.1289128628" value="'.implode(' , ',$hrs_type).'" hidden>  '.  
                  '<label>Meeting URL: </label>
                  <input type="url" id="url" name="entry.588869143" pattern="https?://drive.google.com.+" required />
             </div><br/>
@@ -555,7 +536,7 @@ if(isset($_POST['finalize']))
                         $arr2=$_SESSION['array2'];
                         $arr3=$_SESSION['array3'];
                         $attend=array();
-                        $sql="SELECT e.regno,r.name FROM elective e,registration r WHERE e.regno LIKE r.regno AND (( E1 LIKE '$code' AND S1 LIKE '$sid') OR ( E2 LIKE '$code' AND S2 LIKE '$sid') OR ( E3 LIKE '$code' AND S3 LIKE '$sid') ) ";
+                        $sql="SELECT e.regno,r.name FROM elective e,registration r WHERE e.regno LIKE r.regno AND  E1 LIKE '$code' AND S1 LIKE '$sid'";
                        
                       
                         $data=$con->query($sql);

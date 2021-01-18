@@ -109,20 +109,20 @@
         <div class="ui borderless fluid huge inverted menu">
             <a class="active green item" href="#root">KEC Student+</a>
             <a class="item" id="home" href="home.php">Home</a>
-            <a class="item" id="alter" href="alter.php">Alter Period</a>
+            <!-- <a class="item" id="alter" href="alter.php">Alter Period</a> -->
             <?php
-            if($design=='Advisor')
-              echo '<a class="item" id="alter" href="exportAdv.php">Advisor Export 
-                   </a>';
-            else if($row['userid']=='mallisenthil')
-            {
-                echo '<a class="item" href="hodReport.php">Pending Report  </a>';
-            }  
-            else if($row['designation']=='HOD')
-            {
-                echo '<a class="item" href="hodReport.php">Pending Report  </a>';
-                echo '<a class="item" href="holiday.php">Add Holiday </a>';
-            }
+            // if($design=='Advisor')
+            //   echo '<a class="item" id="alter" href="exportAdv.php">Advisor Export 
+            //        </a>';
+            // else if($row['userid']=='mallisenthil')
+            // {
+            //     echo '<a class="item" href="hodReport.php">Pending Report  </a>';
+            // }  
+            // else if($row['designation']=='HOD')
+            // {
+            //     echo '<a class="item" href="hodReport.php">Pending Report  </a>';
+            //     echo '<a class="item" href="holiday.php">Add Holiday </a>';
+            // }
             ?>
             <!-- <span style="font-size: 10px; color: grey; margin-top: 5px">&nbsp;New!</span></a> -->
             <a class="item" id="ann">Announcement
@@ -198,21 +198,21 @@
             </div>
             <div class="ui vertical borderless fluid inverted menu">
                 <a class="item" id="index" href="home.php">Home</a>
-                <a class="item" id="alter" href="alter.php">Alter Period</a>
+                <!-- <a class="item" id="alter" href="alter.php">Alter Period</a> -->
                 <!-- <div class="ui yellow inverted label">New</div> -->
                 <?php
-                if($design=='Advisor')
-                  echo '<a class="item" id="alter" href="exportAdv.php">Advisor Export 
-                        </a>';
-                else if($row['userid']=='mallisenthil')
-                {
-                    echo '<a class="item" href="hodReport.php">Pending Report  </a>';
-                }  
-                else if($row['designation']=='HOD')
-                {
-                    echo '<a class="item" href="hodReport.php">Pending Report  </a>';
-                    echo '<a class="item" href="holiday.php">Add Holiday </a>';
-                }
+                // if($design=='Advisor')
+                //   echo '<a class="item" id="alter" href="exportAdv.php">Advisor Export 
+                //         </a>';
+                // else if($row['userid']=='mallisenthil')
+                // {
+                //     echo '<a class="item" href="hodReport.php">Pending Report  </a>';
+                // }  
+                // else if($row['designation']=='HOD')
+                // {
+                //     echo '<a class="item" href="hodReport.php">Pending Report  </a>';
+                //     echo '<a class="item" href="holiday.php">Add Holiday </a>';
+                // }
                 ?>
                 <a class="item" id="ann">Announcement </a>
                 <a class="item" style="font-size:16px;text-indent:20%;"><span id="togglepass" class="ui inverted grey text">Change Password</span></a>
