@@ -2,159 +2,51 @@
     include_once("../db.php");
     session_start();
     $sid=$_SESSION["id"];
-    include_once("./header.php");
-    if(isset($_POST["cls"]))
-    {
-         
-         $tab=strtolower($_POST["cls"]);
-         $code=$_POST["code"];
-         $sql="SELECT * FROM `course_list` WHERE code LIKE '$code'";
-         $res=($con->query($sql))->fetch_assoc();
-         $name=$res["name"]; 
-         $sdept=$res["dept"]; 
-         $sem=(($res["batch"]=='2017')?'VIII':($res["batch"]=='2018'?'VI':($res["batch"]=='2019'?'IV':'I')));
-         $sec="";
-         if($res["staffA"]==$sid)
-         {
-             $sec="A ";
-         }
-         else if($res["staffB"]==$sid)
-         {
-             $sec.="B";
-         }
-         else if($res["staffC"]==$sid)
-         {
-             $sec.="C";
-         }
-         else 
-         {
-             $sec.="D";
-         }
-
-         if(in_array($code,$ele))
-         {
-          $sql="SELECT * FROM `$code` WHERE code LIKE '$sid' ORDER BY `date` DESC,`period` ASC"; 
-          $tab=$code;
-          $code=$code;
-         }
-         else{
-              $sql="SELECT * FROM `$tab` WHERE code LIKE '$code' ORDER BY `date` DESC,`period` ASC"; 
-         }
-         $res=$con->query($sql);
+//     include_once("./header.php");
+$sql="SELECT `code` FROM `course_list` where `status` LIKE 'active' AND `category` LIKE 'elective'";
+$res=$con->query($sql);
+$ele=array();
+while($row=mysqli_fetch_array($res))
+{
+    array_push($ele,$row['code']);
+}
+function ttfun($con,$ttname,$classname,$course)
+{
+    $sql="SELECT * FROM `$ttname` WHERE `class` LIKE '$classname'";
+    $res=$con->query($sql);
+    $day_per=array();
+    while($row=$res->fetch_assoc())
+    { 
+        $per=array();
+        foreach($row as $in=>$v)
+        {
+            if(strpos($v,$course)!==false)
+            {
+                array_push($per,$in);
+            } 
+        }
+        if(!empty($per))
+        {
+            $day_per+=array($row["day"]=>$per);
+        }   
+     }
+    return $day_per;
+}
+function timetablesfn($con,$tab,$code)
+{
+    $timetable=array();
+    $tt_res=$con->query("select * from tt_home order by id asc");
     
-         while($row=$res->fetch_assoc())
-         {
-               $cnt=mysqli_num_fields($res)-3;
-               $d1=$row["date"];
-              $d=date("d-m-Y",strtotime($d1));
-              $h=$row["period"];
-              $abs='<b><em>Course &nbsp: &nbsp'.$name.'<br><br>Date &nbsp: &nbsp '.$d.'<br><br>Absentees:<br> <ol class="ui  list">';
-              $ABS_ROLL=array();
-              foreach($row as $ind=>$val)
-              {
-                   if($val=="A")
-                   {
-                        array_push($ABS_ROLL,$ind);
-                        $abs.='<li>'.$ind.'&nbsp; - &nbsp;'.($con->query("SELECT name from registration where regno like '$ind'"))->fetch_assoc()["name"].'</li>';
-                   }
-              }
-              $abs.='</ol></b></em>';
-              if(array_key_exists("P",array_count_values($row)))
-              {
-                    $P=array_count_values($row)["P"];
-              }
-              else
-              {
-                    $P=0;
-              }
-              if(array_key_exists("A",array_count_values($row)))
-              {
-                    $A=array_count_values($row)["A"];
-              }
-              else
-              {
-                    $A=0;
-              }
-             
-              if(array_key_exists("N/A",array_count_values($row)))
-              {
-                    $na=array_count_values($row)["N/A"];
-              }
-              else
-              {
-                    $na=0;
-              }
-              $cnt-=$na;
-
-              $stf=($con->query("SELECT * FROM `staff` WHERE `staffid` like '$sid'"))->fetch_assoc();
-
-              
-              echo '<div class="ui raised  segment" style="width:80%;margin:auto;margin-top:3%;">
-                     
-               <div class="ui black info right circular icon message">
-             
-               <div class="ui header">
-                       
-                              Date &nbsp;:&nbsp; '.$d.'  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;   Period &nbsp;: &nbsp '.$h.'</span>
-                         </div>
-                         <div class="content">
-                              <div class="ui inverted small statistics" style="margin-left:25%">
-                                   <div class="statistic">
-                                        <div class="value">
-                                             '.$P.'
-                                        </div>
-                                        <div class="label">
-                                             Present
-                                        </div>
-                                   </div>
-                                   <div class="red statistic" id="'.$d.$h.'" >
-                                        <div class="value">
-                                             '.$A.'
-                                        </div>
-                                        <div class="label">
-                                             Absent
-                                        </div>
-                                   </div>
-                                   <div class="blue statistic">
-                                        <div class="value">
-                                             '.$cnt.'
-                                        </div>
-                                        <div class="label">
-                                             Total
-                                        </div>
-                                   </div>
-                                   <div class="statistic">
-                                        <div class="value">
-                                              <button class="ui right floated tertiary icon button" data-tooltip="Click to Edit Uploaded Attendance" id="'.$code."/".$d."/".$h."/".$tab.'" onclick="editor(this.id);" data-position="top left"><i class="edit large icon" style="color:cyan"></i></button>
-                                        </div>
-                                        <div class="label">
-                                             Edit
-                                        </div>
-                                   </div>';
- 
-                                  
-                                   
-                         echo '</div></div>
-                    </div></div><div class="ui popup" id="pop'.$d.$h.'" style="width:100%">'.$abs.'</div>
-                    
-                    
-                    <script>
-                    $(document).ready(function(){
-                         $("#'.$d.$h.'")
-                         .popup({
-                         popup: "#pop'.$d.$h.'",
-                         inline     : true,
-                         hoverable  : true,
-                         
-                         });
-                        
-                    });
-                    </script>';
-            
-                      
-         }
-        exit();
+    while($row=$tt_res->fetch_assoc())
+    {
+         $tt=array();
+         $tt["from"]=$row["from_date"];
+         $tt["to"]=$row["to_date"];
+         $tt["tt"]=ttfun($con,$row["rev"],$tab,$code);
+         array_push($timetable,$tt);
     }
+    return $timetable;
+}
      if(isset($_POST["tab"]))
      {
           $tab=strtolower($_POST["tab"]);
@@ -310,7 +202,158 @@
          
          exit();
     }
+    else if(isset($_POST["cls"]))
+    {
+         
+         $tab=strtolower($_POST["cls"]);
+         $code=$_POST["code"];
+         $sql="SELECT * FROM `course_list` WHERE code LIKE '$code'";
+         $res=($con->query($sql))->fetch_assoc();
+         $name=$res["name"]; 
+         $sdept=$res["dept"]; 
+         $sem=(($res["batch"]=='2017')?'VIII':($res["batch"]=='2018'?'VI':($res["batch"]=='2019'?'IV':'I')));
+         $sec="";
+         if($res["staffA"]==$sid)
+         {
+             $sec="A ";
+         }
+         else if($res["staffB"]==$sid)
+         {
+             $sec.="B";
+         }
+         else if($res["staffC"]==$sid)
+         {
+             $sec.="C";
+         }
+         else 
+         {
+             $sec.="D";
+         }
 
+         if(in_array($code,$ele))
+         {
+          $sql="SELECT * FROM `$code` WHERE code LIKE '$sid' ORDER BY `date` DESC,`period` ASC"; 
+          $tab=$code;
+          $code=$code;
+         }
+         else{
+              $sql="SELECT * FROM `$tab` WHERE code LIKE '$code' ORDER BY `date` DESC,`period` ASC"; 
+         }
+         $res=$con->query($sql);
+    
+         while($row=$res->fetch_assoc())
+         {
+               $cnt=mysqli_num_fields($res)-3;
+               $d1=$row["date"];
+              $d=date("d-m-Y",strtotime($d1));
+              $h=$row["period"];
+              $abs='<b><em>Course &nbsp: &nbsp'.$name.'<br><br>Date &nbsp: &nbsp '.$d.'<br><br>Absentees:<br> <ol class="ui  list">';
+              $ABS_ROLL=array();
+              foreach($row as $ind=>$val)
+              {
+                   if($val=="A")
+                   {
+                        array_push($ABS_ROLL,$ind);
+                        $abs.='<li>'.$ind.'&nbsp; - &nbsp;'.($con->query("SELECT name from registration where regno like '$ind'"))->fetch_assoc()["name"].'</li>';
+                   }
+              }
+              $abs.='</ol></b></em>';
+              if(array_key_exists("P",array_count_values($row)))
+              {
+                    $P=array_count_values($row)["P"];
+              }
+              else
+              {
+                    $P=0;
+              }
+              if(array_key_exists("A",array_count_values($row)))
+              {
+                    $A=array_count_values($row)["A"];
+              }
+              else
+              {
+                    $A=0;
+              }
+             
+              if(array_key_exists("N/A",array_count_values($row)))
+              {
+                    $na=array_count_values($row)["N/A"];
+              }
+              else
+              {
+                    $na=0;
+              }
+              $cnt-=$na;
+
+              $stf=($con->query("SELECT * FROM `staff` WHERE `staffid` like '$sid'"))->fetch_assoc();
+
+              
+              echo '<div class="ui raised  segment" style="width:80%;margin:auto;margin-top:3%;">
+                     
+               <div class="ui black info right circular icon message">
+             
+               <div class="ui header">
+                       
+                              Date &nbsp;:&nbsp; '.$d.'  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;   Period &nbsp;: &nbsp '.$h.'</span>
+                         </div>
+                         <div class="content">
+                              <div class="ui inverted small statistics" style="margin-left:25%">
+                                   <div class="statistic">
+                                        <div class="value">
+                                             '.$P.'
+                                        </div>
+                                        <div class="label">
+                                             Present
+                                        </div>
+                                   </div>
+                                   <div class="red statistic" id="'.$d.$h.'" >
+                                        <div class="value">
+                                             '.$A.'
+                                        </div>
+                                        <div class="label">
+                                             Absent
+                                        </div>
+                                   </div>
+                                   <div class="blue statistic">
+                                        <div class="value">
+                                             '.$cnt.'
+                                        </div>
+                                        <div class="label">
+                                             Total
+                                        </div>
+                                   </div>
+                                   <div class="statistic">
+                                        <div class="value">
+                                              <button class="ui right floated tertiary icon button" data-tooltip="Click to Edit Uploaded Attendance" id="'.$code."/".$d."/".$h."/".$tab.'" onclick="editor(this.id);" data-position="top left"><i class="edit large icon" style="color:cyan"></i></button>
+                                        </div>
+                                        <div class="label">
+                                             Edit
+                                        </div>
+                                   </div>';
+ 
+                                  
+                                   
+                         echo '</div></div>
+                    </div></div><div class="ui popup" id="pop'.$d.$h.'" style="width:100%">'.$abs.'</div>
+                    
+                    
+                    <script>
+                    $(document).ready(function(){
+                         $("#'.$d.$h.'")
+                         .popup({
+                         popup: "#pop'.$d.$h.'",
+                         inline     : true,
+                         hoverable  : true,
+                         
+                         });
+                        
+                    });
+                    </script>';
+            
+                      
+         }
+        exit();
+    }
     else if(isset($_POST["editor"]))
     {
           $_SESSION["code"]=$_POST["e_code"];
