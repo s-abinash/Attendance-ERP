@@ -186,15 +186,15 @@
          {
              $sec.="D";
          }
-         $sm_code=strtolower($code);
+      
          if(in_array($code,$ele))
          {
-          $sql="SELECT * FROM `$sm_code` WHERE code LIKE '$sid' ORDER BY `date` DESC,`period` ASC"; 
+          $sql="SELECT * FROM `$code` WHERE code LIKE '$sid' ORDER BY `date` DESC,`period` ASC"; 
           $tab=$code;
           $code=$code;
          }
          else{
-              $sql="SELECT * FROM `$tab` WHERE code LIKE '$sm_code' ORDER BY `date` DESC,`period` ASC"; 
+              $sql="SELECT * FROM `$tab` WHERE code LIKE '$code' ORDER BY `date` DESC,`period` ASC"; 
          }
          $res=$con->query($sql);
     
