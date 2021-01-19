@@ -584,8 +584,6 @@
             data: d1,
             type: "POST",
             success: function(r) {
-                console.log(r);
-                return false;
                 if (r === '') {
                     // Notiflix.Notify.Info("You haven't uploaded any Attendance reports yet");
                     $('body')
