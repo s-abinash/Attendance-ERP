@@ -111,6 +111,12 @@
             <a class="item" id="home" href="home.php">Home</a>
             <!-- <a class="item" id="alter" href="alter.php">Alter Period</a> -->
             <?php
+            if($id=="CSE003SF")
+            {
+              echo '<a class="item" href="hodReport.php">Pending Report  </a>';
+              echo '<a class="item" href="deptReport.php">Dept Report  </a>'; 
+            }
+            
             // if($design=='Advisor')
             //   echo '<a class="item" id="alter" href="exportAdv.php">Advisor Export 
             //        </a>';
