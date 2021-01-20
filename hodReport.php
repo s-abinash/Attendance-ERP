@@ -1,30 +1,16 @@
 
 <?php 
-session_start();
-if(!isset($_SESSION['id']))
-{
-    header('Location: index.html');
-}
-include_once("./db.php");
-$staffid=$_SESSION["id"];
-$res=$con->query("SELECT * FROM staff where `staffid` LIKE '$staffid'")->fetch_assoc();
-$dept=$res["dept"];
-// if($_SESSION["id"]!='CSE001SF' || $_SESSION["id"]!='CSE004SF' )
-// {
-// //     header('Location: home.php');
-// }
-include_once('navbar.php'); 
-$staffid=$_SESSION['id'];
-$sql="SELECT `code` FROM `course_list` where `dept` LIKE 'CSE' AND `status` LIKE 'active' AND `category` LIKE 'elective'";
-$res=$con->query($sql);
-$ele=array();
-while($row=mysqli_fetch_array($res))
-{
-    array_push($ele,$row['code']);
-}
-
-
-$temp='';
+    session_start();
+    if(!isset($_SESSION['id']))
+    {
+        header('Location: index.html');
+    }
+    include_once("./db.php");
+    $staffid=$_SESSION["id"];
+    $res=$con->query("SELECT * FROM staff where `staffid` LIKE '$staffid'")->fetch_assoc();
+    $dept=$res["dept"];
+    include_once('navbar.php'); 
+    include_once('./AJAX/header.php'); 
 ?>
 <head>
 <title>Pending Report</title>
@@ -56,16 +42,14 @@ $temp='';
                     $data=$con->query($sql);
                     $p=0;
                     $scnt=0;
-                   
-                    
+                    $temp='';
                     while($row=mysqli_fetch_array($data))
                     {
                         $sid=$row['staffid'];
                         $sname=$row['name'];
                         $smail=$row['mail'];
-                        $sql="SELECT * FROM `course_list` WHERE (`staffA`  LIKE '$sid' OR `staffB`  LIKE '$sid' OR `staffC`  LIKE '$sid' OR `staffD` LIKE '$sid' ) AND `status` LIKE 'active'";
-                        $data1=$con->query($sql);
-                        
+                        $sql="SELECT * FROM `course_list` WHERE (`staffA`  LIKE '%$sid%' OR `staffB`  LIKE '%$sid%' OR `staffC`  LIKE '%$sid%' OR `staffD` LIKE '%$sid%' ) AND `status` LIKE 'active'";
+                        $data1=$con->query($sql);  
                         $n=mysqli_num_rows($data1);
                         $bool=1;
                         $bol=0;
@@ -75,148 +59,46 @@ $temp='';
                               
                                 $ssub=$row1['name'];
                                 $code=$row1["code"];
-                                if($row1["staffA"]==$sid)
+                                $sec="";
+                                if(substr_count($row1["staffA"],$sid))
                                 {
                                     $sec="A";
                                 }
-                                else if($row1["staffB"]==$sid)
+                                else if(substr_count($row1["staffB"],$sid))
                                 {
                                     $sec="B";
                                 }
-                                else if($row1["staffC"]==$sid)
+                                else if(substr_count($row1["staffC"],$sid))
                                 {
                                     $sec="C";
                                 }
-                                else 
+                                else if(substr_count($row1["staffD"],$sid))
                                 {
                                     $sec="D";
                                 }
+
                                 $year=$row1["batch"];
+                                if($code=="18CEO02")
+                                {
+                                    $sec="A ".$sec;
+                                }
                                 $batch=$row1["batch"]%2000;
                                 $cls=($batch==17?'IV':(($batch==18)?'III':'II')).' - '.$sec;
                                 $dep=$dept;
-                                if($row1['dept']=='MCSE')
+                                if($row1['dept']=='ME')
                                 {
-                                    $dep='mcse';
+                                    $dep='me';
                                     $year="2020";
                                     $cls='ME';
-
                                 }
-                                 
                                 $tab=strtolower($batch.'-'.$dep.'-'.$sec);
-                            
-                                $sql="SELECT * FROM `ott` WHERE `class` LIKE '$tab'";
-                                $res=$con->query($sql);
-                                $day=array();
-                                $day_per=array();
-                                while($row=$res->fetch_assoc())
-                                { 
-                                    $per=array();
-                                    foreach($row as $in=>$v)
-                                    {
-                                        if(strpos($v,$code)!==false)
-                                        {
-                                                array_push($per,$in);
-                                        } 
-                                    }
-                                    if(!empty($per))
-                                    {
-                                            $day_per+=array($row["day"]=>$per);
-                                    }   
-                                }
-                                $ott=$day_per;
-                            
-                            
-                            
-                                $sql="SELECT * FROM `tt` WHERE `class` LIKE '$tab'";
-                                $res=$con->query($sql);
-                                $day=array();
-                                $day_per=array();
-                                while($row=$res->fetch_assoc())
-                                { 
-                                    $per=array();
-                                    foreach($row as $in=>$v)
-                                    {
-                                        if(strpos($v,$code)!==false)
-                                        {
-                                                array_push($per,$in);
-                                        } 
-                                    }
-                                    if(!empty($per))
-                                    {
-                                            $day_per+=array($row["day"]=>$per);
-                                    }   
-                                }
-                                $tt=$day_per;
-                                $sql="SELECT * FROM `tt_30-11` WHERE `class` LIKE '$tab'";
-                                $res=$con->query($sql);
-                                $day=array();
-                                $day_per=array();
-                                while($row=$res->fetch_assoc())
-                                { 
-                                     $per=array();
-                                     foreach($row as $in=>$v)
-                                     {
-                                          if(strpos($v,$code)!==false)
-                                          {
-                                               array_push($per,$in);
-                                          } 
-                                     }
-                                     if(!empty($per))
-                                     {
-                                           $day_per+=array($row["day"]=>$per);
-                                     }   
-                                }
-                               $tt_lab1=$day_per;
-                        
-                               $sql="SELECT * FROM `tt_07-12` WHERE `class` LIKE '$tab'";
-                               $res=$con->query($sql);
-                               $day=array();
-                               $day_per=array();
-                               while($row=$res->fetch_assoc())
-                               { 
-                                    $per=array();
-                                    foreach($row as $in=>$v)
-                                    {
-                                         if(strpos($v,$code)!==false)
-                                         {
-                                              array_push($per,$in);
-                                         } 
-                                    }
-                                    if(!empty($per))
-                                    {
-                                          $day_per+=array($row["day"]=>$per);
-                                    }   
-                               }
-                              $tt_lab2=$day_per;
-                                                     
-         $sql="SELECT * FROM `tt_8-10` WHERE `class` LIKE '$tab'";
-         $res=$con->query($sql);
-         $day=array();
-         $day_per=array();
-         while($row=$res->fetch_assoc())
-         { 
-              $per=array();
-              foreach($row as $in=>$v)
-              {
-                   if(strpos($v,$code)!==false)
-                   {
-                        array_push($per,$in);
-                   } 
-              }
-              if(!empty($per))
-              {
-                    $day_per+=array($row["day"]=>$per);
-              }   
-         }
-        $tt_new=$day_per;
-        
-
-
-        
+                                $timetables=timetablesfn($con,$tab,$code,$project_array,$sid);
                                 $x=date("Y-m-d");
                                 $tdy=date_create($x);
-                                $date=date("2020-07-08");
+                                if($year!=2017)
+                                    $date=date("2021-01-18");
+                                else
+                                    $date=date("2021-01-02");  
                                 $diff=intval(date_diff($tdy,date_create($date))->format("%a"))+1;
                                 
                                 $dates=array();
@@ -229,36 +111,8 @@ $temp='';
                                         $date=date_format(date_add(date_create($date),date_interval_create_from_date_string("1 days")),"Y-m-d");
                                         continue;
                                     }
-                                    if((date($date)>date("2020-12-11")) &&($year=="2018"))
-                                    {
-                                        $date=date_format(date_add(date_create($date),date_interval_create_from_date_string("1 days")),"Y-m-d");
-                                        continue;
-                                    }
-                                    if((date($date)>date("2020-12-04")) &&($year=="2017"))
-                                    {
-                                        $date=date_format(date_add(date_create($date),date_interval_create_from_date_string("1 days")),"Y-m-d");
-                                        continue;
-                                    }
-                                    if(date($date)>date("2020-12-06"))
-                                    {
-                                            $day_per=$tt_lab2;
-                                    }
-                                    else if(date($date)>date("2020-11-29"))
-                                    {
-                                            $day_per=$tt_lab1;
-                                    }
-                                    else if(date($date)>date("2020-10-07"))
-                                    {
-                                            $day_per=$tt_new;
-                                    }
-                                    else if(date($date)<date("2020-08-03"))
-                                    {
-                                            $day_per=$ott;
-                                    }
-                                    else
-                                    {
-                                            $day_per=$tt;
-                                    }
+                                   
+                                    
                                     
                                     $alt=array();
                                     $result=$con->query("SELECT * FROM `alteration` where `date` LIKE '$date' AND `s2` LIKE '$sid' AND `c2` LIKE '$code'");
@@ -283,12 +137,20 @@ $temp='';
                                     }
                                     $s=date("l",strtotime($date));
                                     $day_pd=array();
+                                    foreach ($timetables as $key => $value) {
+                                        if((date($date)>=date($value["from"]))&&(date($date)<=date($value["to"])))
+                                        {
+                                             $day_per=$value["tt"];
+                                             break;
+                                        }
+                                   }
+
                                     foreach($day_per as $d=>$pd)
                                     {
                                             if($d==$s)
                                             {
                                                 foreach($pd as $periods)
-                                                {
+                                                { 
                                                     if(in_array($code,$ele))
                                                         $sql="SELECT * FROM `$code` where date LIKE '$date' AND code LIKE '$sid' AND `period` LIKE '$periods'"; 
                                                     else
@@ -309,7 +171,6 @@ $temp='';
                                     }
                                     if(!empty(array_merge($alt,$day_pd)))
                                     {
-                                    
                                         $dates+=array($date=>array_merge($alt,$day_pd));
                                     }  
                                     $date=date_format(date_add(date_create($date),date_interval_create_from_date_string("1 days")),"Y-m-d");

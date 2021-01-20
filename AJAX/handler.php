@@ -9,24 +9,24 @@
           $tab=strtolower($_POST["tab"]);
           $code=$_POST["code"];
        
-          $timetables=timetablesfn($con,$tab,$code);
-       
-         $x=date("Y-m-d");
-         $tdy=date_create($x);
-         $date=date("2021-01-18");
-         $diff=intval(date_diff($tdy,date_create($date))->format("%a"))+1;
-         $dates=array();
-
-         $re=($con->query("SELECT * FROM `course_list` WHERE `code` LIKE '$code'"))->fetch_assoc();
-         $dept=$re["dept"];
-         $bat=$re["batch"];
+          $timetables=timetablesfn($con,$tab,$code,$project_array,$sid);
+          $re=($con->query("SELECT * FROM `course_list` WHERE `code` LIKE '$code'"))->fetch_assoc();
+          $dept=$re["dept"];
+          $bat=$re["batch"];
           if($dept=="ME")
           {
                $dept='CSE';
           }
+         $x=date("Y-m-d");
+         $tdy=date_create($x);
+         if($bat!=2017)
+               $date=date("2021-01-18");
+         else
+               $date=date("2021-01-02");  
+         $diff=intval(date_diff($tdy,date_create($date))->format("%a"))+1;
+         $dates=array();
          for($i=1;$i<=$diff;$i++)
          { 
-            
               if($con->query("select * from `holiday` where `date` LIKE '$date' AND `dept` LIKE '$dept' AND `year` like '$bat'")->num_rows!=0)
               {
                    $date=date_format(date_add(date_create($date),date_interval_create_from_date_string("1 days")),"Y-m-d");
@@ -42,9 +42,6 @@
                     }
                }
                
-              
-          
-
                foreach($day_per as $d=>$pd)
                {
                     if($d==$s)
@@ -52,6 +49,7 @@
                       
                          foreach($pd as $periods)
                          {
+                              
                               if(in_array($code,$ele))
                               {                
                                    $sql="SELECT * FROM `$code` where date LIKE '$date' AND code LIKE '$sid' AND `period` LIKE '$periods'"; 
