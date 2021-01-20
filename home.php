@@ -317,7 +317,7 @@
                             <div class="ui calendar" id="cal">
                                 <div class="ui  focus input  left icon">
                                     <i class="calendar icon"></i>
-                                    <input type="text" name="dates" placeholder="Date/Time" id="dat" required readonly>
+                                    <input type="text" name="dates" placeholder="Date/Time" id="dat" required readonly style="cursor:pointer">
                                 </div>
                             </div>
                         </div>
@@ -497,7 +497,7 @@
                     onChange   : function(date, settings) {
                         var datecreated;
                         $('#hr').dropdown('clear');
-                        $("#hr").html("<option value=''>Select Period</option>");
+                        $("#hr").html("<option class='item' value=''>Select Period</option>");
                         if (!date) return '';
                             
                             x=(date.getMonth() + 1);
@@ -528,14 +528,14 @@
                                 var ar=tt[getWeekDay(date)];    
                                 for (i of ar)
                                 {
-                                    $("#hr").append("<option value='"+i+"'>"+i+"</option>");
+                                    $("#hr").append("<option class='item' value='"+i+"'>"+i+"</option>");
                                 }
                             }                            
                             if(al.includes(day))
                             {
                                 for(i of alted[day])
                                 {
-                                    $("#hr").append("<option value='"+i+"'>"+i+"</option>");
+                                    $("#hr").append("<option class='item' value='"+i+"'>"+i+"</option>");
                                 }
                                 
                             }
@@ -697,10 +697,10 @@
                  +((i>3)?i+'<sup>th</sup>':((i==1)?'1<sup>st</sup>':((i==2)?'2<sup>nd</sup>':((i==3)?'3<sup>rd</sup>':''))))+' Hour'+
                 '</span></div>'+
                 '<div class="field">'+
-                '<select name="'+i+'" class="ui dropdown"  required>'+
-                    '<option value="">Select Class Type</option><option value="Theory">Theory</option>'+
-                    '<option value="Tutorial">Tutorial</option><option value="Test">Test</option>'+
-                    '<option value="Laboratory">Laboratory</option><option value="Project">Project</option>'+
+                '<select name="'+i+'" class="ui fluid dropdown"  required>'+
+                    '<option class="item" value="">Select Class Type</option><option class="item" value="Theory">Theory</option>'+
+                    '<option class="item" value="Tutorial">Tutorial</option><option class="item" value="Test">Test</option>'+
+                    '<option class="item" value="Laboratory">Laboratory</option><option class="item" value="Project">Project</option>'+
                 '</select>'+
                 '</div>'+
             '</div>');

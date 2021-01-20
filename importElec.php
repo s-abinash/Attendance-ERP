@@ -187,13 +187,13 @@ if(isset($_POST["upload"]))
                 
                 include_once('./assets/simplexlsx-master/src/SimpleXLSX.php');
                 $arr1 = array();
-                $arr2 = array();
-                $arr3 = array();
+                // $arr2 = array();
+                // $arr3 = array();
                 
                 if ($xlsx = SimpleXLSX::parse($targetfolder)) {
                     //var_dump($xlsx->rows(3));
                     try{
-                        if(empty($xlsx->rows(0)) || empty($xlsx->rows(1)) || empty($xlsx->rows(2)))
+                        if(empty($xlsx->rows(0)))// || empty($xlsx->rows(1)) || empty($xlsx->rows(2)))
                         {    
                             throw new Exception();
                         }
@@ -206,14 +206,14 @@ if(isset($_POST["upload"]))
                         exit();
                     }
                     try{
-                        if(($xlsx->rows(0)==null) || ($xlsx->rows(1)==null) || ($xlsx->rows(2)==null))
+                        if(($xlsx->rows(0)==null) )//|| ($xlsx->rows(1)==null) || ($xlsx->rows(2)==null))
                         {    
                             throw new Exception();
                         }
                     }
                     catch(Exception $e) {
                         unlink($targetfolder);
-                        echo "<script> Notiflix.Report.Failure('Format Error','3 sheets should be present.', 'Okay',function(){window.location.replace('home.php');} );</script>";
+                        echo "<script> Notiflix.Report.Failure('Format Error','Sheets should be present.', 'Okay',function(){window.location.replace('home.php');} );</script>";
                         //echo "<script>alert('File is not in desired format');</script>";
                         //echo "<script>window.location.replace('import.php');</script>";
                         exit();
@@ -222,37 +222,38 @@ if(isset($_POST["upload"]))
                     foreach ($xlsx->rows(0) as $r) {
                         $s = $r[0];
                         $str = strtoupper(substr(trim($s), -8));
+                        $score=$r[1];
                         if((intval(substr($str,0,2))!=0)&&(intval(substr($str,-3))!=0))
                         {
-                            array_push($arr1,$str);
+                            $arr1[$str]=$score;
                            // echo $str.'</>';
                         }
                     }
                     // echo '<h1>Sheet2</h1>';
-                    foreach ($xlsx->rows(1) as $r) {
-                        $s = $r[0];
-                        $str = strtoupper(substr(trim($s), -8));
-                        if((intval(substr($str,0,2))!=0)&&(intval(substr($str,-3))!=0))
-                        {          
-                            array_push($arr2,$str);
-                           // echo $str.'</br>';
-                        }
-                    }
-                    // echo '<h1>Sheet3</h1>';
-                    foreach ($xlsx->rows(2) as $r) {
-                        $s = $r[0];
-                        $str = strtoupper(substr(trim($s), -8));
-                        if((intval(substr($str,0,2))!=0)&&(intval(substr($str,-3))!=0))
-                        {
-                            array_push($arr3,$str);
-                           // echo $str.'</br>';
-                        }
-                    }
+                    // foreach ($xlsx->rows(1) as $r) {
+                    //     $s = $r[0];
+                    //     $str = strtoupper(substr(trim($s), -8));
+                    //     if((intval(substr($str,0,2))!=0)&&(intval(substr($str,-3))!=0))
+                    //     {          
+                    //         array_push($arr2,$str);
+                    //        // echo $str.'</br>';
+                    //     }
+                    // }
+                    // // echo '<h1>Sheet3</h1>';
+                    // foreach ($xlsx->rows(2) as $r) {
+                    //     $s = $r[0];
+                    //     $str = strtoupper(substr(trim($s), -8));
+                    //     if((intval(substr($str,0,2))!=0)&&(intval(substr($str,-3))!=0))
+                    //     {
+                    //         array_push($arr3,$str);
+                    //        // echo $str.'</br>';
+                    //     }
+                    // }
 
                     $_SESSION['upload']=true;
                     $_SESSION['array1']=$arr1;
-                    $_SESSION['array2']=$arr2;
-                    $_SESSION['array3']=$arr3;
+                    // $_SESSION['array2']=$arr2;
+                    // $_SESSION['array3']=$arr3;
                    // echo $_SESSION['array2'];
                 } else {
                     echo SimpleXLSX::parseError();
@@ -332,8 +333,8 @@ if(isset($_POST['finalize']))
             $con->query($sql);
         }
         unset($_SESSION['array1']);
-        unset($_SESSION['array2']);
-        unset($_SESSION['array3']);
+        // unset($_SESSION['array2']);
+        // unset($_SESSION['array3']);
         unset($_SESSION['assoc']);
         unset($_SESSION['upload']);
         if(1)
@@ -425,8 +426,8 @@ if(isset($_POST['finalize']))
     else
     {
             unset($_SESSION['array1']);
-            unset($_SESSION['array2']);
-            unset($_SESSION['array3']);
+            // unset($_SESSION['array2']);
+            // unset($_SESSION['array3']);
             unset($_SESSION['assoc']);
             unset($_SESSION['upload']);
             echo "<script>window.location.replace('./home.php');</script>";
@@ -463,12 +464,14 @@ if(isset($_POST['finalize']))
                 </div>
                 <div class="two field">
                     <div class="field">
-                        <label>Sample</label>
-                        <div class="ui message">
-                            <p>XLSX with 3 sheets, each having list in the first column</p>
-                            <span style="float:right;">Download Excel Format here, <a href="./files/CSEA.xlsx"
-                                    download><i class="blue download icon"></i></a></span>
-                            <br>
+                    <label>Info</label>
+                        <div class="ui teal message">
+                            <p>XLSX format has been updated. <em data-emoji=":bell:" class="notify"></em></p>
+                            <p>Excel Sheets from <a href="https://chrome.google.com/webstore/detail/google-meet-attendance-co/hjjeaaibilndjeabckakaknlcbblcmbc?hl=en" target="_blank">Google Meet Attendance Collector <i class="external link square alternate icon"></i></a> will only work. 
+                            You can download the extension by clicking on the name</p>
+                            <span style="float:left;"><a href="./files/template.xlsx" download>Download Sample<i
+                                        class="blue download icon"></i></a></span>
+                            <br />
                         </div>
                     </div>
 
@@ -533,8 +536,8 @@ if(isset($_POST['finalize']))
                         <tbody>
                             <?php
                         $arr1=$_SESSION['array1'];
-                        $arr2=$_SESSION['array2'];
-                        $arr3=$_SESSION['array3'];
+                        // $arr2=$_SESSION['array2'];
+                        // $arr3=$_SESSION['array3'];
                         $attend=array();
                         $sql="SELECT e.regno,r.name FROM elective e,registration r WHERE e.regno LIKE r.regno AND  E1 LIKE '$code' AND S1 LIKE '$sid'";
                        
@@ -545,17 +548,26 @@ if(isset($_POST['finalize']))
                         {  
                             $name=$r['name'];
                             $r=$r['regno'];
-                            
+                            $score=array();
                             $mark='';
                             $cls='';
                             $check='';
-                            if((in_array($r,$arr1)&&in_array($r,$arr2))||(in_array($r,$arr2)&&in_array($r,$arr3))||(in_array($r,$arr1)&&in_array($r,$arr3)))
+                            if((array_key_exists($r,$arr1)))//&&in_array($r,$arr2))||(in_array($r,$arr2)&&in_array($r,$arr3))||(in_array($r,$arr1)&&in_array($r,$arr3)))
                             {
-                                $attend[$r]='P';
-                                $mark='<i class="large green checkmark icon"></i>';
-                                $cls='positive';
-                                $check='checked';
-                            }    
+                                $score=explode("/",$arr1[$r]);
+                                if($score[0]>=floor($score[1]*0.7))
+                                {
+                                    $attend[$r]='P';
+                                    $mark='<i class="large green checkmark icon"></i>';
+                                    $cls='positive';
+                                    $check='checked';
+                                }
+                                else{
+                                    $attend[$r]='A';
+                                    $mark='<i class="large red times icon"></i>';
+                                    $cls='negative';
+                                }    
+                            }     
                             else
                             {    
                                 $attend[$r]='A';
