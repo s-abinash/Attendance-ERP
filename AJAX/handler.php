@@ -3,12 +3,10 @@
     session_start();
     $sid=$_SESSION["id"];
     include_once("./header.php");
-    
      if(isset($_POST["tab"]))
      {
           $tab=strtolower($_POST["tab"]);
           $code=$_POST["code"];
-       
           $timetables=timetablesfn($con,$tab,$code,$project_array,$sid);
           $re=($con->query("SELECT * FROM `course_list` WHERE `code` LIKE '$code'"))->fetch_assoc();
           $dept=$re["dept"];
@@ -32,7 +30,6 @@
                    $date=date_format(date_add(date_create($date),date_interval_create_from_date_string("1 days")),"Y-m-d");
                    continue;
               }
-     
                $s=date("l", strtotime($date));
                foreach ($timetables as $key => $value) {
                     if((date($date)>=date($value["from"]))&&(date($date)<=date($value["to"])))
@@ -40,8 +37,7 @@
                          $day_per=$value["tt"];
                          break;
                     }
-               }
-               
+               }   
                foreach($day_per as $d=>$pd)
                {
                     if($d==$s)
