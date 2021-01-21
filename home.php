@@ -189,9 +189,9 @@
                     if(!empty($lab_list))
                     {
                         echo '<tr ><td colspan="5" style="font-size:17px" class="left aligned"><em>Laboratory Course</em></td></tr>';
-                        foreach ($lab_list as $row) 
+                        foreach ($lab_list as $core) 
                         {
-                        $batch=(2020%intval($row["batch"]))+1;
+                        $batch=(2020%intval($core["batch"]))+1;
                         $year=$batch==2?"II":($batch==3?"III":"IV");
                         if(substr_count($core["staffA"],$id))
                         {
@@ -214,9 +214,9 @@
                             $year='ME';
                             $sec='-';
                         }
-                        $code=$row["code"];
-                        $name=$row["name"];
-                        $btn=strval($row["batch"]%2000)."-".$row["dept"]."-".$sec."/".$code;
+                        $code=$core["code"];
+                        $name=$core["name"];
+                        $btn=strval($core["batch"]%2000)."-".$core["dept"]."-".$sec."/".$code;
                         echo '<tr>
                         <td>'.$year.'</td>
                         <td>'.$sec.'</td>
