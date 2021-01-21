@@ -634,6 +634,9 @@
             data: d2,
             type: "POST",
             success: function(r) {
+                r=r.trim();
+                // console.log(r);
+                // return false;
                 if (r == 'empty') {
                     $('.preloader').hide();
                     // Notiflix.Notify.Info("You haven't uploaded any Attendance reports yet to consolidate");
