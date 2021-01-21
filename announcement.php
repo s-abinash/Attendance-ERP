@@ -28,7 +28,7 @@ $(document).ready(function(){
 
 </script>
 <div class="ui longer modal">
-<div class="ui orange ribbon label" style="margin-left: 15px;margin-top: 8px">New in Version 4.1</div>
+<div class="ui orange ribbon label" style="margin-left: 15px;margin-top: 8px">New in Version 5.0</div>
   <div class="header">Announcement <i class="bullhorn icon"></i></div>
   
   <i class="close icon"></i>
@@ -40,8 +40,13 @@ $(document).ready(function(){
     <div class="scrolling content" style="height: 350px;overflow: auto;">
     
     <div class="ui bulleted list">
-        <h3 class="item">Class Advisors can now download Daywise Absentees list. <a class="ui yellow tag label">New</a></h3>
-        <h3 class="item">Intimation Mail will be sent to the Attd. Pending faculty every week Monday by 3.00 PM. <div class="ui yellow horizontal label">New</div></h3>
+        <h3 class="item">XLSX format has been updated. Excel Sheets from <a href="https://chrome.google.com/webstore/detail/google-meet-attendance-co/hjjeaaibilndjeabckakaknlcbblcmbc?hl=en" target="_blank">Google Meet Attendance Collector <i class="external link square alternate icon"></i></a> will only work. 
+                           <a href="./files/template.xlsx" download>Download Sample<i
+                                        class="blue download icon"></i></a></h3>
+        <h3 class="item">Class Advisors can now download Daywise Absentees list. 
+        <!-- <a class="ui yellow tag label">New</a> -->
+        </h3>
+        <h3 class="item">Intimation Mail will be sent to the Attd. Pending faculty every week Monday by 3.00 PM. </h3>
         <h3 class="item">Google Login is now enabled. Select your kongu.edu account to sign in. </h3>
         <h3 class="item">Advisor Report is available (Cumulative and Period wise).</h3>
         

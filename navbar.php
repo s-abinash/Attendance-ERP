@@ -132,7 +132,7 @@
             ?>
             <!-- <span style="font-size: 10px; color: grey; margin-top: 5px">&nbsp;New!</span></a> -->
             <a class="item" id="ann">Announcement
-            <!-- <em data-emoji=":bell:" class="notify"></em> -->
+            <em data-emoji=":bell:" class="notify"></em>
             
             </a>
             <a class="item" id="togglepass" data-title="Change Password" data-content="Change your password using old password">Change Password
@@ -144,7 +144,7 @@
             <div class="header">Contact Us</div>
             <div class="content">
             Any issues/queries, click on this mail <a href="mailto:studentplus@kongu.ac.in?subject=Attendance Reg.,&body=Username:<?php echo $usrname;?>%20%28Leave%20this%20as%20it%20is%29%0AType%20in%20your%20message%20here%3A%20" target="_blank">studentplus@kongu.ac.in</a>
-            <p style="vertical-align: middle;  font-family: sans-serif; padding: 15px;"> Site development and support by
+            <p style="vertical-align: middle;  font-family: sans-serif; padding: 15px;"> Development and support by
             <span style="color:violet;cursor: pointer;" id="abinash">Abinash S</span> and <span style="color:violet;cursor: pointer;" id="ajay">Ajay R
             </span>of <br><span style="color:brown;">III CSE - A</span>
             </p>

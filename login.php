@@ -162,6 +162,22 @@ include_once("./db.php");
             <div class="ui massive active green elastic loader"></div>
         </div>
     </div>
+    <br>
+    <div style="float:right;padding:10px;">
+      <button class="circular ui primary icon button" id="togglepopup">
+        <i class="icon info"></i>
+        </button>
+    </div>
+    <div class="ui special animated inverted popup" id="contactpopup">
+            <div class="header">Old Data</div>
+            <div class="content">
+           
+            <p style="vertical-align: middle;  font-family: sans-serif; padding: 15px;"> 
+            The Odd Semester Data can be accessed in the URL, 
+            <span style="color:violet;cursor: pointer;"><a href="http://oldattd.kecstudent.tech" target="_blank">http://oldattd.kecstudent.tech</a></span>
+            </p>
+            </div>
+    </div>
     <div class="box">
         <h2 class="animate__animated animate__pulse ">
         <!-- <img src="./images/KEC.png" height="30px" width="30px" style="border-radius: 5px;position:relative;top:8px;"/>  -->
@@ -197,12 +213,12 @@ include_once("./db.php");
                     <div data-tooltip="Select your kongu.edu mail" class="g-signin2" data-width="100" data-onsuccess="onSignIn"></div>
             </center>
         </form>
-        <center><span style="color:#ffffb3; margin-top:10%;padding: 20px;font-size:12px">v4.1</span></center>
+        <center><span style="color:#ffffb3; margin-top:10%;padding: 20px;font-size:12px">v5.0</span></center>
         <center><span style="color:bisque;font-size:11px">&copy; Kongu Engineering
                 College</span></center>
     </div>
     <div class="footer">
-        <p style="vertical-align: middle;  font-family: sans-serif; padding: 15px;"> Site development and support by
+        <p style="vertical-align: middle;  font-family: sans-serif; padding: 15px;"> Development and Support by
             <span style="color:violet;cursor: pointer;" class="animate__animated animate__pulse" id="abinash">Abinash S</span> and <span style="color:violet;cursor: pointer;" class="animate__animated animate__pulse" id="ajay">Ajay R
             </span>of <span style="color:brown;">III CSE - A</span>
 
@@ -223,6 +239,11 @@ include_once("./db.php");
         });
         $("#ajay").on("click", function() {
             window.open("mailto:r.ajay@kongu.ac.in?subject=Attendance Reg.,", "_blank");
+        });
+        $('#togglepopup').popup({
+          popup : $('#contactpopup'),
+          on    : 'click',
+          inline : true,
         });
 
         
