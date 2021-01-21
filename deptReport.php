@@ -30,7 +30,7 @@
       <span class="category">Weekly Class Details</span>
     </div>
     <div class="description" style="padding-top:3%">
-    <div class="ui form">
+    <div class="ui form"  autocomplete="off">
             <div class="field">
             <label>Year</label>
             <select class="ui selection dropdown" id="batch" required>
@@ -47,7 +47,7 @@
             <div class="ui calendar" id="start">
                 <div class="ui input left icon">
                 <i class="calendar icon"></i>
-                <input type="text" placeholder="Start" id="st">
+                <input type="text" placeholder="Start" id="st"  autocomplete="off">
                 </div>
             </div>
             </div>
@@ -56,7 +56,7 @@
             <div class="ui calendar" id="end">
                 <div class="ui input left icon">
                 <i class="calendar icon"></i>
-                <input type="text" placeholder="End" id="en">
+                <input type="text" placeholder="End" id="en"  autocomplete="off">
                 </div>
             </div>
             </div>
@@ -138,7 +138,7 @@
 
     $('#start').calendar({
         type: 'date',
-        minDate: new Date(2021,00,18),
+        minDate: new Date(2021,00,02),
         maxDate: new Date(today.getFullYear(), today.getMonth(), today.getDate() ),
         formatter: {
             date: function(date, settings) {
