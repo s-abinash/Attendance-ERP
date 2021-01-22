@@ -133,15 +133,6 @@ else
     body {
         background: url("./images/bgpic.jpg");
     }
-
-    /* #card {
-        margin: 0;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        -ms-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%); */
-    }
     </style>
 
 
@@ -464,7 +455,7 @@ if(isset($_POST['finalize']))
                 </div>
                 <div class="two field">
                     <div class="field">
-                    <label>Info</label>
+                        <label>Info</label>
                         <div class="ui teal message">
                             <p>XLSX format has been updated. <em data-emoji=":bell:" class="notify"></em></p>
                             <p>Excel Sheets from <a href="https://chrome.google.com/webstore/detail/google-meet-attendance-co/hjjeaaibilndjeabckakaknlcbblcmbc?hl=en" target="_blank">Google Meet Attendance Collector <i class="external link square alternate icon"></i></a> will only work. 
