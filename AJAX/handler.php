@@ -31,6 +31,10 @@
                    continue;
               }
                $s=date("l", strtotime($date));
+               if($date==="2020-01-02")
+               {
+                    $s="Wednesday";
+               }
                foreach ($timetables as $key => $value) {
                     if((date($date)>=date($value["from"]))&&(date($date)<=date($value["to"])))
                     {

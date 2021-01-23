@@ -1,5 +1,4 @@
 <?php
-    
     $sql="SELECT `code` FROM `course_list` where `status` LIKE 'active' AND `category` LIKE 'elective'";
     $res=$con->query($sql);
     $ele=array();
@@ -41,7 +40,6 @@
          }
         if(($course=="14CSP81")||($course=="18CSP61"))
         {
-            
             $section=strtoupper(explode("-",$classname)[2]);
             $day_per["Saturday"]=array(array_search($sid, $project_array[$course][$section])+1);
         }
@@ -51,7 +49,6 @@
     {
         $timetable=array();
         $tt_res=$con->query("select * from tt_home order by id asc");
-        
         while($row=$tt_res->fetch_assoc())
         {
              $tt=array();
@@ -62,10 +59,4 @@
         }
         return $timetable;
     }
-
 ?>
-
-
-
-
-
