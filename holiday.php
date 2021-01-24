@@ -155,7 +155,7 @@ include_once('./navbar.php');
                         return '';
                     }
                 },
-                disabledDaysOfWeek: [0,6],
+                disabledDaysOfWeek: [0],
                 inline:true
             });
             $('#type').dropdown({
