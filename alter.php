@@ -4,9 +4,8 @@ if(!isset($_SESSION['id']))
 {
     header('Location: index.html');
 }
-
     include_once("./db.php");
-
+    include_once("./AJAX/header.php");
 ?>
 
 <html lang="en">
@@ -18,7 +17,6 @@ if(!isset($_SESSION['id']))
     <script src="./assets/jquery.min.js"></script>
     <script src="./assets/Fomantic/dist/semantic.min.js"></script>
     <link rel="icon" type="image/png" href="./images/KEC.png">
-
     <?php include_once('./assets/notiflix.php'); ?>
   
 
@@ -51,13 +49,6 @@ if (isset($_POST['period'])) {
     body {
         background: url("./images/bgpic.jpg");
     }
-
-    /* @media(max-width: 500px{
-        #card{
-
-        }
-    }) */
-
 </style>
 <div class="card-1">
     <div class="ui raised padded container segment" id="card" style="margin:auto;width:50%;">
@@ -87,7 +78,7 @@ if (isset($_POST['period'])) {
                 </div>
                 <div class="field">
                     <label>Period</label>
-                    <select class="ui dropdown" name="period" id="hr" required="required">
+                    <select class="ui dropdown" name="period" id="hr" required>
                         <option value="">Select Period</option>
                     </select>
                 </div>
@@ -116,19 +107,13 @@ if (isset($_POST['period'])) {
             <button form="ifrm" style="float: right;" class="ui positive button" type="submit">Confirm Alter</button>
             <br/><br/>
         </form>
-        <!-- <div class="ui warning message">
-            <i class="close icon"></i>
-            <div class="header">
-                Period Once altered cannot be reverted again. <br/>
-                In that regard, contact Admin.
-            </div>
-        </div> -->
+       
     </div>
 </div>
 <script>
     var d = "";
     var x, y, response, dt, altto;
-    var elec = ["14CSE06", "14CSE11", "14CSO07", "14ITO01", "18ITO02", "18MEO01","18CSO01"];
+    var elec =<?php echo json_encode($ele)?>;
 
     function getWeekDay(date) {
         var weekdays = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
@@ -163,13 +148,13 @@ if (isset($_POST['period'])) {
             data: 's1drop=opt',
             type: 'POST',
             success: function (r) {
+                r=r.trim();
                 var res = JSON.parse(r);
                 for (const i of res) {
                     $("#alterfrom").append("<option value='" + i.code + "'>" + i.name + "</option>");
                 }
             }
         });
-
         $("#alterfrom").dropdown({
             clearable: true,
             onChange: function (value, text, $selectedItem) {
@@ -179,86 +164,27 @@ if (isset($_POST['period'])) {
                         data: 's1c1=' + value,
                         type: 'POST',
                         success: function (r) {
-
-                            //    console.log(r);
-                            //    return false;
+                            // console.log(r);
+                            // return false;
                             response = JSON.parse(r);
                             var arr = [];
-                            var holiday=[];
                             var i;
                             var dates = response[0];
-                            var alt = response[2];
-                            var alted = response[3];
-                            altto = response[4];
-                            var hol=response[5];
-                            
-
-                            if (!(Array.isArray(dates) && dates.length) && alted == "Empty") {
-                                Notiflix.Notify.Info("You have no pending Attendance reports to be uploaded");
-                                return false;
-                            }
-                            for (i of dates) {
+                            altto=response[1];
+                            for (i of Object.keys(dates)) {
                                 var r = i.split("-");
                                 arr.push(new Date(r[0], r[1] - 1, r[2]));
                             }
-                            for (i of hol) {
-                                var r = i.split("-");
-                                holiday.push(new Date(r[0], r[1] - 1, r[2]));
-                            }
-                         
-
-                            var deldate = [];
-                            var delday = [];
-                            if (alt != "Empty") {
-                                for (const altdat in alt) {
-                                    var r = altdat.split("-");
-                                    var alt_date = new Date(r[0], r[1] - 1, r[2]);
-                                    var alt_day = response[1][getWeekDay(alt_date)];
-                                    deldate.push(alt_date);
-                                    // if (alt_day.length == alt[altdat].length) {
-                                    //     deldate.push(alt_date);
-                                    // } else {
-                                    //     delday.push(altdat);
-                                    // }
-
-                                }
-                              
-                            }
-
-                            var al = [];
-                            var foc = [];
-                            if (alted != "Empty") {
-                                for (const alteddat in alted) {
-                                    var r = alteddat.split("-");
-                                    var p = new Date(r[0], r[1] - 1, r[2]);
-                                    arr.push(p);
-                                    foc.push(p);
-                                    al.push(alteddat);
-                                }
-                            }
-                        holiday=holiday.concat(deldate);
-
                             $('#cal').calendar({
                                 type: 'date',
-                                enabledDates: arr,
-                                disabledDates: [
-                                    {
-                                        date: holiday,
-                                        message: 'Altered or Holiday'
-                                    }
-                                ],
-                                eventClass: 'inverted red',
-                                eventDates: [
-                                    {
-                                        date: foc,
-                                        message: 'Altered Period'
-                                    }
-                                ],
+                                enabledDates: arr,                            
                                 formatter: {
                                     date: function (date, settings) {
                                         if (!date) return '';
                                         var day = date.getDate();
                                         var month = date.getMonth() + 1;
+                                        day=(day<10)?'0'+day:day;
+                                        month=(month<10)?'0'+month:month;
                                         var year = date.getFullYear();
                                         return day + '/' + month + '/' + year;
                                     }
@@ -278,54 +204,8 @@ if (isset($_POST['period'])) {
                                         y = "0" + y;
                                     }
                                     var day = date.getFullYear() + '-' + x + '-' + y;
-                                    if (dates.includes(day)) {
-                                        var ar = response[1][getWeekDay(date)];
-                                        var tt;
-                                        datecreated=parseInt((date.getFullYear())+''+(x)+''+(y)) 
-                                        
-                                        for (i of ar) {
-                                            if((datecreated)<(20200803))
-                        {
-                            tt=response[6];   //ott
-                            console.log("Old Time Table");
-                            
-                        }
-                        else if((datecreated)<(20201008))
-                        {
-                            tt=response[1];   //tt
-                            console.log("New Time Table");
-                        }
-                        else if((datecreated)<(20201130))
-                        {
-                            tt=response[7];   //tt
-                            console.log("New-1 Time Table");  
-                        }
-                        else if((datecreated)<(20201207))
-                        {
-                            tt=response[8];   
-                            console.log("Lab1");
-                            
-                        }
-                        else
-                        {
-                            tt=response[9];   //ott
-                            console.log("Lab2");
-                            
-                        }
-                                            $("#hr").append("<option value='" + i + "'>" + i + "</option>");
-                                        }
-                                    }
-                                    if (al.includes(day)) {
-                                        for (i of alted[day]) {
-                                            $("#hr").append("<option value='" + i + "'>" + i + "</option>");
-                                        }
-
-                                    }
-                                    if (delday.includes(day)) {
-                                        for (i of alt[day]) {
-                                            $("#hr option[value='" + i + "']").remove();
-                                        }
-
+                                    for (let index = 0; index < dates[day].length; index++) {
+                                        $("#hr").append("<option value='" + dates[day][index] + "'>" + dates[day][index] + "</option>");
                                     }
                                 }
                             });
@@ -353,8 +233,6 @@ if (isset($_POST['period'])) {
                 for (i of altto[value]) {
                     $("#altc2").append("<option value='" + i[1] + "'>" + i[2] + "</option>");
                 }
-
-
             }
         });
     });

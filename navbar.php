@@ -109,7 +109,7 @@
         <div class="ui borderless fluid huge inverted menu">
             <a class="active green item" href="#root">KEC Student+</a>
             <a class="item" id="home" href="home.php">Home</a>
-            <!-- <a class="item" id="alter" href="alter.php">Alter Period</a> -->
+            <a class="item" id="alter" href="alter.php">Alter Period</a>
             <?php
             if($id=="CSE003SF")
             {

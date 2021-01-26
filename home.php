@@ -216,14 +216,29 @@
                         }
                         $code=$core["code"];
                         $name=$core["name"];
-                        $btn=strval($core["batch"]%2000)."-".$core["dept"]."-".$sec."/".$code;
-                        echo '<tr>
-                        <td>'.$year.'</td>
-                        <td>'.$sec.'</td>
-                        <td>'.$code.'</td>
-                        <td>'.$name.'</td>
-                        <td class="right aligned"><button class="ui primary right icon button " id="'.$btn.'"  onclick="attend(this.id)"> Mark Attendance &nbsp;&nbsp;<i class="check icon"></i></button><button class="ui black right icon button" id="'.$btn.'" onclick="history(this.id)"> View History &nbsp;&nbsp;<i class="history icon"></i></button><button class="ui purple right icon button" id="'.$btn.'" onclick="consolidate(this.id)"> Report &nbsp; &nbsp;<i class="file export icon"></i></button></td>
-                        </tr>';
+                        if($staffid!=="CSE065SF")
+                        {
+                            $btn=strval($core["batch"]%2000)."-".$core["dept"]."-".$sec."/".$code;
+                            echo '<tr>
+                            <td>'.$year.'</td>
+                            <td>'.$sec.'</td>
+                            <td>'.$code.'</td>
+                            <td>'.$name.'</td>
+                            <td class="right aligned"><button class="ui primary right icon button " id="'.$btn.'"  onclick="attend(this.id)"> Mark Attendance &nbsp;&nbsp;<i class="check icon"></i></button><button class="ui black right icon button" id="'.$btn.'" onclick="history(this.id)"> View History &nbsp;&nbsp;<i class="history icon"></i></button><button class="ui purple right icon button" id="'.$btn.'" onclick="consolidate(this.id)"> Report &nbsp; &nbsp;<i class="file export icon"></i></button></td>
+                            </tr>';
+                        }
+                        else{
+                            foreach (array("A","B","C") as $sec) {
+                                $btn=strval($core["batch"]%2000)."-".$core["dept"]."-".$sec."/".$code;
+                                echo '<tr>
+                                <td>'.$year.'</td>
+                                <td>'.$sec.'</td>
+                                <td>'.$code.'</td>
+                                <td>'.$name.'</td>
+                                <td class="right aligned"><button class="ui primary right icon button " id="'.$btn.'"  onclick="attend(this.id)"> Mark Attendance &nbsp;&nbsp;<i class="check icon"></i></button><button class="ui black right icon button" id="'.$btn.'" onclick="history(this.id)"> View History &nbsp;&nbsp;<i class="history icon"></i></button><button class="ui purple right icon button" id="'.$btn.'" onclick="consolidate(this.id)"> Report &nbsp; &nbsp;<i class="file export icon"></i></button></td>
+                                </tr>';
+                            }
+                        }
                         }
                     }
         
