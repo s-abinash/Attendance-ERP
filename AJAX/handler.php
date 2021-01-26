@@ -110,7 +110,14 @@
                } 
                if(!empty($per))
               {
-                    $alted+=array($row["date"]=>$per);
+                    if(array_key_exists($row["date"],$alted))
+                    {
+                         $alted[$row["date"]]=array_unique(array_merge($alted[$row["date"]],$per));
+                    }
+                    else{
+                         $alted+=array($row["date"]=>$per);
+                    }
+               
               }   
 
           }  
