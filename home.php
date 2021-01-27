@@ -722,7 +722,7 @@
                  +((i>3)?i+'<sup>th</sup>':((i==1)?'1<sup>st</sup>':((i==2)?'2<sup>nd</sup>':((i==3)?'3<sup>rd</sup>':''))))+' Hour'+
                 '</span></div>'+
                 '<div class="field">'+
-                '<select name="'+i+'" class="ui fluid dropdown"  required>'+
+                '<select name="'+i+'" class="ui dropdown" required>'+
                     '<option class="item" value="">Select Class Type</option><option class="item" value="Theory">Theory</option>'+
                     '<option class="item" value="Tutorial">Tutorial</option><option class="item" value="Test">Test</option>'+
                     '<option class="item" value="Laboratory">Laboratory</option><option class="item" value="Project">Project</option>'+
@@ -732,7 +732,7 @@
             });
 
 
-            
+           $(".ui.dropdown").dropdown();
           
            $("#modalnxt").hide();
            $( "#homy" ).prop( "disabled", false );
