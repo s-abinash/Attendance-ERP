@@ -387,7 +387,11 @@
     {
     var weekdays = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
     var day = date.getDay();
-    
+    if((date.getDate()==2)&&(date.getMonth()==0)&&(date.getFullYear()==2021))
+    {
+        
+        day=3;
+    }
     return weekdays[day];
     }
 
@@ -531,16 +535,17 @@
                             {
                                 datecreated=parseInt((date.getFullYear())+''+(x)+''+(y));
                                 tt_rev.forEach(rev => {
-                            var from=rev["from"].replaceAll("-","");
-                            var to=rev["to"].replaceAll("-","");
-                            if((datecreated>=parseInt(from))&&(datecreated<=parseInt(to)))
-                            {
-                                tt=rev["tt"];
-                                return;
-                            }
-                           
-                       });
+                                        var from=rev["from"].replaceAll("-","");
+                                        var to=rev["to"].replaceAll("-","");
+                                        if((datecreated>=parseInt(from))&&(datecreated<=parseInt(to)))
+                                        {
+                                            tt=rev["tt"];
+                                            return;
+                                        }
+                                });
+                                // console.log(getWeekDay(date));
                                 var ar=tt[getWeekDay(date)];    
+                                
                                 for (i of ar)
                                 {
                                     $("#hr").append("<option class='item' value='"+i+"'>"+i+"</option>");
