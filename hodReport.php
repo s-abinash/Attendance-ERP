@@ -95,10 +95,13 @@
                                 $timetables=timetablesfn($con,$tab,$code,$project_array,$sid);
                                 $x=date("Y-m-d");
                                 $tdy=date_create($x);
-                                if($year!=2017)
+                                if(($year!=2017)||($year!=2020))
                                     $date=date("2021-01-18");
-                                else
-                                    $date=date("2021-01-02");  
+                                elseif ($year==2020) {
+                                    $date=date("2021-01-04");
+                                }
+                                else if($year==2017)
+                                    $date=date("2021-01-02");   
                                 $diff=intval(date_diff($tdy,date_create($date))->format("%a"))+1;
                                 
                                 $dates=array();
