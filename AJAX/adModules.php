@@ -84,13 +84,12 @@
 
          $x=date("Y-m-d");
          $tdy=date_create($x);
-         if(($bat!=2017)||($bat!=2020))
+         if(($bat==2018))
                $date=date("2021-01-18");
-          elseif ($bat==2020) {
+          else if ($bat==2020) 
                $date=date("2021-01-04");
-          }
          else if($bat==2017)
-               $date=date("2021-01-02"); 
+               $date=date("2021-01-02");
          $diff=intval(date_diff($tdy,date_create($date))->format("%a"))+1;
          $diff+=30;
          $dates=array();
@@ -105,6 +104,11 @@
                    continue;
               }
                $s=date("l", strtotime($date));
+               if($date==="2021-01-02")
+               {
+                    $s="Wednesday";
+                    
+               }
                foreach ($timetables as $key => $value) {
                     if((date($date)>=date($value["from"]))&&(date($date)<=date($value["to"])))
                     {

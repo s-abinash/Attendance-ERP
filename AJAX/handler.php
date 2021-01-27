@@ -17,9 +17,9 @@
           }
          $x=date("Y-m-d");
          $tdy=date_create($x);
-         if(($bat!=2017)||($bat!=2020))
+         if(($bat==2018))
                $date=date("2021-01-18");
-          elseif ($bat==2020) {
+          else if ($bat==2020) {
                $date=date("2021-01-04");
           }
          else if($bat==2017)
@@ -28,16 +28,19 @@
          $dates=array();
          for($i=1;$i<=$diff;$i++)
          { 
-              if($con->query("select * from `holiday` where `date` LIKE '$date' AND `dept` LIKE '$dept' AND `year` like '$bat'")->num_rows!=0)
+             
+               if($con->query("select * from `holiday` where `date` LIKE '$date' AND `dept` LIKE '$dept' AND `year` like '$bat'")->num_rows!=0)
               {
                    $date=date_format(date_add(date_create($date),date_interval_create_from_date_string("1 days")),"Y-m-d");
                    continue;
               }
                $s=date("l", strtotime($date));
-               if($date==="2020-01-02")
+               if($date==="2021-01-02")
                {
                     $s="Wednesday";
+                    
                }
+               
                foreach ($timetables as $key => $value) {
                     if((date($date)>=date($value["from"]))&&(date($date)<=date($value["to"])))
                     {
