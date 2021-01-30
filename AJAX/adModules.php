@@ -84,11 +84,11 @@
 
          $x=date("Y-m-d");
          $tdy=date_create($x);
-         if(($bat==2018))
+         if(($b1==2018))
                $date=date("2021-01-18");
-          else if ($bat==2020) 
+          else if ($b1==2020) 
                $date=date("2021-01-04");
-         else if($bat==2017)
+         else if($b1==2017)
                $date=date("2021-01-02");
          $diff=intval(date_diff($tdy,date_create($date))->format("%a"))+1;
          $diff+=30;
