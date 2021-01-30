@@ -105,7 +105,7 @@
          for($i=1;$i<=$diff;$i++)
          {    
               
-              if($con->query("select * from `holiday` where `date` LIKE '$date' AND `dept` LIKE '$c1' AND `year` like '$b1'")->num_rows!=0)
+              if($con->query("select * from `holiday` where `date` LIKE '$date' AND `dept` LIKE '$c1' AND `year` like '$b1' and `type` like 'Holiday'")->num_rows!=0)
               {
                    $date=date_format(date_add(date_create($date),date_interval_create_from_date_string("1 days")),"Y-m-d");
                    continue;
