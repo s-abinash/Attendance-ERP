@@ -217,7 +217,7 @@ if (isset($_POST['period'])) {
                             Object.keys(altto).forEach(key => {
                                 $("#alts2").append("<option value='" + key + "'>" + altto[key][0][0] + "</option>");
                             });
-
+                
 
                         }
                     });
@@ -230,9 +230,13 @@ if (isset($_POST['period'])) {
             onChange: function (value, text, $selectedItem) {
                 $('#altc2').dropdown('clear');
                 $("#altc2").html("<option value=''>Select Associated Course</option>");
-                for (i of altto[value]) {
+                if(Array.isArray(altto[value]))
+                {
+                    for (i of altto[value]) {
                     $("#altc2").append("<option value='" + i[1] + "'>" + i[2] + "</option>");
                 }
+                }
+                
             }
         });
     });

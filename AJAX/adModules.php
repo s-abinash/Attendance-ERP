@@ -84,12 +84,17 @@
 
          $x=date("Y-m-d");
          $tdy=date_create($x);
-         if(($b1==2018))
+
+          //  Start Date for specific batch
+          if($b1==2017)
+               $date=date("2021-01-02");
+          else if(($b1==2018))
                $date=date("2021-01-18");
+          else if(($b1==2019))
+               $date=date("2021-02-08");
           else if ($b1==2020) 
                $date=date("2021-01-04");
-         else if($b1==2017)
-               $date=date("2021-01-02");
+         
          $diff=intval(date_diff($tdy,date_create($date))->format("%a"))+1;
          $diff+=30;
          $dates=array();
@@ -104,10 +109,10 @@
                    continue;
               }
                $s=date("l", strtotime($date));
-               if($date==="2021-01-02")
+               $chan=$con->query("select * from `alter_tt_day` where `batch` like '%$b1%' and `date` like '$date'");
+               if($chan->num_rows!=0)
                {
-                    $s="Wednesday";
-                    
+                    $s=$chan->fetch_assoc()["to_day"];
                }
                foreach ($timetables as $key => $value) {
                     if((date($date)>=date($value["from"]))&&(date($date)<=date($value["to"])))
