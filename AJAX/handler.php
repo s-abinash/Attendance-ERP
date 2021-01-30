@@ -17,24 +17,30 @@
           }
          $x=date("Y-m-d");
          $tdy=date_create($x);
-         if($bat!=2017)
+         if(($bat==2018))
                $date=date("2021-01-18");
-         else
+          else if ($bat==2020) {
+               $date=date("2021-01-04");
+          }
+         else if($bat==2017)
                $date=date("2021-01-02");  
          $diff=intval(date_diff($tdy,date_create($date))->format("%a"))+1;
          $dates=array();
          for($i=1;$i<=$diff;$i++)
          { 
-              if($con->query("select * from `holiday` where `date` LIKE '$date' AND `dept` LIKE '$dept' AND `year` like '$bat'")->num_rows!=0)
+             
+               if($con->query("select * from `holiday` where `date` LIKE '$date' AND `dept` LIKE '$dept' AND `year` like '$bat'")->num_rows!=0)
               {
                    $date=date_format(date_add(date_create($date),date_interval_create_from_date_string("1 days")),"Y-m-d");
                    continue;
               }
                $s=date("l", strtotime($date));
-               if($date==="2020-01-02")
+               if($date==="2021-01-02")
                {
                     $s="Wednesday";
+                    
                }
+               
                foreach ($timetables as $key => $value) {
                     if((date($date)>=date($value["from"]))&&(date($date)<=date($value["to"])))
                     {
@@ -70,7 +76,7 @@
           }
 
           
-          $altsql="SELECT date,period FROM `alteration` WHERE `s1` LIKE '$sid' AND `c1` LIKE '$code' AND date<=CURRENT_DATE";
+          $altsql="SELECT date,period FROM `alteration` WHERE `s1` LIKE '%$sid%' AND `c1` LIKE '$code' AND date<=CURRENT_DATE";
           $res=$con->query($altsql);
           $alt=array();
           while($row=$res->fetch_assoc())
@@ -81,7 +87,7 @@
           {
                $alt="Empty";
           }  
-          $alted="SELECT date,period FROM `alteration` WHERE `s2` LIKE '$sid' AND `c2` LIKE '$code' AND date<=CURRENT_DATE ";
+          $alted="SELECT date,period FROM `alteration` WHERE `s2` LIKE '%$sid%' AND `c2` LIKE '$code' AND date<=CURRENT_DATE ";
           $res=$con->query($alted);
           $alted=array();
          
@@ -110,7 +116,14 @@
                } 
                if(!empty($per))
               {
-                    $alted+=array($row["date"]=>$per);
+                    if(array_key_exists($row["date"],$alted))
+                    {
+                         $alted[$row["date"]]=array_unique(array_merge($alted[$row["date"]],$per));
+                    }
+                    else{
+                         $alted+=array($row["date"]=>$per);
+                    }
+               
               }   
 
           }  

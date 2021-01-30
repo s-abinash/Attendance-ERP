@@ -216,14 +216,29 @@
                         }
                         $code=$core["code"];
                         $name=$core["name"];
-                        $btn=strval($core["batch"]%2000)."-".$core["dept"]."-".$sec."/".$code;
-                        echo '<tr>
-                        <td>'.$year.'</td>
-                        <td>'.$sec.'</td>
-                        <td>'.$code.'</td>
-                        <td>'.$name.'</td>
-                        <td class="right aligned"><button class="ui primary right icon button " id="'.$btn.'"  onclick="attend(this.id)"> Mark Attendance &nbsp;&nbsp;<i class="check icon"></i></button><button class="ui black right icon button" id="'.$btn.'" onclick="history(this.id)"> View History &nbsp;&nbsp;<i class="history icon"></i></button><button class="ui purple right icon button" id="'.$btn.'" onclick="consolidate(this.id)"> Report &nbsp; &nbsp;<i class="file export icon"></i></button></td>
-                        </tr>';
+                        if($staffid!=="CSE065SF")
+                        {
+                            $btn=strval($core["batch"]%2000)."-".$core["dept"]."-".$sec."/".$code;
+                            echo '<tr>
+                            <td>'.$year.'</td>
+                            <td>'.$sec.'</td>
+                            <td>'.$code.'</td>
+                            <td>'.$name.'</td>
+                            <td class="right aligned"><button class="ui primary right icon button " id="'.$btn.'"  onclick="attend(this.id)"> Mark Attendance &nbsp;&nbsp;<i class="check icon"></i></button><button class="ui black right icon button" id="'.$btn.'" onclick="history(this.id)"> View History &nbsp;&nbsp;<i class="history icon"></i></button><button class="ui purple right icon button" id="'.$btn.'" onclick="consolidate(this.id)"> Report &nbsp; &nbsp;<i class="file export icon"></i></button></td>
+                            </tr>';
+                        }
+                        else{
+                            foreach (array("A","B","C") as $sec) {
+                                $btn=strval($core["batch"]%2000)."-".$core["dept"]."-".$sec."/".$code;
+                                echo '<tr>
+                                <td>'.$year.'</td>
+                                <td>'.$sec.'</td>
+                                <td>'.$code.'</td>
+                                <td>'.$name.'</td>
+                                <td class="right aligned"><button class="ui primary right icon button " id="'.$btn.'"  onclick="attend(this.id)"> Mark Attendance &nbsp;&nbsp;<i class="check icon"></i></button><button class="ui black right icon button" id="'.$btn.'" onclick="history(this.id)"> View History &nbsp;&nbsp;<i class="history icon"></i></button><button class="ui purple right icon button" id="'.$btn.'" onclick="consolidate(this.id)"> Report &nbsp; &nbsp;<i class="file export icon"></i></button></td>
+                                </tr>';
+                            }
+                        }
                         }
                     }
         
@@ -372,7 +387,11 @@
     {
     var weekdays = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
     var day = date.getDay();
-    
+    if((date.getDate()==2)&&(date.getMonth()==0)&&(date.getFullYear()==2021))
+    {
+        
+        day=3;
+    }
     return weekdays[day];
     }
 
@@ -516,16 +535,17 @@
                             {
                                 datecreated=parseInt((date.getFullYear())+''+(x)+''+(y));
                                 tt_rev.forEach(rev => {
-                            var from=rev["from"].replaceAll("-","");
-                            var to=rev["to"].replaceAll("-","");
-                            if((datecreated>=parseInt(from))&&(datecreated<=parseInt(to)))
-                            {
-                                tt=rev["tt"];
-                                return;
-                            }
-                           
-                       });
+                                        var from=rev["from"].replaceAll("-","");
+                                        var to=rev["to"].replaceAll("-","");
+                                        if((datecreated>=parseInt(from))&&(datecreated<=parseInt(to)))
+                                        {
+                                            tt=rev["tt"];
+                                            return;
+                                        }
+                                });
+                                // console.log(getWeekDay(date));
                                 var ar=tt[getWeekDay(date)];    
+                                
                                 for (i of ar)
                                 {
                                     $("#hr").append("<option class='item' value='"+i+"'>"+i+"</option>");
@@ -702,7 +722,7 @@
                  +((i>3)?i+'<sup>th</sup>':((i==1)?'1<sup>st</sup>':((i==2)?'2<sup>nd</sup>':((i==3)?'3<sup>rd</sup>':''))))+' Hour'+
                 '</span></div>'+
                 '<div class="field">'+
-                '<select name="'+i+'" class="ui fluid dropdown"  required>'+
+                '<select name="'+i+'" class="ui dropdown" required>'+
                     '<option class="item" value="">Select Class Type</option><option class="item" value="Theory">Theory</option>'+
                     '<option class="item" value="Tutorial">Tutorial</option><option class="item" value="Test">Test</option>'+
                     '<option class="item" value="Laboratory">Laboratory</option><option class="item" value="Project">Project</option>'+
@@ -712,7 +732,7 @@
             });
 
 
-            
+           $(".ui.dropdown").dropdown();
           
            $("#modalnxt").hide();
            $( "#homy" ).prop( "disabled", false );
