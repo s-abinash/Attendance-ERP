@@ -20,15 +20,15 @@ $sid=$_SESSION["id"];
     <script>
     
     $(document).ready(function() {
-        // $("#filenametext").on("click",function() {
-        // console.log("clicking");
-        // $(this).parent().find("input:file").click();
-        // });
+        $("#filenametext").on("click",function() {
+        console.log("clicking");
+        $(this).parent().find("input:file").click();
+        });
 
-        // $("#filebutton").on("click",function() {
-        //     console.log("clicking");
-        //     $(this).parent().find("input:file").click();
-        // });
+        $("#filebutton").on("click",function() {
+            console.log("clicking");
+            $(this).parent().find("input:file").click();
+        });
 
         $('.slider.checkbox').checkbox({
             onChecked: function() {
