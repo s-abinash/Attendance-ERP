@@ -191,7 +191,7 @@
                    }
                    else
                    {
-                         $dates[$row["date"]]=array_unique(array_merge($dates[$row["date"]],$per));
+                         $dates[$row["date"]]=sort(array_unique(array_merge($dates[$row["date"]],$per)));
                    }
                     
               }   
