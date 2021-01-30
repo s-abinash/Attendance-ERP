@@ -17,13 +17,14 @@
           }
          $x=date("Y-m-d");
          $tdy=date_create($x);
-         if(($bat==2018))
+         if($bat==2017)
+               $date=date("2021-01-02");
+          else if(($bat==2018))
                $date=date("2021-01-18");
-          else if ($bat==2020) {
+          else if(($bat==2019))
+               $date=date("2021-02-08");
+          else if ($bat==2020) 
                $date=date("2021-01-04");
-          }
-         else if($bat==2017)
-               $date=date("2021-01-02");  
          $diff=intval(date_diff($tdy,date_create($date))->format("%a"))+1;
          $dates=array();
          for($i=1;$i<=$diff;$i++)
@@ -34,11 +35,13 @@
                    $date=date_format(date_add(date_create($date),date_interval_create_from_date_string("1 days")),"Y-m-d");
                    continue;
               }
+              
                $s=date("l", strtotime($date));
-               if($date==="2021-01-02")
+
+               $chan=$con->query("select * from `alter_tt_day` where `batch` like '%$bat%' and `date` like '$date'");
+               if($chan->num_rows!=0)
                {
-                    $s="Wednesday";
-                    
+                    $s=$chan->fetch_assoc()["to_day"];
                }
                
                foreach ($timetables as $key => $value) {
