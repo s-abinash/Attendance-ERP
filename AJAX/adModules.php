@@ -47,7 +47,7 @@
           {
                $sec='-';
           }
-        $ss2="SELECT `code`,`name`,`$d1` from course_list where dept LIKE '$c1' AND batch LIKE '$b1' AND `$d1` IS NOT NULL AND `$d1` NOT LIKE '%$sid%'";
+        $ss2="SELECT `code`,`name`,`$d1` from course_list where dept LIKE '$c1' AND batch LIKE '$b1' AND `$d1` IS NOT NULL AND `$d1` NOT LIKE '$sid'";
         $ref=$con->query($ss2);
         $s2=array();
         $s3=array();
@@ -56,25 +56,27 @@
           $stfid=$rs[$d1];
           if(strlen($stfid)>10)
           {
-               $stfname="";
-               foreach (explode(" ",$stfid) as $key ) 
+               $stfids=$stfid;
+               foreach (explode(" ",$stfids) as $stfid ) 
                {
-                    $stfname.=" ".$con->query("SELECT `name` from `staff` where `staffid` LIKE '%$key%'")->fetch_assoc()['name'];
+                    if($stfid===$sid)
+                         continue;
+                    $stfname=$con->query("SELECT `name` from `staff` where `staffid` LIKE '%$stfid%'")->fetch_assoc()['name'];
+                    $stfname=trim($stfname);
+                    if(!array_key_exists($stfid,$s2))
+                         $s2+=array($stfid=>array(array($stfname,$rs["code"],$rs["name"])));
+                    else
+                         $s2[$stfid][1]=array($stfname,$rs["code"],$rs["name"]);
                }
-               $stfname=trim($stfname);
+              
           }
           else
           {
                $stfname=$con->query("SELECT `name` from `staff` where `staffid` LIKE '%$stfid%'")->fetch_assoc()['name'];
-          }
-          
-          if(!array_key_exists($stfid,$s2))
-          {
-               $s2+=array($stfid=>array(array($stfname,$rs["code"],$rs["name"])));
-          }
-          else
-          {
-               $s2[$stfid][1]=array($stfname,$rs["code"],$rs["name"]);
+               if(!array_key_exists($stfid,$s2))
+                    $s2+=array($stfid=>array(array($stfname,$rs["code"],$rs["name"])));
+               else
+                    $s2[$stfid][1]=array($stfname,$rs["code"],$rs["name"]);
           }
         }
         
