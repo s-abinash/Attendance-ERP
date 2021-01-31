@@ -130,6 +130,11 @@
                          $prd=array();
                          foreach($pd as $periods)
                          {
+                              if($con->query("select * from `holiday` where `date` LIKE '$date' AND `periods` like '%$periods%' AND  `dept` LIKE '$c1' AND `year` like '$b1' and `type` like 'Suspension'")->num_rows!=0)
+                              {
+                                   $date=date_format(date_add(date_create($date),date_interval_create_from_date_string("1 days")),"Y-m-d");
+                                   continue;
+                              } 
                               if(in_array($code,$ele))
                               {         
                                    $sql="SELECT * FROM `$code` where date LIKE '$date' AND code LIKE '$sid' AND `period` LIKE '$periods'"; 
@@ -191,7 +196,7 @@
                    }
                    else
                    {
-                         $dates[$row["date"]]=sort(array_unique(array_merge($dates[$row["date"]],$per)));
+                         $dates[$row["date"]]=array_unique(array_merge($dates[$row["date"]],$per));
                    }
                     
               }   

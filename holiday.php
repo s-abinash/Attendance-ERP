@@ -76,6 +76,7 @@ include_once('./navbar.php');
                         <div class="menu">
                             <div class="item" data-value="Holiday">Holiday</div>
                             <div class="item" data-value="Exam">Exam</div>
+                            <div class="item" data-value="Suspension">Suspension</div>
                         </div>
                     </div>
                 </div>

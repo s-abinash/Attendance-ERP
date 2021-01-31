@@ -55,10 +55,14 @@
                {
                     if($d==$s)
                     {
-                      
+                         $prd=array();
                          foreach($pd as $periods)
                          {
-                              
+                              if($con->query("select * from `holiday` where `date` LIKE '$date' AND `periods` like '%$periods%' AND  `dept` LIKE '$dept' AND `year` like '$bat' and `type` like 'Suspension'")->num_rows!=0)
+                              {
+                                   $date=date_format(date_add(date_create($date),date_interval_create_from_date_string("1 days")),"Y-m-d");
+                                   continue;
+                              } 
                               if(in_array($code,$ele))
                               {                
                                    $sql="SELECT * FROM `$code` where date LIKE '$date' AND code LIKE '$sid' AND `period` LIKE '$periods'"; 
@@ -70,27 +74,24 @@
                               $r=$con->query($sql);
                               if($r->num_rows==0)
                               {    
-                                   array_push($dates,$date);
+                                   $altsql="SELECT * FROM `alteration` WHERE `s1` LIKE '$sid' AND `c1` LIKE '$code' AND `date` like '$date' and `period` like '$periods'";
+                                   $res=$con->query($altsql);
+                                   if($res->num_rows==0)
+                                   {
+                                        array_push($prd,$periods);
+                                   }
                               }
+                         }
+                         if(!empty($prd))
+                         {
+                              $dates+=array($date=>$prd);
                          }
                     }
                }
                $date=date_format(date_add(date_create($date),date_interval_create_from_date_string("1 days")),"Y-m-d");
           }
 
-          
-          $altsql="SELECT date,period FROM `alteration` WHERE `s1` LIKE '%$sid%' AND `c1` LIKE '$code' AND date<=CURRENT_DATE";
-          $res=$con->query($altsql);
-          $alt=array();
-          while($row=$res->fetch_assoc())
-          { 
-               $alt+=array($row["date"]=>explode(",",$row["period"]));   
-          }  
-          if(empty($alt))
-          {
-               $alt="Empty";
-          }  
-          $alted="SELECT date,period FROM `alteration` WHERE `s2` LIKE '%$sid%' AND `c2` LIKE '$code' AND date<=CURRENT_DATE ";
+          $alted="SELECT date,period FROM `alteration` WHERE `s2` LIKE '$sid' AND `c2` LIKE '$code' AND date<=CURRENT_DATE ";
           $res=$con->query($alted);
           $alted=array();
          
@@ -119,22 +120,18 @@
                } 
                if(!empty($per))
               {
-                    if(array_key_exists($row["date"],$alted))
+                    array_push($alted,$date);
+                    if(!array_key_exists($row["date"],$dates))
                     {
-                         $alted[$row["date"]]=array_unique(array_merge($alted[$row["date"]],$per));
+                         $dates+=array($row["date"]=>$per);
                     }
-                    else{
-                         $alted+=array($row["date"]=>$per);
+                    else
+                    {
+                         $dates[$row["date"]]=array_unique(array_merge($dates[$row["date"]],$per));
                     }
-               
-              }   
-
-          }  
-          if(empty($alted))
-          {
-               $alted="Empty";
-          }  
-          echo json_encode(array($dates,$timetables,$alt,$alted));
+              }  
+          }   
+          echo json_encode(array($dates,array_unique($alted)));
           exit();
     }
     

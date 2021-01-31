@@ -274,7 +274,7 @@ if(isset($_POST["upload"]))
             if($b==false)
             {
                 unlink($targetfolder);
-                echo "<script> Notiflix.Report.Failue( 'Submisson Error', 'File size should be 1 MB max. <br> Please Compress and Submit.', 'Okay' );</script>";
+                echo "<script> Notiflix.Report.Failure( 'Submisson Error', 'File size should be 1 MB max. <br> Please Compress and Submit.', 'Okay' );</script>";
             }
         }
 
