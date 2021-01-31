@@ -6,6 +6,7 @@ if(!isset($_SESSION['id']))
     header('Location: index.html');
 }
 include_once("./db.php");
+include_once("./AJAX/header.php");
 $sid=$_SESSION["id"];
 $res=$con->query("SELECT * FROM staff where `staffid` LIKE '$sid'")->fetch_assoc();
 if($res["designation"]!=="Advisor")
@@ -14,11 +15,18 @@ if($res["designation"]!=="Advisor")
 }
 else
 {
+    
     $b=$res["batch"];
     $s=$res["sec"];
     $dept=$res['dept'];
     $batch=intval($b)%2000;
-    $Class=($batch=="17"?"IV":($batch=="18"?"III":"II")).' - '.$res['sec'];
+    $Class=($b==2017?'IV':($b==2018?'III':'II')).'-'.$s;
+    if($b==2020)
+    {
+        $dept='ME';
+        $sec='-';
+        $Class="ME";
+    }
     $table=strval($batch).'-'.strtolower($res['dept']).'-'.strtolower($res['sec']);
 }
 ?>
@@ -142,7 +150,7 @@ if(isset($_POST["fetch"]))
                 $res=$con->query($sql);
                 while($row=$res->fetch_assoc())
                 {
-                    if($row["COLUMN_NAME"]!='code' && $row["COLUMN_NAME"]!='date' && $row["COLUMN_NAME"]!='period')
+                    if($row["COLUMN_NAME"]!='code' && $row["COLUMN_NAME"]!='date' && $row["COLUMN_NAME"]!='period'&& $row["COLUMN_NAME"]!='type')
                     {
                         $roll=$row["COLUMN_NAME"];
                         $sql="SELECT name FROM `registration` where regno LIKE '$roll';";
@@ -179,18 +187,13 @@ if(isset($_POST["fetch"]))
       
     $st=1;
     $e=5;
-    $sql="SELECT `code` FROM `course_list` where `dept` LIKE '$dept' AND `status` LIKE 'active' AND `category` LIKE 'ELECTIVE' AND batch LIKE '$b' ";
+    $sql="SELECT `code` FROM `course_list` where `status` LIKE 'active' AND `category` LIKE 'elective' and `batch` like '$b'";
     $res=$con->query($sql);
     $elec=array();
     while($row=mysqli_fetch_array($res))
     {
-        array_push($elec,$row['code']);
+        array_push($ele,$row['code']);
     }
-    
-        $st=3;
-        $e=6;
-    
-
     $dt= explode("/",$_POST["start"]);
     $start=$dt[2].'-'.$dt[1].'-'.$dt[0];
     $dt= explode("/",$_POST["end"]);
@@ -203,67 +206,14 @@ if(isset($_POST["fetch"]))
     for($i=1;$i<=$diff;$i++)
     { 
         $day=date("l",strtotime($date));
-        if(!in_array($day,array("Saturday","Sunday")))
+        if(!in_array($day,array("Sunday")))
         {
 
-            if($con->query("select * from holiday where `date` LIKE '$date' AND `year` LIKE '$b'")->num_rows!=0)
+            if($con->query("select * from holiday where `date` LIKE '$date' AND `year` LIKE '$b' AND  `dept` LIKE '$dept'  and `type` like 'Holiday'")->num_rows!=0)
             {
-                
                 $date=date_format(date_add(date_create($date),date_interval_create_from_date_string("1 days")),"Y-m-d");
                 continue;
             }
-
-            if((date($date)>date("2020-12-11")) &&($b=="2018"))
-               {
-                   $date=date_format(date_add(date_create($date),date_interval_create_from_date_string("1 days")),"Y-m-d");
-                   continue;
-               }
-               if((date($date)>date("2020-12-04")) &&($b=="2017"))
-               {
-                   $date=date_format(date_add(date_create($date),date_interval_create_from_date_string("1 days")),"Y-m-d");
-                   continue;
-               }
-         
-            if(date($date)>date("2020-10-07"))
-            {
-                if($b=="2017")
-                {
-                    $st=1;$e=5;
-                }
-                else
-                {
-                    $st=1;$e=4;
-                }
-            }
-            else if(date($date)<date("2020-08-03"))
-            {
-                if($b=="2017")
-                {
-                    $st=3;$e=6;
-                }
-                else
-                {
-                    $st=1;$e=5;
-                }
-            }
-            else if(date($date)<date("2020-11-30"))
-            {
-                if($b=="2017")
-                {
-                    $st=3;$e=5;
-                }
-                else
-                {
-                    $st=1;$e=4;
-                }
-                 
-            }
-            else 
-            {
-                    $st=1;$e=4;   
-            }
-            
-          
             
             for($p=$st;$p<=$e;$p++)   
             {
@@ -277,7 +227,7 @@ if(isset($_POST["fetch"]))
                     $row=$res->fetch_assoc();
                     foreach($row as $ind=>$val)
                     {
-                        if(($ind=="date") || ($ind=="code") || ($ind=="period"))
+                        if(($ind=="date") || ($ind=="code") || ($ind=="period")|| ($ind=="type"))
                         {
             
                             if($ind=="period")
@@ -303,7 +253,7 @@ if(isset($_POST["fetch"]))
                     echo "<script>$('#ab_body').append('<tr><td></td><td></td><td></td></tr>');</script>";
                    }
                 }
-                else if((!empty($elec))||($b!=2019)||($b!=2018))
+                else
                 {
                   
                     $results=array();
@@ -325,21 +275,6 @@ if(isset($_POST["fetch"]))
                                 $results+=$row;
                             }
                         }  
-                        if(($s=="A")&&($tab=="14CSE06"))
-                        {
-                            $cod=["CSE027SF","CSE019SF","CSE022SF"];
-                            foreach( $cod as $code)
-                    {
-                            $sql="SELECT * FROM `$tab` where code LIKE '$code' AND date LIKE '$date' AND period LIKE '$p'";
-                            $res=$con->query($sql);
-                            if($res->num_rows!=0)
-                            {
-                                while($row=$res->fetch_assoc())
-                                {
-                                    $results+=$row;
-                                }
-                            } }
-                        }
                     }
                     echo "<script>$('#Periods').append('<th>".$p."</th>')</script>";
                     $d=0;
@@ -418,12 +353,34 @@ if(isset($_POST["fetch"]))
     <script>
     $(document).ready(function() {
             var tdy = new Date();
+            var min ,ini;
+            var bat="<?php echo $b ?>";
+            if(bat==2017)
+            {
+                min=new Date('2021','00','02');
+                ini=new Date('2021','00','02');
+            }
+            else if(bat==2018)
+            {
+                min=new Date('2021','00','18');
+                ini=new Date('2021','00','18');
+            }
+            else if(bat==2019)
+            {
+                min=new Date('2021','01','08');
+                ini=new Date('2021','01','08');
+            }
+            else if(bat==2017)
+            {
+                min=new Date('2021','00','04');
+                ini=new Date('2021','00','04');
+            }
             $('#rangestart').calendar({
                 type: 'date',
-                minDate: new Date('2020','06','08'),
-                initialDate: new Date('2020','06','08'),
+                minDate: min,
+                initialDate: ini,
                 maxDate: tdy,
-                disabledDaysOfWeek: [0,6],
+                disabledDaysOfWeek: [0],
                 formatter: {
                     date: function(date, settings) {
 
@@ -440,7 +397,7 @@ if(isset($_POST["fetch"]))
                 type: 'date',
                 maxDate: tdy,
                 initialDate: tdy,
-                disabledDaysOfWeek: [0,6],
+                disabledDaysOfWeek: [0],
                 formatter: {
                     date: function(date, settings) {
 
