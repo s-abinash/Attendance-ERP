@@ -95,13 +95,14 @@
                                 $timetables=timetablesfn($con,$tab,$code,$project_array,$sid);
                                 $x=date("Y-m-d");
                                 $tdy=date_create($x);
-                                if(($year!=2017)||($year!=2020))
+                                if($year==2017)
+                                    $date=date("2021-01-02");
+                                else if(($year==2018))
                                     $date=date("2021-01-18");
-                                elseif ($year==2020) {
-                                    $date=date("2021-01-04");
-                                }
-                                else if($year==2017)
-                                    $date=date("2021-01-02");   
+                                else if(($year==2019))
+                                    $date=date("2021-02-08");
+                                else if ($year==2020) 
+                                    $date=date("2021-01-04"); 
                                 $diff=intval(date_diff($tdy,date_create($date))->format("%a"))+1;
                                 
                                 $dates=array();
@@ -139,6 +140,11 @@
                                         }
                                     }
                                     $s=date("l",strtotime($date));
+                                    $chan=$con->query("select * from `alter_tt_day` where `batch` like '%$year%' and `date` like '$date'");
+                                    if($chan->num_rows!=0)
+                                    {
+                                            $s=$chan->fetch_assoc()["to_day"];
+                                    }
                                     $day_pd=array();
                                     foreach ($timetables as $key => $value) {
                                         if((date($date)>=date($value["from"]))&&(date($date)<=date($value["to"])))
@@ -152,8 +158,14 @@
                                     {
                                             if($d==$s)
                                             {
+                                                
                                                 foreach($pd as $periods)
                                                 { 
+                                                    if($con->query("select * from `holiday` where `date` LIKE '$date' AND `periods` like '%$periods%' AND  `dept` LIKE 'CSE' AND `year` like '$year' and `type` like 'Suspension'")->num_rows!=0)
+                                                    {
+                                                        $date=date_format(date_add(date_create($date),date_interval_create_from_date_string("1 days")),"Y-m-d");
+                                                        continue;
+                                                    } 
                                                     if(in_array($code,$ele))
                                                         $sql="SELECT * FROM `$code` where date LIKE '$date' AND code LIKE '$sid' AND `period` LIKE '$periods'"; 
                                                     else
