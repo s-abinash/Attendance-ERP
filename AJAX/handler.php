@@ -30,11 +30,7 @@
          $diff=intval(date_diff($tdy,date_create($date))->format("%a"))+1;
          
          $dates=array();
-         if(strtotime('now')<strtotime($date))
-          {
-               echo json_encode(array($dates,array()));
-               exit();
-          }
+         
          for($i=1;$i<=$diff;$i++)
          { 
              
