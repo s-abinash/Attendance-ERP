@@ -30,7 +30,11 @@
          $diff=intval(date_diff($tdy,date_create($date))->format("%a"))+1;
          
          $dates=array();
-         
+         if(strtotime('now')<strtotime($date))
+         {
+              echo json_encode(array($dates,array()));
+              exit();
+         }
          for($i=1;$i<=$diff;$i++)
          { 
              
@@ -94,8 +98,7 @@
                }
                $date=date_format(date_add(date_create($date),date_interval_create_from_date_string("1 days")),"Y-m-d");
           }
-echo json_encode($dates);
-return;
+
           $alted="SELECT date,period FROM `alteration` WHERE `s2` LIKE '$sid' AND `c2` LIKE '$code' AND date<=CURRENT_DATE ";
           $res=$con->query($alted);
           $alted=array();
