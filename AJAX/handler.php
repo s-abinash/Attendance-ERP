@@ -212,7 +212,7 @@
     
          while($row=$res->fetch_assoc())
          {
-               $cnt=mysqli_num_fields($res)-3;
+               $cnt=mysqli_num_fields($res)-4;
                $d1=$row["date"];
               $d=date("d-m-Y",strtotime($d1));
               $h=$row["period"];
