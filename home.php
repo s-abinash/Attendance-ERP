@@ -164,14 +164,23 @@
                             $year='ME';
                             $sec='-';
                         }
-
                         $code=$row["code"];
                         $name=$row["name"];
-                        $btn=strval($row["batch"]%2000)."-".$row["dept"]."-".$sec[0]."/".$code;
+                        if(($code=="18ITO03")||($code=="18CSO04"))
+                        {
+                            $btn="18---a/".$code;
+                            $sec="-";
+                        }
+                        else
+                        {
+                            $btn=strval($row["batch"]%2000)."-".$row["dept"]."-".$sec[0]."/".$code;
+                        }
+                        
                         if($code==="18CSE02")
                         {
                             $sec="A ".$sec;
                         }
+                        
                         echo '<tr>
                         <td>'.$year.'</td>
                         <td>'.$sec.'</td>
@@ -443,6 +452,7 @@
                     type: 'date',
                     enabledDates: arr,
                     eventClass: 'inverted red',
+                    maxDate: new Date(),
                     eventDates: [    
                         {
                             date: foc,

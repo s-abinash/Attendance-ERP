@@ -9,6 +9,7 @@
           $code=$_POST["code"];
           $timetables=timetablesfn($con,$tab,$code,$project_array,$sid);
           $re=($con->query("SELECT * FROM `course_list` WHERE `code` LIKE '$code'"))->fetch_assoc();
+          
           $dept=$re["dept"];
           $bat=$re["batch"];
           if($dept=="ME")
