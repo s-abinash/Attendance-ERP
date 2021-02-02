@@ -367,8 +367,8 @@ if(isset($_POST["fetch"]))
             }
             else if(bat==2019)
             {
-                min=new Date('2021','01','08');
-                ini=new Date('2021','01','08');
+                min=new Date('2021','02','03');
+                ini=new Date('2021','02','03');
             }
             else if(bat==2017)
             {

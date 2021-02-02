@@ -100,7 +100,7 @@
                                 else if(($year==2018))
                                     $date=date("2021-01-18");
                                 else if(($year==2019))
-                                    $date=date("2021-02-08");
+                                    $date=date("2021-02-03");
                                 else if ($year==2020) 
                                     $date=date("2021-01-04"); 
                                 $diff=intval(date_diff($tdy,date_create($date))->format("%a"))+1;
