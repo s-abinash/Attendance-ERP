@@ -79,7 +79,7 @@ if(isset($_SESSION["EditAttnd"]))
                 $class=$_SESSION['code'];
                 $arr=array();
               
-                $sql="SELECT regno from elective where ( E1 LIKE '$class' AND S1 LIKE '$sid') OR ( E2 LIKE '$class' AND S2 LIKE '$sid') OR ( E3 LIKE '$class' AND S3 LIKE '$sid')" ;
+                $sql="SELECT regno from elective where ( E1 LIKE '$class' AND S1 LIKE '$sid') " ;
                 $data=$con->query($sql);
                
                 $sql='UPDATE `'.$class.'` SET ';
@@ -152,7 +152,7 @@ if(isset($_SESSION["EditAttnd"]))
                                 $period=$_SESSION['period'];
                                 
                                 $class=$_SESSION['code'];
-                                $sql="SELECT e.regno,r.name  from elective e ,registration r where (( E1 LIKE '$class' AND S1 LIKE '$sid') OR ( E2 LIKE '$class' AND S2 LIKE '$sid') OR ( E3 LIKE '$class' AND S3 LIKE '$sid') ) AND e.regno LIKE r.regno" ;
+                                $sql="SELECT e.regno,r.name  from elective e ,registration r where ( E1 LIKE '$class' AND S1 LIKE '$sid') AND e.regno LIKE r.regno" ;
                                 $data=$con->query($sql);
                                 $sql1="SELECT * from `".$class."` WHERE `date` like '$date' and `code` like '$sid' and `period` like '$period'";
                                 $data1=$con->query($sql1);
