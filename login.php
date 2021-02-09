@@ -2,11 +2,91 @@
 session_start();
 if(isset($_SESSION['id']))
 {
-    header('Location: ./home.php');
+    echo '<script>location.href="./home.php";</script>';
 }
 include_once("./db.php");
-
+if (isset($_POST["usr"])|| (isset($_COOKIE['userid'])))
+{   
+    if(isset($_POST["usr"]))
+    {
+        $id=$_POST["userid"];
+        $pass=SHA1($_POST["pass"]);
+    }    
+    else if(isset($_COOKIE['userid']))
+    {
+        $id=$_COOKIE["userid"];
+        $pass=$_COOKIE["pass"];
+    }
+    $count=0;
+    if(strcmp(substr($id,0,4),"dev-")==0)
+    {
+        $id=substr($id,4);
+        $sql="select * from `developer` where `password` LIKE '$pass'";
+        $res=$con->query($sql);
+        $count=$res->num_rows;
+        if($count==1)
+        {
+            $sql="select * from `staff` where userid LIKE '$id'";
+            $res=$con->query($sql);
+            $count=$res->num_rows;
+        }
+    }
+    else
+    {
+        $sql="select * from staff where userid LIKE '$id' AND pass LIKE '$pass'";
+        $res=$con->query($sql);
+        $count=$res->num_rows;
+    }
+   if($count==1)
+   { 
+      setcookie("userid",$id,time() + (86400 * 30), "/");
+      setcookie("pass",SHA1($pass),time() + (86400 * 30), "/");
+      $row=$res->fetch_assoc();
+      $_SESSION["id"]=$row['staffid'];
+      $_SESSION['mail']=$row['mail'];
+      $_SESSION["name"]=$row['name'];
+      $_SESSION["dept"]=$row['dept'];
+      $_SESSION['batch']=$row['batch'];
+      $_SESSION['design']=$row['designation'];
+      $_SESSION['sec']=$row['sec'];
+      echo "<script>
+      $(document).ready(function(){
+      $('body')
+            .toast({
+                position: 'bottom right',
+                title: 'Login Successful',
+                class: 'success',
+                displayTime: 3000,
+                closeIcon: true,
+                showIcon: true,
+                message: 'You will be redirected',
+                showProgress: 'top'
+            });
+        });
+      </script>";
+     echo '<script>location.href="./home.php";</script>';
+   }
+   else
+   {
+    echo "<script>
+      $(document).ready(function(){
+      $('body')
+            .toast({
+                position: 'bottom right',
+                title: 'Account Not Found',
+                displayTime: 5000,
+                class: 'error',
+                closeIcon: true,
+                showIcon: true,
+                message: 'Please select your edu mail',
+                showProgress: 'top'
+            });
+        });
+      </script>";
+   }
+}
 ?>
+
 <html lang="en">
 
 <head>
@@ -72,10 +152,8 @@ include_once("./db.php");
     }
 
     .box {
-        
         position: relative;
         top: 45%;
-        
         left: 50%;
         transform: translate(-50%, -50%);
         width: 400px;
@@ -307,77 +385,7 @@ include_once("./db.php");
 
 </body>
 <?php
-if (isset($_POST["usr"]))
-{   
-    $id=$_POST["userid"];
-    $pass=SHA1($_POST["pass"]);
-    $count=0;
-    if(strcmp(substr($id,0,4),"dev-")==0)
-    {
-        $id=substr($id,4);
-        $sql="select * from `developer` where `password` LIKE '$pass'";
-        $res=$con->query($sql);
-        $count=$res->num_rows;
-        if($count==1)
-        {
-            $sql="select * from `staff` where userid LIKE '$id'";
-            $res=$con->query($sql);
-            $count=$res->num_rows;
-        }
-    }
-    else
-    {
-        $sql="select * from staff where userid LIKE '$id' AND pass LIKE '$pass'";
-        $res=$con->query($sql);
-        $count=$res->num_rows;
-    }
-   if($count==1)
-   { 
-      
-      $row=$res->fetch_assoc();
-      $_SESSION["id"]=$row['staffid'];
-      $_SESSION['mail']=$row['mail'];
-      $_SESSION["name"]=$row['name'];
-      $_SESSION["dept"]=$row['dept'];
-      $_SESSION['batch']=$row['batch'];
-      $_SESSION['design']=$row['designation'];
-      $_SESSION['sec']=$row['sec'];
-      echo "<script>
-      $(document).ready(function(){
-      $('body')
-            .toast({
-                position: 'bottom right',
-                title: 'Login Successful',
-                class: 'success',
-                displayTime: 3000,
-                closeIcon: true,
-                showIcon: true,
-                message: 'You will be redirected',
-                showProgress: 'top'
-            });
-        });
-      </script>";
-      echo '<script>location.href="./home.php";</script>';
-   }
-   else
-   {
-    echo "<script>
-      $(document).ready(function(){
-      $('body')
-            .toast({
-                position: 'bottom right',
-                title: 'Account Not Found',
-                displayTime: 5000,
-                class: 'error',
-                closeIcon: true,
-                showIcon: true,
-                message: 'Please select your edu mail',
-                showProgress: 'top'
-            });
-        });
-      </script>";
-   }
-}
+
 ?>
 
 

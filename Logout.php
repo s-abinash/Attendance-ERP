@@ -74,6 +74,8 @@ $status='';
 if(isset($_SESSION['id']))
 {
 
+    setcookie('userid', null, -1, '/'); 
+    setcookie('pass', null, -1, '/'); 
     session_destroy();
 	session_unset();
     $status="Logout Successful";
