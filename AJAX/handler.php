@@ -220,6 +220,10 @@
          while($row=$res->fetch_assoc())
          {
                $cnt=mysqli_num_fields($res)-4;
+               if(in_array($code,$ele))
+               {
+                    $cnt=$con->query("SELECT * FROM `elective` where `E1` like '$code' and `S1` like '$sid'")->num_rows;
+               }
                $d1=$row["date"];
               $d=date("d-m-Y",strtotime($d1));
               $h=$row["period"];
@@ -251,15 +255,7 @@
                     $A=0;
               }
              
-              if(array_key_exists("N/A",array_count_values($row)))
-              {
-                    $na=array_count_values($row)["N/A"];
-              }
-              else
-              {
-                    $na=0;
-              }
-              $cnt-=$na;
+              
 
               $stf=($con->query("SELECT * FROM `staff` WHERE `staffid` like '$sid'"))->fetch_assoc();
 
