@@ -93,13 +93,11 @@ if(isset($_SESSION["EditAttnd"]))
                 }
                 foreach($arr as $a=>$b)
                 {
-                    $sql.='`'.$a.'`="'.$b.'",';
+                    $sql.='`'.trim($a).'`="'.$b.'",';
                 }
                 $sql=substr($sql,0,-1);
 
-                $sql.=" WHERE `date` like '$date' and `code` like '$code' and `period` like '$period';";
-                // echo "<script>console.log('".$sql."')</script>";
-                
+                $sql.=' WHERE `date` like "'.$date.'" and `code` like "'.$code.'" and `period` like '.$period;
                 if($con->query($sql))
                    echo "<script> Notiflix.Report.Success( 'Attendance Updated Successfully', 'You can review later.', 'Okay',function(){window.location.replace('home.php')} );</script>";
                 else
@@ -153,6 +151,7 @@ if(isset($_SESSION["EditAttnd"]))
                                 
                                 $class=$_SESSION['code'];
                                 $sql="SELECT e.regno,r.name  from elective e ,registration r where ( E1 LIKE '$class' AND S1 LIKE '$sid') AND e.regno LIKE r.regno" ;
+                                
                                 $data=$con->query($sql);
                                 $sql1="SELECT * from `".$class."` WHERE `date` like '$date' and `code` like '$sid' and `period` like '$period'";
                                 $data1=$con->query($sql1);
