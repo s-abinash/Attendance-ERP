@@ -305,12 +305,21 @@
                                         <div class="label">
                                              Edit
                                         </div>
+                                   </div>
+                                   <div class="orange statistic">
+                                        <div class="value">
+                                              <button class="ui center floated tertiary icon button" data-tooltip="Click to fill Google Form" id="'.$d.$h.'modal" onclick="editor(this.id);" data-position="top left"><i class="google large icon" style="color:orange"></i></button>
+                                        </div>
+                                        <div class="label">
+                                             Google<br> Form
+                                        </div>
                                    </div>';
  
                                   
                                    
                          echo '</div></div>
                     </div></div><div class="ui popup" id="pop'.$d.$h.'" style="width:100%">'.$abs.'</div>
+                    
                     
                     
                     <script>
@@ -325,6 +334,50 @@
                         
                     });
                     </script>';
+
+                    echo   '<div class="ui modal" id="modal'.$d.$h.'">
+                    <div class="header">Meeting Recording Link Submission</div>
+                    <i class="close icon"></i>
+                    <div class="content">      
+                      
+                    <form class="ui form"  action="https://docs.google.com/forms/d/e/1FAIpQLSfXc-nE08ukuvLtuax1V4-Ecb8-Y5p1okU3ALZjlCLatePDPQ/viewform?" target="_blank" id="gf">
+                         <div class="field">
+                              <input type="text" name="usp" value="pp_url" hidden>
+                              <input type="text" name="entry.1760172262" value="'.$stf['name'].'" hidden>
+                              <input type="text" name="entry.1519840088"  value="'.$stf["dept"].'" hidden>
+                              <input type="text" name="entry.1907877152" value="'.($sem!='I'?'BE':'ME').'" hidden>
+                              <input type="text" name="entry.309081512" value="'.($sem=='I'?'CSE':$sdept).'" hidden>
+                              <input type="text" name="entry.383571963" value="'.$sem.'" hidden>
+                              <input type="text" name="entry.1504310176" value="'.$sec.'" hidden>
+                              <input type="text" name="entry.15204943" value="'.$code.'"  hidden>
+                              <input type="text" name="entry.668277301" value="'.$name.'" hidden>
+                              <input type="text" name="entry.1289128628" value="'.$row["type"].'" hidden>  
+                             <input type="text" name="entry.1170232087" value="'.$d1.'" hidden>
+                             <input type="text" name="entry.1628375111" value="'.$h.'" hidden>
+                             <input type="text" name="entry.1683190265" value="'.$cnt.'" hidden>
+                             <input type="text" name="entry.1675431824" value="'.$P.'" hidden>
+                             <input type="text" name="entry.1186250163" value="'.$A.'" hidden>
+                             <input type="text" name="entry.1654159561" value="'.(empty(implode(' , ',$ABS_ROLL))?'-':implode(' , ',$ABS_ROLL)).'" hidden>
+                             <input type="text" name="entry.1877284434" value="'.intval(($P/$cnt)*100).'%" hidden>'.
+                                  
+                             '<label>Meeting URL: </label>
+                             <input type="url" id="url" name="entry.588869143" pattern="https?://drive.google.com.+" required />
+                        </div><br/>
+                        <button class="ui violet button" type="submit" style="float:right;">Submit</button>
+                        <br/>
+                        <br/>
+                        </form>
+                    </div>
+                    </div>';
+
+                    echo '<script>
+                    $(document).ready(function(){
+                         $("#'.$d.$h.'modal").on("click",function(){
+                              $("#url").val("");
+                              $("#modal'.$d.$h.'").modal("show");
+                         });
+                    });
+                    </script>';  
             
                       
          }
