@@ -12,12 +12,7 @@
                             "B"=>array("CSE017SF","CSE037SF","CSE041SF","CSE052SF","CSE035SF"),
                             "C"=>array("CSE043SF","CSE036SF","CSE053SF","CSE026SF","CSE030SF"),
                             "D"=>array("CSE008SF","CSE014SF","CSE028SF","CSE031SF","CSE021SF")),
-        "18CSP61"=>array(
-            "A"=>array("CSE019SF","CSE019SF","CSE019SF","CSE019SF","CSE019SF"),
-            "B"=>array("CSE034SF","CSE034SF","CSE034SF","CSE034SF","CSE034SF"),
-            "C"=>array("CSE025SF","CSE025SF","CSE025SF","CSE025SF","CSE025SF"),
-            "D"=>array("CSE032SF","CSE032SF","CSE032SF","CSE032SF","CSE032SF")
-        ));
+       );
     function ttfun($con,$ttname,$classname,$course,$project_array,$sid)
     {
         $sql="SELECT * FROM `$ttname` WHERE `class` LIKE '$classname'";
@@ -38,10 +33,15 @@
                 $day_per+=array($row["day"]=>$per);
             }   
          }
-        if(($course=="14CSP81")||($course=="18CSP61"))
+        if(($course=="14CSP81"))
         {
             $section=strtoupper(explode("-",$classname)[2]);
             $day_per["Saturday"]=array(array_search($sid, $project_array[$course][$section])+1);
+        }
+        else if(($course=="18CSP61"))
+        {
+            $section=strtoupper(explode("-",$classname)[2]);
+            $day_per["Saturday"]=array(1,2,3,4,5);
         }
         return $day_per;
     }
