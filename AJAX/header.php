@@ -13,10 +13,10 @@
                             "C"=>array("CSE043SF","CSE036SF","CSE053SF","CSE026SF","CSE030SF"),
                             "D"=>array("CSE008SF","CSE014SF","CSE028SF","CSE031SF","CSE021SF")),
         "18CSP61"=>array(
-            "A"=>array("CSE029SF","CSE011SF","CSE024SF","CSE020SF","CSE019SF"),
-            "B"=>array("CSE012SF","CSE034SF","CSE051SF","CSE050SF","CSE048SF"),
-            "C"=>array("CSE045SF","CSE025SF","CSE046SF","CSE049SF","CSE047SF"),
-            "D"=>array("CSE027SF","CSE032SF","CSE023SF","CSE044SF","CSE042SF")
+            "A"=>array("CSE019SF","CSE019SF","CSE019SF","CSE019SF","CSE019SF"),
+            "B"=>array("CSE034SF","CSE034SF","CSE034SF","CSE034SF","CSE034SF"),
+            "C"=>array("CSE025SF","CSE025SF","CSE025SF","CSE025SF","CSE025SF"),
+            "D"=>array("CSE032SF","CSE032SF","CSE032SF","CSE032SF","CSE032SF")
         ));
     function ttfun($con,$ttname,$classname,$course,$project_array,$sid)
     {
