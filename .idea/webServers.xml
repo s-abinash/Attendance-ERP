@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="354b7a20-824e-4d68-aa5c-b191e2123258" name="Attendance Kongu" url="http://attendance.kongu.edu">
+        <fileTransfer rootFolder="/var/www/html/attendance" accessType="SFTP" host="attendance.kongu.edu" port="22" sshConfigId="78c43369-7777-458a-9b55-8f74199d0650" sshConfig="attendance@attendance.kongu.edu:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
