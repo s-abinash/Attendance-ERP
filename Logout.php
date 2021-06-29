@@ -33,7 +33,7 @@
             document.getElementById("counter").innerHTML=iCnt;
             if (iCnt === 0) {
                 // now, redirect page.
-                window.location.replace('./login.php');
+                window.location.replace('./index.php');
                 clearInterval(iTimerId);		// clear time interval.
             }
         }, 1000);
@@ -48,7 +48,7 @@
     //     gapi.auth2.getAuthInstance().signOut().then(function() {
     //         console.log('user signed out')
     //     })
-    //     window.location.replace('login.php');
+    //     window.location.replace('index.php');
     //     }
     // function onLoad() {
     //   gapi.load('auth2', function() {
@@ -105,7 +105,7 @@ else{
                     </div>
                     <div class="extra content">
                         <div class="ui bottom attached green button"><!--onclick="signOut();">-->
-                        <!-- onclick="window.open('login.php','_self')"> -->
+                        <!-- onclick="window.open('index.php','_self')"> -->
                             <i class="sign language icon"></i>
                             You are being redirected <span id="counter"></span> Seconds<br />
                         </div>

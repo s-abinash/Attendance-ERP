@@ -104,7 +104,7 @@ exit();
 //     include_once("navbar.php");
 //     if(!isset($_SESSION["id"]))
 //     {
-//         header('Location: ./login.php');
+//         header('Location: ./index.php');
 //     }
 // ?>
 
